@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Phone, TrendingUp, ShieldCheck } from 'lucide-react';
-import heroImage from '@/assets/IMAGE.png';
+import heroImage from '@/assets/IMAGE.jpg';
 export function Hero() {
   return (
     <section id="home" className="relative overflow-hidden bg-white pt-32 pb-20 lg:pt-40 lg:pb-32">
