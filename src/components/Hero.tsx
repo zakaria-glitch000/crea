@@ -99,51 +99,18 @@ function HeroMockup() {
       {/* Floating glow behind */}
       <div className="absolute inset-0 -z-10 rounded-3xl bg-brand-500/15 blur-3xl" />
 
-{/* Main image container with float animation */}
-<motion.div
-  animate={{ y: [0, -12, 0] }}
-  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-  className="relative w-full max-w-xl"
->
-  <img 
-    src="/IMAGE.png"
-    alt="Solutions technologiques"
-    className="w-full h-auto object-contain drop-shadow-2xl"
-  />
-</motion.div>
-      {/* Floating badge 1 */}
-      <motion.div
-        animate={{ y: [0, -18, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -left-4 top-1/4 hidden rounded-xl border border-slate-200 bg-white p-3 shadow-xl md:block"
-      >
-        <div className="flex items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-50">
-            <ShieldCheck className="h-5 w-5 text-emerald-600" />
-          </div>
-          <div>
-            <div className="text-xs font-semibold text-slate-900">Système sécurisé</div>
-            <div className="text-[10px] text-slate-400">Chiffrement actif</div>
-          </div>
-        </div>
-      </motion.div>
+      {/* Main image container (FIXE - wllat thbta blast-ha w mab9atch katbougé) */}
+      <div className="relative w-full max-w-xl">
+        <img 
+          src="/image.png"
+          alt="Solutions technologiques"
+          className="w-full h-auto object-contain drop-shadow-2xl"
+        />
+      </div>
 
-      {/* Floating badge 2 */}
-      <motion.div
-        animate={{ y: [0, 14, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        className="absolute -right-4 bottom-1/4 hidden rounded-xl border border-slate-200 bg-white p-3 shadow-xl md:block"
-      >
-        <div className="flex items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-50">
-            <TrendingUp className="h-5 w-5 text-brand-600" />
-          </div>
-          <div>
-            <div className="text-xs font-semibold text-slate-900">+34% ce mois</div>
-            <div className="text-[10px] text-slate-400">Croissance ventes</div>
-          </div>
-        </div>
-      </motion.div>
+  
+
+      
     </div>
   );
 }

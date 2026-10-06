@@ -147,9 +147,10 @@ export const INDUSTRIES: Industry[] = [
   { icon: Store, title: 'Retail', description: 'Encaissement, gestion des stocks et fidélité client pour magasins et boutiques.' },
   { icon: UtensilsCrossed, title: 'Restaurants', description: 'Solutions de caisse, cuisine et gestion de tables pour la restauration.' },
   { icon: Hotel, title: 'Hôtellerie', description: 'Systèmes de gestion hôtelière, check-in et billing intégrés.' },
-  { icon: Truck, title: 'Distribution', description: "Optimisation logistique, traçabilité et gestion d'entrepôts." },
-  { icon: Briefcase, title: 'Services', description: 'Outils de gestion de rendez-vous, facturation et relation client.' },
+    { icon: Briefcase, title: 'Services', description: 'Outils de gestion de rendez-vous, facturation et relation client.' },
   { icon: Building2, title: 'PME', description: 'Solutions informatiques complètes et abordables pour petites et moyennes entreprises.' },
+  { icon: Truck, title: 'solution sur messure', description: "Optimisation logistique, traçabilité et gestion d'entrepôts." },
+
 ];
 
 export interface ProcessStep {

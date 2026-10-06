@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Check, ArrowRight, BarChart3, Boxes, Users, FileText, Layers, Lock } from 'lucide-react';
+import { Check, ArrowRight, BarChart3, Boxes, Users, FileText, Layers, Lock, ShieldCheck } from 'lucide-react';
 import { FEATURE_LIST } from '@/data/content';
 import { Reveal, SectionTag } from './ui/Reveal';
 
@@ -62,6 +62,50 @@ export function FeaturedProduct() {
             </Reveal>
           </div>
         </div>
+
+        {/* Certification NF525 Banner */}
+        <Reveal delay={0.4}>
+          <div className="mt-16 rounded-3xl border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/50 lg:p-10">
+            <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[auto_1fr]">
+              {/* NF Logo / Badge */}
+              <div className="flex justify-center lg:justify-start">
+                <div className="flex h-36 w-48 items-center justify-center rounded-2xl bg-slate-50 border border-slate-100 p-4 shadow-sm">
+                  <img 
+                    src="public/nf.png" 
+                    alt="Certification NF525" 
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+              </div>
+
+              {/* Text content */}
+              <div className="space-y-4 text-center lg:text-left">
+                <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">
+                  <ShieldCheck className="h-3.5 w-3.5 text-brand-600" />
+                  Certification Officielle
+                </div>
+
+                <h3 className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+                  Solution de caisse Certifiée NF525
+                </h3>
+
+                <p className="text-base text-slate-600 leading-relaxed max-w-3xl">
+                  Une caisse simple et intuitive conforme aux exigences fiscales françaises. Cette certification vous permet d'être en conformité avec la loi anti-fraude TVA et vous protège lors des contrôles fiscaux. La loi de finance pour 2025 met fin à l'utilisation de logiciel de caisse auto-certifié à partir du 1er septembre 2025. Il devient indispensable d'utiliser une solution de caisse certifiée.
+                </p>
+
+                <div className="pt-2">
+              <a
+  href="/nf"
+  className="inline-flex items-center gap-2 rounded-xl bg-rose-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-rose-600 hover:shadow-lg hover:shadow-rose-500/25"
+>
+  En savoir plus sur la NF525
+  <ArrowRight className="h-4 w-4" />
+</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
