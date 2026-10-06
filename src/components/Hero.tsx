@@ -99,19 +99,18 @@ function HeroMockup() {
       {/* Floating glow behind */}
       <div className="absolute inset-0 -z-10 rounded-3xl bg-brand-500/15 blur-3xl" />
 
-      {/* Main image container with float animation */}
-      <motion.div
-        animate={{ y: [0, -12, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-        className="relative w-full max-w-xl"
-      >
-        <img 
-          src="public/IMAGE.png" 
-          alt="Solutions technologiques" 
-          className="w-full h-auto object-contain drop-shadow-2xl"
-        />
-      </motion.div>
-
+{/* Main image container with float animation */}
+<motion.div
+  animate={{ y: [0, -12, 0] }}
+  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+  className="relative w-full max-w-xl"
+>
+  <img 
+    src="/IMAGE.png"
+    alt="Solutions technologiques"
+    className="w-full h-auto object-contain drop-shadow-2xl"
+  />
+</motion.div>
       {/* Floating badge 1 */}
       <motion.div
         animate={{ y: [0, -18, 0] }}
