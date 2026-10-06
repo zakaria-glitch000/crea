@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Phone, TrendingUp, ShieldCheck } from 'lucide-react';
+import heroImage from '../assets/image.png'; // Import direct dyal l'image mn assets
 
 export function Hero() {
   return (
@@ -99,18 +100,14 @@ function HeroMockup() {
       {/* Floating glow behind */}
       <div className="absolute inset-0 -z-10 rounded-3xl bg-brand-500/15 blur-3xl" />
 
-      {/* Main image container (FIXE - wllat thbta blast-ha w mab9atch katbougé) */}
+      {/* Main image container */}
       <div className="relative w-full max-w-xl">
         <img 
-          src="/image.png"
+          src={heroImage}
           alt="Solutions technologiques"
           className="w-full h-auto object-contain drop-shadow-2xl"
         />
       </div>
-
-  
-
-      
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Check, ArrowRight, BarChart3, Boxes, Users, FileText, Layers, Lock, ShieldCheck } from 'lucide-react';
 import { FEATURE_LIST } from '@/data/content';
 import { Reveal, SectionTag } from './ui/Reveal';
+import nfLogo from '../assets/nf.png'; // Import direct dyal nf.png mn assets
 
 const FEATURE_ICONS = [
   BarChart3, Boxes, FileText, Users, Layers, Users, Lock,
@@ -71,7 +72,7 @@ export function FeaturedProduct() {
               <div className="flex justify-center lg:justify-start">
                 <div className="flex h-36 w-48 items-center justify-center rounded-2xl bg-slate-50 border border-slate-100 p-4 shadow-sm">
                   <img 
-                    src="public/nf.png" 
+                    src={nfLogo} 
                     alt="Certification NF525" 
                     className="max-h-full max-w-full object-contain"
                   />
@@ -94,13 +95,13 @@ export function FeaturedProduct() {
                 </p>
 
                 <div className="pt-2">
-              <a
-  href="/nf"
-  className="inline-flex items-center gap-2 rounded-xl bg-rose-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-rose-600 hover:shadow-lg hover:shadow-rose-500/25"
->
-  En savoir plus sur la NF525
-  <ArrowRight className="h-4 w-4" />
-</a>
+                  <a
+                    href="/nf"
+                    className="inline-flex items-center gap-2 rounded-xl bg-rose-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-rose-600 hover:shadow-lg hover:shadow-rose-500/25"
+                  >
+                    En savoir plus sur la NF525
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
                 </div>
               </div>
             </div>

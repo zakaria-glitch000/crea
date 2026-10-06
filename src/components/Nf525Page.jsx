@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, ArrowLeft, Lock, Server, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import nfImage from '@/assets/nfpage.png'; // Import direct bach tban f Vercel 100%
 
 export function Nf525Page() {
   return (
@@ -23,7 +24,7 @@ export function Nf525Page() {
           <div className="flex flex-col md:flex-row items-center gap-8 border-b border-slate-100 pb-10">
             <div className="flex h-36 w-48 flex-shrink-0 items-center justify-center rounded-2xl bg-slate-50 border border-slate-100 p-4 shadow-sm">
               <img 
-                src="/nfpage.png" 
+                src={nfImage} 
                 alt="Certification NF525" 
                 className="max-h-full max-w-full object-contain"
               />
