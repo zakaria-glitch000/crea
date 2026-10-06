@@ -1,7 +1,7 @@
 import React from 'react';
 import { ShieldCheck, ArrowLeft, Lock, Server, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import nfImage from '../assets/nfpage.png';
+import nfImage from '@/assets/nfpage.png';
 export function Nf525Page() {
   return (
     <div className="min-h-screen bg-slate-50 py-16 lg:py-24">

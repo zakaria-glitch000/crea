@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Check, ArrowRight, BarChart3, Boxes, Users, FileText, Layers, Lock, ShieldCheck } from 'lucide-react';
 import { FEATURE_LIST } from '@/data/content';
 import { Reveal, SectionTag } from './ui/Reveal';
-import nfLogo from '../assets/nf.png';
+import nfLogo from '@/assets/nf.png';
 const FEATURE_ICONS = [
   BarChart3, Boxes, FileText, Users, Layers, Users, Lock,
 ];
