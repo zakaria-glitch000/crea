@@ -700,7 +700,6 @@ export const STATS = [
   },
 ] as const;
 
-
 /* =========================================================
    INDUSTRIES
 ========================================================= */
@@ -709,6 +708,7 @@ export interface Industry {
   icon: LucideIcon;
   title: string;
   description: string;
+  image: string;
 }
 
 export const INDUSTRIES: Industry[] = [
@@ -717,6 +717,7 @@ export const INDUSTRIES: Industry[] = [
     title: 'Retail',
     description:
       'Encaissement, gestion des stocks et fidélité client pour magasins et boutiques.',
+    image: '/src/assets/retail.jpg',
   },
 
   {
@@ -724,6 +725,7 @@ export const INDUSTRIES: Industry[] = [
     title: 'Restaurants',
     description:
       'Solutions de caisse, cuisine et gestion de tables pour la restauration.',
+    image: '/src/assets/restaurant.jpg',
   },
 
   {
@@ -731,6 +733,7 @@ export const INDUSTRIES: Industry[] = [
     title: 'Hôtellerie',
     description:
       'Systèmes de gestion hôtelière, check-in et billing intégrés.',
+    image: '/src/assets/hotellerie.jpg',
   },
 
   {
@@ -738,6 +741,7 @@ export const INDUSTRIES: Industry[] = [
     title: 'Services',
     description:
       'Outils de gestion de rendez-vous, facturation et relation client.',
+    image: '/images/industries/services.jpg',
   },
 
   {
@@ -745,6 +749,7 @@ export const INDUSTRIES: Industry[] = [
     title: 'PME',
     description:
       'Solutions informatiques complètes et abordables pour petites et moyennes entreprises.',
+    image: '/images/industries/pme.jpg',
   },
 
   {
@@ -752,9 +757,9 @@ export const INDUSTRIES: Industry[] = [
     title: 'Solution sur mesure',
     description:
       "Optimisation logistique, traçabilité et gestion d'entrepôts.",
+    image: '/images/industries/sur-mesure.jpg',
   },
 ];
-
 
 /* =========================================================
    PROCESS
