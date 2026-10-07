@@ -1,5 +1,13 @@
-import { HeartHandshake, ChartNoAxesCombined, } from 'lucide-react';
+import restaurantImage from '@/assets/restaurant.jpg';
+import retailmodernImage from '@/assets/retailmodern.jpg';
+import hotelImage from '@/assets/hotellerie.jpg';
+import restorapideImage from '@/assets/restorapide.jpg';
+import commerceImage from '@/assets/commerce.jpg';
+import chaineImage from '@/assets/chaine.jpg';
+
 import {
+  HeartHandshake,
+  ChartNoAxesCombined,
   Monitor,
   ShoppingCart,
   Network,
@@ -76,69 +84,69 @@ export const SOLUTIONS: Solution[] = [
   },
 
   {
-  icon: Monitor,
-  title: 'Bornes de commande intelligentes',
-  slug: 'bornes-commande',
-  description:
-    'Offrez à vos clients une expérience rapide et autonome grâce à des bornes connectées adaptées à votre activité.',
-  features: [
-    'Commande en autonomie',
-    'Interface intuitive',
-    'Gestion connectée',
-  ],
-},
+    icon: Monitor,
+    title: 'Bornes de commande intelligentes',
+    slug: 'bornes-commande',
+    description:
+      'Offrez à vos clients une expérience rapide et autonome grâce à des bornes connectées adaptées à votre activité.',
+    features: [
+      'Commande en autonomie',
+      'Interface intuitive',
+      'Gestion connectée',
+    ],
+  },
 
   {
-  icon: Network,
-  title: 'Gestion des stocks',
-  slug: 'gestion-stocks',
-  description:
-    'Suivez vos inventaires en temps réel et anticipez vos besoins grâce à une gestion simple et efficace de vos stocks.',
-  features: [
-    'Suivi des inventaires',
-    'Alertes de réapprovisionnement',
-    'Gestion des mouvements',
-  ],
-},
-
- {
-  icon: HeartHandshake,
-  title: 'Fidélité client',
-  slug: 'fidelite-client',
-  description:
-    'Développez la fidélité de vos clients grâce à des programmes personnalisés et des actions marketing adaptées à votre activité.',
-  features: [
-    'Programme de fidélisation',
-    'Suivi des clients',
-    'Marketing personnalisé',
-  ],
-},
+    icon: Network,
+    title: 'Gestion des stocks',
+    slug: 'gestion-stocks',
+    description:
+      'Suivez vos inventaires en temps réel et anticipez vos besoins grâce à une gestion simple et efficace de vos stocks.',
+    features: [
+      'Suivi des inventaires',
+      'Alertes de réapprovisionnement',
+      'Gestion des mouvements',
+    ],
+  },
 
   {
-  icon: ChartNoAxesCombined,
-  title: 'Analyse des ventes',
-  slug: 'analyse-ventes',
-  description:
-    'Analysez vos ventes grâce à des rapports clairs et des tableaux de bord pour mieux comprendre votre activité et prendre les bonnes décisions.',
-  features: [
-    'Tableaux de bord',
-    'Rapports de ventes',
-    'Analyse des performances',
-  ],
-},
+    icon: HeartHandshake,
+    title: 'Fidélité client',
+    slug: 'fidelite-client',
+    description:
+      'Développez la fidélité de vos clients grâce à des programmes personnalisés et des actions marketing adaptées à votre activité.',
+    features: [
+      'Programme de fidélisation',
+      'Suivi des clients',
+      'Marketing personnalisé',
+    ],
+  },
 
   {
-  icon: Settings2,
-  title: 'KDS — Écran de production cuisine',
-  slug: 'kds',
-  description:
-    'Optimisez la préparation des commandes grâce à un affichage digital clair, rapide et connecté pour vos équipes en cuisine.',
-  features: [
-    'Commandes en temps réel',
-    'Suivi des préparations',
-    'Gain en productivité',
-  ],
-},
+    icon: ChartNoAxesCombined,
+    title: 'Analyse des ventes',
+    slug: 'analyse-ventes',
+    description:
+      'Analysez vos ventes grâce à des rapports clairs et des tableaux de bord pour mieux comprendre votre activité et prendre les bonnes décisions.',
+    features: [
+      'Tableaux de bord',
+      'Rapports de ventes',
+      'Analyse des performances',
+    ],
+  },
+
+  {
+    icon: Settings2,
+    title: 'KDS — Écran de production cuisine',
+    slug: 'kds',
+    description:
+      'Optimisez la préparation des commandes grâce à un affichage digital clair, rapide et connecté pour vos équipes en cuisine.',
+    features: [
+      'Commandes en temps réel',
+      'Suivi des préparations',
+      'Gain en productivité',
+    ],
+  },
 ];
 
 
@@ -653,7 +661,7 @@ export const SERVICES: Service[] = [
     step: '04',
     title: 'Maintenance',
     description:
-      "Contrats de maintenance préventive et corrective pour assurer la continuité de votre activité.",
+      'Contrats de maintenance préventive et corrective pour assurer la continuité de votre activité.',
   },
 
   {
@@ -699,7 +707,6 @@ export const STATS = [
     label: 'Taux de satisfaction',
   },
 ] as const;
-
 /* =========================================================
    INDUSTRIES
 ========================================================= */
@@ -709,55 +716,92 @@ export interface Industry {
   title: string;
   description: string;
   image: string;
+  features: string[];
 }
 
 export const INDUSTRIES: Industry[] = [
   {
-    icon: Store,
-    title: 'Retail',
+    icon: UtensilsCrossed,
+    title: 'Restauration Traditionnelle',
     description:
-      'Encaissement, gestion des stocks et fidélité client pour magasins et boutiques.',
-    image: '/src/assets/retail.jpg',
+      'Solutions complètes pour les restaurants avec service à table, gestion des réservations et suivi des commandes.',
+    image: restaurantImage,
+    features: [
+      'Gestion des tables',
+      'Prise de commande mobile',
+      'Système KDS cuisine',
+      'Gestion des réservations',
+    ],
   },
 
   {
-    icon: UtensilsCrossed,
-    title: 'Restaurants',
+    icon: ShoppingCart,
+    title: 'Restauration rapide et Food truck',
     description:
-      'Solutions de caisse, cuisine et gestion de tables pour la restauration.',
-    image: '/src/assets/restaurant.jpg',
+      'Systèmes adaptés au service rapide, avec prise de commande optimisée et gestion des files d’attente.',
+    image: restorapideImage,
+    features: [
+      'Encaissement rapide',
+      'Bornes de commande',
+      'Gestion des files d’attente',
+      'Mode hors-ligne',
+    ],
+  },
+
+  {
+    icon: Store,
+    title: 'Commerce de détail et épiceries',
+    description:
+      'Solutions pour boutiques et commerces avec gestion des stocks, fidélisation client et analyse des ventes.',
+    image: commerceImage,
+    features: [
+      'Gestion des stocks',
+      'Programme de fidélité',
+      'Promotions et réductions',
+      'Analyse des ventes',
+    ],
   },
 
   {
     icon: Hotel,
     title: 'Hôtellerie',
     description:
-      'Systèmes de gestion hôtelière, check-in et billing intégrés.',
-    image: '/src/assets/hotellerie.jpg',
-  },
-
-  {
-    icon: Briefcase,
-    title: 'Services',
-    description:
-      'Outils de gestion de rendez-vous, facturation et relation client.',
-    image: '/images/industries/services.jpg',
+      'Gestion complète pour les établissements hôteliers intégrant réservations, facturation et services.',
+    image: hotelImage,
+    features: [
+      'Ventes additionnelles',
+      'Espace de vente 24/7',
+      'Vente RFID',
+      'Personnalisation de l’offre',
+    ],
   },
 
   {
     icon: Building2,
-    title: 'PME',
+    title: 'Chaînes et Franchise',
     description:
-      'Solutions informatiques complètes et abordables pour petites et moyennes entreprises.',
-    image: '/images/industries/pme.jpg',
+      'Solutions pour gérer efficacement plusieurs points de vente avec centralisation des données.',
+    image: chaineImage,
+    features: [
+      'Gestion multi-sites',
+      'Centralisation des données',
+      'Reporting consolidé',
+      'Standardisation des processus',
+    ],
   },
 
   {
-    icon: Truck,
-    title: 'Solution sur mesure',
+    icon: Briefcase,
+    title: 'Retail Moderne',
     description:
-      "Optimisation logistique, traçabilité et gestion d'entrepôts.",
-    image: '/images/industries/sur-mesure.jpg',
+      'Solutions technologiques avancées pour le retail omnicanal avec reporting analytique en temps réel.',
+    image: retailmodernImage,
+    features: [
+      'Hub omnicanal',
+      'Analytics temps réel',
+      'Checkout ultra-rapide',
+      'Personnalisation client',
+    ],
   },
 ];
 
@@ -776,28 +820,28 @@ export const PROCESS_STEPS: ProcessStep[] = [
     step: '01',
     title: 'Analyse',
     description:
-      "Audit de vos besoins, infrastructure existante et objectifs pour cerner précisément le contexte.",
+      'Audit de vos besoins, infrastructure existante et objectifs pour cerner précisément le contexte.',
   },
 
   {
     step: '02',
     title: 'Conseil',
     description:
-      "Recommandations stratégiques et choix de solutions adaptés à votre activité et votre budget.",
+      'Recommandations stratégiques et choix de solutions adaptés à votre activité et votre budget.',
   },
 
   {
     step: '03',
     title: 'Installation',
     description:
-      "Déploiement, configuration et intégration de vos solutions par nos techniciens certifiés.",
+      'Déploiement, configuration et intégration de vos solutions par nos techniciens certifiés.',
   },
 
   {
     step: '04',
     title: 'Accompagnement',
     description:
-      "Formation, support continu et maintenance pour garantir la performance durable de vos systèmes.",
+      'Formation, support continu et maintenance pour garantir la performance durable de vos systèmes.',
   },
 ];
 
