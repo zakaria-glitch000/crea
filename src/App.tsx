@@ -54,10 +54,10 @@ function HomePage() {
       <Hero />
       <TrustLogos />
       <Solutions />
+      <Industries />
       <FeaturedProduct />
       <Services />
       <WhyUs />
-      <Industries />
       <Process />
       <About />
       <Testimonials />
