@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { TrustLogos } from '@/components/TrustLogos';
@@ -13,9 +14,17 @@ import { Testimonials } from '@/components/Testimonials';
 import { CTA } from '@/components/CTA';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
-import { Nf525Page } from '@/components/Nf525Page';
 
-// Component dyal la page d'accueil (Home)
+import { Nf525Page } from '@/components/Nf525Page';
+import { PosSolution } from '@/components/PosSolution';
+import { BornesCommande } from '@/components/BornesCommande';
+import { GestionStocks } from '@/components/GestionStocks';
+
+
+// ============================================================
+// PAGE D'ACCUEIL
+// ============================================================
+
 function HomePage() {
   return (
     <>
@@ -35,22 +44,73 @@ function HomePage() {
   );
 }
 
+
+// ============================================================
+// APP
+// ============================================================
+
 function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-white text-slate-700 antialiased">
+
         <Header />
+
         <main>
           <Routes>
-            {/* Page d'accueil */}
-            <Route path="/" element={<HomePage />} />
-            
-            {/* Page NF525 (kat-supporti /nf w /nf525 bach tkon hani) */}
-            <Route path="/nf" element={<Nf525Page />} />
-            <Route path="/nf525" element={<Nf525Page />} />
+
+            {/* ==================================================
+                PAGE D'ACCUEIL
+            ================================================== */}
+
+            <Route
+              path="/"
+              element={<HomePage />}
+            />
+
+
+            {/* ==================================================
+                SOLUTIONS
+            ================================================== */}
+
+            {/* Systèmes de caisse & POS */}
+            <Route
+              path="/solutions/pos"
+              element={<PosSolution />}
+            />
+
+            {/* Bornes de commande intelligentes */}
+            <Route
+              path="/solutions/bornes-commande"
+              element={<BornesCommande />}
+            />
+
+            {/* Gestion des stocks */}
+            <Route
+              path="/solutions/gestion-stocks"
+              element={<GestionStocks />}
+            />
+
+
+            {/* ==================================================
+                NF525
+            ================================================== */}
+
+            <Route
+              path="/nf"
+              element={<Nf525Page />}
+            />
+
+            <Route
+              path="/nf525"
+              element={<Nf525Page />}
+            />
+
           </Routes>
         </main>
+
         <Footer />
+
       </div>
     </BrowserRouter>
   );
