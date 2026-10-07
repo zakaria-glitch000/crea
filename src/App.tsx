@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
@@ -19,6 +20,28 @@ import { Nf525Page } from '@/components/Nf525Page';
 import { PosSolution } from '@/components/PosSolution';
 import { BornesCommande } from '@/components/BornesCommande';
 import { GestionStocks } from '@/components/GestionStocks';
+import { FideliteClient } from '@/components/FideliteClient';
+import { AnalyseVentes } from '@/components/AnalyseVentes';
+import { KdsSolution } from '@/components/KdsSolution';
+
+
+// ============================================================
+// SCROLL TO TOP
+// ============================================================
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant',
+    });
+  }, [pathname]);
+
+  return null;
+}
 
 
 // ============================================================
@@ -52,6 +75,10 @@ function HomePage() {
 function App() {
   return (
     <BrowserRouter>
+
+      {/* Retour automatique en haut à chaque changement de page */}
+      <ScrollToTop />
+
       <div className="min-h-screen bg-white text-slate-700 antialiased">
 
         <Header />
@@ -89,6 +116,24 @@ function App() {
             <Route
               path="/solutions/gestion-stocks"
               element={<GestionStocks />}
+            />
+
+            {/* Fidélité client */}
+            <Route
+              path="/solutions/fidelite-client"
+              element={<FideliteClient />}
+            />
+
+            {/* Analyse des ventes */}
+            <Route
+              path="/solutions/analyse-ventes"
+              element={<AnalyseVentes />}
+            />
+
+            {/* KDS — Écran de production cuisine */}
+            <Route
+              path="/solutions/kds"
+              element={<KdsSolution />}
             />
 
 

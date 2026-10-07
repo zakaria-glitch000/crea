@@ -1,3 +1,4 @@
+import { HeartHandshake, ChartNoAxesCombined, } from 'lucide-react';
 import {
   Monitor,
   ShoppingCart,
@@ -100,44 +101,44 @@ export const SOLUTIONS: Solution[] = [
   ],
 },
 
-  {
-    icon: ShieldCheck,
-    title: 'Sécurité informatique',
-    slug: 'securite-informatique',
-    description:
-      "Protection de vos données et systèmes : firewall, sauvegardes, contrôle d'accès et surveillance continue.",
-    features: [
-      'Firewall & VPN',
-      'Sauvegarde auto',
-      'Audit de sécurité',
-    ],
-  },
+ {
+  icon: HeartHandshake,
+  title: 'Fidélité client',
+  slug: 'fidelite-client',
+  description:
+    'Développez la fidélité de vos clients grâce à des programmes personnalisés et des actions marketing adaptées à votre activité.',
+  features: [
+    'Programme de fidélisation',
+    'Suivi des clients',
+    'Marketing personnalisé',
+  ],
+},
 
   {
-    icon: Server,
-    title: 'Solutions matérielles',
-    slug: 'materiel-informatique',
-    description:
-      'Sélection, fourniture et installation de matériel informatique professionnel adapté à vos besoins.',
-    features: [
-      'Serveurs & NAS',
-      'Postes de travail',
-      'Périphériques',
-    ],
-  },
+  icon: ChartNoAxesCombined,
+  title: 'Analyse des ventes',
+  slug: 'analyse-ventes',
+  description:
+    'Analysez vos ventes grâce à des rapports clairs et des tableaux de bord pour mieux comprendre votre activité et prendre les bonnes décisions.',
+  features: [
+    'Tableaux de bord',
+    'Rapports de ventes',
+    'Analyse des performances',
+  ],
+},
 
   {
-    icon: Settings2,
-    title: 'Solutions personnalisées',
-    slug: 'sur-mesure',
-    description:
-      'Développement de solutions sur mesure répondant précisément à vos processus métier et contraintes.',
-    features: [
-      'Développement spécifique',
-      'API & intégrations',
-      'Conception UX',
-    ],
-  },
+  icon: Settings2,
+  title: 'KDS — Écran de production cuisine',
+  slug: 'kds',
+  description:
+    'Optimisez la préparation des commandes grâce à un affichage digital clair, rapide et connecté pour vos équipes en cuisine.',
+  features: [
+    'Commandes en temps réel',
+    'Suivi des préparations',
+    'Gain en productivité',
+  ],
+},
 ];
 
 
