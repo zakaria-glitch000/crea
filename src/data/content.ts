@@ -977,7 +977,7 @@ export const COMPANY = {
 
   email: 'contact@creasolution.fr',
 
-  hours: 'Lun – Ven : 8h30 – 19h00',
+  hours: 'Lun – Sam : 9h00 – 18h00',
 
   social: {
     linkedin: '#',
