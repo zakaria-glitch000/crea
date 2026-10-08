@@ -2,22 +2,34 @@ import { motion, type Variants } from 'framer-motion';
 import {
   ArrowRight,
   Phone,
-  Receipt,
-  BarChart3,
-  Code2,
-  Database,
+  Lightbulb,
   Settings,
+  Users,
   Headphones,
 } from 'lucide-react';
-import heroImage from '@/assets/IMAGE.jpg'; // 7ot hna l image dyal l hero
+import heroImage from '@/assets/IMAGE.jpg';
 
-const features = [
-  { icon: Receipt, label: 'Encaissement' },
-  { icon: BarChart3, label: 'Logiciels de gestion' },
-  { icon: Code2, label: 'Développement sur mesure' },
-  { icon: Database, label: 'ERP & Reporting' },
-  { icon: Settings, label: 'Intégration IT' },
-  { icon: Headphones, label: 'Maintenance' },
+const expertiseSteps = [
+  {
+    icon: Lightbulb,
+    title: 'Conseil & Analyse',
+    description: 'Une étude personnalisée de vos besoins.',
+  },
+  {
+    icon: Settings,
+    title: 'Solutions performantes',
+    description: 'Des technologies fiables et adaptées à votre métier.',
+  },
+  {
+    icon: Users,
+    title: 'Installation & Formation',
+    description: 'Un accompagnement complet sur site.',
+  },
+  {
+    icon: Headphones,
+    title: 'Support réactif',
+    description: 'Une équipe à vos côtés dans la durée.',
+  },
 ];
 
 const container: Variants = {
@@ -31,10 +43,8 @@ const item: Variants = {
 
 export function Hero() {
   return (
-    // pt-16 = 7ayyad l navbar (bddlo ila navbar dyalk a3la wla a9sar)
     <section id="home" className="bg-white pt-16">
       <div className="relative">
-        {/* ===== Texte: mobile = fo9 l image / desktop = fo9ha fl isser ===== */}
         <div className="relative z-10 lg:absolute lg:inset-0 lg:flex lg:items-center">
           <motion.div
             variants={container}
@@ -86,14 +96,12 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* ===== Image: 3ard kamel, b nisba dyalha (bla 9ta3) ===== */}
         <img
           src={heroImage}
           alt="Solutions technologiques"
           className="block h-auto w-full"
         />
 
-        {/* Fade abyad khfif fl isser (desktop) bach texte ibqa wadah */}
         <div
           className="pointer-events-none absolute inset-0 hidden lg:block"
           style={{
@@ -103,23 +111,40 @@ export function Hero() {
         />
       </div>
 
-      {/* ===== Strip dyal les services ===== */}
-      <div className="border-y border-slate-100 bg-slate-50/70">
-        <ul className="mx-auto grid max-w-7xl grid-cols-2 gap-y-8 px-6 py-8 sm:grid-cols-3 lg:grid-cols-6 lg:gap-y-0 lg:px-8">
-          {features.map(({ icon: Icon, label }, i) => (
-            <li
-              key={label}
-              className={`flex flex-col items-center gap-3 px-3 text-center ${
-                i !== 0 ? 'lg:border-l lg:border-slate-200' : ''
-              }`}
-            >
-              <Icon className="h-7 w-7 text-brand-500" strokeWidth={1.5} />
-              <span className="text-[11px] font-semibold uppercase leading-snug tracking-wide text-slate-700">
-                {label}
-              </span>
-            </li>
-          ))}
-        </ul>
+      <div className="border-y border-slate-100 bg-slate-50/70 py-20 px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl text-center">
+          
+          <span className="text-xs font-bold tracking-widest text-brand-600 uppercase">
+            Notre Expertise
+          </span>
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 mt-2 mb-4">
+            Un partenaire pour la réussite de vos projets
+          </h2>
+          <p className="max-w-3xl mx-auto text-slate-600 text-base leading-relaxed mb-16">
+            Nous concevons, intégrons et déployons des solutions technologiques adaptées aux besoins des professionnels. 
+            De l'encaissement au développement d'applications sur mesure, nous vous accompagnons à chaque étape de votre transformation digitale.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {expertiseSteps.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <div key={index} className="flex flex-col items-center text-center group">
+                  <div className="w-20 h-20 rounded-full bg-slate-100 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110">
+                    <Icon className="w-8 h-8 text-brand-600" strokeWidth={1.75} />
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed max-w-xs">
+                    {step.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
       </div>
     </section>
   );
