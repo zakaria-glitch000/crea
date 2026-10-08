@@ -1,11 +1,14 @@
 import React from 'react';
+import caisseImg from '../assets/caisse.jpg';
+import logicielImg from '../assets/logiciel.jpg';
+import devImg from '../assets/dev.jpg';
 
 export default function NosExpertises() {
   const expertises = [
     {
       title: "Solutions Restauration & CHR",
       description: "Des solutions complètes pour piloter votre établissement : caisses CSI, bornes de commande, écrans cuisine KDS, ERP et reporting.",
-      image: "/src/assets/caisse.jpg", 
+      image: caisseImg, // Hna staamlo l'variable li m-importi lfoq
       iconBg: "bg-orange-500",
       iconSvg: (
         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -17,7 +20,7 @@ export default function NosExpertises() {
     {
       title: "Solutions Commerce & Retail",
       description: "Avec INNOSHOP, accompagnez les commerces et points de vente dans l'encaissement, la gestion des stocks et le suivi de leur activité.",
-      image: "/src/assets/logiciel.jpg",
+      image: logicielImg, // Hna tany
       iconBg: "bg-blue-600",
       iconSvg: (
         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -29,7 +32,7 @@ export default function NosExpertises() {
     {
       title: "Développement de Logiciels sur Mesure",
       description: "Conception et réalisation d'applications métier personnalisées, adaptées aux besoins et aux processus de chaque entreprise.",
-      image: "/src/assets/dev.jpg",
+      image: devImg, // Hna tany
       iconBg: "bg-purple-600",
       iconSvg: (
         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -54,7 +57,7 @@ export default function NosExpertises() {
         {expertises.map((item, index) => (
           <div key={index} className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between text-left border border-gray-100">
             
-            {/* L'image lfoq - b object-cover bach t3mr blashtha w tban kbir 3la 9ad la carte */}
+            {/* L'image lfoq */}
             <div className="relative h-48 w-full overflow-hidden">
               <img 
                 src={item.image} 
