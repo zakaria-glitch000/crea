@@ -8,7 +8,7 @@ export default function NosExpertises() {
     {
       title: "Solutions Restauration & CHR",
       description: "Des solutions complètes pour piloter votre établissement : caisses CSI, bornes de commande, écrans cuisine KDS, ERP et reporting.",
-      image: caisseImg, // Hna staamlo l'variable li m-importi lfoq
+      image: caisseImg,
       iconBg: "bg-orange-500",
       iconSvg: (
         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -20,7 +20,7 @@ export default function NosExpertises() {
     {
       title: "Solutions Commerce & Retail",
       description: "Avec INNOSHOP, accompagnez les commerces et points de vente dans l'encaissement, la gestion des stocks et le suivi de leur activité.",
-      image: logicielImg, // Hna tany
+      image: logicielImg,
       iconBg: "bg-blue-600",
       iconSvg: (
         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -32,7 +32,7 @@ export default function NosExpertises() {
     {
       title: "Développement de Logiciels sur Mesure",
       description: "Conception et réalisation d'applications métier personnalisées, adaptées aux besoins et aux processus de chaque entreprise.",
-      image: devImg, // Hna tany
+      image: devImg,
       iconBg: "bg-purple-600",
       iconSvg: (
         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -55,14 +55,20 @@ export default function NosExpertises() {
       {/* Les Cartes */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
         {expertises.map((item, index) => (
-          <div key={index} className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between text-left border border-gray-100">
+          <div 
+            key={index} 
+            className="group relative overflow-hidden bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between text-left border border-gray-100"
+          >
             
+            {/* Khat b loun bleu ciel (gradient men cyan/sky l blue) */}
+            <div className="absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-500 transition-transform duration-300 group-hover:scale-y-100" />
+
             {/* L'image lfoq */}
             <div className="relative h-48 w-full overflow-hidden">
               <img 
                 src={item.image} 
                 alt={item.title} 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
 
@@ -81,10 +87,10 @@ export default function NosExpertises() {
             <div className="px-6 pb-6 pt-0">
               <a 
                 href={item.linkUrl} 
-                className="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-blue-800 transition-colors group"
+                className="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-blue-800 transition-colors group/link"
               >
                 En savoir plus 
-                <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                <span className="ml-2 group-hover/link:translate-x-1 transition-transform">→</span>
               </a>
             </div>
 
