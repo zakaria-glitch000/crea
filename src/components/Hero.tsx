@@ -9,7 +9,7 @@ import {
   Settings,
   Headphones,
 } from 'lucide-react';
-import heroImage from '@/assets/IMAGE.jpg'; // l image l 3arida (POS + laptops), l isser dyalha fate7
+import heroImage from '@/assets/IMAGE.jpg'; // 7ot hna l image dyal l hero
 
 const features = [
   { icon: Receipt, label: 'Encaissement' },

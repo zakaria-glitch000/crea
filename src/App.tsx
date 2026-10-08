@@ -14,7 +14,7 @@ import { Testimonials } from '@/components/Testimonials';
 import { CTA } from '@/components/CTA';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
-
+import NosExpertises from './components/NosExpertises'; // 3iyyt 3la l'composant
 import { Nf525Page } from '@/components/Nf525Page';
 import { PosSolution } from '@/components/PosSolution';
 import { BornesCommande } from '@/components/BornesCommande';
@@ -51,6 +51,7 @@ function HomePage() {
   return (
     <>
       <Hero />
+      <NosExpertises />
       <Solutions />
       <Industries />
       <FeaturedProduct />
