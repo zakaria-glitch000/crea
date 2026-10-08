@@ -74,7 +74,7 @@ export function Header() {
               href="#contact"
               className="group inline-flex items-center gap-2 rounded-xl bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-brand-400 hover:shadow-lg hover:shadow-brand-500/30"
             >
-              Demander un démo
+              Demander une démo
 
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
@@ -158,7 +158,7 @@ export function Header() {
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-5 py-3.5 text-base font-semibold text-white"
                 >
-                  Demander un démo
+                  Demander une démo
 
                   <ArrowRight className="h-4 w-4" />
                 </a>
