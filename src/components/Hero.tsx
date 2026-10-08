@@ -67,13 +67,13 @@ export function Hero() {
               <span className="text-brand-500">avancer votre entreprise.</span>
             </motion.h1>
 
-            <motion.p
-              variants={item}
-              className="mt-5 max-w-md text-base leading-relaxed text-slate-700 sm:text-lg"
-            >
-              Nous accompagnons les professionnels avec des solutions d'encaissement, des
-              logiciels de gestion et des applications développées sur mesure.
-            </motion.p>
+         <motion.p
+  variants={item}
+  className="mt-5 max-w-md text-base font-bold leading-relaxed text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.45)] sm:text-lg"
+>
+  Nous accompagnons les professionnels avec des solutions d'encaissement, des
+  logiciels de gestion et des applications développées sur mesure.
+</motion.p>
 
             <motion.div variants={item} className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
