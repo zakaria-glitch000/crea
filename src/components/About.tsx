@@ -3,7 +3,7 @@ import { Reveal, SectionTag } from './ui/Reveal';
 
 export function About() {
   return (
-    <section id="about" className="relative overflow-hidden bg-white py-24 lg:py-32">
+    <section id="About" className="relative overflow-hidden bg-white py-24 lg:py-32">
       <div className="absolute -left-32 top-1/4 h-[400px] w-[400px] rounded-full bg-brand-500/[0.05] blur-[100px]" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">

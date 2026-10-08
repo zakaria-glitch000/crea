@@ -4,14 +4,16 @@ import { Reveal, SectionTag, staggerContainer, fadeUp } from './ui/Reveal';
 
 export function Industries() {
   return (
-    <section className="relative bg-slate-50 py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+<section
+  id="Industries"
+  className="relative scroll-mt-24 bg-slate-50 py-24 lg:py-32"
+>      <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
         <Reveal className="max-w-2xl">
-          <SectionTag>Secteurs</SectionTag>
+          <SectionTag>Métier</SectionTag>
 
           <h2 className="mt-6 font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl text-balance">
-            Des solutions adaptées à chaque secteur.
+            Des solutions adaptées à chaque métier.
           </h2>
 
           <p className="mt-5 text-lg text-slate-500">

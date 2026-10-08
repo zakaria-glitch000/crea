@@ -35,10 +35,10 @@ import {
 
 export const NAV_LINKS = [
   { label: 'Accueil', href: '#home' },
-  { label: 'Solutions', href: '#solutions' },
+  { label: 'Solutions', href: '#NosExpertises' },
+  { label: 'Métier', href: '#Industries' },
   { label: 'Services', href: '#services' },
-  { label: 'Produits', href: '#featured' },
-  { label: 'À propos', href: '#about' },
+  { label: 'A propos', href: '#About' },
   { label: 'Contact', href: '#contact' },
 ] as const;
 

@@ -44,10 +44,12 @@ export default function NosExpertises() {
   ];
 
   return (
-    <section className="py-16 px-4 bg-gray-50">
-      {/* Titre dyal la section */}
+<section
+  id="NosExpertises"
+  className="scroll-mt-24 py-16 px-4 bg-gray-50"
+>      {/* Titre dyal la section */}
       <div className="max-w-7xl mx-auto text-center mb-12">
-        <span className="text-xs font-bold tracking-widest text-blue-600 uppercase">Nos expertises</span>
+        <span className="text-xs font-bold tracking-widest text-blue-600 uppercase">Nos Solutions</span>
         <h2 className="text-3xl font-extrabold text-gray-900 mt-2">Une offre complète pour vos projets</h2>
         <div className="w-12 h-1 bg-blue-600 mx-auto mt-3 rounded-full"></div>
       </div>
