@@ -1,112 +1,118 @@
-import { motion } from 'framer-motion';
-import { ArrowRight, Phone, TrendingUp, ShieldCheck } from 'lucide-react';
-import heroImage from '@/assets/IMAGE.png';
+import { motion, type Variants } from 'framer-motion';
+import {
+  ArrowRight,
+  Phone,
+  Receipt,
+  BarChart3,
+  Code2,
+  Database,
+  Settings,
+  Headphones,
+} from 'lucide-react';
+import heroImage from '@/assets/IMAGE.jpg'; // 7ot hna l image dyal l hero
+
+const features = [
+  { icon: Receipt, label: 'Encaissement' },
+  { icon: BarChart3, label: 'Logiciels de gestion' },
+  { icon: Code2, label: 'Développement sur mesure' },
+  { icon: Database, label: 'ERP & Reporting' },
+  { icon: Settings, label: 'Intégration IT' },
+  { icon: Headphones, label: 'Maintenance' },
+];
+
+const container: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
+};
+const item: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+};
+
 export function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden bg-white pt-32 pb-20 lg:pt-40 lg:pb-32">
-      {/* Background layers */}
-      <div className="absolute inset-0 grid-bg opacity-60" />
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-slate-50" />
+    <section id="home" className="relative bg-white">
+      {/* ===== Hero: image kamla + texte direct ===== */}
+      <div className="relative overflow-hidden pt-24 lg:pt-0">
+        {/* Image kamla f l khalfiya */}
+        <img
+          src={heroImage}
+          alt="Solutions technologiques"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
 
-      {/* Glow orbs */}
-      <div className="absolute -top-20 -right-20 h-[600px] w-[600px] rounded-full bg-brand-500/[0.08] blur-[120px] animate-pulse-glow" />
-      <div className="absolute top-1/3 -left-32 h-[500px] w-[500px] rounded-full bg-accent-500/[0.05] blur-[100px]" />
+        {/* Fade sghir f l ta7t bach tdkhol f strip */}
+        <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-white/70 to-transparent" />
 
-      {/* Radial spotlight */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: 'radial-gradient(ellipse 80% 60% at 70% 20%, rgba(46,123,255,0.06), transparent 60%)',
-        }}
-      />
-
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:items-center">
-          {/* Left: content */}
+        <div className="relative mx-auto flex max-w-7xl items-center px-6 pb-10 pt-6 lg:min-h-[560px] lg:px-8 lg:py-24">
+          {/* Texte bla panneau */}
           <motion.div
+            variants={container}
             initial="hidden"
             animate="visible"
-            variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } } }}
+            className="max-w-xl"
           >
-            <motion.div
-              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
-              className="inline-flex items-center gap-2 rounded-full border border-brand-100 bg-brand-50 px-4 py-1.5 text-xs font-medium tracking-wide text-brand-600"
+            <motion.p
+              variants={item}
+              className="text-xs font-semibold tracking-[0.18em] text-brand-600"
             >
-              <span className="flex h-2 w-2">
-                <span className="absolute h-2 w-2 animate-ping rounded-full bg-accent-500 opacity-75" />
-                <span className="h-2 w-2 rounded-full bg-accent-500" />
-              </span>
-              IT · Logiciels · Systèmes professionnels
-            </motion.div>
+              TECHNOLOGIE · LOGICIELS · INNOVATION
+            </motion.p>
 
             <motion.h1
-              variants={{ hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } } }}
-              className="mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.5rem] text-balance"
+              variants={item}
+              className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.25rem]"
             >
               Des solutions technologiques qui font{' '}
-              <span className="gradient-text">avancer votre entreprise.</span>
+              <span className="text-brand-500">avancer votre entreprise.</span>
             </motion.h1>
 
             <motion.p
-              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
-              className="mt-6 max-w-xl text-lg leading-relaxed text-slate-500"
+              variants={item}
+              className="mt-5 max-w-md text-base leading-relaxed text-slate-700 sm:text-lg"
             >
-              Nous concevons, déployons et accompagnons des solutions IT, logiciels et systèmes professionnels adaptés aux besoins de votre entreprise.
+              Nous accompagnons les professionnels avec des solutions d'encaissement, des
+              logiciels de gestion et des applications développées sur mesure.
             </motion.p>
 
-            <motion.div
-              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
-              className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
-            >
+            <motion.div variants={item} className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#solutions"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-brand-400 hover:shadow-xl hover:shadow-brand-500/30"
+                className="group inline-flex items-center justify-center gap-2 rounded-lg bg-brand-500 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-500/25 transition-all hover:bg-brand-400 hover:shadow-xl hover:shadow-brand-500/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
               >
                 Découvrir nos solutions
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
                 href="#contact"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 transition-all hover:border-slate-400 hover:bg-slate-50"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white/80 px-6 py-3.5 text-sm font-semibold text-slate-700 transition-all hover:border-slate-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
               >
                 <Phone className="h-4 w-4 text-brand-500" />
                 Parler à un expert
               </a>
             </motion.div>
           </motion.div>
-
-          {/* Right: image mockup */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 30 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="relative"
-          >
-            <HeroMockup />
-          </motion.div>
         </div>
       </div>
 
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-slate-50 to-transparent" />
-    </section>
-  );
-}
-
-function HeroMockup() {
-  return (
-    <div className="relative flex justify-center items-center">
-      {/* Floating glow behind */}
-      <div className="absolute inset-0 -z-10 rounded-3xl bg-brand-500/15 blur-3xl" />
-
-      {/* Main image container */}
-      <div className="relative w-full max-w-xl">
-        <img 
-          src={heroImage}
-          alt="Solutions technologiques"
-          className="w-full h-auto object-contain drop-shadow-2xl"
-        />
+      {/* ===== Strip dyal les services ===== */}
+      <div className="border-y border-slate-100 bg-slate-50/70">
+        <ul className="mx-auto grid max-w-7xl grid-cols-2 gap-y-8 px-6 py-8 sm:grid-cols-3 lg:grid-cols-6 lg:gap-y-0 lg:px-8">
+          {features.map(({ icon: Icon, label }, i) => (
+            <li
+              key={label}
+              className={`flex flex-col items-center gap-3 px-3 text-center ${
+                i !== 0 ? 'lg:border-l lg:border-slate-200' : ''
+              }`}
+            >
+              <Icon className="h-7 w-7 text-brand-500" strokeWidth={1.5} />
+              <span className="text-[11px] font-semibold uppercase leading-snug tracking-wide text-slate-700">
+                {label}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
+    </section>
   );
 }

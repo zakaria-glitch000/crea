@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
-import { TrustLogos } from '@/components/TrustLogos';
 import { Solutions } from '@/components/Solutions';
 import { FeaturedProduct } from '@/components/FeaturedProduct';
 import { Services } from '@/components/Services';
@@ -52,7 +51,6 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <TrustLogos />
       <Solutions />
       <Industries />
       <FeaturedProduct />
