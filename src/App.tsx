@@ -52,8 +52,8 @@ function HomePage() {
     <>
       <Hero />
       <NosExpertises />
-      <Solutions />
       <Industries />
+      <Solutions />
       <FeaturedProduct />
       <Services />
       <WhyUs />
