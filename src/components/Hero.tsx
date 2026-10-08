@@ -9,7 +9,7 @@ import {
   Settings,
   Headphones,
 } from 'lucide-react';
-import heroImage from '@/assets/IMAGE.jpg'; // 7ot hna l image dyal l hero
+import heroImage from '@/assets/IMAGE.jpg'; // l image l 3arida (POS + laptops), l isser dyalha fate7
 
 const features = [
   { icon: Receipt, label: 'Encaissement' },
@@ -31,68 +31,76 @@ const item: Variants = {
 
 export function Hero() {
   return (
-    <section id="home" className="relative bg-white">
-      {/* ===== Hero: image kamla + texte direct ===== */}
-      <div className="relative overflow-hidden pt-24 lg:pt-0">
-        {/* Image kamla f l khalfiya */}
-        <img
-          src={heroImage}
-          alt="Solutions technologiques"
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
-
-        {/* Fade sghir f l ta7t bach tdkhol f strip */}
-        <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-white/70 to-transparent" />
-
-        <div className="relative mx-auto flex max-w-7xl items-center px-6 pb-10 pt-6 lg:min-h-[560px] lg:px-8 lg:py-24">
-          {/* Texte bla panneau */}
+    // pt-16 = 7ayyad l navbar (bddlo ila navbar dyalk a3la wla a9sar)
+    <section id="home" className="bg-white pt-16">
+      <div className="relative">
+        {/* ===== Texte: mobile = fo9 l image / desktop = fo9ha fl isser ===== */}
+        <div className="relative z-10 lg:absolute lg:inset-0 lg:flex lg:items-center">
           <motion.div
             variants={container}
             initial="hidden"
             animate="visible"
-            className="max-w-xl"
+            className="mx-auto w-full max-w-7xl px-6 py-10 lg:px-8 lg:py-0"
           >
-            <motion.p
-              variants={item}
-              className="text-xs font-semibold tracking-[0.18em] text-brand-600"
-            >
-              TECHNOLOGIE · LOGICIELS · INNOVATION
-            </motion.p>
-
-            <motion.h1
-              variants={item}
-              className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.25rem]"
-            >
-              Des solutions technologiques qui font{' '}
-              <span className="text-brand-500">avancer votre entreprise.</span>
-            </motion.h1>
-
-         <motion.p
-  variants={item}
-  className="mt-5 max-w-md text-base font-bold leading-relaxed text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.45)] sm:text-lg"
->
-  Nous accompagnons les professionnels avec des solutions d'encaissement, des
-  logiciels de gestion et des applications développées sur mesure.
-</motion.p>
-
-            <motion.div variants={item} className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#solutions"
-                className="group inline-flex items-center justify-center gap-2 rounded-lg bg-brand-500 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-500/25 transition-all hover:bg-brand-400 hover:shadow-xl hover:shadow-brand-500/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+            <div className="max-w-[30rem]">
+              <motion.p
+                variants={item}
+                className="text-xs font-semibold tracking-[0.18em] text-brand-600"
               >
-                Découvrir nos solutions
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white/80 px-6 py-3.5 text-sm font-semibold text-slate-700 transition-all hover:border-slate-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+                TECHNOLOGIE · LOGICIELS · INNOVATION
+              </motion.p>
+
+              <motion.h1
+                variants={item}
+                className="mt-4 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-slate-900 sm:text-5xl"
               >
-                <Phone className="h-4 w-4 text-brand-500" />
-                Parler à un expert
-              </a>
-            </motion.div>
+                Des solutions technologiques qui font{' '}
+                <span className="text-brand-500">avancer votre entreprise.</span>
+              </motion.h1>
+
+              <motion.p
+                variants={item}
+                className="mt-5 max-w-md text-base leading-relaxed text-slate-600 sm:text-lg"
+              >
+                Nous accompagnons les professionnels avec des solutions d'encaissement, des
+                logiciels de gestion et des applications développées sur mesure.
+              </motion.p>
+
+              <motion.div variants={item} className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="#solutions"
+                  className="group inline-flex items-center justify-center gap-2 rounded-lg bg-brand-500 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-500/25 transition-all hover:bg-brand-400 hover:shadow-xl hover:shadow-brand-500/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+                >
+                  Découvrir nos solutions
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 transition-all hover:border-slate-300 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+                >
+                  <Phone className="h-4 w-4 text-brand-500" />
+                  Parler à un expert
+                </a>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
+
+        {/* ===== Image: 3ard kamel, b nisba dyalha (bla 9ta3) ===== */}
+        <img
+          src={heroImage}
+          alt="Solutions technologiques"
+          className="block h-auto w-full"
+        />
+
+        {/* Fade abyad khfif fl isser (desktop) bach texte ibqa wadah */}
+        <div
+          className="pointer-events-none absolute inset-0 hidden lg:block"
+          style={{
+            background:
+              'linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 28%, rgba(255,255,255,0) 55%)',
+          }}
+        />
       </div>
 
       {/* ===== Strip dyal les services ===== */}
