@@ -121,7 +121,7 @@ function ProductMockup() {
         <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
           <div className="flex items-center gap-2">
             <div className="h-6 w-6 rounded-md bg-gradient-to-br from-brand-400 to-brand-600" />
-            <span className="font-display text-sm font-semibold text-slate-900">CREA SOLUTION POS</span>
+            <span className="font-display text-sm font-semibold text-slate-900">ORALI SYSTEMS  POS</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="h-2 w-2 rounded-full bg-emerald-500" />

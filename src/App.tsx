@@ -22,8 +22,8 @@ import { GestionStocks } from '@/components/GestionStocks';
 import { FideliteClient } from '@/components/FideliteClient';
 import { AnalyseVentes } from '@/components/AnalyseVentes';
 import { KdsSolution } from '@/components/KdsSolution';
-
-
+import Fonctionnalite from './components/Fonctionnalite';
+import Produit from './components/Produit';
 // ============================================================
 // SCROLL TO TOP
 // ============================================================
@@ -52,6 +52,8 @@ function HomePage() {
     <>
       <Hero />
       <NosExpertises />
+      <Fonctionnalite />
+      <Produit />
       <Industries />
       <Solutions />
       <FeaturedProduct />

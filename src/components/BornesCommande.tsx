@@ -749,7 +749,7 @@ export function BornesCommande() {
               </h2>
 
               <p className="mt-5 text-lg leading-relaxed text-slate-500">
-                CREA SOLUTION vous accompagne dans l’étude, la configuration
+                ORALI SYSTEMS vous accompagne dans l’étude, la configuration
                 et l’intégration de votre solution de borne interactive.
               </p>
 

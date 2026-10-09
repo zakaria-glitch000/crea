@@ -592,7 +592,7 @@ export function PosSolution() {
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
 
                 <a
-                  href="mailto:contact@creasolution.ma"
+                  href="mailto:contact@ORALISYSTEMS.ma"
                   className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-brand-700 transition-all hover:-translate-y-0.5 hover:bg-slate-50"
                 >
                   Demander une démonstration

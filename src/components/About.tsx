@@ -15,7 +15,7 @@ export function About() {
               <div className="overflow-hidden rounded-3xl border border-slate-200 shadow-xl shadow-slate-300/30">
                 <img
                   src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                  alt="Équipe NOVATEK"
+                  alt="Équipe ORALI SYSTEMS "
                   loading="lazy"
                   className="aspect-[4/3] w-full object-cover"
                 />
@@ -36,7 +36,7 @@ export function About() {
                 Votre partenaire technologique.
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-slate-500">
-                CREA SOLUTION est une entreprise spécialisée dans les solutions informatiques et logicielles pour les professionnels. Depuis plus de dix ans, nous accompagnons des entreprises de toutes tailles dans leur transformation technologique.
+                ORALI SYSTEMS est une entreprise spécialisée dans les solutions informatiques et logicielles pour les professionnels. Depuis plus de dix ans, nous accompagnons des entreprises de toutes tailles dans leur transformation technologique.
               </p>
               <p className="mt-4 text-base leading-relaxed text-slate-400">
                 Notre mission : rendre la technologie accessible, fiable et performante pour votre activité. Nous combinons expertise technique et approche métier pour livrer des solutions qui ont un impact réel.

@@ -36,6 +36,7 @@ import {
 export const NAV_LINKS = [
   { label: 'Accueil', href: '#home' },
   { label: 'Solutions', href: '#NosExpertises' },
+  { label: 'Produit', href: '#Produit' },
   { label: 'Métier', href: '#Industries' },
   { label: 'Services', href: '#services' },
   { label: 'A propos', href: '#About' },
@@ -926,7 +927,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'Directeur',
     company: 'Atlas Retail Group',
     quote:
-      "NOVATEK a déployé nos 40 caisses en moins de deux semaines, sans interruption de l'activité. Un partenaire fiable et réactif.",
+      "ORALI SYSTEMS  a déployé nos 40 caisses en moins de deux semaines, sans interruption de l'activité. Un partenaire fiable et réactif.",
   },
 
   {
@@ -942,7 +943,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'Responsable logistique',
     company: 'DistriFlow',
     quote:
-      "Le logiciel sur-mesure développé par NOVATEK a transformé notre gestion d'entrepôt. Gains de temps considérables.",
+      "Le logiciel sur-mesure développé par ORALI SYSTEMS  a transformé notre gestion d'entrepôt. Gains de temps considérables.",
   },
 ];
 
@@ -967,7 +968,7 @@ export const FEATURE_LIST = [
 ========================================================= */
 
 export const COMPANY = {
-  name: 'CREA SOLUTION',
+  name: 'ORALI SYSTEMS ',
 
   tagline: 'Solutions Technologiques',
 
@@ -975,7 +976,7 @@ export const COMPANY = {
 
   phone: '+212520202000',
 
-  email: 'contact@creasolution.fr',
+  email: 'contact@ORALISYSTEMS.fr',
 
   hours: 'Lun – Sam : 9h00 – 18h00',
 

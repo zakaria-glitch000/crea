@@ -50,7 +50,7 @@ export function Header() {
           {/* LOGO */}
           <Link
             to="/"
-            aria-label="Accueil CREA SOLUTION"
+            aria-label="Accueil ORALI SYSTEMS "
           >
             <Logo />
           </Link>
@@ -121,7 +121,7 @@ export function Header() {
 
                 <Link
                   to="/"
-                  aria-label="Accueil CREA SOLUTION"
+                  aria-label="Accueil ORALI SYSTEMS "
                   onClick={() => setMobileOpen(false)}
                 >
                   <Logo />
