@@ -55,7 +55,6 @@ function HomePage() {
       <Fonctionnalite />
       <Produit />
       <Industries />
-      <Solutions />
       <FeaturedProduct />
       <Services />
       <WhyUs />

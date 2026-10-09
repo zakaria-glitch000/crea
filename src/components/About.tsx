@@ -1,70 +1,141 @@
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Reveal, SectionTag } from './ui/Reveal';
+
+const ABOUT_POINTS = [
+  "Équipe d'ingénieurs et techniciens certifiés",
+  'Solutions éprouvées et support permanent',
+  'Approche sur-mesure et conseil personnalisé',
+];
 
 export function About() {
   return (
-    <section id="About" className="relative overflow-hidden bg-white py-24 lg:py-32">
-      <div className="absolute -left-32 top-1/4 h-[400px] w-[400px] rounded-full bg-brand-500/[0.05] blur-[100px]" />
+    <section
+      id="About"
+      className="relative overflow-hidden bg-white py-24 lg:py-32"
+    >
+      {/* Background effects */}
+      <div className="pointer-events-none absolute -left-32 top-1/4 h-[400px] w-[400px] rounded-full bg-sky-400/[0.07] blur-[100px]" />
+      <div className="pointer-events-none absolute -right-32 bottom-0 h-[350px] w-[350px] rounded-full bg-blue-400/[0.06] blur-[100px]" />
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-16">
           {/* Left: visual */}
           <Reveal>
-            <div className="relative">
-              <div className="absolute inset-0 -z-10 rounded-3xl bg-brand-500/8 blur-3xl" />
-              <div className="overflow-hidden rounded-3xl border border-slate-200 shadow-xl shadow-slate-300/30">
+            <motion.div
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              className="group relative"
+            >
+              {/* Image glow */}
+              <div className="pointer-events-none absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-sky-400/10 via-blue-500/5 to-transparent opacity-70 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
+
+              {/* Main image */}
+              <div className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-xl shadow-slate-300/20">
                 <img
                   src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                  alt="Équipe ORALI SYSTEMS "
+                  alt="Équipe ORALI SYSTEMS en collaboration"
                   loading="lazy"
-                  className="aspect-[4/3] w-full object-cover"
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
+
+                {/* Image overlay */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-30" />
+
+                {/* Animated vertical accent */}
+                <div className="absolute bottom-0 left-0 h-1 w-full origin-left scale-x-0 bg-gradient-to-r from-sky-400 to-blue-600 transition-transform duration-500 group-hover:scale-x-100" />
               </div>
-              {/* Floating card */}
-              <div className="absolute -bottom-6 -right-6 hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-xl md:block">
-                <div className="font-display text-3xl font-bold gradient-text">10+</div>
-                <div className="mt-1 text-xs text-slate-500">ans d'expertise IT</div>
-              </div>
-            </div>
+
+              {/* Floating experience card */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="absolute -bottom-6 -right-3 rounded-2xl border border-slate-200/80 bg-white/95 p-5 shadow-xl shadow-slate-900/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 sm:-right-5 sm:p-6"
+              >
+                <div className="font-display text-3xl font-bold tracking-tight text-transparent bg-gradient-to-r from-sky-500 to-blue-700 bg-clip-text sm:text-4xl">
+                  10+
+                </div>
+
+                <div className="mt-1 text-xs font-medium text-slate-500 sm:text-sm">
+                  ans d'expertise IT
+                </div>
+
+                <div className="mt-3 h-0.5 w-10 rounded-full bg-gradient-to-r from-sky-400 to-blue-600" />
+              </motion.div>
+
+              {/* Decorative corner */}
+              <div className="pointer-events-none absolute -left-3 -top-3 -z-10 h-20 w-20 rounded-tl-3xl border-l-2 border-t-2 border-sky-300/60 sm:-left-5 sm:-top-5" />
+            </motion.div>
           </Reveal>
 
           {/* Right: content */}
-          <div>
+          <div className="pt-2 lg:pt-0">
             <Reveal>
               <SectionTag>À propos</SectionTag>
-              <h2 className="mt-6 font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-[2.75rem] text-balance">
-                Votre partenaire technologique.
+
+              <h2 className="mt-6 text-balance font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-[2.75rem]">
+                Votre partenaire{' '}
+                <span className="bg-gradient-to-r from-sky-500 to-blue-700 bg-clip-text text-transparent">
+                  technologique.
+                </span>
               </h2>
-              <p className="mt-5 text-lg leading-relaxed text-slate-500">
-                ORALI SYSTEMS est une entreprise spécialisée dans les solutions informatiques et logicielles pour les professionnels. Depuis plus de dix ans, nous accompagnons des entreprises de toutes tailles dans leur transformation technologique.
+
+              <p className="mt-5 text-base leading-8 text-slate-500 sm:text-lg">
+                ORALI SYSTEMS est une entreprise spécialisée dans les
+                solutions informatiques et logicielles pour les
+                professionnels. Depuis plus de dix ans, nous accompagnons des
+                entreprises de toutes tailles dans leur transformation
+                technologique.
               </p>
-              <p className="mt-4 text-base leading-relaxed text-slate-400">
-                Notre mission : rendre la technologie accessible, fiable et performante pour votre activité. Nous combinons expertise technique et approche métier pour livrer des solutions qui ont un impact réel.
+
+              <p className="mt-4 text-sm leading-7 text-slate-500 sm:text-base">
+                Notre mission : rendre la technologie accessible, fiable et
+                performante pour votre activité. Nous combinons expertise
+                technique et approche métier pour livrer des solutions qui
+                ont un impact réel.
               </p>
             </Reveal>
 
+            {/* Advantages checklist */}
             <Reveal delay={0.15}>
               <div className="mt-8 space-y-3">
-                {[
-                  "Équipe d'ingénieurs et techniciens certifiés",
-                  'Solutions éprouvées et support permanent',
-                  'Approche sur-mesure et conseil personnalisé',
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 text-accent-500" />
-                    <span className="text-sm text-slate-700">{item}</span>
-                  </div>
+                {ABOUT_POINTS.map((item, index) => (
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.35,
+                      delay: index * 0.1,
+                    }}
+                    className="group/point flex items-start gap-3 rounded-xl border border-transparent px-3 py-3 transition-all duration-300 hover:border-sky-100 hover:bg-sky-50/60"
+                  >
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-sky-500 transition-colors duration-300 group-hover/point:text-blue-600" />
+
+                    <span className="text-sm leading-6 text-slate-600 transition-colors duration-300 group-hover/point:text-slate-900">
+                      {item}
+                    </span>
+                  </motion.div>
                 ))}
               </div>
             </Reveal>
 
+            {/* CTA */}
             <Reveal delay={0.3}>
               <a
                 href="#contact"
-                className="group mt-10 inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 transition-all hover:border-slate-400 hover:bg-slate-50"
+                className="group relative mt-8 inline-flex items-center gap-3 overflow-hidden rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-200 hover:text-blue-700 hover:shadow-lg hover:shadow-blue-900/5 sm:mt-10"
               >
-                Discutons de votre projet
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-sky-50 to-blue-50 transition-transform duration-500 group-hover:translate-x-0" />
+
+                <span className="relative z-10">
+                  Discutons de votre projet
+                </span>
+
+                <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
               </a>
             </Reveal>
           </div>
