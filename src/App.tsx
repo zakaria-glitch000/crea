@@ -14,7 +14,11 @@ import { Testimonials } from '@/components/Testimonials';
 import { CTA } from '@/components/CTA';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
-import NosExpertises from './components/NosExpertises'; // 3iyyt 3la l'composant
+
+import NosExpertises from './components/NosExpertises';
+import Fonctionnalite from './components/Fonctionnalite';
+import Produit from './components/Produit';
+
 import { Nf525Page } from '@/components/Nf525Page';
 import { PosSolution } from '@/components/PosSolution';
 import { BornesCommande } from '@/components/BornesCommande';
@@ -22,8 +26,10 @@ import { GestionStocks } from '@/components/GestionStocks';
 import { FideliteClient } from '@/components/FideliteClient';
 import { AnalyseVentes } from '@/components/AnalyseVentes';
 import { KdsSolution } from '@/components/KdsSolution';
-import Fonctionnalite from './components/Fonctionnalite';
-import Produit from './components/Produit';
+
+// Page Solutions Restauration & CHR
+import Csi from '@/components/Csi';
+
 // ============================================================
 // SCROLL TO TOP
 // ============================================================
@@ -42,7 +48,6 @@ function ScrollToTop() {
   return null;
 }
 
-
 // ============================================================
 // PAGE D'ACCUEIL
 // ============================================================
@@ -56,6 +61,7 @@ function HomePage() {
       <Produit />
       <Industries />
       <FeaturedProduct />
+      <Solutions />
       <Services />
       <WhyUs />
       <Process />
@@ -67,7 +73,6 @@ function HomePage() {
   );
 }
 
-
 // ============================================================
 // APP
 // ============================================================
@@ -75,30 +80,32 @@ function HomePage() {
 function App() {
   return (
     <BrowserRouter>
-
-      {/* Retour automatique en haut à chaque changement de page */}
       <ScrollToTop />
 
       <div className="min-h-screen bg-white text-slate-700 antialiased">
-
         <Header />
 
         <main>
           <Routes>
-
-            {/* ==================================================
+            {/* ================================================
                 PAGE D'ACCUEIL
-            ================================================== */}
-
+            ================================================ */}
             <Route
               path="/"
               element={<HomePage />}
             />
 
+            {/* ================================================
+                SOLUTIONS RESTAURATION & CHR
+            ================================================ */}
+            <Route
+              path="/solutions-restauration"
+              element={<Csi />}
+            />
 
-            {/* ==================================================
+            {/* ================================================
                 SOLUTIONS
-            ================================================== */}
+            ================================================ */}
 
             {/* Systèmes de caisse & POS */}
             <Route
@@ -136,11 +143,9 @@ function App() {
               element={<KdsSolution />}
             />
 
-
-            {/* ==================================================
+            {/* ================================================
                 NF525
-            ================================================== */}
-
+            ================================================ */}
             <Route
               path="/nf"
               element={<Nf525Page />}
@@ -150,12 +155,10 @@ function App() {
               path="/nf525"
               element={<Nf525Page />}
             />
-
           </Routes>
         </main>
 
         <Footer />
-
       </div>
     </BrowserRouter>
   );

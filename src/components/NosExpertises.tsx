@@ -1,87 +1,91 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
+
 import caisseImg from '../assets/caisse.jpg';
 import logicielImg from '../assets/logiciel.jpg';
 import devImg from '../assets/dev.jpg';
 
-export default function NosExpertises() {
-  const expertises = [
-    {
-      title: 'Solutions Restauration & CHR',
-      description:
-        'Des solutions complètes pour piloter votre établissement : caisses CSI, bornes de commande, écrans cuisine KDS, ERP et reporting.',
-      image: caisseImg,
-      iconBg: 'bg-orange-500',
-      iconSvg: (
-        <svg
-          className="h-5 w-5 text-white"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-      ),
-      linkUrl: '#',
-    },
-    {
-      title: 'Solutions Commerce & Retail',
-      description:
-        "Avec INNOSHOP, accompagnez les commerces et points de vente dans l'encaissement, la gestion des stocks et le suivi de leur activité.",
-      image: logicielImg,
-      iconBg: 'bg-blue-600',
-      iconSvg: (
-        <svg
-          className="h-5 w-5 text-white"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-          />
-        </svg>
-      ),
-      linkUrl: '#',
-    },
-    {
-      title: 'Développement de Logiciels sur Mesure',
-      description:
-        'Conception et réalisation d’applications métier personnalisées, adaptées aux besoins et aux processus de chaque entreprise.',
-      image: devImg,
-      iconBg: 'bg-purple-600',
-      iconSvg: (
-        <svg
-          className="h-5 w-5 text-white"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-          />
-        </svg>
-      ),
-      linkUrl: '#',
-    },
-  ];
+const expertises = [
+  {
+    title: 'Solutions Restauration & CHR',
+    description:
+      'Des solutions complètes pour piloter votre établissement : caisses CSI, bornes de commande, écrans cuisine KDS, ERP et reporting.',
+    image: caisseImg,
+    iconBg: 'bg-orange-500',
+    linkUrl: '/solutions-restauration',
+    iconSvg: (
+      <svg
+        className="h-5 w-5 text-white"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: 'Solutions Commerce & Retail',
+    description:
+      "Avec INNOSHOP, accompagnez les commerces et points de vente dans l'encaissement, la gestion des stocks et le suivi de leur activité.",
+    image: logicielImg,
+    iconBg: 'bg-blue-600',
+    linkUrl: '#',
+    iconSvg: (
+      <svg
+        className="h-5 w-5 text-white"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: 'Développement de Logiciels sur Mesure',
+    description:
+      'Conception et réalisation d’applications métier personnalisées, adaptées aux besoins et aux processus de chaque entreprise.',
+    image: devImg,
+    iconBg: 'bg-purple-600',
+    linkUrl: '#',
+    iconSvg: (
+      <svg
+        className="h-5 w-5 text-white"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+        />
+      </svg>
+    ),
+  },
+];
 
+export default function NosExpertises() {
   return (
     <section
       id="NosExpertises"
       className="scroll-mt-24 bg-gray-50 px-4 py-16 sm:px-6 lg:py-20"
     >
-      {/* En-tête */}
+      {/* EN-TÊTE */}
       <div className="mx-auto mb-12 max-w-7xl text-center">
         <span className="inline-flex rounded-full border border-blue-100 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-blue-600 shadow-sm">
           Nos Solutions
@@ -95,19 +99,28 @@ export default function NosExpertises() {
         </h2>
 
         <div className="mx-auto mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-sky-400 to-blue-600" />
+
+        <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-gray-500 sm:text-base">
+          Des solutions technologiques adaptées à votre métier
+          pour améliorer votre productivité et accompagner
+          votre développement.
+        </p>
       </div>
 
-      {/* Cartes */}
+      {/* CARTES */}
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {expertises.map((item) => (
           <article
             key={item.title}
             className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white text-left shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60"
           >
-            {/* Ligne cyan/bleue animée */}
-            <div className="absolute left-0 top-0 z-30 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-300 group-hover:scale-y-100" />
+            {/* LIGNE BLEUE ANIMÉE */}
+            <div
+              className="pointer-events-none absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-300 group-hover:scale-y-100"
+              aria-hidden="true"
+            />
 
-            {/* Image */}
+            {/* IMAGE */}
             <div className="relative h-52 w-full overflow-hidden bg-slate-100">
               <img
                 src={item.image}
@@ -116,15 +129,17 @@ export default function NosExpertises() {
                 className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
 
-              {/* Léger dégradé sur l'image */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-30" />
+              <div
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-40"
+                aria-hidden="true"
+              />
             </div>
 
-            {/* Contenu */}
+            {/* CONTENU */}
             <div className="relative flex flex-1 flex-col px-6 pb-5 pt-9">
-              {/* Icône */}
+              {/* ICÔNE */}
               <div
-                className={`absolute -top-6 left-6 flex h-12 w-12 items-center justify-center rounded-full ${item.iconBg} border-2 border-white shadow-lg transition-transform duration-300 group-hover:scale-110`}
+                className={`absolute -top-6 left-6 flex h-12 w-12 items-center justify-center rounded-full border-2 border-white ${item.iconBg} shadow-lg transition-transform duration-300 group-hover:scale-110`}
               >
                 {item.iconSvg}
               </div>
@@ -137,19 +152,51 @@ export default function NosExpertises() {
                 {item.description}
               </p>
 
-              {/* Lien */}
+              {/* LIEN */}
               <div className="mt-auto border-t border-slate-100 pt-4">
-                <a
-                  href={item.linkUrl}
-                  className="group/link inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition-colors duration-300 hover:text-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600"
-                >
-                  En savoir plus
-                  <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">
-                    →
-                  </span>
-                </a>
+                {item.linkUrl === '/solutions-restauration' ? (
+                  <Link
+                    to={item.linkUrl}
+                    aria-label={`Découvrir ${item.title}`}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition-colors duration-300 hover:text-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600"
+                  >
+                    En savoir plus
+                    <span
+                      className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+                      aria-hidden="true"
+                    >
+                      →
+                    </span>
+                  </Link>
+                ) : (
+                  <a
+                    href={item.linkUrl}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition-colors duration-300 hover:text-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600"
+                  >
+                    En savoir plus
+                    <span
+                      className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+                      aria-hidden="true"
+                    >
+                      →
+                    </span>
+                  </a>
+                )}
               </div>
             </div>
+
+            {/* CARTE ENTIÈREMENT CLIQUABLE POUR LA RESTAURATION */}
+            {item.linkUrl === '/solutions-restauration' && (
+              <Link
+                to={item.linkUrl}
+                aria-label={`Voir la page ${item.title}`}
+                className="absolute inset-0 z-10 rounded-2xl focus-visible:outline focus-visible:outline-4 focus-visible:outline-blue-500"
+              >
+                <span className="sr-only">
+                  Découvrir {item.title}
+                </span>
+              </Link>
+            )}
           </article>
         ))}
       </div>

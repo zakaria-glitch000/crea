@@ -748,7 +748,19 @@ export const INDUSTRIES: Industry[] = [
       'Mode hors-ligne',
     ],
   },
-
+  {
+    icon: Hotel,
+    title: 'Hôtellerie',
+    description:
+      'Gestion complète pour les établissements hôteliers intégrant réservations, facturation et services.',
+    image: hotelImage,
+    features: [
+      'Ventes additionnelles',
+      'Espace de vente 24/7',
+      'Vente RFID',
+      'Personnalisation de l’offre',
+    ],
+  },
   {
     icon: Store,
     title: 'Commerce de détail et épiceries',
@@ -763,19 +775,7 @@ export const INDUSTRIES: Industry[] = [
     ],
   },
 
-  {
-    icon: Hotel,
-    title: 'Hôtellerie',
-    description:
-      'Gestion complète pour les établissements hôteliers intégrant réservations, facturation et services.',
-    image: hotelImage,
-    features: [
-      'Ventes additionnelles',
-      'Espace de vente 24/7',
-      'Vente RFID',
-      'Personnalisation de l’offre',
-    ],
-  },
+
 
   {
     icon: Building2,
