@@ -11,9 +11,7 @@ export function Solutions() {
         <Reveal className="max-w-2xl">
           <SectionTag>Nos solutions</SectionTag>
 
-          <h2 className="mt-6 font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl text-balance">
-            Une gamme complète au service de votre performance.
-          </h2>
+         
 
           <p className="mt-5 text-lg text-slate-500">
             De la caisse enrichie à l'infrastructure sécurisée, nous couvrons

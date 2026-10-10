@@ -8,6 +8,12 @@ import kdsImage from '@/assets/4.jpg';
 import terminalImage from '@/assets/3.jpg';
 import nfLogo from '@/assets/nf.png';
 
+// Importations dyal les nouveaux produits
+import balanceImage from '@/assets/balance.jpg';
+import zebraImage from '@/assets/zebra.jpg';
+import pdaImage from '@/assets/pda.jpg';
+import etiquetteImage from '@/assets/etiquette.jpg';
+
 const products = [
   {
     title: 'Caisses enregistreuses',
@@ -28,6 +34,26 @@ const products = [
     title: 'Terminaux mobiles',
     description: 'Prenez les commandes directement à table.',
     image: terminalImage,
+  },
+  {
+    title: 'Balances professionnelles',
+    description: 'Pesage précis et interface tactile intuitive pour commerces.',
+    image: balanceImage,
+  },
+  {
+    title: 'Impression balisage Zebra',
+    description: 'Imprimantes thermiques robustes pour étiquettes et bracelets.',
+    image: zebraImage,
+  },
+  {
+    title: 'PDA / Terminaux portables',
+    description: 'Idéal pour la gestion des stocks, inventaires et scan rapide.',
+    image: pdaImage,
+  },
+  {
+    title: 'Étiquettes électroniques',
+    description: 'Mise à jour dynamique des prix et des informations en rayon.',
+    image: etiquetteImage,
   },
   {
     title: 'Logiciels (CSI, INNOSHOP, ERP)',
@@ -66,15 +92,15 @@ export default function ProductsSection() {
           </p>
         </div>
 
-        {/* Cartes produits */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        {/* Cartes produits - Grid mis à jour pour s'adapter proprement aux 9 éléments */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
           {products.map((product, index) => (
             <motion.article
               key={product.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
               className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60"
             >
               {/* Ligne cyan/bleue au survol */}
