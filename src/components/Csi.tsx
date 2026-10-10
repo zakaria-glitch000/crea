@@ -28,15 +28,13 @@ import caisseImage from '@/assets/2.jpg';
 import borneImage from '@/assets/1.jpg';
 import pdaImage from '@/assets/3.jpg';
 import kdsImage from '@/assets/4.jpg';
+import ERP_IMAGE from '@/assets/b.jpg'
+import REPORTING_IMAGE from '@/assets/a.jpg'
 
 const DEMO_LINK =
   'https://wa.me/212600000000?text=Bonjour%2C%20je%20souhaite%20une%20demonstration%20de%20vos%20solutions%20restauration';
 
-const REPORTING_IMAGE =
-  '/src/assets/a.jpg';
 
-const ERP_IMAGE =
-  '/src/assets/b.jpg';
 
 const BENEFITS = [
   { icon: Clock3, label: 'Gain de temps', number: '01' },
