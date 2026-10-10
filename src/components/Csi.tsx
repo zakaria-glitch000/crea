@@ -15,6 +15,12 @@ import {
   Sparkles,
   Monitor,
   UtensilsCrossed,
+  Smartphone,
+  Bell,
+  Package,
+  Boxes,
+  Store,
+  Network,
 } from 'lucide-react';
 
 import heroImage from '@/assets/2.jpg';
@@ -27,7 +33,10 @@ const DEMO_LINK =
   'https://wa.me/212600000000?text=Bonjour%2C%20je%20souhaite%20une%20demonstration%20de%20vos%20solutions%20restauration';
 
 const REPORTING_IMAGE =
-  'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=900&auto=format&fit=crop';
+  '/src/assets/a.jpg';
+
+const ERP_IMAGE =
+  '/src/assets/b.jpg';
 
 const BENEFITS = [
   { icon: Clock3, label: 'Gain de temps', number: '01' },
@@ -174,7 +183,6 @@ function FeatureCard({
       transition={{ duration: 0.3, ease: 'easeOut' }}
       className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-sm transition-shadow duration-300 hover:border-sky-200 hover:shadow-xl hover:shadow-blue-900/[0.07]"
     >
-      {/* Animated accent line */}
       <div className="absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-300 group-hover:scale-y-100" />
 
       <div className="relative flex min-h-[210px] items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-sky-50 p-7 sm:min-h-[245px]">
@@ -504,90 +512,192 @@ export default function SolutionsRestauration() {
             ))}
           </motion.div>
 
-          {/* Reporting + Support */}
-          <div className="mt-6 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+          {/* =====================================================
+              REPORTING CSI & ERP CSI (Nouveau design selon l'image)
+          ===================================================== */}
+          <div className="mt-12 grid gap-8 lg:grid-cols-2">
+            
+            {/* 1. REPORTING CSI */}
             <motion.article
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.55 }}
               whileHover={{ y: -5 }}
-              className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:border-sky-200 hover:shadow-xl hover:shadow-blue-900/[0.06]"
+              className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:border-sky-200 hover:shadow-xl hover:shadow-blue-900/[0.06] sm:p-8"
             >
               <div className="absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-300 group-hover:scale-y-100" />
 
-              <div className="grid flex-1 md:grid-cols-[1fr_0.85fr]">
-                <div className="flex flex-col p-6 sm:p-8">
-                  <SectionTag>Pilotage &amp; performance</SectionTag>
+              <span className="text-[10px] font-extrabold tracking-[0.18em] text-blue-600 sm:text-xs">
+                SOLUTION RESTAURATION &amp; CHR
+              </span>
 
-                  <h3 className="mt-5 text-2xl font-bold leading-snug tracking-tight text-slate-900 transition-colors duration-300 group-hover:text-blue-700">
-                    Reporting &amp; gestion
-                  </h3>
+              <h3 className="mt-2 text-3xl font-black tracking-tight text-slate-900 transition-colors duration-300 group-hover:text-blue-700">
+                Reporting CSI
+              </h3>
 
-                  <p className="mt-3 text-sm leading-7 text-slate-500">
-                    Suivez votre activité et prenez de meilleures décisions
-                    grâce à vos indicateurs de gestion.
-                  </p>
+              <p className="mt-2 text-base font-bold text-slate-700">
+                Gardez le contrôle de votre restaurant, où que vous soyez.
+              </p>
 
-                  <div className="my-6 h-px bg-slate-100" />
+              <p className="mt-1 text-sm leading-relaxed text-slate-500">
+                Suivez vos ventes et analysez vos performances en temps réel depuis votre ordinateur ou votre mobile.
+              </p>
 
-                  <CheckList
-                    items={[
-                      'Chiffre d’affaires et statistiques',
-                      'Suivi des annulations et des pertes',
-                      'Gestion multi-sites',
-                      'Rapports selon les fonctionnalités disponibles',
-                    ]}
-                  />
+              {/* Mockup Image Preview */}
+              <div className="relative my-6 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-100 to-sky-50 border border-slate-100 p-2">
+                <img
+                  src={REPORTING_IMAGE}
+                  alt="Reporting CSI interface"
+                  className="h-56 w-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
 
-                  <a
-                    href={DEMO_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/link mt-7 inline-flex items-center gap-2 text-sm font-bold text-blue-700 transition-colors hover:text-sky-500"
-                  >
-                    Découvrir la solution
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
-                  </a>
+              {/* 4 Feature Badges */}
+              <div className="grid grid-cols-2 gap-4 my-4 sm:grid-cols-4">
+                <div className="flex flex-col items-center text-center p-2 rounded-xl bg-sky-50/50 border border-sky-100/60">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-100 text-blue-600 mb-2">
+                    <ChartNoAxesCombined className="h-4 w-4" />
+                  </span>
+                  <span className="text-xs font-bold text-slate-900">Chiffre d’affaires et statistiques</span>
+                  <span className="text-[10px] text-slate-500 mt-0.5">Suivi en temps réel de vos ventes.</span>
                 </div>
 
-                <div className="relative min-h-64 overflow-hidden bg-gradient-to-br from-sky-50 to-blue-50 md:min-h-full">
-                  <div className="absolute inset-0 bg-gradient-to-br from-sky-100/30 to-blue-100/30" />
-                  <img
-                    src={REPORTING_IMAGE}
-                    alt="Exemple de tableau de bord et de reporting"
-                    loading="lazy"
-                    decoding="async"
-                    className="relative h-full min-h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105 md:absolute md:inset-0"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 to-transparent" />
-
-                  <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/70 bg-white/90 p-4 shadow-xl backdrop-blur">
-                    <div className="flex items-center gap-3">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 text-white">
-                        <ChartNoAxesCombined className="h-5 w-5" />
-                      </span>
-                      <div>
-                        <p className="text-sm font-bold text-slate-900">
-                          Une vision plus claire
-                        </p>
-                        <p className="mt-1 text-xs text-slate-500">
-                          Pilotez votre activité
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                <div className="flex flex-col items-center text-center p-2 rounded-xl bg-sky-50/50 border border-sky-100/60">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-100 text-blue-600 mb-2">
+                    <Settings2 className="h-4 w-4" />
+                  </span>
+                  <span className="text-xs font-bold text-slate-900">Annulations, retours et pertes</span>
+                  <span className="text-[10px] text-slate-500 mt-0.5">Contrôlez les opérations sensibles.</span>
                 </div>
+
+                <div className="flex flex-col items-center text-center p-2 rounded-xl bg-sky-50/50 border border-sky-100/60">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-100 text-blue-600 mb-2">
+                    <Bell className="h-4 w-4" />
+                  </span>
+                  <span className="text-xs font-bold text-slate-900">Alertes par WhatsApp</span>
+                  <span className="text-[10px] text-slate-500 mt-0.5">Recevez vos rapports et alertes automatiquement.</span>
+                </div>
+
+                <div className="flex flex-col items-center text-center p-2 rounded-xl bg-sky-50/50 border border-sky-100/60">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-100 text-blue-600 mb-2">
+                    <Smartphone className="h-4 w-4" />
+                  </span>
+                  <span className="text-xs font-bold text-slate-900">Accès PC et mobile</span>
+                  <span className="text-[10px] text-slate-500 mt-0.5">Consultez vos données où que vous soyez.</span>
+                </div>
+              </div>
+
+              <div className="mt-auto pt-4">
+                <a
+                  href={DEMO_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/button flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:shadow-xl hover:shadow-blue-600/30"
+                >
+                  Découvrir le Reporting CSI
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover/button:translate-x-1" />
+                </a>
               </div>
             </motion.article>
 
+            {/* 2. ERP CSI */}
             <motion.article
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.55, delay: 0.1 }}
               whileHover={{ y: -5 }}
-              className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:border-sky-200 hover:shadow-xl hover:shadow-blue-900/[0.06] sm:p-8"
+              className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:border-amber-200 hover:shadow-xl hover:shadow-amber-900/[0.06] sm:p-8"
+            >
+              <div className="absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-amber-400 to-orange-600 transition-transform duration-300 group-hover:scale-y-100" />
+
+              <span className="text-[10px] font-extrabold tracking-[0.18em] text-orange-600 sm:text-xs">
+                SOLUTION RESTAURATION &amp; CHR
+              </span>
+
+              <h3 className="mt-2 text-3xl font-black tracking-tight text-slate-900 transition-colors duration-300 group-hover:text-orange-600">
+                ERP CSI
+              </h3>
+
+              <p className="mt-2 text-base font-bold text-slate-700">
+                Centralisez et optimisez la gestion de vos établissements.
+              </p>
+
+              <p className="mt-1 text-sm leading-relaxed text-slate-500">
+                Une solution complète de back-office pour gérer vos articles, stocks, fournisseurs et plusieurs sites depuis une seule interface.
+              </p>
+
+              {/* Mockup Image Preview */}
+              <div className="relative my-6 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-100 to-orange-50 border border-slate-100 p-2">
+                <img
+                  src={ERP_IMAGE}
+                  alt="ERP CSI interface"
+                  className="h-56 w-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* 4 Feature Badges */}
+              <div className="grid grid-cols-2 gap-4 my-4 sm:grid-cols-4">
+                <div className="flex flex-col items-center text-center p-2 rounded-xl bg-orange-50/50 border border-orange-100/60">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-100 text-orange-600 mb-2">
+                    <Package className="h-4 w-4" />
+                  </span>
+                  <span className="text-xs font-bold text-slate-900">Gestion des articles</span>
+                  <span className="text-[10px] text-slate-500 mt-0.5">Création, paramétrage et organisation.</span>
+                </div>
+
+                <div className="flex flex-col items-center text-center p-2 rounded-xl bg-orange-50/50 border border-orange-100/60">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-100 text-orange-600 mb-2">
+                    <Boxes className="h-4 w-4" />
+                  </span>
+                  <span className="text-xs font-bold text-slate-900">Stocks et inventaires</span>
+                  <span className="text-[10px] text-slate-500 mt-0.5">Suivi en temps réel de vos stocks.</span>
+                </div>
+
+                <div className="flex flex-col items-center text-center p-2 rounded-xl bg-orange-50/50 border border-orange-100/60">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-100 text-orange-600 mb-2">
+                    <Store className="h-4 w-4" />
+                  </span>
+                  <span className="text-xs font-bold text-slate-900">Achats et fournisseurs</span>
+                  <span className="text-[10px] text-slate-500 mt-0.5">Gestion des commandes et approvisionnements.</span>
+                </div>
+
+                <div className="flex flex-col items-center text-center p-2 rounded-xl bg-orange-50/50 border border-orange-100/60">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-100 text-orange-600 mb-2">
+                    <Network className="h-4 w-4" />
+                  </span>
+                  <span className="text-xs font-bold text-slate-900">Multi-établissements</span>
+                  <span className="text-[10px] text-slate-500 mt-0.5">Pilotage centralisé de plusieurs sites.</span>
+                </div>
+              </div>
+
+              <div className="mt-auto pt-4">
+                <a
+                  href={DEMO_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/button flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-600/20 transition-all duration-300 hover:shadow-xl hover:shadow-orange-600/30"
+                >
+                  Découvrir l'ERP CSI
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover/button:translate-x-1" />
+                </a>
+              </div>
+            </motion.article>
+
+          </div>
+
+          {/* Support Section */}
+          <div className="mt-8">
+            <motion.article
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.55 }}
+              whileHover={{ y: -5 }}
+              className="group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:border-sky-200 hover:shadow-xl hover:shadow-blue-900/[0.06] sm:p-8"
             >
               <div className="absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-300 group-hover:scale-y-100" />
 
@@ -604,16 +714,16 @@ export default function SolutionsRestauration() {
 
               <div className="my-6 h-px bg-slate-100" />
 
-              <div className="grid flex-1 grid-cols-2 gap-x-4 gap-y-6">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {SUPPORT.map((item) => {
                   const Icon = item.icon;
 
                   return (
-                    <div key={item.label} className="group/item flex flex-col items-start">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-sky-100 bg-sky-50 text-blue-600 transition-all duration-300 group-hover/item:border-transparent group-hover/item:bg-gradient-to-br group-hover/item:from-sky-400 group-hover/item:to-blue-600 group-hover/item:text-white">
+                    <div key={item.label} className="group/item flex items-center gap-4">
+                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-sky-100 bg-sky-50 text-blue-600 transition-all duration-300 group-hover/item:border-transparent group-hover/item:bg-gradient-to-br group-hover/item:from-sky-400 group-hover/item:to-blue-600 group-hover/item:text-white">
                         <Icon className="h-5 w-5" />
                       </span>
-                      <span className="mt-3 text-sm font-semibold leading-5 text-slate-700">
+                      <span className="text-sm font-semibold leading-5 text-slate-700">
                         {item.label}
                       </span>
                     </div>
@@ -621,17 +731,20 @@ export default function SolutionsRestauration() {
                 })}
               </div>
 
-              <a
-                href={DEMO_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group/button mt-8 inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-gradient-to-r from-sky-500 to-blue-700 px-5 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-600/30 focus:outline-none focus:ring-4 focus:ring-sky-200"
-              >
-                Demander une démonstration
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
-              </a>
+              <div className="mt-8 flex justify-end">
+                <a
+                  href={DEMO_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/button inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-gradient-to-r from-sky-500 to-blue-700 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-600/30 focus:outline-none focus:ring-4 focus:ring-sky-200"
+                >
+                  Demander une démonstration
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
+                </a>
+              </div>
             </motion.article>
           </div>
+
         </div>
       </section>
 

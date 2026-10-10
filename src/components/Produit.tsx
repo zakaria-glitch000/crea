@@ -55,12 +55,6 @@ const products = [
     description: 'Mise à jour dynamique des prix et des informations en rayon.',
     image: etiquetteImage,
   },
-  {
-    title: 'Logiciels (CSI, INNOSHOP, ERP)',
-    description: 'Gérez, analysez et pilotez votre activité.',
-    image:
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400&auto=format&fit=crop',
-  },
 ];
 
 export default function ProductsSection() {
@@ -92,8 +86,8 @@ export default function ProductsSection() {
           </p>
         </div>
 
-        {/* Cartes produits - Grid mis à jour pour s'adapter proprement aux 9 éléments */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+        {/* Cartes produits - Grid 4 par ligne sur grand écran */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
           {products.map((product, index) => (
             <motion.article
               key={product.title}
@@ -101,13 +95,13 @@ export default function ProductsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60"
+              className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60"
             >
               {/* Ligne cyan/bleue au survol */}
               <div className="absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-300 group-hover:scale-y-100" />
 
-              {/* Image */}
-              <div className="relative mb-6 flex h-44 items-center justify-center overflow-hidden rounded-xl border border-slate-100 bg-slate-50 p-3">
+              {/* Image sghira w mtouffa */}
+              <div className="relative mb-4 flex h-36 items-center justify-center overflow-hidden rounded-xl border border-slate-100 bg-slate-50 p-2">
                 <img
                   src={product.image}
                   alt={product.title}
@@ -121,15 +115,15 @@ export default function ProductsSection() {
 
               {/* Contenu */}
               <div className="flex flex-1 flex-col">
-                <h3 className="mb-3 text-base font-bold leading-6 text-slate-900 transition-colors duration-300 group-hover:text-blue-700">
+                <h3 className="mb-2 text-sm font-bold leading-5 text-slate-900 transition-colors duration-300 group-hover:text-blue-700">
                   {product.title}
                 </h3>
 
-                <p className="flex-1 text-sm leading-6 text-slate-500">
+                <p className="flex-1 text-xs leading-5 text-slate-500">
                   {product.description}
                 </p>
 
-                <div className="mt-5 h-px w-full bg-slate-100 transition-colors duration-300 group-hover:bg-blue-100" />
+                <div className="mt-4 h-px w-full bg-slate-100 transition-colors duration-300 group-hover:bg-blue-100" />
               </div>
             </motion.article>
           ))}
