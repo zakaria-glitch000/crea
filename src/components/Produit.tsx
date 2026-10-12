@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
 
-import caisseImage from '@/assets/2.jpg';
+import caisseImage from '@/assets/0.jpg';
 import borneImage from '@/assets/1.jpg';
 import kdsImage from '@/assets/4.jpg';
 import terminalImage from '@/assets/3.jpg';
