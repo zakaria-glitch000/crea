@@ -11,7 +11,6 @@ import {
   Wrench,
   GraduationCap,
   Headset,
-  TrendingUp,
   Sparkles,
   Monitor,
   UtensilsCrossed,
@@ -28,13 +27,12 @@ import caisseImage from '@/assets/2.jpg';
 import borneImage from '@/assets/1.jpg';
 import pdaImage from '@/assets/3.jpg';
 import kdsImage from '@/assets/4.jpg';
-import ERP_IMAGE from '@/assets/b.jpg'
-import REPORTING_IMAGE from '@/assets/a.jpg'
+import ERP_IMAGE from '@/assets/a.jpg';
+import REPORTING_IMAGE from '@/assets/b.jpg';
+import supportImage from '@/assets/support.jpg';
 
 const DEMO_LINK =
   'https://wa.me/212600000000?text=Bonjour%2C%20je%20souhaite%20une%20demonstration%20de%20vos%20solutions%20restauration';
-
-
 
 const BENEFITS = [
   { icon: Clock3, label: 'Gain de temps', number: '01' },
@@ -44,10 +42,26 @@ const BENEFITS = [
 ];
 
 const SUPPORT = [
-  { icon: Wrench, label: 'Installation sur site' },
-  { icon: GraduationCap, label: 'Formation de votre équipe' },
-  { icon: Headset, label: 'Assistance technique' },
-  { icon: TrendingUp, label: 'Suivi et évolutions' },
+  {
+    icon: Wrench,
+    title: 'Installation et paramétrage',
+    text: 'Mise en place et configuration de vos équipements.',
+  },
+  {
+    icon: GraduationCap,
+    title: 'Formation de votre équipe',
+    text: 'Une prise en main rapide et efficace de toutes les fonctionnalités.',
+  },
+  {
+    icon: Headset,
+    title: 'Assistance technique réactive',
+    text: 'Une équipe disponible à distance et sur site.',
+  },
+  {
+    icon: ChartNoAxesCombined,
+    title: 'Suivi et évolutions',
+    text: 'Mises à jour, optimisation et nouvelles fonctionnalités selon vos besoins.',
+  },
 ];
 
 const SOLUTIONS = [
@@ -510,11 +524,10 @@ export default function SolutionsRestauration() {
             ))}
           </motion.div>
 
-          {/* =====================================================
-              REPORTING CSI & ERP CSI (Nouveau design selon l'image)
+         {/* =====================================================
+              REPORTING CSI & ERP CSI
           ===================================================== */}
           <div className="mt-12 grid gap-8 lg:grid-cols-2">
-            
             {/* 1. REPORTING CSI */}
             <motion.article
               initial={{ opacity: 0, y: 24 }}
@@ -542,48 +555,47 @@ export default function SolutionsRestauration() {
                 Suivez vos ventes et analysez vos performances en temps réel depuis votre ordinateur ou votre mobile.
               </p>
 
-              {/* Mockup Image Preview */}
-              <div className="relative my-6 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-100 to-sky-50 border border-slate-100 p-2">
+              {/* Image complète (sans crop) */}
+              <div className="relative my-6 overflow-hidden rounded-2xl border border-slate-100 bg-gradient-to-br from-slate-100 to-sky-50 p-2">
                 <img
                   src={REPORTING_IMAGE}
                   alt="Reporting CSI interface"
-                  className="h-56 w-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-105"
+                  className="h-auto w-full rounded-xl transition-transform duration-700 group-hover:scale-[1.02]"
                   loading="lazy"
                 />
               </div>
 
-              {/* 4 Feature Badges */}
-              <div className="grid grid-cols-2 gap-4 my-4 sm:grid-cols-4">
-                <div className="flex flex-col items-center text-center p-2 rounded-xl bg-sky-50/50 border border-sky-100/60">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-100 text-blue-600 mb-2">
+              <div className="my-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+                <div className="flex flex-col items-center rounded-xl border border-sky-100/60 bg-sky-50/50 p-2 text-center">
+                  <span className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-sky-100 text-blue-600">
                     <ChartNoAxesCombined className="h-4 w-4" />
                   </span>
                   <span className="text-xs font-bold text-slate-900">Chiffre d’affaires et statistiques</span>
-                  <span className="text-[10px] text-slate-500 mt-0.5">Suivi en temps réel de vos ventes.</span>
+                  <span className="mt-0.5 text-[10px] text-slate-500">Suivi en temps réel de vos ventes.</span>
                 </div>
 
-                <div className="flex flex-col items-center text-center p-2 rounded-xl bg-sky-50/50 border border-sky-100/60">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-100 text-blue-600 mb-2">
+                <div className="flex flex-col items-center rounded-xl border border-sky-100/60 bg-sky-50/50 p-2 text-center">
+                  <span className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-sky-100 text-blue-600">
                     <Settings2 className="h-4 w-4" />
                   </span>
                   <span className="text-xs font-bold text-slate-900">Annulations, retours et pertes</span>
-                  <span className="text-[10px] text-slate-500 mt-0.5">Contrôlez les opérations sensibles.</span>
+                  <span className="mt-0.5 text-[10px] text-slate-500">Contrôlez les opérations sensibles.</span>
                 </div>
 
-                <div className="flex flex-col items-center text-center p-2 rounded-xl bg-sky-50/50 border border-sky-100/60">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-100 text-blue-600 mb-2">
+                <div className="flex flex-col items-center rounded-xl border border-sky-100/60 bg-sky-50/50 p-2 text-center">
+                  <span className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-sky-100 text-blue-600">
                     <Bell className="h-4 w-4" />
                   </span>
                   <span className="text-xs font-bold text-slate-900">Alertes par WhatsApp</span>
-                  <span className="text-[10px] text-slate-500 mt-0.5">Recevez vos rapports et alertes automatiquement.</span>
+                  <span className="mt-0.5 text-[10px] text-slate-500">Recevez vos rapports et alertes automatiquement.</span>
                 </div>
 
-                <div className="flex flex-col items-center text-center p-2 rounded-xl bg-sky-50/50 border border-sky-100/60">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-100 text-blue-600 mb-2">
+                <div className="flex flex-col items-center rounded-xl border border-sky-100/60 bg-sky-50/50 p-2 text-center">
+                  <span className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-sky-100 text-blue-600">
                     <Smartphone className="h-4 w-4" />
                   </span>
                   <span className="text-xs font-bold text-slate-900">Accès PC et mobile</span>
-                  <span className="text-[10px] text-slate-500 mt-0.5">Consultez vos données où que vous soyez.</span>
+                  <span className="mt-0.5 text-[10px] text-slate-500">Consultez vos données où que vous soyez.</span>
                 </div>
               </div>
 
@@ -627,48 +639,47 @@ export default function SolutionsRestauration() {
                 Une solution complète de back-office pour gérer vos articles, stocks, fournisseurs et plusieurs sites depuis une seule interface.
               </p>
 
-              {/* Mockup Image Preview */}
-              <div className="relative my-6 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-100 to-orange-50 border border-slate-100 p-2">
+              {/* Image complète (sans crop) */}
+              <div className="relative my-6 overflow-hidden rounded-2xl border border-slate-100 bg-gradient-to-br from-slate-100 to-orange-50 p-2">
                 <img
                   src={ERP_IMAGE}
                   alt="ERP CSI interface"
-                  className="h-56 w-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-105"
+                  className="h-auto w-full rounded-xl transition-transform duration-700 group-hover:scale-[1.02]"
                   loading="lazy"
                 />
               </div>
 
-              {/* 4 Feature Badges */}
-              <div className="grid grid-cols-2 gap-4 my-4 sm:grid-cols-4">
-                <div className="flex flex-col items-center text-center p-2 rounded-xl bg-orange-50/50 border border-orange-100/60">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-100 text-orange-600 mb-2">
+              <div className="my-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+                <div className="flex flex-col items-center rounded-xl border border-orange-100/60 bg-orange-50/50 p-2 text-center">
+                  <span className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-orange-100 text-orange-600">
                     <Package className="h-4 w-4" />
                   </span>
                   <span className="text-xs font-bold text-slate-900">Gestion des articles</span>
-                  <span className="text-[10px] text-slate-500 mt-0.5">Création, paramétrage et organisation.</span>
+                  <span className="mt-0.5 text-[10px] text-slate-500">Création, paramétrage et organisation.</span>
                 </div>
 
-                <div className="flex flex-col items-center text-center p-2 rounded-xl bg-orange-50/50 border border-orange-100/60">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-100 text-orange-600 mb-2">
+                <div className="flex flex-col items-center rounded-xl border border-orange-100/60 bg-orange-50/50 p-2 text-center">
+                  <span className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-orange-100 text-orange-600">
                     <Boxes className="h-4 w-4" />
                   </span>
                   <span className="text-xs font-bold text-slate-900">Stocks et inventaires</span>
-                  <span className="text-[10px] text-slate-500 mt-0.5">Suivi en temps réel de vos stocks.</span>
+                  <span className="mt-0.5 text-[10px] text-slate-500">Suivi en temps réel de vos stocks.</span>
                 </div>
 
-                <div className="flex flex-col items-center text-center p-2 rounded-xl bg-orange-50/50 border border-orange-100/60">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-100 text-orange-600 mb-2">
+                <div className="flex flex-col items-center rounded-xl border border-orange-100/60 bg-orange-50/50 p-2 text-center">
+                  <span className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-orange-100 text-orange-600">
                     <Store className="h-4 w-4" />
                   </span>
                   <span className="text-xs font-bold text-slate-900">Achats et fournisseurs</span>
-                  <span className="text-[10px] text-slate-500 mt-0.5">Gestion des commandes et approvisionnements.</span>
+                  <span className="mt-0.5 text-[10px] text-slate-500">Gestion des commandes et approvisionnements.</span>
                 </div>
 
-                <div className="flex flex-col items-center text-center p-2 rounded-xl bg-orange-50/50 border border-orange-100/60">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-orange-100 text-orange-600 mb-2">
+                <div className="flex flex-col items-center rounded-xl border border-orange-100/60 bg-orange-50/50 p-2 text-center">
+                  <span className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-orange-100 text-orange-600">
                     <Network className="h-4 w-4" />
                   </span>
                   <span className="text-xs font-bold text-slate-900">Multi-établissements</span>
-                  <span className="text-[10px] text-slate-500 mt-0.5">Pilotage centralisé de plusieurs sites.</span>
+                  <span className="mt-0.5 text-[10px] text-slate-500">Pilotage centralisé de plusieurs sites.</span>
                 </div>
               </div>
 
@@ -684,65 +695,121 @@ export default function SolutionsRestauration() {
                 </a>
               </div>
             </motion.article>
-
           </div>
 
-          {/* Support Section */}
+         {/* =====================================================
+              SUPPORT TECHNIQUE
+          ===================================================== */}
           <div className="mt-8">
             <motion.article
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.55 }}
-              whileHover={{ y: -5 }}
-              className="group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:border-sky-200 hover:shadow-xl hover:shadow-blue-900/[0.06] sm:p-8"
+              className="overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-sm"
             >
-              <div className="absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-300 group-hover:scale-y-100" />
+              <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
+                {/* Image avec bord courbé (9awss) */}
+                <div className="relative min-h-[320px] lg:min-h-full">
+                  <img
+                    src={supportImage}
+                    alt="Technicien ORALI SYSTEMS formant un membre de l’équipe sur la caisse"
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                  />
 
-              <SectionTag>Notre engagement</SectionTag>
+                  {/* Logo */}
+                  <div className="absolute left-4 top-4 z-10 rounded-2xl bg-white/95 px-4 py-3 shadow-lg backdrop-blur">
+                    <p className="text-lg font-black leading-none tracking-tight text-slate-900">
+                      ORALI <span className="text-blue-600">SYSTEMS</span>
+                    </p>
+                    <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-500">
+                      Solutions commerce &amp; restaurant
+                    </p>
+                  </div>
 
-              <h3 className="mt-5 text-2xl font-bold tracking-tight text-slate-900 transition-colors duration-300 group-hover:text-blue-700">
-                Un accompagnement complet
-              </h3>
+                  {/* Courbe desktop : côté droit */}
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="none"
+                    className="pointer-events-none absolute -right-px bottom-0 top-0 z-[5] hidden h-full w-[26%] lg:block"
+                  >
+                    <path
+                      d="M100 0 L94 0 C98 38 62 82 0 100 L100 100 Z"
+                      fill="#ffffff"
+                    />
+                  </svg>
 
-              <p className="mt-3 text-sm leading-7 text-slate-500">
-                De l’installation à la prise en main, nous vous accompagnons
-                à chaque étape pour faciliter l’utilisation de votre solution.
-              </p>
+                  {/* Courbe mobile : côté bas */}
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="none"
+                    className="pointer-events-none absolute -bottom-px left-0 right-0 z-[5] h-12 w-full lg:hidden"
+                  >
+                    <path d="M0 100 L0 70 C35 20 70 20 100 0 L100 100 Z" fill="#ffffff" />
+                  </svg>
+                </div>
 
-              <div className="my-6 h-px bg-slate-100" />
+                {/* Content */}
+                <div className="relative z-10 bg-gradient-to-br from-white to-sky-50/60 p-6 sm:p-8 lg:-ml-px lg:p-10">
+                  <SectionTag>Support technique</SectionTag>
 
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {SUPPORT.map((item) => {
-                  const Icon = item.icon;
+                  <h3 className="mt-5 text-3xl font-black leading-tight tracking-tight text-slate-950 sm:text-4xl">
+                    Un accompagnement{' '}
+                    <span className="text-blue-600">à chaque étape.</span>
+                  </h3>
 
-                  return (
-                    <div key={item.label} className="group/item flex items-center gap-4">
-                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-sky-100 bg-sky-50 text-blue-600 transition-all duration-300 group-hover/item:border-transparent group-hover/item:bg-gradient-to-br group-hover/item:from-sky-400 group-hover/item:to-blue-600 group-hover/item:text-white">
-                        <Icon className="h-5 w-5" />
-                      </span>
-                      <span className="text-sm font-semibold leading-5 text-slate-700">
-                        {item.label}
-                      </span>
-                    </div>
-                  );
-                })}
+                  <p className="mt-4 text-sm leading-7 text-slate-500 sm:text-base">
+                    De l’installation à l’assistance quotidienne, nos équipes
+                    vous accompagnent pour assurer la continuité de votre
+                    activité.
+                  </p>
+
+                  <div className="mt-7 grid gap-4 sm:grid-cols-2">
+                    {SUPPORT.map((item) => {
+                      const Icon = item.icon;
+
+                      return (
+                        <div
+                          key={item.title}
+                          className="group flex items-start gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-lg hover:shadow-blue-900/[0.06]"
+                        >
+                          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sky-50 text-blue-600 transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-sky-400 group-hover:to-blue-600 group-hover:text-white">
+                            <Icon className="h-5 w-5" />
+                          </span>
+                          <div>
+                            <p className="text-sm font-bold leading-5 text-slate-900">
+                              {item.title}
+                            </p>
+                            <p className="mt-1.5 text-xs leading-5 text-slate-500">
+                              {item.text}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
 
-              <div className="mt-8 flex justify-end">
-                <a
-                  href={DEMO_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group/button inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-gradient-to-r from-sky-500 to-blue-700 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-600/30 focus:outline-none focus:ring-4 focus:ring-sky-200"
-                >
-                  Demander une démonstration
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
-                </a>
+              {/* Banner */}
+              <div className="flex items-center gap-5 bg-gradient-to-r from-blue-600 to-blue-500 px-6 py-6 text-white sm:px-10">
+                <ShieldCheck className="h-12 w-12 shrink-0" strokeWidth={1.5} />
+                <div className="border-l border-white/30 pl-5">
+                  <p className="text-base font-bold sm:text-lg">
+                    Votre activité en toute sérénité
+                  </p>
+                  <p className="mt-1 text-xs leading-6 text-blue-50 sm:text-sm">
+                    Un support fiable et réactif pour minimiser les
+                    interruptions et garantir la performance de votre
+                    établissement.
+                  </p>
+                </div>
               </div>
             </motion.article>
           </div>
-
         </div>
       </section>
 
