@@ -7,7 +7,7 @@ import {
   fadeUp,
 } from './ui/Reveal';
 
-import teamTrainingImage from '@/assets/accompagnement.jpg';
+import teamTrainingImage from '@/assets/accompagnement.jpeg';
 
 const container: Variants = {
   hidden: {},
