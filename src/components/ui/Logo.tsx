@@ -42,7 +42,7 @@ export function Logo({ className = '', showText = true }: LogoProps) {
             {COMPANY?.name || 'ORALI'}
           </span>
           <span className="text-[10px] md:text-[11px] font-bold tracking-[0.25em] text-[#00A3FF] uppercase mt-0.5">
-            SYSTEMS
+            
           </span>
           <span className="text-[7px] font-medium tracking-tight text-slate-400 uppercase mt-0.5">
             Solutions Commerce & Restaurant
