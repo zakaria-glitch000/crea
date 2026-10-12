@@ -26,7 +26,6 @@ import { GestionStocks } from '@/components/GestionStocks';
 import { FideliteClient } from '@/components/FideliteClient';
 import { AnalyseVentes } from '@/components/AnalyseVentes';
 import { KdsSolution } from '@/components/KdsSolution';
-import { AccompagnementPage } from './components/acompagenement';
 // Page Solutions Restauration & CHR
 import Csi from '@/components/Csi';
 
@@ -63,7 +62,6 @@ function HomePage() {
       <FeaturedProduct />
       <Solutions />
       <Services />
-      <AccompagnementPage/>
       <WhyUs />
       <Process />
       <About />

@@ -74,7 +74,7 @@ export default function ProductsSection() {
           </span>
 
           <h2 className="mx-auto mb-5 max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
-            Des équipements et logiciels{' '}
+            Des équipements{' '}
             <span className="bg-gradient-to-r from-sky-500 to-blue-700 bg-clip-text text-transparent">
               performants
             </span>
