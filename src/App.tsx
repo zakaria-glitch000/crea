@@ -28,6 +28,7 @@ import { AnalyseVentes } from '@/components/AnalyseVentes';
 import { KdsSolution } from '@/components/KdsSolution';
 // Page Solutions Restauration & CHR
 import Csi from '@/components/Csi';
+import Affcsi from '@/components/Affcsi';
 
 // ============================================================
 // SCROLL TO TOP
@@ -57,6 +58,7 @@ function HomePage() {
       <Hero />
       <NosExpertises />
       <Fonctionnalite />
+      <Affcsi />
       <Produit />
       <Industries />
       <FeaturedProduct />
