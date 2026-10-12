@@ -6,13 +6,17 @@ interface LogoProps {
 }
 
 export function Logo({ className = '', showText = true }: LogoProps) {
+  // Kan-akhdo ghir "ORALI" hta ila kan COMPANY.name fih "ORALI SYSTEMS"
+  const rawName = COMPANY?.name || 'ORALI';
+  const brandName = rawName.replace(/SYSTEMS/i, '').trim() || 'ORALI';
+
   return (
     <div className={`flex items-center gap-3 select-none ${className}`}>
       {/* ICÔNE VECTORIELLE SVG (ORALI ICON) */}
       <div className="relative flex items-center justify-center">
         <svg
           viewBox="0 0 120 100"
-          className="h-9 w-auto md:h-10 transition-transform hover:scale-105"
+          className="h-10 w-auto md:h-12 transition-transform hover:scale-105"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -38,14 +42,22 @@ export function Logo({ className = '', showText = true }: LogoProps) {
       {/* TEXTE DU LOGO */}
       {showText && (
         <div className="flex flex-col justify-center leading-none">
-          <span className="font-extrabold text-xl md:text-2xl tracking-wider text-[#061234]">
-            {COMPANY?.name || 'ORALI'}
+          {/* ORALI GHIR B-NOIR / BLEU FONCÉ */}
+          <span className="font-extrabold text-2xl md:text-3xl tracking-wider text-[#03091E]">
+            {brandName}
           </span>
-          <span className="text-[10px] md:text-[11px] font-bold tracking-[0.25em] text-[#00A3FF] uppercase mt-0.5">
-            
+
+          {/* SYSTEMS EN BLEU CIEL */}
+          <span className="text-[11px] md:text-[13px] font-bold tracking-[0.35em] text-[#00A3FF] uppercase mt-0.5">
+            SYSTEMS
           </span>
-          <span className="text-[7px] font-medium tracking-tight text-slate-400 uppercase mt-0.5">
-            Solutions Commerce & Restaurant
+
+          {/* PETITE LIGNE BLEUE (sous "SY") */}
+          <div className="h-[2px] w-8 bg-[#00A3FF] my-1 rounded-full" />
+
+          {/* SOUS-TITRE */}
+          <span className="text-[7px] md:text-[8px] font-medium tracking-widest text-slate-500 uppercase">
+            SOLUTIONS COMMERCE & RESTAURANT
           </span>
         </div>
       )}
