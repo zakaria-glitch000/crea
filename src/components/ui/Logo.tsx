@@ -42,21 +42,18 @@ export function Logo({ className = '', showText = true }: LogoProps) {
       {/* TEXTE DU LOGO */}
       {showText && (
         <div className="flex flex-col justify-center leading-none">
-          {/* ORALI GHIR B-NOIR / BLEU FONCÉ */}
-          <span className="font-extrabold text-2xl md:text-3xl tracking-wider text-[#03091E]">
-            {brandName}
-          </span>
-
-          {/* SYSTEMS EN BLEU CIEL */}
-          <span className="text-[11px] md:text-[13px] font-bold tracking-[0.35em] text-[#00A3FF] uppercase mt-0.5">
-            SYSTEMS
-          </span>
-
-          {/* PETITE LIGNE BLEUE (sous "SY") */}
-          <div className="h-[2px] w-8 bg-[#00A3FF] my-1 rounded-full" />
+          {/* ORALI (NOIR) + SYSTEMS (BLEU) - NAFS SIZE EXACT */}
+          <div className="flex items-center gap-2 text-2xl md:text-3xl font-extrabold tracking-tight">
+            <span className="text-[#03091E]">
+              {brandName}
+            </span>
+            <span className="text-[#00A3FF] uppercase">
+              SYSTEMS
+            </span>
+          </div>
 
           {/* SOUS-TITRE */}
-          <span className="text-[7px] md:text-[8px] font-medium tracking-widest text-slate-500 uppercase">
+          <span className="text-[7px] md:text-[8px] font-medium tracking-widest text-slate-500 uppercase mt-1">
             SOLUTIONS COMMERCE & RESTAURANT
           </span>
         </div>
