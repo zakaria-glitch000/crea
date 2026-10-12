@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-
+import Innoshop from '@/components/Innoshop';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { Solutions } from '@/components/Solutions';
@@ -14,7 +14,7 @@ import { Testimonials } from '@/components/Testimonials';
 import { CTA } from '@/components/CTA';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
-
+import Franchise from '@/components/Franchise';
 import NosExpertises from './components/NosExpertises';
 import Fonctionnalite from './components/Fonctionnalite';
 import Produit from './components/Produit';
@@ -58,7 +58,6 @@ function HomePage() {
       <Hero />
       <NosExpertises />
       <Fonctionnalite />
-      <Affcsi />
       <Produit />
       <Industries />
       <FeaturedProduct />
@@ -103,7 +102,18 @@ function App() {
               path="/solutions-restauration"
               element={<Csi />}
             />
-
+     <Route
+              path="/Affcsi"
+              element={<Affcsi />}
+            />
+            <Route
+  path="/innoshop"
+  element={<Innoshop />}
+/>
+<Route
+  path="/franchise"
+  element={<Franchise />}
+/>
             {/* ================================================
                 SOLUTIONS
             ================================================ */}

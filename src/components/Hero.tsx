@@ -7,7 +7,7 @@ import {
   Users,
   Headphones,
 } from 'lucide-react';
-import heroImage from '@/assets/IMAGE.jpeg';
+import heroImage from '@/assets/IMAGE.jpg';
 
 const expertiseSteps = [
   {
