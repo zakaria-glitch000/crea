@@ -776,7 +776,19 @@ export const INDUSTRIES: Industry[] = [
     ],
   },
 
-
+  {
+    icon: Briefcase,
+    title: 'Retail Moderne',
+    description:
+      'Solutions technologiques avancées pour le retail omnicanal avec reporting analytique en temps réel.',
+    image: retailmodernImage,
+    features: [
+      'Hub omnicanal',
+      'Analytics temps réel',
+      'Checkout ultra-rapide',
+      'Personnalisation client',
+    ],
+  },
 
   {
     icon: Building2,
@@ -792,19 +804,7 @@ export const INDUSTRIES: Industry[] = [
     ],
   },
 
-  {
-    icon: Briefcase,
-    title: 'Retail Moderne',
-    description:
-      'Solutions technologiques avancées pour le retail omnicanal avec reporting analytique en temps réel.',
-    image: retailmodernImage,
-    features: [
-      'Hub omnicanal',
-      'Analytics temps réel',
-      'Checkout ultra-rapide',
-      'Personnalisation client',
-    ],
-  },
+
 ];
 
 /* =========================================================
