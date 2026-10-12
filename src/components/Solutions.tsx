@@ -9,14 +9,13 @@ export function Solutions() {
     <section id="solutions" className="relative bg-slate-50 py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <Reveal className="max-w-2xl">
-          <SectionTag>Nos solutions</SectionTag>
+          <SectionTag>NOTRE SAVOIR-FAIRE</SectionTag>
 
          
 
           <p className="mt-5 text-lg text-slate-500">
-            De la caisse enrichie à l'infrastructure sécurisée, nous couvrons
-            l'ensemble de vos besoins technologiques avec des solutions
-            éprouvées.
+          Un écosystème complet pour votre activité
+Des solutions complémentaires pour accompagner la gestion et le développement de votre entreprise.
           </p>
         </Reveal>
 

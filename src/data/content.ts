@@ -33,14 +33,15 @@ import {
    NAVIGATION
 ========================================================= */
 
+
 export const NAV_LINKS = [
-  { label: 'Accueil', href: '#home' },
-  { label: 'Solutions', href: '#NosExpertises' },
-  { label: 'Produit', href: '#Produit' },
-  { label: 'Métier', href: '#Industries' },
-  { label: 'Services', href: '#services' },
-  { label: 'A propos', href: '#About' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Accueil', href: '/#home' },
+  { label: 'Solutions', href: '/#NosExpertises' },
+  { label: 'Produit', href: '/#Produit' },
+  { label: 'Métier', href: '/#Industries' },
+  { label: 'Services', href: '/#services' },
+  { label: 'A propos', href: '/#About' },
+  { label: 'Contact', href: '/#contact' },
 ] as const;
 
 
@@ -138,14 +139,14 @@ export const SOLUTIONS: Solution[] = [
 
   {
     icon: Settings2,
-    title: 'KDS — Écran de production cuisine',
+    title: 'Logiciels de gestion sur mesure',
     slug: 'kds',
     description:
-      'Optimisez la préparation des commandes grâce à un affichage digital clair, rapide et connecté pour vos équipes en cuisine.',
+      'Des solutions logicielles conçues pour répondre aux besoins spécifiques de votre entreprise et accompagner son évolution.',
     features: [
-      'Commandes en temps réel',
-      'Suivi des préparations',
-      'Gain en productivité',
+      'Analyse de vos besoins',
+      'Développement personnalisé',
+      'Intégration à votre environnement',
     ],
   },
 ];
