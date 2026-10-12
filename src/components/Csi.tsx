@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 
 import heroImage from '@/assets/2.jpg';
-import caisseImage from '@/assets/2.jpg';
+import caisseImage from '@/assets/0.jpg';
 import borneImage from '@/assets/1.jpg';
 import pdaImage from '@/assets/3.jpg';
 import kdsImage from '@/assets/4.jpg';
@@ -244,30 +244,44 @@ function FeatureCard({
 
 export default function SolutionsRestauration() {
   return (
-    <main className="overflow-hidden bg-white text-slate-800">
-      {/* =====================================================
-          HERO
-      ===================================================== */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-br from-white via-slate-50 to-sky-50">
-        <div className="pointer-events-none absolute -right-28 -top-24 h-96 w-96 rounded-full bg-sky-200/40 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-32 left-0 h-80 w-80 rounded-full bg-blue-100/50 blur-3xl" />
+<main className="overflow-hidden bg-white text-slate-800">
+  {/* HERO */}
+  <section className="relative isolate overflow-hidden bg-gradient-to-br from-white via-slate-50 to-sky-50">
+    <div className="pointer-events-none absolute -right-28 -top-24 h-96 w-96 rounded-full bg-sky-200/40 blur-3xl" />
+    <div className="pointer-events-none absolute -bottom-32 left-0 h-80 w-80 rounded-full bg-blue-100/50 blur-3xl" />
 
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-14 sm:px-8 sm:py-20 lg:min-h-[680px] lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-24">
+    <div className="relative mx-auto max-w-7xl px-5 py-10 sm:px-8 sm:py-14 lg:py-16">
+      <motion.article
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className="overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-xl shadow-blue-900/[0.06]"
+      >
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
+          {/* Image : contenu complet sans découpage */}
+          <div className="relative flex min-h-[320px] items-center justify-center bg-gradient-to-br from-slate-50 via-white to-sky-50 p-4 sm:min-h-[400px] sm:p-6 lg:min-h-[560px]">
+            <img
+              src={heroImage}
+              alt="Solution technologique pour les professionnels de la restauration"
+              className="relative z-[1] h-full max-h-[520px] w-full object-contain"
+              loading="eager"
+            />
+
+            {/* Badge */}
+            <div className="absolute left-4 top-4 z-10 flex items-center gap-2 rounded-full border border-white/60 bg-white/95 px-3.5 py-2 text-xs font-bold text-slate-800 shadow-lg backdrop-blur-md sm:left-6 sm:top-6">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
+              Une activité mieux connectée
+            </div>
+          </div>
+
+          {/* Content */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={stagger}
-            className="relative z-10 max-w-2xl"
+            className="relative flex flex-col justify-center bg-gradient-to-br from-white to-sky-50/60 p-6 sm:p-8 lg:p-10"
           >
-            <motion.div variants={fadeUp}>
-              <Link
-                to="/#NosExpertises"
-                className="mb-9 inline-flex items-center gap-2 rounded-full border border-slate-200/80 bg-white/80 px-4 py-2.5 text-sm font-semibold text-slate-600 shadow-sm transition-all duration-300 hover:-translate-x-1 hover:border-sky-200 hover:text-blue-700"
-              >
-                <ArrowLeft className="h-4 w-4" />
-                Retour aux expertises
-              </Link>
-            </motion.div>
+      
 
             <motion.div variants={fadeUp}>
               <SectionTag>Solutions restauration &amp; CHR</SectionTag>
@@ -275,7 +289,7 @@ export default function SolutionsRestauration() {
 
             <motion.h1
               variants={fadeUp}
-              className="mt-7 text-4xl font-black leading-[1.1] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl"
+              className="mt-5 text-3xl font-black leading-[1.1] tracking-tight text-slate-950 sm:text-4xl lg:text-5xl"
             >
               La technologie au service de{' '}
               <span className="bg-gradient-to-r from-sky-500 via-blue-600 to-blue-800 bg-clip-text text-transparent">
@@ -285,22 +299,22 @@ export default function SolutionsRestauration() {
 
             <motion.p
               variants={fadeUp}
-              className="mt-6 max-w-xl text-base leading-8 text-slate-500 sm:text-lg"
+              className="mt-5 max-w-xl text-sm leading-7 text-slate-500 sm:text-base"
             >
               Une solution complète pour encaisser, prendre les commandes,
-              organiser la cuisine et piloter votre activité. Gagnez du temps
-              et améliorez l’expérience de vos clients.
+              organiser la cuisine et piloter votre activité. Gagnez du
+              temps et améliorez l’expérience de vos clients.
             </motion.p>
 
             <motion.div
               variants={fadeUp}
-              className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
+              className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center"
             >
               <a
                 href={DEMO_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex min-h-13 items-center justify-center gap-3 rounded-full bg-gradient-to-r from-sky-500 to-blue-700 px-7 py-4 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-600/30 focus:outline-none focus:ring-4 focus:ring-sky-200"
+                className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-gradient-to-r from-sky-500 to-blue-700 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-600/30 focus:outline-none focus:ring-4 focus:ring-sky-200"
               >
                 Demander une démonstration
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -308,7 +322,7 @@ export default function SolutionsRestauration() {
 
               <a
                 href="#solutions"
-                className="inline-flex min-h-13 items-center justify-center gap-2 rounded-full border border-slate-200 bg-white/80 px-7 py-4 text-sm font-bold text-slate-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-200 hover:bg-sky-50 hover:text-blue-700"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-slate-200 bg-white/80 px-6 py-3.5 text-sm font-bold text-slate-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-sky-200 hover:bg-sky-50 hover:text-blue-700"
               >
                 Découvrir nos solutions
               </a>
@@ -316,80 +330,41 @@ export default function SolutionsRestauration() {
 
             <motion.div
               variants={fadeUp}
-              className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-slate-500"
+              className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-slate-500"
             >
               <span className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-blue-600" strokeWidth={3} />
                 Solution complète
               </span>
+
               <span className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-blue-600" strokeWidth={3} />
                 Accompagnement personnalisé
               </span>
             </motion.div>
           </motion.div>
-
-          {/* Hero visual */}
-          <motion.div
-            initial={{ opacity: 0, x: 35, scale: 0.97 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="relative mx-auto w-full max-w-xl"
-          >
-            <div className="absolute -inset-5 rounded-[2.5rem] bg-gradient-to-br from-sky-200/60 to-blue-200/40 opacity-70 blur-2xl" />
-
-            <div className="relative rounded-[2rem] border border-white/90 bg-white/80 p-3 shadow-2xl shadow-blue-950/[0.10] backdrop-blur-xl sm:p-4">
-              <div className="relative overflow-hidden rounded-[1.5rem] bg-slate-100">
-                <img
-                  src={heroImage}
-                  alt="Solution technologique pour les professionnels de la restauration"
-                  className="h-[330px] w-full object-cover sm:h-[410px]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
-
-                <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/40 bg-white/90 px-3.5 py-2 text-xs font-bold text-slate-800 shadow-lg backdrop-blur-md">
-                  <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
-                  Une activité mieux connectée
-                </div>
-
-                <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/70 bg-white/95 p-5 shadow-xl backdrop-blur-xl sm:bottom-6 sm:left-6 sm:right-6">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 text-white shadow-md shadow-blue-600/20">
-                      <Sparkles className="h-5 w-5" />
-                    </span>
-                    <div>
-                      <p className="font-bold text-slate-900">
-                        Toute votre activité, mieux connectée.
-                      </p>
-                      <p className="mt-1 text-xs leading-5 text-slate-500">
-                        Caisse, commandes, cuisine et reporting.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <motion.div
-              animate={{ y: [0, -7, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -left-4 top-1/3 hidden items-center gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-xl shadow-blue-950/[0.07] sm:flex lg:-left-10"
-            >
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 text-blue-600">
-                <ChartNoAxesCombined className="h-5 w-5" />
-              </span>
-              <div>
-                <p className="text-xs font-bold text-slate-900">
-                  Gestion simplifiée
-                </p>
-                <p className="mt-1 text-[11px] text-slate-500">
-                  Un meilleur pilotage
-                </p>
-              </div>
-            </motion.div>
-          </motion.div>
         </div>
-      </section>
+
+        {/* Banner */}
+        <div className="flex items-center gap-4 bg-gradient-to-r from-blue-600 to-blue-500 px-5 py-6 text-white sm:gap-5 sm:px-10">
+          <Sparkles className="h-10 w-10 shrink-0 sm:h-12 sm:w-12" strokeWidth={1.5} />
+
+          <div className="border-l border-white/30 pl-4 sm:pl-5">
+            <p className="text-base font-bold sm:text-lg">
+              Toute votre activité, mieux connectée.
+            </p>
+
+            <p className="mt-1 text-xs leading-6 text-blue-50 sm:text-sm">
+              Caisse, commandes, cuisine et reporting réunis dans une
+              seule solution pensée pour votre établissement.
+            </p>
+          </div>
+        </div>
+      </motion.article>
+    </div>
+  </section>
+
+  {/* خلي باقي sections ديالك هنا كما هما */}
 
       {/* =====================================================
           BENEFITS
@@ -524,7 +499,7 @@ export default function SolutionsRestauration() {
             ))}
           </motion.div>
 
-         {/* =====================================================
+          {/* =====================================================
               REPORTING CSI & ERP CSI
           ===================================================== */}
           <div className="mt-12 grid gap-8 lg:grid-cols-2">
@@ -697,7 +672,7 @@ export default function SolutionsRestauration() {
             </motion.article>
           </div>
 
-         {/* =====================================================
+          {/* =====================================================
               SUPPORT TECHNIQUE
           ===================================================== */}
           <div className="mt-8">
