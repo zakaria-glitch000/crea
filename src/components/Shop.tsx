@@ -5,24 +5,30 @@ import {
   ShoppingBasket, Shirt, Cake, Apple, Sofa, Sparkles, BookOpen,
   User, Euro, Ticket, Boxes,
 } from "lucide-react";
-import "./Innoshop.css";
+import "./Innoshop.css";import heroImage from '@/assets/inn.jpg';
+import commercanteImage from '@/assets/commercante.jpg';
+import articleImage from '@/assets/article.jpg';
+import supermarcheImage from '@/assets/sup.jpg';
+import boutiqueImage from '@/assets/boutique.jpg';
+import boulangerieImage from '@/assets/boulangerie.jpg';
+import epicerieImage from '@/assets/epicerie.jpg';
+import bazarImage from '@/assets/bazar.jpg';
+import parfumerieImage from '@/assets/parfumerie.jpg';
+import librairieImage from '@/assets/librairie.jpg';
 
-/* ================== CHEMINS DES IMAGES ==================
-   Les fichiers doivent être dans : public/images/
-   Pour changer une image, modifiez juste le chemin ici. */
 const IMAGES = {
-  hero: "/src/assets/inn.jpg",
-  commercante: "/src/assets/commercante.jpg",
-  article: "/src/assets/article.jpg",
-  supermarche: "/src/assets/sup.jpg",
-  boutique: "/src/assets/boutique.jpg",
-  boulangerie: "/src/assets/boulangerie.jpg",
-  epicerie: "/src/assets/epicerie.jpg",
-  bazar: "/src/assets/bazar.jpg",
-  parfumerie: "/src/assets/parfumerie.jpg",
-  librairie: "/src/assets/librairie.jpg",
-  specialise: "/src/assets/commercante.jpg",
-  pos: "/images/ecran-caisse.jpg", 
+  hero: heroImage,
+  commercante: commercanteImage,
+  article: articleImage,
+  supermarche: supermarcheImage,
+  boutique: boutiqueImage,
+  boulangerie: boulangerieImage,
+  epicerie: epicerieImage,
+  bazar: bazarImage,
+  parfumerie: parfumerieImage,
+  librairie: librairieImage,
+  specialise: commercanteImage,
+  pos: '/images/ecran-caisse.jpg',
 };
 
 /* ---------- Petits composants ---------- */
