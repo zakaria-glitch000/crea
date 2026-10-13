@@ -41,7 +41,7 @@ export default function App() {
       type: 'Entrepôt & Logistique',
       stats: '99.8% Précision',
       image:
-        'stockImage',
+        stockImage,
     },
   {
   id: 2,
@@ -50,7 +50,7 @@ export default function App() {
   type: 'Retail & Franchise',
   stats: '12+ Magasins sync',
   image:
-    'eventImage',
+    eventImage,
 },
     {
       id: 3,
@@ -59,7 +59,7 @@ export default function App() {
       type: 'CRM & Marketing',
       stats: '+45% Rétention',
       image:
-        'reportImage',
+        reportImage,
     },
     {
       id: 4,
@@ -68,7 +68,7 @@ export default function App() {
       type: 'Business Intelligence',
       stats: 'Temps réel',
       image:
-        'gmsImage',
+        gmsImage,
     },
   ];
 
