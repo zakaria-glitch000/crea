@@ -19,6 +19,9 @@ import {
   Headphones, 
   ChevronRight 
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import pcImage from '@/assets/pc.jpeg';
+import caisseImage from '@/assets/00.png';
 
 export default function OraliPage() {
   return (
@@ -53,7 +56,7 @@ export default function OraliPage() {
             <div>
               <div className="h-56 flex items-center justify-center bg-white rounded-lg shadow-inner mb-6 p-4">
                 <img 
-                  src="" 
+                  src={caisseImage}
                   alt="CSI TF-15" 
                   className="max-h-full object-contain"
                 />
@@ -99,7 +102,7 @@ export default function OraliPage() {
             <div>
               <div className="h-56 flex items-center justify-center bg-white rounded-lg shadow-inner mb-6 p-4">
                 <img 
-                  src="" 
+                  src={pcImage} 
                   alt="CSI MINI" 
                   className="max-h-full object-contain"
                 />
@@ -285,11 +288,14 @@ export default function OraliPage() {
           </div>
 
           <div className="text-right">
-            <button className="w-full md:w-auto bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs py-3 px-5 rounded-full shadow-md transition flex items-center justify-center gap-2">
-              Demander un devis
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
+  <Link
+    to="/#contact"
+    className="w-full md:w-auto bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs py-3 px-5 rounded-full shadow-md transition inline-flex items-center justify-center gap-2"
+  >
+    Demander un démo
+    <ChevronRight className="w-4 h-4" />
+  </Link>
+</div>
         </footer>
 
       </div>
