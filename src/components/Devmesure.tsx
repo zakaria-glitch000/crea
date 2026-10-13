@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import stockImage from '@/assets/stock.jpeg';
+import eventImage from '@/assets/event.jpeg';
+import reportImage from '@/assets/report.jpeg';
+import gmsImage from '@/assets/GMS.jpeg';
+import devImage from '@/assets/dev.jpg';
 import {
   Cpu,
   Smartphone,
@@ -36,7 +41,7 @@ export default function App() {
       type: 'Entrepôt & Logistique',
       stats: '99.8% Précision',
       image:
-        '/src/assets/stock.jpeg',
+        'stockImage',
     },
   {
   id: 2,
@@ -45,7 +50,7 @@ export default function App() {
   type: 'Retail & Franchise',
   stats: '12+ Magasins sync',
   image:
-    '/src/assets/event.jpeg',
+    'eventImage',
 },
     {
       id: 3,
@@ -54,7 +59,7 @@ export default function App() {
       type: 'CRM & Marketing',
       stats: '+45% Rétention',
       image:
-        '/src/assets/report.jpeg',
+        'reportImage',
     },
     {
       id: 4,
@@ -63,7 +68,7 @@ export default function App() {
       type: 'Business Intelligence',
       stats: 'Temps réel',
       image:
-        '/src/assets/GMS.jpeg',
+        'gmsImage',
     },
   ];
 
@@ -236,7 +241,7 @@ export default function App() {
   <div className="relative overflow-hidden rounded-[1.75rem] border border-white/80 bg-white p-2 shadow-2xl shadow-blue-900/10">
     <div className="relative overflow-hidden rounded-[1.35rem] bg-slate-50">
       <img
-        src="/src/assets/dev.jpg"
+        src={devImage}
         alt="Développement logiciel et conception de solutions informatiques"
         className="h-[320px] w-full object-contain sm:h-[420px] lg:h-[480px]"
       />
