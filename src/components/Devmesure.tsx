@@ -36,34 +36,34 @@ export default function App() {
       type: 'Entrepôt & Logistique',
       stats: '99.8% Précision',
       image:
-        'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+        '/src/assets/stock.jpeg',
     },
-    {
-      id: 2,
-      title: 'Gestion multi-sites',
-      subtitle: 'Pilotage centralisé pour plusieurs points de vente.',
-      type: 'Retail & Franchise',
-      stats: '12+ Magasins sync',
-      image:
-        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-    },
+  {
+  id: 2,
+  title: "Gestion événementielle",
+  subtitle: 'Pilotage centralisé pour plusieurs points de vente.',
+  type: 'Retail & Franchise',
+  stats: '12+ Magasins sync',
+  image:
+    '/src/assets/event.jpeg',
+},
     {
       id: 3,
-      title: 'Gestion de la relation client',
+      title: 'Reporting',
       subtitle: 'CRM personnalisé avec historique et fidélité.',
       type: 'CRM & Marketing',
       stats: '+45% Rétention',
       image:
-        'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80',
+        '/src/assets/report.jpeg',
     },
     {
       id: 4,
-      title: 'Reporting sur mesure',
+      title: 'GMS',
       subtitle: 'Tableaux de bord adaptés à vos indicateurs métiers.',
       type: 'Business Intelligence',
       stats: 'Temps réel',
       image:
-        'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80',
+        '/src/assets/GMS.jpeg',
     },
   ];
 
