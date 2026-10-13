@@ -35,7 +35,7 @@ const expertises = [
       "Avec INNOSHOP, accompagnez les commerces et points de vente dans l'encaissement, la gestion des stocks et le suivi de leur activité.",
     image: logicielImg,
     iconBg: 'bg-blue-600',
-    linkUrl: '#',
+    linkUrl: '/Shop',
     iconSvg: (
       <svg
         className="h-5 w-5 text-white"

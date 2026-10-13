@@ -33,6 +33,7 @@ import { KdsSolution } from '@/components/KdsSolution';
 import Csi from '@/components/Csi';
 import Affcsi from '@/components/Affcsi';
 import Innep from '@/components/Innep';
+import Shop from '@/components/Shop';
 
 // ============================================================
 // SCROLL TO TOP
@@ -147,6 +148,10 @@ function App() {
     <Route
               path="/Innep"
               element={<Innep />}
+            />
+             <Route
+              path="/Shop"
+              element={<Shop />}
             />
             {/* INNOSHOP */}
             <Route

@@ -229,25 +229,22 @@ export default function App() {
             </div>
           </div>
 
-          {/* IMAGE À DROITE */}
-          <div className="relative z-10 mx-auto w-full max-w-xl lg:ml-auto">
+{/* IMAGE À DROITE */}
+<div className="relative z-10 mx-auto w-full max-w-xl lg:ml-auto">
+  <div className="absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-sky-200/60 via-blue-100/40 to-orange-100/50 blur-2xl" />
 
-            <div className="absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-sky-200/60 via-blue-100/40 to-orange-100/50 blur-2xl" />
+  <div className="relative overflow-hidden rounded-[1.75rem] border border-white/80 bg-white p-2 shadow-2xl shadow-blue-900/10">
+    <div className="relative overflow-hidden rounded-[1.35rem] bg-slate-50">
+      <img
+        src="/src/assets/dev.jpg"
+        alt="Développement logiciel et conception de solutions informatiques"
+        className="h-[320px] w-full object-contain sm:h-[420px] lg:h-[480px]"
+      />
 
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/80 bg-white p-2 shadow-2xl shadow-blue-900/10">
-              <div className="relative overflow-hidden rounded-[1.35rem]">
-                <img
-                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85"
-                  alt="Développement logiciel et conception de solutions informatiques"
-                  className="h-[320px] w-full object-cover sm:h-[420px] lg:h-[480px]"
-                />
-
-                {/* Dégradé sur l'image */}
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-blue-950/35 via-transparent to-white/10" />
-
-                
-              </div>
-            </div>
+      {/* Dégradé léger sur l'image */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-blue-950/10 via-transparent to-white/5" />
+    </div>
+  </div>
 
 
 

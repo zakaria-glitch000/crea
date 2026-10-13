@@ -217,14 +217,13 @@ export default function Innoshop() {
               ))}
             </div>
 
-            {/* IMAGE CONTAINER */}
-            <div className="group relative z-10 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl">
-
-              <img
-                src="/images/innoshop.jpg"
-                alt="Solution de gestion des points de vente ORALI SYSTEMS"
-                className="block min-h-[300px] w-full object-cover sm:min-h-[440px]"
-              />
+{/* IMAGE CONTAINER */}
+<div className="group relative z-10 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl">
+  <img
+    src="/src/assets/10.jpg"
+    alt="Solution de gestion des points de vente ORALI SYSTEMS"
+    className="block h-[300px] w-full object-contain sm:h-[440px]"
+  />
 
               {/* IMAGE CAPTION */}
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent p-5 pt-16 sm:p-7 sm:pt-20">
