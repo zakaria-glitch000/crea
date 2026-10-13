@@ -25,7 +25,7 @@ const products = [
     title: 'Bornes de commande',
     description: 'Des bornes interactives pour simplifier le parcours client.',
     image: borneImage,
-    link: '/produits/bornes-de-commande',
+    link: '/Born',
   },
   {
     title: 'Écrans cuisine KDS',
