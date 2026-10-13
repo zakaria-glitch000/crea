@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 import caisseImage from '@/assets/0.jpg';
 import borneImage from '@/assets/1.jpg';
@@ -8,7 +9,6 @@ import kdsImage from '@/assets/4.jpg';
 import terminalImage from '@/assets/3.jpg';
 import nfLogo from '@/assets/nf.png';
 
-// Importations dyal les nouveaux produits
 import balanceImage from '@/assets/balance.jpg';
 import zebraImage from '@/assets/zebra.jpg';
 import pdaImage from '@/assets/pda.jpg';
@@ -19,41 +19,49 @@ const products = [
     title: 'Caisses enregistreuses',
     description: 'Des équipements fiables et performants.',
     image: caisseImage,
+    link: '/Caisse',
   },
   {
     title: 'Bornes de commande',
     description: 'Des bornes interactives pour simplifier le parcours client.',
     image: borneImage,
+    link: '/produits/bornes-de-commande',
   },
   {
     title: 'Écrans cuisine KDS',
     description: 'Organisez et suivez la préparation des commandes.',
     image: kdsImage,
+    link: '/produits/ecrans-cuisine-kds',
   },
   {
     title: 'Terminaux mobiles',
     description: 'Prenez les commandes directement à table.',
     image: terminalImage,
+    link: '/produits/terminaux-mobiles',
   },
   {
     title: 'Balances professionnelles',
     description: 'Pesage précis et interface tactile intuitive pour commerces.',
     image: balanceImage,
+    link: '/produits/balances-professionnelles',
   },
   {
     title: 'Impression balisage Zebra',
     description: 'Imprimantes thermiques robustes pour étiquettes et bracelets.',
     image: zebraImage,
+    link: '/produits/impression-balisage-zebra',
   },
   {
     title: 'PDA / Terminaux portables',
     description: 'Idéal pour la gestion des stocks, inventaires et scan rapide.',
     image: pdaImage,
+    link: '/produits/pda-terminaux-portables',
   },
   {
     title: 'Étiquettes électroniques',
     description: 'Mise à jour dynamique des prix et des informations en rayon.',
     image: etiquetteImage,
+    link: '/produits/etiquettes-electroniques',
   },
 ];
 
@@ -86,8 +94,8 @@ export default function ProductsSection() {
           </p>
         </div>
 
-        {/* Cartes produits - Grid 4 par ligne sur grand écran */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+        {/* Cartes produits */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {products.map((product, index) => (
             <motion.article
               key={product.title}
@@ -97,10 +105,10 @@ export default function ProductsSection() {
               transition={{ duration: 0.5, delay: index * 0.05 }}
               className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60"
             >
-              {/* Ligne cyan/bleue au survol */}
+              {/* Ligne décorative au survol */}
               <div className="absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-300 group-hover:scale-y-100" />
 
-              {/* Image sghira w mtouffa */}
+              {/* Image du produit */}
               <div className="relative mb-4 flex h-36 items-center justify-center overflow-hidden rounded-xl border border-slate-100 bg-slate-50 p-2">
                 <img
                   src={product.image}
@@ -113,7 +121,7 @@ export default function ProductsSection() {
                 <div className="pointer-events-none absolute -bottom-10 -right-10 h-24 w-24 rounded-full bg-blue-100/70 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
               </div>
 
-              {/* Contenu */}
+              {/* Informations et bouton */}
               <div className="flex flex-1 flex-col">
                 <h3 className="mb-2 text-sm font-bold leading-5 text-slate-900 transition-colors duration-300 group-hover:text-blue-700">
                   {product.title}
@@ -122,6 +130,16 @@ export default function ProductsSection() {
                 <p className="flex-1 text-xs leading-5 text-slate-500">
                   {product.description}
                 </p>
+
+                {/* Bouton vers la page spécifique du produit */}
+                <Link
+                  to={product.link}
+                  aria-label={`En savoir plus sur ${product.title}`}
+                  className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                >
+                  Savoir plus
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
 
                 <div className="mt-4 h-px w-full bg-slate-100 transition-colors duration-300 group-hover:bg-blue-100" />
               </div>
@@ -181,13 +199,13 @@ export default function ProductsSection() {
               </p>
 
               <div className="flex justify-center pt-1 lg:justify-start">
-                <a
-                  href="/nf"
+                <Link
+                  to="/nf"
                   className="group/link inline-flex items-center gap-2 rounded-xl bg-rose-500 px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-rose-600 hover:shadow-lg hover:shadow-rose-500/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500"
                 >
                   En savoir plus sur la NF525
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

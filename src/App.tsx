@@ -34,6 +34,7 @@ import Csi from '@/components/Csi';
 import Affcsi from '@/components/Affcsi';
 import Innep from '@/components/Innep';
 import Shop from '@/components/Shop';
+import Caisse from '@/components/Caisse';
 
 // ============================================================
 // SCROLL TO TOP
@@ -148,6 +149,10 @@ function App() {
     <Route
               path="/Innep"
               element={<Innep />}
+            />
+             <Route
+              path="/Caisse"
+              element={<Caisse />}
             />
              <Route
               path="/Shop"

@@ -14,7 +14,7 @@ import {
   CheckCircle2,
   Sparkles,
 } from 'lucide-react';
-
+import franchiseImage from '@/assets/10.jpg';
 export default function Innoshop() {
   const navigate = useNavigate();
 
@@ -220,7 +220,7 @@ export default function Innoshop() {
 {/* IMAGE CONTAINER */}
 <div className="group relative z-10 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl">
   <img
-    src="/src/assets/10.jpg"
+    src={franchiseImage}
     alt="Solution de gestion des points de vente ORALI SYSTEMS"
     className="block h-[300px] w-full object-contain sm:h-[440px]"
   />
