@@ -53,30 +53,32 @@ const expertises = [
       </svg>
     ),
   },
-  {
-    title: 'Développement de Logiciels sur Mesure',
-    description:
-      'Conception et réalisation d’applications métier personnalisées, adaptées aux besoins et aux processus de chaque entreprise.',
-    image: devImg,
-    iconBg: 'bg-purple-600',
-    linkUrl: '#',
-    iconSvg: (
-      <svg
-        className="h-5 w-5 text-white"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-        />
-      </svg>
-    ),
-  },
+ 
+{
+  title: 'Développement de Logiciels sur Mesure',
+  description:
+    'Conception et réalisation d’applications métier personnalisées, adaptées aux besoins et aux processus de chaque entreprise.',
+  image: devImg,
+  iconBg: 'bg-purple-600',
+  linkUrl: '/Devmesure',
+  iconSvg: (
+    <svg
+      className="h-5 w-5 text-white"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+      />
+    </svg>
+  ),
+},
+
 ];
 
 export default function NosExpertises() {

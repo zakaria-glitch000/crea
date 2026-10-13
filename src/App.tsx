@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+
 import Innoshop from '@/components/Innoshop';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
@@ -14,10 +15,12 @@ import { Testimonials } from '@/components/Testimonials';
 import { CTA } from '@/components/CTA';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
+
 import Franchise from '@/components/Franchise';
 import NosExpertises from './components/NosExpertises';
 import Fonctionnalite from './components/Fonctionnalite';
 import Produit from './components/Produit';
+import Devmesure from './components/Devmesure';
 
 import { Nf525Page } from '@/components/Nf525Page';
 import { PosSolution } from '@/components/PosSolution';
@@ -26,7 +29,7 @@ import { GestionStocks } from '@/components/GestionStocks';
 import { FideliteClient } from '@/components/FideliteClient';
 import { AnalyseVentes } from '@/components/AnalyseVentes';
 import { KdsSolution } from '@/components/KdsSolution';
-// Page Solutions Restauration & CHR
+
 import Csi from '@/components/Csi';
 import Affcsi from '@/components/Affcsi';
 
@@ -38,12 +41,48 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    // Ne pas remonter en haut si on navigue vers une ancre.
+    if (window.location.hash === '#contact') {
+      return;
+    }
+
     window.scrollTo({
       top: 0,
       left: 0,
       behavior: 'instant',
     });
   }, [pathname]);
+
+  return null;
+}
+
+// ============================================================
+// SCROLL VERS LE CONTACT
+// Permet d'accéder au Contact depuis /Devmesure
+// ============================================================
+
+function ScrollToContact() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash !== '#contact') {
+      return;
+    }
+
+    // Attendre le rendu de la page d'accueil.
+    const timeout = window.setTimeout(() => {
+      const contactSection = document.getElementById('contact');
+
+      contactSection?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }, 200);
+
+    return () => {
+      window.clearTimeout(timeout);
+    };
+  }, [pathname, hash]);
 
   return null;
 }
@@ -81,82 +120,85 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <ScrollToContact />
 
       <div className="min-h-screen bg-white text-slate-700 antialiased">
         <Header />
 
         <main>
           <Routes>
-            {/* ================================================
-                PAGE D'ACCUEIL
-            ================================================ */}
+            {/* PAGE D'ACCUEIL */}
             <Route
               path="/"
               element={<HomePage />}
             />
 
-            {/* ================================================
-                SOLUTIONS RESTAURATION & CHR
-            ================================================ */}
+            {/* SOLUTIONS RESTAURATION & CHR */}
             <Route
               path="/solutions-restauration"
               element={<Csi />}
             />
-     <Route
+
+            <Route
               path="/Affcsi"
               element={<Affcsi />}
             />
-            <Route
-  path="/innoshop"
-  element={<Innoshop />}
-/>
-<Route
-  path="/franchise"
-  element={<Franchise />}
-/>
-            {/* ================================================
-                SOLUTIONS
-            ================================================ */}
 
-            {/* Systèmes de caisse & POS */}
+            {/* INNOSHOP */}
+            <Route
+              path="/innoshop"
+              element={<Innoshop />}
+            />
+
+            {/* FRANCHISE */}
+            <Route
+              path="/franchise"
+              element={<Franchise />}
+            />
+
+            {/* DÉVELOPPEMENT SUR MESURE */}
+            <Route
+              path="/Devmesure"
+              element={<Devmesure />}
+            />
+
+            {/* SYSTÈMES DE CAISSE & POS */}
             <Route
               path="/solutions/pos"
               element={<PosSolution />}
             />
 
-            {/* Bornes de commande intelligentes */}
+            {/* BORNES DE COMMANDE */}
             <Route
               path="/solutions/bornes-commande"
               element={<BornesCommande />}
             />
 
-            {/* Gestion des stocks */}
+            {/* GESTION DES STOCKS */}
             <Route
               path="/solutions/gestion-stocks"
               element={<GestionStocks />}
             />
 
-            {/* Fidélité client */}
+            {/* FIDÉLITÉ CLIENT */}
             <Route
               path="/solutions/fidelite-client"
               element={<FideliteClient />}
             />
 
-            {/* Analyse des ventes */}
+            {/* ANALYSE DES VENTES */}
             <Route
               path="/solutions/analyse-ventes"
               element={<AnalyseVentes />}
             />
 
-            {/* KDS — Écran de production cuisine */}
+            {/* KDS - ÉCRAN DE PRODUCTION CUISINE */}
             <Route
               path="/solutions/kds"
               element={<KdsSolution />}
             />
 
-            {/* ================================================
-                NF525
-            ================================================ */}
+            {/* NF525 */}
             <Route
               path="/nf"
               element={<Nf525Page />}
