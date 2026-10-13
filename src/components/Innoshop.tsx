@@ -9,7 +9,7 @@ import {
   Users,
 } from 'lucide-react';
 
-import innoshopImage from '@/assets/0.jpg';
+import innoshopImage from '@/assets/inno.jpg';
 
 export default function Innoshop() {
   // بدّل هاد الرقم برقم WhatsApp ديال الشركة

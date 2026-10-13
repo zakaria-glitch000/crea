@@ -12,7 +12,6 @@ import {
 interface IndustriesProps {
   onSelectIndustry?: (industry: Industry, index: number) => void;
 }
-
 export function Industries({ onSelectIndustry }: IndustriesProps) {
   const navigate = useNavigate();
 
@@ -31,6 +30,14 @@ export function Industries({ onSelectIndustry }: IndustriesProps) {
         .includes('chaînes et franchise')
     ) {
       navigate('/franchise');
+      return;
+    }
+
+    // Retail Moderne → Innep
+    if (
+      industry.title.trim().toLowerCase() === 'retail moderne'
+    ) {
+      navigate('/innep');
       return;
     }
 
