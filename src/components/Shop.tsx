@@ -5,7 +5,7 @@ import {
   ShoppingBasket, Shirt, Cake, Apple, Sofa, Sparkles, BookOpen,
   User, Euro, Ticket, Boxes,
 } from "lucide-react";
-import "./InnoShop.css";
+import "./Innoshop.css";
 
 /* ================== CHEMINS DES IMAGES ==================
    Les fichiers doivent être dans : public/images/
