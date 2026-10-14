@@ -15,17 +15,9 @@ import {
   ArrowRight,
 } from "lucide-react";
 import "./Kds.css";
-
-/*
-  Images attendues dans /public/images :
-  - hero-kitchen.jpg      (cuisine + écran bleu + imprimante)
-  - kds-screen.jpg        (grand écran KDS avec les commandes)
-  - kitchen-1.jpg         (cuisine + imprimante)
-  - kitchen-2.jpg         (écran KDS + cuisiniers)
-  - kitchen-3.jpg         (écran "TERRASSE" occupé/éditée/libre)
-  - pos.png / kiosk.png / handheld.png / kds-small.png  (schéma "solution complète")
-  - logo-orali.png        (logo ORALI SYSTEMS)
-*/
+import heads from '@/assets/9.jpeg';
+import deux from '@/assets/11.jpeg';
+import trois from '@/assets/10.jpeg';
 
 const benefits = [
   {
@@ -126,34 +118,34 @@ const support = [
 export default function KdsPage() {
   return (
     <div className="kds-page">
-      {/* ================= HERO ================= */}
+      {/* ================= 1. HERO ================= */}
       <header className="hero">
-        <div className="hero__bg" aria-hidden="true">
-          <img src="/images/hero-kitchen.jpg" alt="" />
-        </div>
-
         <div className="hero__content">
-          <img className="hero__logo" src="/images/logo-orali.png" alt="Orali Systems – Solutions commerce & restaurant" />
-
+          <br></br>
           <p className="kicker">KDS – ÉCRAN CUISINE</p>
-          <h1 className="hero__title">
-            <strong>Une cuisine plus organisée,</strong>
-            <span>un service plus rapide</span>
-          </h1>
+      <h1 className="hero__title">
+  <strong className="hero__title-white">
+    Une cuisine plus organisée,
+  </strong>
+  <span>un service plus rapide</span>
+</h1>
           <p className="hero__text">
             Notre solution KDS simplifie la gestion des commandes en cuisine,
             élimine les tickets papier et améliore la communication entre la
             salle, les bornes, les PAD et la caisse CSI.
           </p>
         </div>
+        <div className="hero__bg" aria-hidden="true">
+          <img src={heads} alt="Cuisine KDS" />
+        </div>
       </header>
 
-      {/* ================= BÉNÉFICES ================= */}
+      {/* ================= 2. BÉNÉFICES (4 Blocs en Ligne) ================= */}
       <section className="benefits">
         {benefits.map(({ Icon, tone, title, text }) => (
           <article className="benefit" key={title}>
             <div className={`benefit__icon benefit__icon--${tone}`}>
-              <Icon size={34} strokeWidth={1.8} />
+              <Icon size={26} strokeWidth={2} />
             </div>
             <h3>{title}</h3>
             <p>{text}</p>
@@ -161,18 +153,19 @@ export default function KdsPage() {
         ))}
       </section>
 
-      {/* ================= ÉCRAN + FONCTIONNALITÉS ================= */}
+      {/* ================= 3. ÉCRAN + FONCTIONNALITÉS ================= */}
       <section className="showcase">
         <div className="showcase__screen">
           <img src="/src/assets/4.jpg" alt="Écran KDS affichant les commandes en cuisine" />
         </div>
-
         <aside className="features">
           <h2 className="kicker kicker--small">LES FONCTIONNALITÉS DU KDS</h2>
           <ul>
             {features.map(({ Icon, color, title, text }) => (
               <li key={title}>
-                <Icon className={`features__icon features__icon--${color}`} size={38} strokeWidth={1.8} />
+                <div className={`features__icon-box features__icon-box--${color}`}>
+                  <Icon size={20} strokeWidth={2} />
+                </div>
                 <div>
                   <h4>{title}</h4>
                   <p>{text}</p>
@@ -183,14 +176,14 @@ export default function KdsPage() {
         </aside>
       </section>
 
-      {/* ================= GALERIE ================= */}
+      {/* ================= 4. GALERIE (3 Images) ================= */}
       <section className="gallery">
-        <img src="/images/kitchen-1.jpg" alt="Cuisine équipée avec écran et imprimante" />
-        <img src="/images/kitchen-2.jpg" alt="Équipe en cuisine devant l'écran KDS" />
-        <img src="/images/kitchen-3.jpg" alt="Écran KDS Terrasse : occupé, éditée, libre" />
+        <img src={heads} alt="Cuisine équipée avec écran et imprimante" />
+        <img src={deux} alt="Équipe en cuisine devant l'écran KDS" />
+        <img src={trois} alt="Écran KDS Terrasse" />
       </section>
 
-      {/* ================= SOLUTION COMPLÈTE + ACCOMPAGNEMENT ================= */}
+      {/* ================= 5. SOLUTION COMPLÈTE + ACCOMPAGNEMENT ================= */}
       <section className="bottom">
         <div className="bottom__left">
           <p className="kicker kicker--small">UNE SOLUTION COMPLÈTE</p>
@@ -200,18 +193,17 @@ export default function KdsPage() {
             {flow.map((step, i) => (
               <React.Fragment key={step.label}>
                 <figure className="flow__step">
-                  <img src={step.img} alt={step.label} />
+                  <div className="flow__img-wrapper">
+                    <img src={step.img} alt={step.label} />
+                  </div>
                   <figcaption>
                     {step.label}
-                    {step.sub && (
-                      <>
-                        <br />
-                        {step.sub}
-                      </>
-                    )}
+                    {step.sub && <span>{step.sub}</span>}
                   </figcaption>
                 </figure>
-                {i < flow.length - 1 && <ArrowRight className="flow__arrow" size={28} strokeWidth={2} />}
+                {i < flow.length - 1 && (
+                  <ArrowRight className="flow__arrow" size={18} strokeWidth={2.5} />
+                )}
               </React.Fragment>
             ))}
           </div>
@@ -223,7 +215,9 @@ export default function KdsPage() {
           <ul className="support">
             {support.map(({ Icon, title, text }) => (
               <li key={title}>
-                <Icon className="support__icon" size={36} strokeWidth={1.8} />
+                <div className="support__icon-box">
+                  <Icon size={18} strokeWidth={2} />
+                </div>
                 <div>
                   <h4>{title}</h4>
                   <p>{text}</p>
