@@ -19,6 +19,11 @@ import heads from '@/assets/9.jpeg';
 import deux from '@/assets/11.jpeg';
 import trois from '@/assets/10.jpeg';
 
+import caisseImage from '@/assets/0.jpg';
+import borneImage from '@/assets/1.jpg';
+import padImage from '@/assets/3.jpg';
+import kdsImage from '@/assets/4.jpg';
+
 const benefits = [
   {
     Icon: Timer,
@@ -86,12 +91,11 @@ const features = [
 ];
 
 const flow = [
-  { img: "/src/assets/0.jpg", label: "Caisse CSI" },
-  { img: "/src/assets/1.jpg", label: "Borne de commande" },
-  { img: "/src/assets/3.jpg", label: "PAD de prise de commande" },
-  { img: "/src/assets/4.jpg", label: "KDS", sub: "Écran cuisine" },
+  { img: caisseImage, label: "Caisse CSI" },
+  { img: borneImage, label: "Borne de commande" },
+  { img: padImage, label: "PAD de prise de commande" },
+  { img: kdsImage, label: "KDS", sub: "Écran cuisine" },
 ];
-
 const support = [
   {
     Icon: Settings,
@@ -156,8 +160,10 @@ export default function KdsPage() {
       {/* ================= 3. ÉCRAN + FONCTIONNALITÉS ================= */}
       <section className="showcase">
         <div className="showcase__screen">
-          <img src="/src/assets/4.jpg" alt="Écran KDS affichant les commandes en cuisine" />
-        </div>
+<img
+  src={kdsImage}
+  alt="Écran KDS affichant les commandes en cuisine"
+/>        </div>
         <aside className="features">
           <h2 className="kicker kicker--small">LES FONCTIONNALITÉS DU KDS</h2>
           <ul>

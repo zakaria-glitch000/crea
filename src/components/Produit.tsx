@@ -49,19 +49,19 @@ const products = [
     title: 'Impression balisage Zebra',
     description: 'Imprimantes thermiques robustes pour étiquettes et bracelets.',
     image: zebraImage,
-    link: '/produits/impression-balisage-zebra',
+    link: '/Zebra',
   },
   {
     title: 'PDA / Terminaux portables',
     description: 'Idéal pour la gestion des stocks, inventaires et scan rapide.',
     image: pdaImage,
-    link: '/produits/pda-terminaux-portables',
+    link: '/Stock',
   },
   {
     title: 'Étiquettes électroniques',
     description: 'Mise à jour dynamique des prix et des informations en rayon.',
     image: etiquetteImage,
-    link: '/produits/etiquettes-electroniques',
+    link: '/Etiquette',
   },
 ];
 

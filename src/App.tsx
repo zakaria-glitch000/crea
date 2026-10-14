@@ -39,6 +39,9 @@ import Born from '@/components/Born';
 import Kds from '@/components/Kds';
 import Pda from '@/components/Pda';
 import Balance from '@/components/Balance';
+import Zebra from '@/components/Zebra';
+import Stock from '@/components/Stock';
+import Etiquette from '@/components/Etiquette';
 
 // ============================================================
 // SCROLL TO TOP
@@ -150,9 +153,21 @@ function App() {
               path="/Affcsi"
               element={<Affcsi />}
             />
-    <Route
+            <Route
+              path="/Etiquette"
+              element={<Etiquette />}
+            />
+              <Route
               path="/Innep"
               element={<Innep />}
+            />
+             <Route
+              path="/Stock"
+              element={<Stock />}
+            />
+               <Route
+              path="/Zebra"
+              element={<Zebra />}
             />
                <Route
               path="/Balance"
