@@ -37,13 +37,13 @@ const products = [
     title: 'Terminaux mobiles',
     description: 'Prenez les commandes directement à table.',
     image: terminalImage,
-    link: '/produits/terminaux-mobiles',
+    link: '/Pda',
   },
   {
     title: 'Balances professionnelles',
     description: 'Pesage précis et interface tactile intuitive pour commerces.',
     image: balanceImage,
-    link: '/produits/balances-professionnelles',
+    link: '/Balance',
   },
   {
     title: 'Impression balisage Zebra',

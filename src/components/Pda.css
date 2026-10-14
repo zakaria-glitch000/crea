@@ -1,0 +1,125 @@
+:root {
+  --orange: #f26a1b;
+  --navy: #0e1b3d;
+  --text: #2b3550;
+  --muted: #6b7690;
+}
+
+* { box-sizing: border-box; }
+
+.orali {
+  max-width: 1024px;
+  margin: 80px auto 0;
+  background: #fff;
+  color: var(--text);
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  overflow: hidden;
+}
+
+.eyebrow {
+  color: var(--orange);
+  letter-spacing: 1.5px;
+  font-size: 20px;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+}
+.eyebrow.center { text-align: center; font-size: 17px; }
+
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 340px;
+  background-size: cover;
+  background-position: right center;
+  padding: 28px 44px 20px;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, #fff 0%, #fff 45%, rgba(255,255,255,0) 75%);
+}
+.hero-content { position: relative; max-width: 560px; }
+.logo { height: 48px; margin-bottom: 26px; }
+.hero h1 {
+  font-size: 46px; line-height: 1.05; font-weight: 800;
+  color: var(--navy); margin: 0 0 16px;
+}
+.lead { font-size: 17px; line-height: 1.5; margin: 0; }
+.hero-script {
+  position: absolute; top: 40px; right: 70px;
+  font-family: "Caveat", "Brush Script MT", cursive;
+  font-style: italic; font-size: 36px; line-height: 1.1;
+  color: var(--orange); transform: rotate(-9deg);
+  text-align: right;
+}
+
+/* CARTES */
+.cards {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  padding: 0 22px; margin-top: -10px;
+}
+.card {
+  background: #f7f9fd; border-radius: 18px; padding: 18px 14px 14px;
+}
+.card-img { height: 370px; display: flex; justify-content: center; align-items: flex-end; }
+.card-img img { max-height: 100%; max-width: 100%; object-fit: contain; }
+.card h2 { font-size: 26px; font-weight: 700; color: var(--navy); margin: 18px 0 2px; }
+.card-sub { margin: 0 0 14px; font-size: 16px; }
+.features { list-style: none; margin: 0; padding: 0; display: flex; }
+.features li {
+  flex: 1; text-align: center; font-size: 12px; padding: 0 4px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  border-right: 1px solid #dde3ef;
+}
+.features li:last-child { border-right: 0; }
+
+/* AVANTAGES */
+.advantages {
+  margin: 14px 22px; padding: 18px 12px 14px;
+  background: #fff4ec; border-radius: 18px;
+}
+.section-title {
+  text-align: center; font-size: 30px; font-weight: 800;
+  color: var(--navy); margin: 0 0 14px;
+}
+.section-title.left { text-align: left; font-size: 28px; }
+.adv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.adv {
+  background: #fff; border-radius: 12px; padding: 14px 10px; text-align: center;
+}
+.adv-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.adv h3 { margin: 8px 0 4px; font-size: 16px; color: var(--navy); }
+.adv p { margin: 0; font-size: 13.5px; color: var(--muted); }
+
+/* SOLUTION CONNECTÉE */
+.connected {
+  display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px;
+  margin: 0 22px 22px; padding: 20px; background: #f7f9fd; border-radius: 18px;
+}
+.flow { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+.flow figure { margin: 0; text-align: center; font-size: 14.5px; font-weight: 600; color: var(--navy); }
+.flow img { display: block; margin: 0 auto 10px; object-fit: contain; }
+.flow-pad { height: 130px; }
+.flow-kds { height: 110px; }
+.flow-caisse { height: 120px; }
+.arrow { flex: none; }
+.services {
+  list-style: none; margin: 0; padding: 0 0 0 24px;
+  border-left: 1px solid #dde3ef;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.services li { display: flex; align-items: center; gap: 14px; }
+.services strong { display: block; font-size: 15px; color: var(--navy); }
+.services span { font-size: 14px; color: var(--muted); }
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+  .cards, .adv-grid, .connected { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 32px; }
+  .hero-script { display: none; }
+  .hero-overlay { background: rgba(255,255,255,.85); }
+  .flow { flex-wrap: wrap; gap: 16px; justify-content: center; }
+  .services { border-left: 0; padding-left: 0; gap: 14px; }
+}

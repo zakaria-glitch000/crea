@@ -37,6 +37,8 @@ import Shop from '@/components/Shop';
 import Caisse from '@/components/Caisse';
 import Born from '@/components/Born';
 import Kds from '@/components/Kds';
+import Pda from '@/components/Pda';
+import Balance from '@/components/Balance';
 
 // ============================================================
 // SCROLL TO TOP
@@ -153,8 +155,16 @@ function App() {
               element={<Innep />}
             />
                <Route
+              path="/Balance"
+              element={<Balance />}
+            />
+               <Route
               path="/Kds"
               element={<Kds />}
+            />
+                   <Route
+              path="/Pda"
+              element={<Pda />}
             />
              <Route
               path="/Caisse"
