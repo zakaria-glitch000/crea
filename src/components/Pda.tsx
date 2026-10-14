@@ -5,6 +5,13 @@ import {
   Wrench, Headset, ArrowRight,
 } from "lucide-react";
 import "./Pda.css";
+import pdaImage from '@/assets/20.png';
+import deuxImage from '@/assets/21.png';
+import troisImage from '@/assets/22.png';
+import heroImage from '@/assets/90.jpeg';
+import quatreImage from '@/assets/3.jpg';
+import cinqImage from '@/assets/00.png';
+import sixImage from '@/assets/4.jpg';
 
 /*
   IMAGES À PLACER dans /public/images/ :
@@ -20,7 +27,7 @@ import "./Pda.css";
 
 const cards = [
   {
-    img: "/images/pad-csi.png",
+    img:pdaImage,
     title: "PAD CSI",
     subtitle: "Robuste, léger et performant",
     features: [
@@ -30,7 +37,7 @@ const cards = [
     ],
   },
   {
-    img: "/images/interface-commande.png",
+    img: deuxImage,
     title: "Interface de commande",
     subtitle: "Simple et intuitive",
     features: [
@@ -41,7 +48,7 @@ const cards = [
     ],
   },
   {
-    img: "/images/plan-de-salle.png",
+    img: troisImage,
     title: "Plan de salle",
     subtitle: "Visualisez et gérez vos tables en temps réel",
     features: [
@@ -74,25 +81,34 @@ const services = [
 export default function OraliPage() {
   return (
     <div className="orali">
-      {/* HERO */}
-      <header className="hero" style={{ backgroundImage: "url(/images/hero.jpg)" }}>
-        <div className="hero-overlay" />
-        <div className="hero-content">
-          <img className="logo" src="/images/logo-orali.png" alt="Orali Systems" />
-          <p className="eyebrow">PDA / TERMINAL DE PRISE DE COMMANDE</p>
-          <h1>
-            Un service plus rapide <br /> au bout des mains
-          </h1>
-          <p className="lead">
-            Le terminal mobile CSI vous permet de prendre les commandes
-            directement à table, de les envoyer en cuisine via le KDS et de les
-            intégrer à votre caisse, pour un service fluide et plus efficace.
-          </p>
-        </div>
-        <div className="hero-script">
-          La prise de commande <br /> en toute mobilité
-        </div>
-      </header>
+{/* HERO */}
+<header className="hero">
+  <div
+    className="hero-bg"
+    style={{ backgroundImage: `url(${heroImage})` }}
+    aria-hidden="true"
+  />
+
+  <div className="hero-overlay" />
+
+  <div className="hero-content">
+    <p className="eyebrow">PDA / TERMINAL DE PRISE DE COMMANDE</p>
+
+    <h1>
+      Un service plus rapide <br /> au bout des mains
+    </h1>
+
+    <p className="lead">
+      Le terminal mobile CSI vous permet de prendre les commandes
+      directement à table, de les envoyer en cuisine via le KDS et de les
+      intégrer à votre caisse, pour un service fluide et plus efficace.
+    </p>
+  </div>
+
+  <div className="hero-script">
+    La prise de commande <br /> en toute mobilité
+  </div>
+</header>
 
       {/* 3 CARTES */}
       <section className="cards">
@@ -139,17 +155,17 @@ export default function OraliPage() {
           <h2 className="section-title left">De la table à la cuisine, sans délai</h2>
           <div className="flow">
             <figure>
-              <img src="/images/flow-pad.png" alt="PAD CSI" className="flow-pad" />
+              <img src={quatreImage} alt="PAD CSI" className="flow-pad" />
               <figcaption>Prise de commande <br /> sur PAD CSI</figcaption>
             </figure>
             <ArrowRight className="arrow" size={40} color="#f26a1b" />
             <figure>
-              <img src="/images/flow-kds.png" alt="KDS" className="flow-kds" />
+              <img src={sixImage} alt="KDS" className="flow-kds" />
               <figcaption>Affichage en cuisine <br /> sur KDS</figcaption>
             </figure>
             <ArrowRight className="arrow" size={40} color="#f26a1b" />
             <figure>
-              <img src="/images/flow-caisse.png" alt="Caisse CSI" className="flow-caisse" />
+              <img src={cinqImage} alt="Caisse CSI" className="flow-caisse" />
               <figcaption>Intégration à la caisse <br /> CSI</figcaption>
             </figure>
           </div>
