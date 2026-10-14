@@ -14,20 +14,13 @@ import cinqImage from '@/assets/00.png';
 import sixImage from '@/assets/4.jpg';
 
 /*
-  IMAGES À PLACER dans /public/images/ :
-  - logo-orali.png        (logo ORALI SYSTEMS)
-  - hero.jpg              (photo serveur avec PDA, arrière-plan restaurant)
-  - pad-csi.png           (écran d'accueil du PAD CSI)
-  - interface-commande.png(écran de commande)
-  - plan-de-salle.png     (écran TERRASSE)
-  - flow-pad.png          (petit PAD)
-  - flow-kds.png          (écran KDS)
-  - flow-caisse.png       (terminal caisse CSI)
+  IMAGE À PLACER dans /public/images/ :
+  - logo-orali.png  (logo ORALI SYSTEMS)
 */
 
 const cards = [
   {
-    img:pdaImage,
+    img: pdaImage,
     title: "PAD CSI",
     subtitle: "Robuste, léger et performant",
     features: [
@@ -81,34 +74,53 @@ const services = [
 export default function OraliPage() {
   return (
     <div className="orali">
-{/* HERO */}
-<header className="hero">
-  <div
-    className="hero-bg"
-    style={{ backgroundImage: `url(${heroImage})` }}
-    aria-hidden="true"
-  />
+      {/* HERO */}
+      <header className="hero">
+    <div
+  className="hero-bg"
+  style={{
+    backgroundImage: `url("${heroImage}")`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  }}
+  aria-hidden="true"
+/>
+        <div className="hero-overlay" />
 
-  <div className="hero-overlay" />
+      
 
-  <div className="hero-content">
-    <p className="eyebrow">PDA / TERMINAL DE PRISE DE COMMANDE</p>
+        <div className="hero-content">
+          <p className="eyebrow hero-eyebrow">PDA / TERMINAL DE PRISE DE COMMANDE</p>
+          <h1>
+            Un service plus rapide <br /> au bout des mains
+          </h1>
+          <p className="lead">
+            Le terminal mobile CSI vous permet de prendre les commandes
+            directement à table, de les envoyer en cuisine via le KDS et de les
+            intégrer à votre caisse, pour un service fluide et plus efficace.
+          </p>
+        </div>
 
-    <h1>
-      Un service plus rapide <br /> au bout des mains
-    </h1>
+        <div className="hero-script">
+          La prise de commande <br /> en toute mobilité
+        </div>
 
-    <p className="lead">
-      Le terminal mobile CSI vous permet de prendre les commandes
-      directement à table, de les envoyer en cuisine via le KDS et de les
-      intégrer à votre caisse, pour un service fluide et plus efficace.
-    </p>
-  </div>
-
-  <div className="hero-script">
-    La prise de commande <br /> en toute mobilité
-  </div>
-</header>
+        <svg
+          className="hero-wave"
+          viewBox="0 0 1200 80"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path d="M0 0 C 300 70, 700 80, 1200 10 L1200 80 L0 80 Z" fill="#fff" />
+          <path
+            d="M760 62 C 900 50, 1100 28, 1200 10"
+            fill="none"
+            stroke="#f26a1b"
+            strokeWidth="3"
+          />
+        </svg>
+      </header>
 
       {/* 3 CARTES */}
       <section className="cards">
@@ -122,7 +134,7 @@ export default function OraliPage() {
             <ul className="features">
               {c.features.map(({ icon: Icon, label }) => (
                 <li key={label}>
-                  <Icon size={30} strokeWidth={1.6} color="#f26a1b" />
+                  <Icon size={30} strokeWidth={1.5} color="#f26a1b" />
                   <span>{label}</span>
                 </li>
               ))}
@@ -133,17 +145,32 @@ export default function OraliPage() {
 
       {/* AVANTAGES */}
       <section className="advantages">
-        <p className="eyebrow center">LES AVANTAGES POUR VOTRE ÉTABLISSEMENT</p>
-        <h2 className="section-title">Un service plus fluide et plus efficace</h2>
+        <p className="eyebrow center">
+          LES AVANTAGES POUR VOTRE ÉTABLISSEMENT
+        </p>
+
+        <h2 className="section-title">
+          Un service plus fluide et plus efficace
+        </h2>
+
         <div className="adv-grid">
           {advantages.map(({ icon: Icon, color, bg, title, text }) => (
-            <div className="adv" key={title}>
-              <span className="adv-icon" style={{ background: bg }}>
-                <Icon size={30} color={color} strokeWidth={1.8} />
-              </span>
+            <article className="adv" key={title}>
+              <div
+                className="adv-icon"
+                style={{ backgroundColor: bg }}
+              >
+                <Icon
+                  size={38}
+                  color={color}
+                  strokeWidth={1.8}
+                  aria-hidden="true"
+                />
+              </div>
+
               <h3>{title}</h3>
               <p>{text}</p>
-            </div>
+            </article>
           ))}
         </div>
       </section>
@@ -158,12 +185,12 @@ export default function OraliPage() {
               <img src={quatreImage} alt="PAD CSI" className="flow-pad" />
               <figcaption>Prise de commande <br /> sur PAD CSI</figcaption>
             </figure>
-            <ArrowRight className="arrow" size={40} color="#f26a1b" />
+            <ArrowRight className="arrow" size={44} color="#f26a1b" />
             <figure>
               <img src={sixImage} alt="KDS" className="flow-kds" />
               <figcaption>Affichage en cuisine <br /> sur KDS</figcaption>
             </figure>
-            <ArrowRight className="arrow" size={40} color="#f26a1b" />
+            <ArrowRight className="arrow" size={44} color="#f26a1b" />
             <figure>
               <img src={cinqImage} alt="Caisse CSI" className="flow-caisse" />
               <figcaption>Intégration à la caisse <br /> CSI</figcaption>
@@ -174,7 +201,7 @@ export default function OraliPage() {
         <ul className="services">
           {services.map(({ icon: Icon, title, text }) => (
             <li key={title}>
-              <Icon size={38} strokeWidth={1.6} color="#f26a1b" />
+              <Icon size={38} strokeWidth={1.5} color="#f26a1b" />
               <div>
                 <strong>{title}</strong>
                 <span>{text}</span>

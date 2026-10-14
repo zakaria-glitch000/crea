@@ -1,308 +1,849 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
 :root {
   --navy: #0e1f5b;
   --orange: #f26a1b;
   --text: #2b3350;
   --muted: #5a6280;
-}
-
-* {
-  box-sizing: border-box;
+  --blue: #2563eb;
+  --border: #e2e8f0;
 }
 
 .orali {
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 0 20px 24px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 0 30px;
+  overflow: hidden;
   font-family: "Poppins", "Segoe UI", Arial, sans-serif;
   color: var(--text);
   background: #fff;
 }
 
+.orali *,
+.orali *::before,
+.orali *::after {
+  box-sizing: border-box;
+}
+
+.orali img {
+  max-width: 100%;
+}
+
+.orali h1,
+.orali h2,
+.orali h3,
+.orali h4 {
+  margin-top: 0;
+}
+
+.orali a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .eyebrow {
   color: var(--orange);
-  letter-spacing: 3px;
-  font-size: 18px;
-  font-weight: 500;
-  margin: 0 0 8px;
+  letter-spacing: 2.5px;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 12px;
 }
+
 .eyebrow--center {
   text-align: center;
+  margin-bottom: 8px;
 }
 
-h1,
-h2,
-h3 {
-  color: var(--navy);
-  margin: 0;
-}
+/* =====================================================
+   HERO
+   Compatible avec le nouveau JSX utilisant Tailwind
+===================================================== */
 
-/* ============ HERO ============ */
-.hero {
+.orali > .hero {
   position: relative;
-  margin: 0 -20px;
-  min-height: 340px;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: none;
+  min-height: 680px;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
+  background: linear-gradient(135deg, #fff, #f0f9ff);
 }
-.hero__bg {
+
+/* Image de fond : conserve l'image entière autant que possible */
+.orali .hero__bg {
   position: absolute;
   inset: 0;
+  z-index: -3;
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: right center;
+  background: #f8fafc;
 }
-.hero__overlay {
+
+/* Voile clair pour garder le texte lisible */
+.orali .hero__overlay {
   position: absolute;
   inset: 0;
+  z-index: -2;
   background: linear-gradient(
     90deg,
-    #fff 0%,
-    rgba(255, 255, 255, 0.95) 45%,
-    rgba(255, 255, 255, 0) 75%
+    rgba(255, 255, 255, 0.99) 0%,
+    rgba(255, 255, 255, 0.96) 30%,
+    rgba(255, 255, 255, 0.82) 48%,
+    rgba(255, 255, 255, 0.28) 75%,
+    rgba(255, 255, 255, 0.08) 100%
   );
 }
-.hero__content {
+
+.orali .hero__swoosh {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 34%;
+  height: 28%;
+  pointer-events: none;
+}
+
+.orali .hero__content {
   position: relative;
-  padding: 22px 20px 20px 40px;
-  max-width: 620px;
+  z-index: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 125px 40px 80px;
 }
-.hero__logo {
-  height: 52px;
+
+.orali .hero__logo {
   display: block;
-  margin-bottom: 36px;
+  width: auto;
+  max-width: 190px;
+  max-height: 60px;
+  margin-bottom: 30px;
+  object-fit: contain;
+  object-position: left center;
 }
-.hero h1 {
-  font-size: 44px;
-  line-height: 1.08;
-  font-weight: 700;
-  margin-bottom: 14px;
+
+.orali .hero h1 {
+  max-width: 850px;
+  margin: 0 0 22px;
+  color: #0f172a;
+  font-size: clamp(38px, 5vw, 70px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -1.8px;
 }
-.hero__text {
+
+.orali .hero__text {
+  max-width: 660px;
+  margin: 0;
+  color: #475569;
   font-size: 17px;
-  line-height: 1.45;
-  margin: 0;
+  line-height: 1.9;
 }
 
-/* ============ AVANTAGES ============ */
-.advantages {
+/* =====================================================
+   NOUVEAU HERO TAILWIND
+   Les règles suivantes complètent le JSX récent.
+===================================================== */
+
+.orali > header.relative.isolate {
+  min-height: 680px;
+  padding-top: 0;
+}
+
+.orali > header.relative.isolate > div.mx-auto {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.orali > header.relative.isolate h1 {
+  color: #0f172a;
+}
+
+.orali > header.relative.isolate p {
+  overflow-wrap: break-word;
+}
+
+.orali > header.relative.isolate img {
+  max-width: none;
+}
+
+/* =====================================================
+   AVANTAGES
+===================================================== */
+
+.orali .advantages {
+  position: relative;
+  z-index: 2;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 4px;
-  margin-top: 4px;
-}
-.advantage {
-  background: #fafafc;
-  border-radius: 14px;
-  padding: 12px 10px 16px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(14, 31, 91, 0.05);
-}
-.advantage h3 {
-  font-size: 16px;
-  margin: 10px 0 6px;
-}
-.advantage p {
-  font-size: 13.5px;
-  line-height: 1.35;
-  margin: 0;
-  color: var(--muted);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 35px 0;
 }
 
-/* ============ CERCLES D'ICÔNES ============ */
-.icon-circle {
+.orali .advantage {
+  min-width: 0;
+  padding: 26px 22px;
+  text-align: left;
+  background: #fff;
+  border: 1px solid #e8edf5;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.045);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.orali .advantage:hover {
+  transform: translateY(-5px);
+  border-color: #bfdbfe;
+  box-shadow: 0 18px 35px rgba(37, 99, 235, 0.09);
+}
+
+.orali .advantage h3 {
+  margin: 16px 0 9px;
+  color: #0f172a;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.orali .advantage p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* =====================================================
+   CERCLES D'ICÔNES
+===================================================== */
+
+.orali .icon-circle {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 17px;
+}
+
+.orali .icon-circle--orange {
+  color: #f26a1b;
+  background: #fff1e6;
+}
+
+.orali .icon-circle--blue {
+  color: #2563eb;
+  background: #dbeafe;
+}
+
+.orali .icon-circle--green {
+  color: #16a34a;
+  background: #dcfce7;
+}
+
+.orali .icon-circle--purple {
+  color: #9333ea;
+  background: #f3e8ff;
+}
+
+.orali .icon-circle--red {
+  color: #e11d48;
+  background: #ffe4e6;
+}
+
+/* =====================================================
+   SOLUTION INTÉGRÉE
+===================================================== */
+
+.orali .integrated {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 45px;
+  width: min(1200px, calc(100% - 48px));
+  margin: 30px auto;
+  padding: 55px 45px;
+  overflow: hidden;
+  border: 1px solid #edf1f7;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #f8fafc, #fff 65%, #fff7ed);
+}
+
+.orali .integrated__text {
+  min-width: 0;
+}
+
+.orali .integrated h2 {
+  margin: 0 0 20px;
+  color: #0f172a;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+}
+
+.orali .integrated__text > p:not(.eyebrow) {
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.orali .integrated .eyebrow {
+  font-size: 13px;
+}
+
+.orali .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 68px;
-  height: 68px;
-  border-radius: 50%;
-}
-.icon-circle--orange { background: #fde5d6; color: #f26a1b; }
-.icon-circle--blue   { background: #dde8fb; color: #2f6bd9; }
-.icon-circle--green  { background: #d9f1de; color: #2fa84f; }
-.icon-circle--purple { background: #ece2fb; color: #8a3fe0; }
-.icon-circle--red    { background: #fde0e3; color: #e0384f; }
-
-/* ============ SOLUTION INTÉGRÉE ============ */
-.integrated {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  align-items: center;
   gap: 10px;
-  margin-top: 18px;
-  padding: 22px 24px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #f7f8fc, #fff);
-}
-.integrated h2 {
-  font-size: 32px;
-  line-height: 1.1;
-  margin-bottom: 14px;
-}
-.integrated p {
-  font-size: 17px;
-  line-height: 1.45;
-}
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 14px;
-  padding: 14px 34px;
-  border-radius: 999px;
-  background: var(--orange);
+  margin-top: 25px;
+  padding: 14px 25px;
   color: #fff;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 700;
   text-decoration: none;
-  transition: transform 0.15s, box-shadow 0.15s;
+  background: var(--orange);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(242, 106, 27, 0.2);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
-.btn:hover {
+
+.orali .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(242, 106, 27, 0.35);
+  background: #e85d10;
+  box-shadow: 0 12px 25px rgba(242, 106, 27, 0.28);
 }
-.integrated__visual {
+
+.orali .integrated__visual {
   position: relative;
+  min-width: 0;
+  padding-bottom: 80px;
 }
-.integrated__visual img {
-  width: 100%;
+
+.orali .integrated__visual > img {
   display: block;
+  width: 100%;
+  max-height: 470px;
+  object-fit: contain;
+  border-radius: 16px;
 }
-.caption {
+
+.orali .caption {
   position: absolute;
   bottom: 0;
-  font-size: 13.5px;
-  line-height: 1.3;
+  z-index: 1;
   color: var(--navy);
-}
-.caption--left { left: 8%; }
-.caption--right { right: 2%; }
-
-/* ============ FONCTIONNALITÉS ============ */
-.features {
-  margin-top: 16px;
-  padding: 20px 10px 14px;
-  border-radius: 18px;
-  background: #fff4ec;
-}
-.features__title {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
   text-align: center;
-  font-size: 30px;
-  margin-bottom: 14px;
-}
-.features__grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
-}
-.feature {
-  background: #fff;
-  border-radius: 12px;
-  padding: 14px 10px 18px;
-  text-align: center;
-}
-.feature h3 {
-  font-size: 16px;
-  margin: 10px 0 6px;
-}
-.feature p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.35;
-  color: var(--muted);
 }
 
-/* ============ SECTEURS ============ */
-.sectors {
-  display: grid;
-  grid-template-columns: 1.35fr repeat(5, 1fr);
-  gap: 8px;
-  align-items: center;
-  margin-top: 16px;
-  padding: 14px 10px;
-  border-radius: 18px;
-  background: #f7f9fc;
-}
-.sectors__intro h2 {
-  font-size: 26px;
-  line-height: 1.1;
-}
-.sectors__intro .eyebrow {
-  font-size: 16px;
-  letter-spacing: 2px;
-}
-.sector {
-  margin: 0;
-  text-align: center;
-}
-.sector img {
-  width: 100%;
-  aspect-ratio: 1 / 1.05;
-  object-fit: cover;
-  border-radius: 6px;
+.orali .caption__arrow {
   display: block;
-}
-.sector figcaption {
-  font-size: 13px;
-  color: var(--navy);
-  margin-top: 6px;
+  width: 100%;
+  max-width: 160px;
+  height: 32px;
+  margin: 0 auto 5px;
 }
 
-/* ============ SUPPORT ============ */
-.support {
-  display: grid;
-  grid-template-columns: 2.4fr repeat(4, 1fr);
-  align-items: center;
-  margin-top: 16px;
-  padding: 22px 20px;
-  border-radius: 14px;
-  background: var(--navy);
-  color: #fff;
+.orali .caption--left {
+  left: 2%;
+  width: 47%;
 }
-.support__main {
-  display: flex;
+
+.orali .caption--right {
+  right: 0;
+  left: auto;
+  width: 45%;
+}
+
+/* =====================================================
+   FONCTIONNALITÉS
+===================================================== */
+
+.orali .features {
+  width: min(1200px, calc(100% - 48px));
+  margin: 35px auto;
+  padding: 48px 30px;
+  border: 1px solid #ffeadb;
+  border-radius: 26px;
+  background: linear-gradient(135deg, #fff7f0, #fffaf7);
+}
+
+.orali .features__title {
+  max-width: 750px;
+  margin: 12px auto 32px;
+  color: #0f172a;
+  font-size: clamp(25px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.3;
+  text-align: center;
+  letter-spacing: -0.7px;
+}
+
+.orali .features__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.orali .feature {
+  min-width: 0;
+  padding: 24px 17px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #f1f5f9;
+  border-radius: 18px;
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.035);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.orali .feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 25px rgba(15, 23, 42, 0.07);
+}
+
+.orali .feature h3 {
+  margin: 16px 0 9px;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.orali .feature p {
+  margin: 0;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* =====================================================
+   SECTEURS
+===================================================== */
+
+.orali .sectors {
+  display: grid;
+  grid-template-columns: minmax(190px, 1.5fr) repeat(5, minmax(0, 1fr));
   align-items: center;
   gap: 16px;
+  width: min(1200px, calc(100% - 48px));
+  margin: 35px auto;
+  padding: 28px;
+  border: 1px solid #edf1f7;
+  border-radius: 25px;
+  background: #f8fafc;
+}
+
+.orali .sectors__intro {
+  min-width: 0;
+  padding-right: 8px;
+}
+
+.orali .sectors__intro .eyebrow {
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  line-height: 1.8;
+}
+
+.orali .sectors__intro h2 {
+  margin: 12px 0 0;
+  color: #0f172a;
+  font-size: clamp(22px, 2.2vw, 29px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.orali .sector {
+  min-width: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.orali .sector img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 13px;
+  box-shadow: 0 5px 15px rgba(15, 23, 42, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.orali .sector:hover img {
+  transform: translateY(-4px);
+}
+
+.orali .sector figcaption {
+  margin-top: 10px;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   SUPPORT
+===================================================== */
+
+.orali .support {
+  display: grid;
+  grid-template-columns: minmax(260px, 2.2fr) repeat(4, minmax(0, 1fr));
+  align-items: center;
+  gap: 12px;
+  width: min(1200px, calc(100% - 48px));
+  margin: 35px auto 0;
+  padding: 35px 28px;
+  color: #fff;
+  border-radius: 23px;
+  background: linear-gradient(120deg, #0e1f5b, #152e78);
+}
+
+.orali .support__main {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
   padding-right: 20px;
 }
-.support__gear {
-  color: var(--orange);
+
+.orali .support__gear {
   flex-shrink: 0;
-}
-.support h3 {
   color: var(--orange);
-  font-size: 22px;
-  line-height: 1.1;
-  margin-bottom: 6px;
 }
-.support__main p {
+
+.orali .support h3 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.orali .support__main p {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.35;
+  color: #dbeafe;
+  font-size: 12px;
+  line-height: 1.8;
 }
-.support__item {
+
+.orali .support__item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 4px 10px;
+  justify-content: center;
+  gap: 12px;
+  min-width: 0;
+  height: 100%;
+  padding: 12px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.6;
   text-align: center;
-  font-size: 13.5px;
-  border-left: 1px solid rgba(255, 255, 255, 0.35);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* ============ RESPONSIVE ============ */
-@media (max-width: 860px) {
-  .hero h1 { font-size: 32px; }
-  .hero__overlay {
-    background: linear-gradient(180deg, #fff 55%, rgba(255, 255, 255, 0.3));
+.orali .support__item svg {
+  flex-shrink: 0;
+  color: #fb923c;
+}
+
+/* =====================================================
+   RESPONSIVE — TABLETTE
+===================================================== */
+
+@media (max-width: 1050px) {
+  .orali > .hero,
+  .orali > header.relative.isolate {
+    min-height: 630px;
   }
-  .advantages,
-  .features__grid { grid-template-columns: repeat(2, 1fr); }
-  .integrated { grid-template-columns: 1fr; }
-  .sectors { grid-template-columns: repeat(2, 1fr); }
-  .sectors__intro { grid-column: 1 / -1; }
-  .support { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .support__main { grid-column: 1 / -1; }
-  .support__item { border-left: 0; }
+
+  .orali .hero__content {
+    padding: 115px 32px 65px;
+  }
+
+  .orali .advantages {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: calc(100% - 48px);
+  }
+
+  .orali .integrated {
+    gap: 25px;
+    padding: 38px 28px;
+  }
+
+  .orali .features__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .orali .sectors {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .orali .sectors__intro {
+    grid-column: 1 / -1;
+  }
+
+  .orali .sectors__intro h2 br {
+    display: none;
+  }
+
+  .orali .sector img {
+    aspect-ratio: 5 / 4;
+  }
+
+  .orali .support {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .orali .support__main {
+    grid-column: 1 / -1;
+    padding-right: 0;
+  }
+
+  .orali .support__item {
+    min-height: 120px;
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* =====================================================
+   RESPONSIVE — MOBILE
+===================================================== */
+
+@media (max-width: 640px) {
+  .orali {
+    padding-bottom: 18px;
+  }
+
+  .orali > .hero,
+  .orali > header.relative.isolate {
+    min-height: auto;
+  }
+
+  .orali > header.relative.isolate {
+    padding-top: 0;
+  }
+
+  /* Image de fond moins zoomée sur téléphone */
+  .orali .hero__bg {
+    object-fit: contain;
+    object-position: center top;
+    opacity: 0.4;
+  }
+
+  .orali .hero__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(255, 255, 255, 0.94) 40%,
+      #fff 100%
+    );
+  }
+
+  .orali .hero__swoosh {
+    display: none;
+  }
+
+  .orali .hero__content {
+    padding: 100px 22px 45px;
+  }
+
+  .orali .hero h1,
+  .orali > header.relative.isolate h1 {
+    font-size: clamp(34px, 9vw, 46px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+  }
+
+  .orali .hero__text {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .orali .advantages {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    width: calc(100% - 36px);
+    margin: 22px auto;
+    padding: 0;
+  }
+
+  .orali .advantage {
+    padding: 22px;
+  }
+
+  .orali .advantage h3 {
+    font-size: 16px;
+  }
+
+  .orali .integrated {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    width: calc(100% - 32px);
+    margin: 25px auto;
+    padding: 28px 20px;
+    border-radius: 20px;
+  }
+
+  .orali .integrated h2 {
+    font-size: 29px;
+  }
+
+  .orali .integrated__text > p:not(.eyebrow) {
+    font-size: 14px;
+  }
+
+  .orali .integrated__visual {
+    padding-bottom: 80px;
+  }
+
+  .orali .caption {
+    font-size: 10px;
+  }
+
+  .orali .caption--left {
+    left: 0;
+    width: 49%;
+  }
+
+  .orali .caption--right {
+    right: 0;
+    width: 47%;
+  }
+
+  .orali .caption__arrow {
+    max-width: 115px;
+    height: 26px;
+  }
+
+  .orali .features {
+    width: calc(100% - 32px);
+    margin: 25px auto;
+    padding: 32px 16px;
+    border-radius: 20px;
+  }
+
+  .orali .features__title {
+    font-size: 26px;
+    line-height: 1.35;
+  }
+
+  .orali .features__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .orali .feature {
+    padding: 19px 12px;
+  }
+
+  .orali .feature h3 {
+    font-size: 13px;
+  }
+
+  .orali .feature p {
+    font-size: 11px;
+  }
+
+  .orali .sectors {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    width: calc(100% - 32px);
+    margin: 25px auto;
+    padding: 20px 15px;
+  }
+
+  .orali .sectors__intro {
+    grid-column: 1 / -1;
+  }
+
+  .orali .sectors__intro h2 {
+    font-size: 27px;
+  }
+
+  .orali .sector img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .orali .sector figcaption {
+    font-size: 12px;
+  }
+
+  .orali .support {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    width: calc(100% - 32px);
+    margin: 25px auto 0;
+    padding: 26px 17px;
+    border-radius: 20px;
+  }
+
+  .orali .support__main {
+    gap: 13px;
+    align-items: flex-start;
+  }
+
+  .orali .support__gear {
+    width: 36px;
+    height: 36px;
+  }
+
+  .orali .support h3 {
+    font-size: 17px;
+  }
+
+  .orali .support__main p {
+    font-size: 11px;
+  }
+
+  .orali .support__item {
+    gap: 9px;
+    min-height: 110px;
+    padding: 12px 5px;
+    font-size: 11px;
+  }
+
+  .orali .support__item svg {
+    width: 27px;
+    height: 27px;
+  }
+}
+
+/* Accessibilité : réduit les animations si demandé par le système */
+@media (prefers-reduced-motion: reduce) {
+  .orali *,
+  .orali *::before,
+  .orali *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
