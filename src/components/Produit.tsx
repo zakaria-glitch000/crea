@@ -31,7 +31,7 @@ const products = [
     title: 'Écrans cuisine KDS',
     description: 'Organisez et suivez la préparation des commandes.',
     image: kdsImage,
-    link: '/produits/ecrans-cuisine-kds',
+    link: '/kds',
   },
   {
     title: 'Terminaux mobiles',
