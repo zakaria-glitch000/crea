@@ -16,8 +16,7 @@ const serviceLinks = SERVICES.map((s) => ({
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-slate-200 bg-slate-50">
-      <div className="absolute inset-0 grid-bg-fine opacity-30" />
+<footer className="relative border-t border-sky-200 bg-sky-100/80">  <div className="absolute inset-0 grid-bg-fine opacity-30" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         {/* Top section */}
