@@ -8,7 +8,7 @@ import {
 import borneStandard from "@/assets/b1.jpeg";
 import bornePremium from "@/assets/b2.jpeg";
 import borneMurale from "@/assets/b3.jpeg";
-
+import accompagnementImage from "@/assets/b4.jpeg";
 const products = [
   {
     name: "Borne standard",
@@ -307,8 +307,12 @@ export default function BornesCommande() {
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="relative overflow-hidden rounded-[1.75rem] border border-white bg-white p-2 shadow-2xl shadow-blue-900/10">
               <div className="relative h-[340px] overflow-hidden rounded-[1.35rem] sm:h-[460px]">
-                <img src="/src/assets/b4.jpeg" alt="Accompagnement et installation de solutions de commande" className="h-full w-full object-cover" loading="lazy" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-white/5" />
+<img
+  src={accompagnementImage}
+  alt="Accompagnement et installation de solutions de commande"
+  className="h-full w-full object-cover"
+  loading="lazy"
+/>                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-white/5" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
                   <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-2 text-xs font-semibold text-white backdrop-blur-md"><span className="h-2 w-2 rounded-full bg-emerald-400" /> ORALI SYSTEMS</div>
                   <h3 className="max-w-md text-2xl font-black leading-tight text-white sm:text-3xl">Votre partenaire, de l’installation au quotidien.</h3>
