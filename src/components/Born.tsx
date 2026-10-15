@@ -1,640 +1,399 @@
-import React, { useState } from 'react';
-import { 
-  Monitor, 
-  Settings, 
-  ShieldCheck, 
-  CheckCircle, 
-  Smartphone, 
-  Utensils, 
-  ChefHat, 
-  Receipt, 
-  TrendingUp, 
-  Users, 
-  Clock, 
-  BarChart2, 
-  Coins, 
-  Wrench, 
-  GraduationCap, 
-  Headphones, 
-  Cog, 
-  ArrowRight,
-  X,
-  Phone,
-  Mail,
-  Building,
-  User,
-  Check,
-  Minimize2,
-  Sliders,
-  Tv
-} from 'lucide-react';
+import React, { useState } from "react";
+import {
+  Monitor, Settings, ShieldCheck, CheckCircle, Smartphone, Utensils,
+  ChefHat, Receipt, TrendingUp, Users, Clock, BarChart2, Coins, Wrench,
+  GraduationCap, Headphones, Cog, ArrowRight, X, Phone, Mail, Building,
+  User, Check, Minimize2, Sliders, Sparkles, Zap, CreditCard, ShoppingBag
+} from "lucide-react";
 
-export default function App() {
+const products = [
+  {
+    name: "Borne standard",
+    subtitle: "L’essentiel pour commencer",
+    screen: '21,5"',
+    description: "Une solution intuitive et compacte pour fluidifier la prise de commande.",
+    features: [
+      { icon: Monitor, text: <>Écran tactile <strong>21,5"</strong></> },
+      { icon: Sliders, text: "Design épuré et compact" },
+      { icon: ShieldCheck, text: "Paiement intégré en option" },
+      { icon: CheckCircle, text: "Installation simple et rapide" },
+    ],
+    variant: "standard",
+  },
+  {
+    name: "Borne premium",
+    subtitle: "Performance et élégance",
+    screen: '27"',
+    description: "Une expérience grand format adaptée aux établissements à fort trafic.",
+    features: [
+      { icon: Monitor, text: <>Écran tactile <strong>27"</strong></> },
+      { icon: Sliders, text: "Design moderne et élégant" },
+      { icon: ShieldCheck, text: "Lecteur de carte bancaire en option" },
+      { icon: CheckCircle, text: "Idéale pour les restaurants très fréquentés" },
+    ],
+    variant: "premium",
+  },
+  {
+    name: "Borne murale",
+    subtitle: "Une solution gain de place",
+    screen: '21,5"',
+    description: "Optimisez votre espace avec une borne discrète et facile d’accès.",
+    features: [
+      { icon: Monitor, text: <>Écran tactile <strong>21,5"</strong></> },
+      { icon: Minimize2, text: "Fixation murale" },
+      { icon: ShieldCheck, text: "Design compact et robuste" },
+      { icon: CheckCircle, text: "Parfaite pour les espaces restreints" },
+    ],
+    variant: "wall",
+  },
+];
+
+const features = [
+  { icon: Smartphone, color: "bg-blue-600", title: "Commande autonome", text: "Un parcours client simple et intuitif." },
+  { icon: Utensils, color: "bg-orange-500", title: "Menus personnalisables", text: "Options, suppléments et formules selon votre activité." },
+  { icon: ChefHat, color: "bg-emerald-500", title: "Transmission en cuisine", text: "Envoi automatique des commandes sur écrans KDS." },
+  { icon: Receipt, color: "bg-violet-500", title: "Intégration CSI", text: "Communication directe avec votre caisse et votre gestion." },
+  { icon: BarChart2, color: "bg-sky-500", title: "Ventes additionnelles", text: "Mettez en valeur vos plats et offres spéciales." },
+];
+
+const benefits = [
+  { icon: Users, color: "bg-orange-50 text-orange-600", title: "Améliore l’expérience client", text: "Un service plus rapide et plus fluide." },
+  { icon: Clock, color: "bg-blue-50 text-blue-600", title: "Réduit le temps d’attente", text: "Des files moins longues et plus de confort." },
+  { icon: TrendingUp, color: "bg-emerald-50 text-emerald-600", title: "Optimise l’organisation", text: "Moins de pression sur le personnel, plus d’efficacité." },
+  { icon: Coins, color: "bg-violet-50 text-violet-600", title: "Augmente le panier moyen", text: "Grâce aux suggestions et offres complémentaires." },
+];
+
+const supportItems = [
+  { icon: Wrench, title: "Installation et paramétrage" },
+  { icon: GraduationCap, title: "Formation des équipes" },
+  { icon: Headphones, title: "Assistance technique" },
+  { icon: Cog, title: "Suivi et maintenance" },
+];
+
+function Eyebrow({ children, light = false }) {
+  return (
+    <span className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] ${
+      light ? "border-white/30 bg-white/10 text-white" : "border-blue-100 bg-blue-50 text-blue-700"
+    }`}>
+      <span className="h-2 w-2 rounded-full bg-orange-500" />
+      {children}
+    </span>
+  );
+}
+
+function KioskIllustration({ variant }) {
+  return (
+    <div className="relative flex h-64 items-center justify-center overflow-hidden rounded-2xl border border-slate-100 bg-gradient-to-br from-white via-slate-50 to-blue-50/70">
+      <div className="absolute -right-8 -top-10 h-36 w-36 rounded-full bg-orange-100/60 blur-2xl" />
+      <div className="absolute -bottom-10 -left-8 h-36 w-36 rounded-full bg-blue-100/70 blur-2xl" />
+      {variant === "wall" ? (
+        <div className="relative rounded-2xl border border-slate-200 bg-slate-100 p-3 shadow-lg">
+          <KioskScreen tall={false} />
+        </div>
+      ) : (
+        <div className="relative flex flex-col items-center">
+          <KioskScreen tall={variant === "premium"} />
+          <div className="h-12 w-3 rounded-b bg-slate-800" />
+          <div className="h-2.5 w-20 rounded-full bg-slate-900 shadow-md" />
+        </div>
+      )}
+      <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full border border-white bg-white/90 px-3 py-1.5 text-[11px] font-bold text-slate-600 shadow-sm">
+        <span className="h-2 w-2 rounded-full bg-emerald-500" /> Compatible avec CSI
+      </div>
+    </div>
+  );
+}
+
+function KioskScreen({ tall }) {
+  return (
+    <div className={`relative w-28 rounded-xl border-[5px] border-slate-800 bg-slate-900 p-1.5 shadow-xl ${tall ? "h-44" : "h-36"}`}>
+      <div className="flex h-full flex-col overflow-hidden rounded-md bg-white p-1.5">
+        <div className="mb-2 flex items-center justify-between rounded bg-orange-500 px-1.5 py-1">
+          <span className="text-[7px] font-black text-white">ORALI MENU</span>
+          <span className="h-1 w-3 rounded bg-white/70" />
+        </div>
+        <div className="mb-2 grid grid-cols-2 gap-1">
+          {["🍔", "🍟", "🥤", "🍕"].map((item, i) => (
+            <div key={i} className="flex h-9 items-center justify-center rounded-md bg-slate-100 text-sm">{item}</div>
+          ))}
+        </div>
+        <div className="mt-auto flex items-center justify-between rounded bg-blue-50 px-1.5 py-1">
+          <span className="text-[6px] font-bold text-slate-600">Votre commande</span>
+          <span className="rounded bg-blue-600 px-1 py-0.5 text-[6px] font-bold text-white">OK</span>
+        </div>
+      </div>
+      <div className="absolute -right-3 top-16 h-9 w-5 rounded-md border border-slate-500 bg-slate-950 shadow-md">
+        <div className="mx-auto mt-1 h-1.5 w-2.5 rounded-sm bg-emerald-400" />
+        <div className="mx-auto mt-1 h-3 w-3 rounded-sm bg-slate-700" />
+      </div>
+    </div>
+  );
+}
+
+export default function BornesCommande() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalType, setModalType] = useState('devis');
-  const [selectedProduct, setSelectedProduct] = useState('');
+  const [modalType, setModalType] = useState("devis");
+  const [selectedProduct, setSelectedProduct] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const handleOpenModal = (type, product = '') => {
+  const handleOpenModal = (type, product = "") => {
     setModalType(type);
     setSelectedProduct(product);
-    setModalOpen(true);
     setFormSubmitted(false);
+    setModalOpen(true);
   };
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
     setFormSubmitted(true);
-    setTimeout(() => {
+    window.setTimeout(() => {
       setModalOpen(false);
       setFormSubmitted(false);
     }, 2200);
   };
 
- return (
-  <div className="w-full min-h-screen bg-[#FDFBF9] text-[#1E293B] font-sans antialiased selection:bg-[#EF5623] selection:text-white pt-24">
-      {/* Google Fonts link insertion */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  const goToContact = () => {
+    window.location.href = "/#contact";
+  };
 
-  <style>{`
-  body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-  }
+  return (
+    <main className="min-h-screen overflow-hidden bg-white font-sans text-slate-800 antialiased selection:bg-orange-500 selection:text-white">
+      <section className="relative isolate flex min-h-[650px] items-center overflow-hidden bg-gradient-to-br from-white via-slate-50 to-sky-50 pt-24 sm:min-h-[700px]">
+        <div
+          className="absolute inset-0 -z-30 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=85')" }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 -z-20 bg-gradient-to-r from-white/95 via-white/85 to-white/35" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-slate-100/70 via-transparent to-white/10" />
+        <div className="pointer-events-none absolute -left-28 top-24 -z-10 h-80 w-80 rounded-full bg-blue-200/30 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 right-0 -z-10 h-80 w-80 rounded-full bg-orange-200/30 blur-3xl" />
 
-  .font-cursive {
-    font-family: 'Caveat', cursive;
-  }
-`}</style>
-
-      {/* Container simulating flyer / crisp landing page */}
-<div className="w-full min-h-screen bg-white overflow-hidden">
-        {}
-        <section className="relative px-6 sm:px-12 pt-8 pb-10 bg-gradient-to-b from-amber-50/40 via-white to-white overflow-hidden">
-          {/* Top Right Restaurant Background Accent */}
-          <div className="absolute top-0 right-0 w-full sm:w-2/3 h-72 opacity-25 pointer-events-none bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-left-bottom [mask-image:linear-gradient(to_bottom,black_40%,transparent_100%)]" />
-
-          {/* Top Logo Bar */}
-          <div className="flex items-center justify-between relative z-10 mb-8">
-            <div className="flex items-center gap-3">
-              
-            </div>
-
-            {/* Orange Cursive Accent Text top right */}
-            <div className="hidden sm:block text-right">
-              <span className="font-cursive text-3xl sm:text-4xl text-[#EF5623] font-bold tracking-wide transform -rotate-3 inline-block drop-shadow-sm">
-                Une expérience<br />plus fluide
+        <div className="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 sm:py-20 lg:px-10">
+          <div className="max-w-4xl">
+            <Eyebrow>Bornes de commande</Eyebrow>
+            <h1 className="mt-6 max-w-4xl text-4xl font-black leading-[1.1] tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-7xl">
+              Simplifiez la prise de commande.
+              <span className="mt-3 block bg-gradient-to-r from-blue-600 via-sky-500 to-orange-500 bg-clip-text text-transparent">
+                Améliorez l’expérience client.
               </span>
-            </div>
-          </div>
-
-          {/* Hero Main Copy */}
-          <div className="max-w-2xl relative z-10 pt-2">
-            <span className="text-xs sm:text-sm font-extrabold text-[#EF5623] tracking-widest uppercase mb-2 block">
-              BORNES DE COMMANDE
-            </span>
-
-            <h1 className="text-2xl sm:text-4xl font-extrabold text-[#0B1A3A] tracking-tight leading-[1.15] mb-4">
-              Simplifiez la prise de commande,<br />
-              améliorez l'expérience client
             </h1>
-
-            <p className="text-xs sm:text-sm text-[#475569] font-medium leading-relaxed max-w-xl">
-              Des bornes interactives modernes et intuitives, parfaitement intégrées à notre solution d'encaissement CSI pour une gestion fluide et performante de votre établissement.
+            <p className="mt-7 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg sm:leading-9">
+              Des bornes interactives modernes et intuitives, parfaitement intégrées à votre solution d’encaissement CSI pour une gestion fluide et performante de votre établissement.
             </p>
-          </div>
-        </section>
-
-        {}
-        <section className="px-4 sm:px-10 pb-12 pt-2">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            
-            {/* CARD 1: BORNE STANDARD */}
-            <div className="bg-[#FAF9F6] rounded-2xl p-5 border border-slate-200/80 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
-              <div>
-                {/* Visual Representation of Kiosk */}
-                <div className="w-full h-52 bg-white rounded-xl mb-4 flex items-center justify-center p-3 border border-slate-100 shadow-inner relative overflow-hidden">
-                  {/* Standing Kiosk Graphics */}
-                  <div className="flex flex-col items-center">
-                    {/* Screen Head */}
-                    <div className="w-20 h-32 bg-[#1E293B] rounded-t-lg rounded-b-md p-1 shadow-md border border-slate-600 relative flex flex-col items-center">
-                      <div className="w-full h-20 bg-white rounded-xs p-1 flex flex-col gap-0.5 overflow-hidden">
-                        <div className="w-full h-2 bg-[#EF5623] rounded-xs" />
-                        <div className="grid grid-cols-2 gap-0.5 flex-1">
-                          <div className="bg-slate-100 rounded-xs flex items-center justify-center text-[5px]">🍔</div>
-                          <div className="bg-slate-100 rounded-xs flex items-center justify-center text-[5px]">🍟</div>
-                          <div className="bg-slate-100 rounded-xs flex items-center justify-center text-[5px]">🥤</div>
-                          <div className="bg-slate-100 rounded-xs flex items-center justify-center text-[5px]">🍦</div>
-                        </div>
-                      </div>
-                      <div className="w-full h-3 bg-slate-200 mt-1 rounded-xs flex items-center px-1 justify-between">
-                        <div className="w-2 h-0.5 bg-slate-400" />
-                        <div className="w-1 h-1 rounded-full bg-emerald-500" />
-                      </div>
-                      {/* Attached payment terminal */}
-                      <div className="absolute -right-3 top-14 w-4 h-7 bg-black rounded-xs border border-slate-500 flex flex-col items-center justify-center">
-                        <div className="w-2.5 h-1.5 bg-blue-400/40 rounded-xs mb-0.5" />
-                        <div className="w-2 h-2 bg-slate-800 rounded-xs" />
-                      </div>
-                    </div>
-                    {/* Stand pole */}
-                    <div className="w-4 h-12 bg-[#0F172A]" />
-                    {/* Base */}
-                    <div className="w-16 h-2 bg-[#0F172A] rounded-full shadow-sm" />
-                  </div>
+            <div className="mt-8 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2">
+              {[
+                "Commandes simples et autonomes",
+                "Connexion fluide avec votre caisse",
+                "Une expérience adaptée à votre établissement",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3 text-sm font-semibold leading-6 text-slate-700">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-600">
+                    <CheckCircle className="h-4 w-4" />
+                  </span>
+                  {item}
                 </div>
-
-                <div className="mb-4">
-                  <h3 className="text-lg font-black text-[#0B1A3A] tracking-tight uppercase">BORNE STANDARD</h3>
-                  <p className="text-xs font-semibold text-[#64748B] mt-0.5">L'essentiel pour commencer</p>
-                </div>
-
-                <ul className="space-y-2.5 text-xs text-[#334155] font-medium mb-6">
-                  <li className="flex items-center gap-2.5">
-                    <Monitor className="w-4 h-4 text-[#EF5623] shrink-0" />
-                    <span>Écran tactile <strong>21,5"</strong></span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Sliders className="w-4 h-4 text-[#EF5623] shrink-0" />
-                    <span>Design épuré et compact</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <ShieldCheck className="w-4 h-4 text-[#EF5623] shrink-0" />
-                    <span>Paiement intégré (option)</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <CheckCircle className="w-4 h-4 text-[#EF5623] shrink-0" />
-                    <span>Installation simple et rapide</span>
-                  </li>
-                </ul>
-              </div>
-
-              <button 
-                onClick={() => handleOpenModal('devis', 'Borne Standard')}
-                className="w-full py-2.5 px-4 rounded-full bg-[#EF5623] hover:bg-[#d94817] text-white font-bold text-xs shadow-sm hover:shadow transition-all flex items-center justify-center gap-1.5 group"
-              >
-                <span>Demander un devis</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+              ))}
+            </div>
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <button onClick={() => handleOpenModal("devis")} className="group inline-flex items-center justify-center gap-3 rounded-xl bg-orange-500 px-7 py-4 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-600 hover:shadow-xl">
+                Demander un devis <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </button>
+              <button onClick={() => handleOpenModal("demo")} className="group inline-flex items-center justify-center gap-3 rounded-xl border border-slate-200 bg-white px-7 py-4 text-sm font-bold text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:bg-blue-50 hover:text-blue-700">
+                Demander une démo <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
             </div>
+            <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 border-t border-slate-200 pt-6 text-sm text-slate-600">
+              <span className="inline-flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-blue-600" /> Solution intégrée à CSI</span>
+              <span className="inline-flex items-center gap-2"><CheckCircle className="h-4 w-4 text-blue-600" /> Installation et accompagnement</span>
+            </div>
+          </div>
+        </div>
+        <div className="absolute bottom-7 right-7 hidden items-center gap-3 rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 text-sm text-slate-700 shadow-lg backdrop-blur-lg md:flex">
+          <ShoppingBag className="h-5 w-5 text-blue-600" />
+          <span>Commande · Encaissement · Performance</span>
+        </div>
+      </section>
 
-            {/* CARD 2: BORNE PREMIUM */}
-            <div className="bg-[#FAF9F6] rounded-2xl p-5 border border-slate-200/80 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
-              <div>
-                {/* Visual Representation of Premium Kiosk */}
-                <div className="w-full h-52 bg-white rounded-xl mb-4 flex items-center justify-center p-3 border border-slate-100 shadow-inner relative overflow-hidden">
-                  <div className="flex flex-col items-center">
-                    {/* Screen Head - Taller 27" */}
-                    <div className="w-22 h-36 bg-[#0F172A] rounded-t-lg rounded-b-md p-1 shadow-md border-2 border-slate-700 relative flex flex-col items-center">
-                      <div className="w-full h-24 bg-white rounded-xs p-1 flex flex-col gap-0.5 overflow-hidden">
-                        <div className="w-full h-2.5 bg-[#EF5623] rounded-xs flex items-center px-0.5 justify-between">
-                          <span className="text-[4px] text-white font-bold">27"</span>
-                        </div>
-                        <div className="w-full h-6 bg-amber-50 rounded-xs p-0.5 flex gap-1 items-center">
-                          <div className="w-4 h-4 bg-[#EF5623] rounded-xs" />
-                          <div className="w-8 h-1 bg-slate-300 rounded-xs" />
-                        </div>
-                        <div className="grid grid-cols-3 gap-0.5 flex-1">
-                          <div className="bg-slate-100 rounded-xs flex items-center justify-center text-[5px]">🥗</div>
-                          <div className="bg-slate-100 rounded-xs flex items-center justify-center text-[5px]">🍕</div>
-                          <div className="bg-slate-100 rounded-xs flex items-center justify-center text-[5px]">🍰</div>
-                        </div>
-                      </div>
-                      <div className="w-full h-3 bg-slate-300 mt-1 rounded-xs" />
-                      {/* Terminal */}
-                      <div className="absolute -right-3 top-16 w-4 h-7 bg-black rounded-xs border border-slate-500 flex flex-col items-center justify-center">
-                        <div className="w-2.5 h-1.5 bg-emerald-400/50 rounded-xs mb-0.5" />
-                        <div className="w-2 h-2 bg-slate-800 rounded-xs" />
-                      </div>
-                    </div>
-                    {/* Stand pole */}
-                    <div className="w-4.5 h-8 bg-[#0F172A]" />
-                    {/* Base */}
-                    <div className="w-18 h-2 bg-[#0F172A] rounded-full shadow-sm" />
-                  </div>
+      <section className="scroll-mt-24 bg-white py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div className="mx-auto mb-14 max-w-3xl text-center">
+            <Eyebrow>Nos solutions</Eyebrow>
+            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Choisissez la borne adaptée à votre activité</h2>
+            <div className="mx-auto my-4 h-1 w-14 rounded-full bg-orange-500" />
+            <p className="leading-7 text-slate-600">Trois configurations pour améliorer le parcours de commande et répondre aux contraintes de votre espace.</p>
+          </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {products.map((product) => (
+              <article key={product.name} className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-900/5 sm:p-6">
+                <KioskIllustration variant={product.variant} />
+                <div className="mt-6 flex-1">
+                  <div className="mb-2 inline-flex rounded-full bg-blue-50 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-blue-700">{product.screen} tactile</div>
+                  <h3 className="text-xl font-extrabold tracking-tight text-slate-900 transition-colors group-hover:text-blue-700">{product.name}</h3>
+                  <p className="mt-1 text-sm font-semibold text-slate-500">{product.subtitle}</p>
+                  <p className="mt-4 text-sm leading-7 text-slate-600">{product.description}</p>
+                  <ul className="mt-5 space-y-3 border-t border-slate-100 pt-5 text-sm text-slate-700">
+                    {product.features.map((feature, i) => {
+                      const Icon = feature.icon;
+                      return <li key={i} className="flex items-start gap-3"><Icon className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" /><span>{feature.text}</span></li>;
+                    })}
+                  </ul>
                 </div>
+                <button onClick={() => handleOpenModal("devis", product.name)} className="group/button mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-orange-500 px-5 py-3.5 text-sm font-bold text-white shadow-md shadow-orange-500/15 transition-all hover:-translate-y-0.5 hover:bg-orange-600">
+                  Demander un devis <ArrowRight className="h-4 w-4 transition-transform group-hover/button:translate-x-1" />
+                </button>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                <div className="mb-4">
-                  <h3 className="text-lg font-black text-[#0B1A3A] tracking-tight uppercase">BORNE PREMIUM</h3>
-                  <p className="text-xs font-semibold text-[#64748B] mt-0.5">Performance et élégance</p>
+      <section className="border-y border-slate-100 bg-slate-50/80 py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div className="mx-auto mb-14 max-w-3xl text-center">
+            <Eyebrow>Une solution complète</Eyebrow>
+            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Une seule solution, les mêmes avantages</h2>
+            <div className="mx-auto my-4 h-1 w-14 rounded-full bg-orange-500" />
+            <p className="leading-7 text-slate-600">Quel que soit le modèle, profitez de fonctionnalités pensées pour simplifier le quotidien de vos équipes.</p>
+          </div>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
+            {features.map((item) => {
+              const Icon = item.icon;
+              return <div key={item.title} className="group rounded-2xl border border-slate-200/80 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <div className={`mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl ${item.color} text-white shadow-md transition-transform group-hover:scale-105`}><Icon className="h-6 w-6" /></div>
+                <h3 className="text-sm font-extrabold text-slate-900">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-500">{item.text}</p>
+              </div>;
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div className="mb-10 max-w-2xl">
+            <Eyebrow>Les avantages pour votre établissement</Eyebrow>
+            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Un service plus rapide, une gestion plus efficace</h2>
+            <div className="my-4 h-1 w-14 rounded-full bg-orange-500" />
+            <p className="leading-7 text-slate-600">Offrez plus d’autonomie à vos clients tout en gardant une vue claire sur votre activité.</p>
+          </div>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {benefits.map((item) => {
+              const Icon = item.icon;
+              return <div key={item.title} className="group flex items-start gap-4 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
+                <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${item.color}`}><Icon className="h-5 w-5" /></div>
+                <div><h3 className="font-bold text-slate-900">{item.title}</h3><p className="mt-2 text-sm leading-6 text-slate-500">{item.text}</p></div>
+              </div>;
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden bg-gradient-to-br from-white via-slate-50 to-sky-50/70 py-20 sm:py-24">
+        <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-sky-100/70 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-20 right-0 h-80 w-80 rounded-full bg-orange-100/60 blur-3xl" />
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-white bg-white p-2 shadow-2xl shadow-blue-900/10">
+              <div className="relative h-[340px] overflow-hidden rounded-[1.35rem] sm:h-[460px]">
+                <img src="https://images.unsplash.com/photo-1556742049-0a670f4a4591?auto=format&fit=crop&w=1200&q=85" alt="Accompagnement et installation de solutions de commande" className="h-full w-full object-cover" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-white/5" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                  <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-2 text-xs font-semibold text-white backdrop-blur-md"><span className="h-2 w-2 rounded-full bg-emerald-400" /> ORALI SYSTEMS</div>
+                  <h3 className="max-w-md text-2xl font-black leading-tight text-white sm:text-3xl">Votre partenaire, de l’installation au quotidien.</h3>
+                  <p className="mt-3 max-w-md text-sm leading-6 text-slate-200">Une équipe à vos côtés pour déployer votre solution en toute sérénité.</p>
                 </div>
-
-                <ul className="space-y-2.5 text-xs text-[#334155] font-medium mb-6">
-                  <li className="flex items-center gap-2.5">
-                    <Monitor className="w-4 h-4 text-[#EF5623] shrink-0" />
-                    <span>Écran tactile <strong>27"</strong></span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Sliders className="w-4 h-4 text-[#EF5623] shrink-0" />
-                    <span>Design moderne en aluminium</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <ShieldCheck className="w-4 h-4 text-[#EF5623] shrink-0" />
-                    <span>Paiement intégré (lecteur CB)</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <CheckCircle className="w-4 h-4 text-[#EF5623] shrink-0" />
-                    <span>Idéale pour les restaurants et espaces à fort trafic</span>
-                  </li>
-                </ul>
               </div>
-
-              <button 
-                onClick={() => handleOpenModal('devis', 'Borne Premium')}
-                className="w-full py-2.5 px-4 rounded-full bg-[#EF5623] hover:bg-[#d94817] text-white font-bold text-xs shadow-sm hover:shadow transition-all flex items-center justify-center gap-1.5 group"
-              >
-                <span>Demander un devis</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+            </div>
+            <div>
+              <Eyebrow>Notre accompagnement</Eyebrow>
+              <h2 className="mt-5 text-3xl font-black leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">Installation, formation et support</h2>
+              <div className="my-5 h-1 w-14 rounded-full bg-orange-500" />
+              <p className="max-w-xl text-base leading-8 text-slate-600">Notre équipe technique vous accompagne à chaque étape pour une mise en service rapide et une utilisation en toute sérénité.</p>
+              <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-2">
+                {supportItems.map((item) => {
+                  const Icon = item.icon;
+                  return <div key={item.title} className="flex items-start gap-3 rounded-xl border border-slate-200/80 bg-white p-4 shadow-sm transition-all hover:border-blue-200 hover:shadow-md">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600"><Icon className="h-5 w-5" /></div>
+                    <span className="pt-1 text-sm font-bold leading-5 text-slate-800">{item.title}</span>
+                  </div>;
+                })}
+              </div>
+              <button onClick={() => handleOpenModal("demo")} className="group mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-7 py-4 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition-all hover:-translate-y-1 hover:bg-orange-600">
+                Demander une démonstration <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
             </div>
-
-            {/* CARD 3: BORNE MURALE */}
-            <div className="bg-[#FAF9F6] rounded-2xl p-5 border border-slate-200/80 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
-              <div>
-                {/* Visual Representation of Wall Mounted Kiosk */}
-                <div className="w-full h-52 bg-white rounded-xl mb-4 flex items-center justify-center p-3 border border-slate-100 shadow-inner relative overflow-hidden">
-                  <div className="flex flex-col items-center">
-                    {/* Wall Backing Panel */}
-                    <div className="w-28 h-40 bg-slate-100 rounded-2xl p-2 border border-slate-200 flex flex-col items-center justify-center shadow-xs">
-                      {/* Screen Mounted */}
-                      <div className="w-20 h-32 bg-[#0F172A] rounded-lg p-1 shadow-md border border-slate-700 relative flex flex-col items-center">
-                        <div className="w-full h-22 bg-white rounded-xs p-1 flex flex-col gap-0.5 overflow-hidden">
-                          <div className="w-full h-2 bg-[#EF5623] rounded-xs" />
-                          <div className="grid grid-cols-2 gap-0.5 flex-1">
-                            <div className="bg-slate-100 rounded-xs" />
-                            <div className="bg-slate-100 rounded-xs" />
-                          </div>
-                        </div>
-                        {/* Integrated Terminal */}
-                        <div className="absolute -right-2 top-14 w-3.5 h-6 bg-black rounded-xs flex flex-col items-center justify-center">
-                          <div className="w-2 h-1 bg-emerald-400 rounded-xs" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mb-4">
-                  <h3 className="text-lg font-black text-[#0B1A3A] tracking-tight uppercase">BORNE MURALE</h3>
-                  <p className="text-xs font-semibold text-[#64748B] mt-0.5">Une solution gain de place</p>
-                </div>
-
-                <ul className="space-y-2.5 text-xs text-[#334155] font-medium mb-6">
-                  <li className="flex items-center gap-2.5">
-                    <Monitor className="w-4 h-4 text-[#EF5623] shrink-0" />
-                    <span>Écran tactile <strong>21,5"</strong></span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Minimize2 className="w-4 h-4 text-[#EF5623] shrink-0" />
-                    <span>Fixation murale</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <ShieldCheck className="w-4 h-4 text-[#EF5623] shrink-0" />
-                    <span>Design compact et robuste</span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <CheckCircle className="w-4 h-4 text-[#EF5623] shrink-0" />
-                    <span>Parfaite pour les espaces restreints</span>
-                  </li>
-                </ul>
-              </div>
-
-              <button 
-                onClick={() => handleOpenModal('devis', 'Borne Murale')}
-                className="w-full py-2.5 px-4 rounded-full bg-[#EF5623] hover:bg-[#d94817] text-white font-bold text-xs shadow-sm hover:shadow transition-all flex items-center justify-center gap-1.5 group"
-              >
-                <span>Demander un devis</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
-              </button>
-            </div>
-
           </div>
-        </section>
+        </div>
+      </section>
 
-        {}
-        <section className="px-6 sm:px-10 py-10 bg-[#FAF9F6] border-y border-slate-200/70">
-          <div className="text-center max-w-2xl mx-auto mb-8 space-y-1">
-            <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#EF5623]">
-              LES FONCTIONNALITÉS COMMUNES
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B1A3A] tracking-tight">
-              Une seule solution, les mêmes avantages
-            </h2>
-            <p className="text-xs sm:text-sm text-[#64748B]">
-              Quel que soit le modèle, nos bornes de commande offrent les mêmes fonctionnalités avancées.
-            </p>
-          </div>
-
-          {/* 5 Circular Feature Icons Section */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 text-center">
-            
-            {/* Feature 1 */}
-            <div className="flex flex-col items-center">
-              <div className="w-14 h-14 rounded-full bg-[#EF5623] text-white flex items-center justify-center shadow-md mb-3">
-                <Smartphone className="w-7 h-7" />
+      <section id="contact" className="scroll-mt-24 bg-slate-50 py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12">
+            <div className="space-y-6 lg:col-span-5">
+              <div><Eyebrow>Contactez-nous</Eyebrow>
+                <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Parlons de <span className="text-blue-600">votre projet</span></h2>
+                <div className="my-4 h-1 w-14 rounded-full bg-orange-500" />
+                <p className="text-sm leading-7 text-slate-600">Un besoin spécifique ? Notre équipe est à votre écoute pour vous présenter la solution de commande adaptée à votre établissement.</p>
               </div>
-              <h3 className="font-extrabold text-xs sm:text-sm text-[#0B1A3A] mb-1">Commande autonome</h3>
-              <p className="text-[11px] text-[#64748B] leading-snug">Un parcours client simple et intuitif.</p>
+              <a href="tel:+212522000000" className="flex items-center gap-4 rounded-xl border border-slate-200/80 bg-white p-4 shadow-sm transition-all hover:border-blue-300 hover:shadow-md">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white"><Phone className="h-5 w-5" /></span>
+                <span><span className="block text-xs font-semibold text-slate-400">Nous contacter par téléphone</span><span className="mt-1 block text-sm font-bold text-slate-800">+212 522 00 00 00</span></span>
+              </a>
+              <a href="mailto:contact@oralisystems.com" className="flex items-center gap-4 rounded-xl border border-slate-200/80 bg-white p-4 shadow-sm transition-all hover:border-blue-300 hover:shadow-md">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white"><Mail className="h-5 w-5" /></span>
+                <span><span className="block text-xs font-semibold text-slate-400">Nous écrire par email</span><span className="mt-1 block text-sm font-bold text-slate-800">contact@oralisystems.com</span></span>
+              </a>
             </div>
-
-            {/* Feature 2 */}
-            <div className="flex flex-col items-center">
-              <div className="w-14 h-14 rounded-full bg-[#38BDF8] text-white flex items-center justify-center shadow-md mb-3">
-                <Utensils className="w-7 h-7" />
-              </div>
-              <h3 className="font-extrabold text-xs sm:text-sm text-[#0B1A3A] mb-1">Menus personnalisables</h3>
-              <p className="text-[11px] text-[#64748B] leading-snug">Options, suppléments et formules selon votre activité.</p>
-            </div>
-
-            {/* Feature 3 */}
-            <div className="flex flex-col items-center">
-              <div className="w-14 h-14 rounded-full bg-[#34D399] text-white flex items-center justify-center shadow-md mb-3">
-                <ChefHat className="w-7 h-7" />
-              </div>
-              <h3 className="font-extrabold text-xs sm:text-sm text-[#0B1A3A] mb-1">Transmission en cuisine</h3>
-              <p className="text-[11px] text-[#64748B] leading-snug">Envoi automatique des commandes sur écrans KDS.</p>
-            </div>
-
-            {/* Feature 4 */}
-            <div className="flex flex-col items-center">
-              <div className="w-14 h-14 rounded-full bg-[#F43F5E] text-white flex items-center justify-center shadow-md mb-3">
-                <Receipt className="w-7 h-7" />
-              </div>
-              <h3 className="font-extrabold text-xs sm:text-sm text-[#0B1A3A] mb-1">Intégration CSI</h3>
-              <p className="text-[11px] text-[#64748B] leading-snug">Communication directe avec votre caisse et votre gestion.</p>
-            </div>
-
-            {/* Feature 5 */}
-            <div className="flex flex-col items-center col-span-2 sm:col-span-1">
-              <div className="w-14 h-14 rounded-full bg-[#A855F7] text-white flex items-center justify-center shadow-md mb-3">
-                <BarChart2 className="w-7 h-7" />
-              </div>
-              <h3 className="font-extrabold text-xs sm:text-sm text-[#0B1A3A] mb-1">Ventes additionnelles</h3>
-              <p className="text-[11px] text-[#64748B] leading-snug">Mise en valeur des plats, menus et offres spéciales.</p>
-            </div>
-
-          </div>
-        </section>
-
-        {}
-        <section className="px-6 sm:px-10 py-10 bg-white">
-          <div className="mb-6">
-            <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#EF5623]">
-              LES AVANTAGES POUR VOTRE ÉTABLISSEMENT
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            
-            {/* Benefit 1 */}
-            <div className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#FAF9F6] border border-slate-200/60">
-              <div className="w-10 h-10 rounded-lg bg-orange-100 text-[#EF5623] flex items-center justify-center shrink-0">
-                <Users className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="font-extrabold text-xs text-[#0B1A3A] leading-tight mb-0.5">Améliore l'expérience client</h3>
-                <p className="text-[11px] text-[#64748B] leading-snug">Un service plus rapide et plus fluide.</p>
-              </div>
-            </div>
-
-            {/* Benefit 2 */}
-            <div className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#FAF9F6] border border-slate-200/60">
-              <div className="w-10 h-10 rounded-lg bg-sky-100 text-sky-600 flex items-center justify-center shrink-0">
-                <Clock className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="font-extrabold text-xs text-[#0B1A3A] leading-tight mb-0.5">Réduit le temps d'attente</h3>
-                <p className="text-[11px] text-[#64748B] leading-snug">Des files moins longues et un meilleur confort.</p>
-              </div>
-            </div>
-
-            {/* Benefit 3 */}
-            <div className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#FAF9F6] border border-slate-200/60">
-              <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
-                <TrendingUp className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="font-extrabold text-xs text-[#0B1A3A] leading-tight mb-0.5">Optimise l'organisation</h3>
-                <p className="text-[11px] text-[#64748B] leading-snug">Moins de pression sur le personnel, plus d'efficacité.</p>
-              </div>
-            </div>
-
-            {/* Benefit 4 */}
-            <div className="flex items-center gap-3.5 p-3.5 rounded-xl bg-[#FAF9F6] border border-slate-200/60">
-              <div className="w-10 h-10 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center shrink-0">
-                <Coins className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="font-extrabold text-xs text-[#0B1A3A] leading-tight mb-0.5">Augmente le panier moyen</h3>
-                <p className="text-[11px] text-[#64748B] leading-snug">Grâce aux suggestions et aux offres complémentaires.</p>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        {}
-        <section className="px-6 sm:px-10 py-8 bg-[#FAF9F6] border-t border-slate-200/70">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-            
-            {/* Left Image Side (Technician configuring Kiosk) */}
-            <div className="md:col-span-5 relative">
-              <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-200/80 bg-slate-900 relative group h-64 sm:h-72">
-                <img 
-                  src="https://images.unsplash.com/photo-1556742049-0a670f4a4591?auto=format&fit=crop&w=800&q=80" 
-                  alt="ORALI Technical Staff configuring kiosk" 
-                  className="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-4">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-[#EF5623] rounded-xs transform -skew-x-12" />
-                    <span className="text-white font-extrabold text-xs tracking-wider uppercase">ORALI SYSTEMS</span>
-                  </div>
-                  <p className="text-[10px] text-slate-300">Support & installation sur site</p>
+            <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-7 shadow-sm sm:p-10 lg:col-span-7">
+              <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-blue-100/60 blur-3xl" />
+              <div className="relative">
+                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600"><Zap className="h-7 w-7" /></div>
+                <h3 className="text-2xl font-bold text-slate-900 sm:text-3xl">Faites évoluer l’expérience de vos clients.</h3>
+                <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">Découvrez comment les bornes de commande peuvent améliorer le service, fluidifier les commandes et compléter votre solution d’encaissement.</p>
+                <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div className="rounded-xl border border-slate-100 bg-slate-50 p-5"><Monitor className="mb-3 h-6 w-6 text-blue-600" /><h4 className="font-bold text-slate-900">Une solution adaptée</h4><p className="mt-2 text-sm leading-6 text-slate-500">Choisissez la configuration qui correspond à votre espace.</p></div>
+                  <div className="rounded-xl border border-slate-100 bg-slate-50 p-5"><Headphones className="mb-3 h-6 w-6 text-blue-600" /><h4 className="font-bold text-slate-900">Un accompagnement dédié</h4><p className="mt-2 text-sm leading-6 text-slate-500">Une équipe à vos côtés à chaque étape.</p></div>
                 </div>
-              </div>
-            </div>
-
-            {/* Right Text Content Side */}
-            <div className="md:col-span-7 space-y-4">
-              <div>
-                <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#EF5623]">
-                  NOTRE ACCOMPAGNEMENT
-                </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B1A3A] tracking-tight mt-0.5">
-                  Installation, formation et support
-                </h2>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed mt-2">
-                  Notre équipe technique vous accompagne à chaque étape pour une mise en service rapide et une utilisation en toute sérénité.
-                </p>
-              </div>
-
-              {/* 4 Pillar Icons */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                
-                <div className="flex flex-col items-center text-center space-y-1.5 p-2">
-                  <div className="w-10 h-10 rounded-full bg-orange-100 text-[#EF5623] flex items-center justify-center">
-                    <Wrench className="w-5 h-5" />
-                  </div>
-                  <span className="text-[11px] font-bold text-[#0B1A3A] leading-tight">
-                    Installation et paramétrage
-                  </span>
-                </div>
-
-                <div className="flex flex-col items-center text-center space-y-1.5 p-2">
-                  <div className="w-10 h-10 rounded-full bg-orange-100 text-[#EF5623] flex items-center justify-center">
-                    <GraduationCap className="w-5 h-5" />
-                  </div>
-                  <span className="text-[11px] font-bold text-[#0B1A3A] leading-tight">
-                    Formation des équipes
-                  </span>
-                </div>
-
-                <div className="flex flex-col items-center text-center space-y-1.5 p-2">
-                  <div className="w-10 h-10 rounded-full bg-orange-100 text-[#EF5623] flex items-center justify-center">
-                    <Headphones className="w-5 h-5" />
-                  </div>
-                  <span className="text-[11px] font-bold text-[#0B1A3A] leading-tight">
-                    Assistance technique
-                  </span>
-                </div>
-
-                <div className="flex flex-col items-center text-center space-y-1.5 p-2">
-                  <div className="w-10 h-10 rounded-full bg-orange-100 text-[#EF5623] flex items-center justify-center">
-                    <Cog className="w-5 h-5" />
-                  </div>
-                  <span className="text-[11px] font-bold text-[#0B1A3A] leading-tight">
-                    Suivi et maintenance
-                  </span>
-                </div>
-
-              </div>
-
-              {/* CTA Button Bottom Right */}
-              <div className="pt-2 flex justify-start sm:justify-end">
-                <button 
-                  onClick={() => handleOpenModal('demo')}
-                  className="py-3 px-6 rounded-full bg-[#EF5623] hover:bg-[#d94817] text-white font-extrabold text-xs shadow-md hover:shadow-lg transition-all flex items-center gap-2 group"
-                >
-                  <span>Demander une démonstration</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <button onClick={() => handleOpenModal("demo")} className="group mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-all hover:-translate-y-0.5 hover:bg-blue-700">
+                  Réserver une démonstration <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </button>
               </div>
-
             </div>
-
           </div>
-        </section>
+        </div>
+      </section>
 
-      </div>
-
-      {}
       {modalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
-          <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-6 sm:p-8 relative border border-slate-100">
-            
-            <button 
-              onClick={() => setModalOpen(false)}
-              className="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:bg-slate-100 transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
+        <div className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-slate-950/60 p-4 backdrop-blur-sm" onMouseDown={(e) => { if (e.target === e.currentTarget) setModalOpen(false); }}>
+          <div role="dialog" aria-modal="true" aria-labelledby="request-title" className="relative my-6 w-full max-w-lg rounded-3xl border border-slate-100 bg-white p-6 shadow-2xl sm:p-8">
+            <button type="button" onClick={() => setModalOpen(false)} aria-label="Fermer" className="absolute right-5 top-5 rounded-full p-2 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"><X className="h-5 w-5" /></button>
             {formSubmitted ? (
-              <div className="py-8 text-center space-y-3">
-                <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
-                  <Check className="w-7 h-7 stroke-[3]" />
-                </div>
-                <h3 className="text-xl font-extrabold text-[#0B1A3A]">Demande transmise !</h3>
-                <p className="text-slate-600 text-xs">
-                  Un conseiller ORALI SYSTEMS prendra contact avec vous sous 24h.
-                </p>
+              <div className="space-y-3 py-8 text-center">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-600"><Check className="h-7 w-7 stroke-[3]" /></div>
+                <h3 className="text-xl font-extrabold text-slate-900">Demande transmise !</h3>
+                <p className="text-sm leading-6 text-slate-600">Un conseiller ORALI SYSTEMS prendra contact avec vous sous 24h.</p>
               </div>
             ) : (
-              <div>
-                <div className="mb-5 space-y-1">
-                  <span className="text-[11px] font-extrabold uppercase text-[#EF5623]">
-                    {modalType === 'demo' ? 'Démonstration en direct' : 'Devis Sur-Mesure'}
-                  </span>
-                  <h3 className="text-xl font-extrabold text-[#0B1A3A]">
-                    {modalType === 'demo' ? 'Réserver une démo' : 'Demander un devis'}
-                  </h3>
-                  {selectedProduct && (
-                    <p className="text-xs text-slate-500 font-medium">
-                      Modèle : <strong className="text-[#EF5623]">{selectedProduct}</strong>
-                    </p>
-                  )}
+              <>
+                <div className="mb-6 pr-8">
+                  <Eyebrow>{modalType === "demo" ? "Démonstration en direct" : "Devis sur mesure"}</Eyebrow>
+                  <h3 id="request-title" className="mt-4 text-2xl font-extrabold text-slate-900">{modalType === "demo" ? "Réserver une démo" : "Demander un devis"}</h3>
+                  {selectedProduct && <p className="mt-2 text-sm text-slate-500">Modèle : <strong className="text-orange-600">{selectedProduct}</strong></p>}
                 </div>
-
-                <form onSubmit={handleSubmitForm} className="space-y-3.5">
-                  <div>
-                    <label className="block text-[11px] font-bold text-slate-700 uppercase mb-1">Nom & Prénom</label>
-                    <div className="relative">
-                      <User className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
-                      <input 
-                        type="text" 
-                        required 
-                        placeholder="Votre nom"
-                        className="w-full pl-9 pr-3 py-2 rounded-xl border border-slate-200 focus:border-[#EF5623] text-xs outline-none"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-[11px] font-bold text-slate-700 uppercase mb-1">Établissement / Restaurant</label>
-                    <div className="relative">
-                      <Building className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
-                      <input 
-                        type="text" 
-                        required 
-                        placeholder="Nom de votre enseigne"
-                        className="w-full pl-9 pr-3 py-2 rounded-xl border border-slate-200 focus:border-[#EF5623] text-xs outline-none"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-[11px] font-bold text-slate-700 uppercase mb-1">Téléphone</label>
-                    <div className="relative">
-                      <Phone className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
-                      <input 
-                        type="tel" 
-                        required 
-                        placeholder="06 XX XX XX XX"
-                        className="w-full pl-9 pr-3 py-2 rounded-xl border border-slate-200 focus:border-[#EF5623] text-xs outline-none"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-[11px] font-bold text-slate-700 uppercase mb-1">Email</label>
-                    <div className="relative">
-                      <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
-                      <input 
-                        type="email" 
-                        required 
-                        placeholder="contact@restaurant.com"
-                        className="w-full pl-9 pr-3 py-2 rounded-xl border border-slate-200 focus:border-[#EF5623] text-xs outline-none"
-                      />
-                    </div>
-                  </div>
-
-                  <button 
-                    type="submit"
-                    className="w-full mt-2 py-3 px-4 rounded-full bg-[#EF5623] hover:bg-[#d94817] text-white font-extrabold text-xs shadow-md transition-all flex items-center justify-center gap-2"
-                  >
-                    <span>Envoyer la demande</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+                <form onSubmit={handleSubmitForm} className="space-y-4">
+                  <label className="block"><span className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-slate-600">Nom & prénom</span><span className="relative block"><User className="absolute left-3 top-3 h-4 w-4 text-slate-400" /><input type="text" required placeholder="Votre nom" className="w-full rounded-xl border border-slate-200 py-3 pl-10 pr-3 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10" /></span></label>
+                  <label className="block"><span className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-slate-600">Établissement / restaurant</span><span className="relative block"><Building className="absolute left-3 top-3 h-4 w-4 text-slate-400" /><input type="text" required placeholder="Nom de votre enseigne" className="w-full rounded-xl border border-slate-200 py-3 pl-10 pr-3 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10" /></span></label>
+                  <label className="block"><span className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-slate-600">Téléphone</span><span className="relative block"><Phone className="absolute left-3 top-3 h-4 w-4 text-slate-400" /><input type="tel" required placeholder="06 XX XX XX XX" className="w-full rounded-xl border border-slate-200 py-3 pl-10 pr-3 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10" /></span></label>
+                  <label className="block"><span className="mb-1.5 block text-xs font-bold uppercase tracking-wide text-slate-600">Email professionnel</span><span className="relative block"><Mail className="absolute left-3 top-3 h-4 w-4 text-slate-400" /><input type="email" required placeholder="contact@restaurant.com" className="w-full rounded-xl border border-slate-200 py-3 pl-10 pr-3 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10" /></span></label>
+                  <button type="submit" className="group mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-orange-500 px-5 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5 hover:bg-orange-600">Envoyer la demande <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></button>
                 </form>
-              </div>
+                <p className="mt-4 text-center text-xs leading-5 text-slate-400">En envoyant ce formulaire, vous acceptez d’être recontacté au sujet de votre demande.</p>
+              </>
             )}
-
           </div>
         </div>
       )}
-
-    </div>
+    </main>
   );
 }

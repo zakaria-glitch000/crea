@@ -1,359 +1,13 @@
-
 import React from 'react';
 import {
-  Tv,
-  ShieldCheck,
-  Gauge,
-  Layers,
-  Maximize,
-  Wrench,
-  Utensils,
-  LayoutGrid,
-  Soup,
-  Tag,
-  Users,
-  BarChart3,
-  Printer,
-  Share2,
-  Settings,
-  Store,
-  Headphones,
-  ChevronRight,
+  Tv, ShieldCheck, Gauge, Layers, Maximize, Wrench, Utensils,
+  LayoutGrid, Soup, Tag, Users, BarChart3, Printer, Share2,
+  Settings, Store, Headphones, ChevronRight,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import pcImage from '@/assets/pc.jpeg';
 import caisseImage from '@/assets/00.png';
-
-export default function OraliPage() {
-  return (
-    <div className="w-full min-h-screen bg-white text-slate-800 font-sans pt-24 overflow-hidden">
-      <div className="w-full mx-auto bg-white overflow-hidden">
-
-        {/* HERO AVEC IMAGE FLOUE */}
-        <section className="relative isolate min-h-[340px] md:min-h-[440px] flex items-center overflow-hidden bg-slate-950">
-          <div
-            className="absolute inset-0 scale-105 bg-cover bg-center blur-[3px]"
-            style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85')",
-            }}
-          />
-
-          <div className="absolute inset-0 bg-slate-950/60" />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-900/50 to-transparent" />
-
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-16 md:py-24">
-            <span className="inline-block text-xs md:text-sm font-extrabold uppercase tracking-[0.2em] text-orange-400 mb-4">
-              Caisses enregistreuses CSI
-            </span>
-
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-black text-white leading-tight tracking-tight mb-5">
-              Deux modèles,
-              <br />
-              la même performance
-            </h1>
-
-            <p className="text-sm md:text-base text-slate-100 leading-relaxed max-w-2xl">
-              Des terminaux tactiles fiables et modernes, avec toutes les
-              fonctionnalités de notre solution d'encaissement CSI.
-              Choisissez le format qui correspond le mieux à votre espace.
-            </p>
-
-            <Link
-              to="/#contact"
-              className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 hover:bg-orange-600 px-6 py-3 text-sm font-bold text-white shadow-lg transition-colors"
-            >
-              Demander une démo
-              <ChevronRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </section>
-
-        {/* CONTENU PRINCIPAL */}
-        <main className="w-full max-w-7xl mx-auto px-5 py-12 md:px-10 lg:px-16 md:py-16 space-y-16">
-
-          {/* PRÉSENTATION DES PRODUITS */}
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-
-            {/* CSI TF-15 */}
-            <article className="bg-slate-50/70 rounded-2xl p-5 md:p-7 border border-slate-200 flex flex-col justify-between hover:shadow-lg transition-shadow">
-              <div>
-                <div className="h-64 md:h-72 flex items-center justify-center bg-white rounded-xl border border-slate-100 mb-6 p-5">
-                  <img
-                    src={caisseImage}
-                    alt="Caisse enregistreuse CSI TF-15"
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </div>
-
-                <h2 className="text-2xl md:text-3xl font-black text-slate-900">
-                  CSI TF-15
-                </h2>
-
-                <p className="text-xs font-bold text-orange-600 uppercase tracking-wider mt-2 mb-3">
-                  La performance au quotidien
-                </p>
-
-                <p className="text-sm text-slate-600 leading-relaxed mb-7">
-                  Un terminal tactile fiable et robuste, idéal pour les
-                  restaurants, cafés, bars et commerces de proximité.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-slate-200 pt-5 text-center">
-                <div className="flex flex-col items-center">
-                  <div className="w-11 h-11 rounded-full bg-orange-500 text-white flex items-center justify-center mb-2">
-                    <Tv className="w-5 h-5" />
-                  </div>
-                  <span className="text-xs font-semibold text-slate-700">
-                    Écran tactile 15"
-                  </span>
-                </div>
-
-                <div className="flex flex-col items-center">
-                  <div className="w-11 h-11 rounded-full bg-orange-500 text-white flex items-center justify-center mb-2">
-                    <ShieldCheck className="w-5 h-5" />
-                  </div>
-                  <span className="text-xs font-semibold text-slate-700">
-                    Robuste et fiable
-                  </span>
-                </div>
-
-                <div className="flex flex-col items-center">
-                  <div className="w-11 h-11 rounded-full bg-orange-500 text-white flex items-center justify-center mb-2">
-                    <Gauge className="w-5 h-5" />
-                  </div>
-                  <span className="text-xs font-semibold text-slate-700">
-                    Usage intensif
-                  </span>
-                </div>
-
-                <div className="flex flex-col items-center">
-                  <div className="w-11 h-11 rounded-full bg-orange-500 text-white flex items-center justify-center mb-2">
-                    <Layers className="w-5 h-5" />
-                  </div>
-                  <span className="text-xs font-semibold text-slate-700">
-                    Compatible périphériques
-                  </span>
-                </div>
-              </div>
-            </article>
-
-            {/* CSI MINI */}
-            <article className="bg-slate-50/70 rounded-2xl p-5 md:p-7 border border-slate-200 flex flex-col justify-between hover:shadow-lg transition-shadow">
-              <div>
-                <div className="h-64 md:h-72 flex items-center justify-center bg-white rounded-xl border border-slate-100 mb-6 p-5">
-                  <img
-                    src={pcImage}
-                    alt="Caisse enregistreuse CSI MINI"
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </div>
-
-                <h2 className="text-2xl md:text-3xl font-black text-slate-900">
-                  CSI MINI
-                </h2>
-
-                <p className="text-xs font-bold text-orange-600 uppercase tracking-wider mt-2 mb-3">
-                  Compacte et efficace
-                </p>
-
-                <p className="text-sm text-slate-600 leading-relaxed mb-7">
-                  Une caisse tactile tout-en-un, parfaite pour les petits
-                  espaces et les activités à taille humaine.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-slate-200 pt-5 text-center">
-                <div className="flex flex-col items-center">
-                  <div className="w-11 h-11 rounded-full bg-orange-500 text-white flex items-center justify-center mb-2">
-                    <Tv className="w-5 h-5" />
-                  </div>
-                  <span className="text-xs font-semibold text-slate-700">
-                    Écran tactile 12"
-                  </span>
-                </div>
-
-                <div className="flex flex-col items-center">
-                  <div className="w-11 h-11 rounded-full bg-orange-500 text-white flex items-center justify-center mb-2">
-                    <Maximize className="w-5 h-5" />
-                  </div>
-                  <span className="text-xs font-semibold text-slate-700">
-                    Design compact
-                  </span>
-                </div>
-
-                <div className="flex flex-col items-center">
-                  <div className="w-11 h-11 rounded-full bg-orange-500 text-white flex items-center justify-center mb-2">
-                    <ShieldCheck className="w-5 h-5" />
-                  </div>
-                  <span className="text-xs font-semibold text-slate-700">
-                    Robuste et fiable
-                  </span>
-                </div>
-
-                <div className="flex flex-col items-center">
-                  <div className="w-11 h-11 rounded-full bg-orange-500 text-white flex items-center justify-center mb-2">
-                    <Wrench className="w-5 h-5" />
-                  </div>
-                  <span className="text-xs font-semibold text-slate-700">
-                    Installation rapide
-                  </span>
-                </div>
-              </div>
-            </article>
-          </section>
-
-          {/* FONCTIONNALITÉS */}
-          <section className="bg-orange-50/60 rounded-3xl p-6 md:p-10 space-y-8">
-            <div className="text-center max-w-3xl mx-auto space-y-3">
-              <p className="text-xs font-extrabold text-orange-600 uppercase tracking-widest">
-                Les fonctionnalités de la caisse CSI
-              </p>
-
-              <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">
-                Une solution complète, identique sur les deux modèles
-              </h2>
-
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Quel que soit le modèle choisi, vous bénéficiez des mêmes
-                fonctionnalités avancées pour gérer votre activité.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-
-              <Feature
-                icon={<Utensils className="w-5 h-5" />}
-                title="Gestion des ventes"
-                description="Encaissement rapide et intuitif, en salle, au bar ou en magasin."
-                color="orange"
-              />
-
-              <Feature
-                icon={<LayoutGrid className="w-5 h-5" />}
-                title="Gestion des tables et plans de salle"
-                description="Organisation simple du service et suivi en temps réel."
-                color="blue"
-              />
-
-              <Feature
-                icon={<Soup className="w-5 h-5" />}
-                title="Menus et formules"
-                description="Gestion des menus, formules, options et suppléments."
-                color="rose"
-              />
-
-              <Feature
-                icon={<Tag className="w-5 h-5" />}
-                title="Promotions et offres"
-                description="Création de promotions, remises et prix spéciaux."
-                color="emerald"
-              />
-
-              <Feature
-                icon={<Users className="w-5 h-5" />}
-                title="Gestion des clients"
-                description="Fidélisation et suivi de la clientèle."
-                color="purple"
-              />
-
-              <Feature
-                icon={<BarChart3 className="w-5 h-5" />}
-                title="Rapports et statistiques"
-                description="Suivi du chiffre d'affaires, annulations, retours, pertes et offres."
-                color="amber"
-              />
-
-              <Feature
-                icon={<Printer className="w-5 h-5" />}
-                title="Impression et cuisine"
-                description="Impression des tickets, commandes cuisine et bons de préparation."
-                color="indigo"
-              />
-
-              <Feature
-                icon={<Share2 className="w-5 h-5" />}
-                title="Multi-postes et périphériques"
-                description="Connexion des imprimantes, tiroirs-caisses, écrans cuisine KDS et PDA."
-                color="teal"
-              />
-
-              <Feature
-                icon={<Settings className="w-5 h-5" />}
-                title="Paramétrage simple"
-                description="Interface claire et personnalisable selon votre activité."
-                color="red"
-              />
-
-              <Feature
-                icon={<Store className="w-5 h-5" />}
-                title="Adaptée à plusieurs secteurs"
-                description="Restauration, cafés, bars, commerces de proximité et retail."
-                color="sky"
-              />
-
-            </div>
-          </section>
-
-          {/* ACCOMPAGNEMENT */}
-          <section className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <SupportItem
-              icon={<ShieldCheck className="w-5 h-5" />}
-              title="Une solution fiable"
-              description="Conçue pour un usage professionnel et intensif."
-            />
-
-            <SupportItem
-              icon={<Wrench className="w-5 h-5" />}
-              title="Un matériel polyvalent"
-              description="Compatible avec les équipements de votre installation."
-            />
-
-            <SupportItem
-              icon={<Headphones className="w-5 h-5" />}
-              title="Un accompagnement sur mesure"
-              description="Notre équipe vous conseille et vous accompagne à chaque étape."
-            />
-          </section>
-
-          {/* CTA FINAL */}
-          <section className="relative overflow-hidden rounded-3xl bg-slate-950 px-6 py-10 md:px-12 md:py-14">
-            <div className="absolute -right-16 -top-20 w-64 h-64 rounded-full bg-orange-500/20 blur-3xl" />
-            <div className="absolute -left-16 -bottom-20 w-64 h-64 rounded-full bg-blue-500/10 blur-3xl" />
-
-            <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-              <div className="max-w-2xl">
-                <p className="text-xs font-extrabold uppercase tracking-widest text-orange-400 mb-3">
-                  Votre projet d'encaissement
-                </p>
-
-                <h2 className="text-2xl md:text-3xl font-black text-white mb-3">
-                  Trouvons la caisse adaptée à votre activité
-                </h2>
-
-                <p className="text-sm text-slate-300 leading-relaxed">
-                  Contactez notre équipe pour bénéficier de conseils,
-                  découvrir nos solutions et organiser une démonstration.
-                </p>
-              </div>
-
-              <Link
-                to="/#contact"
-                className="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 hover:bg-orange-600 px-6 py-3 text-sm font-bold text-white transition-colors"
-              >
-                Demander une démo
-                <ChevronRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </section>
-
-        </main>
-      </div>
-    </div>
-  );
-}
 
 type FeatureProps = {
   icon: React.ReactNode;
@@ -362,57 +16,198 @@ type FeatureProps = {
   color: string;
 };
 
-function Feature({ icon, title, description, color }: FeatureProps) {
-  const colorClasses: Record<string, string> = {
-    orange: 'bg-orange-100 text-orange-600 border-orange-100',
-    blue: 'bg-blue-100 text-blue-600 border-blue-100',
-    rose: 'bg-rose-100 text-rose-600 border-rose-100',
-    emerald: 'bg-emerald-100 text-emerald-600 border-emerald-100',
-    purple: 'bg-purple-100 text-purple-600 border-purple-100',
-    amber: 'bg-amber-100 text-amber-600 border-amber-100',
-    indigo: 'bg-indigo-100 text-indigo-600 border-indigo-100',
-    teal: 'bg-teal-100 text-teal-600 border-teal-100',
-    red: 'bg-red-100 text-red-600 border-red-100',
-    sky: 'bg-sky-100 text-sky-600 border-sky-100',
-  };
-
-  return (
-    <article className="bg-white p-5 rounded-2xl shadow-sm text-center border border-slate-100 flex flex-col items-center hover:-translate-y-1 hover:shadow-md transition-all">
-      <div
-        className={`w-11 h-11 rounded-full flex items-center justify-center mb-3 ${
-          colorClasses[color] ?? colorClasses.orange
-        }`}
-      >
-        {icon}
-      </div>
-
-      <h3 className="text-sm font-bold text-slate-900">{title}</h3>
-
-      <p className="text-xs text-slate-500 leading-relaxed mt-2">
-        {description}
-      </p>
-    </article>
-  );
-}
-
 type SupportItemProps = {
   icon: React.ReactNode;
   title: string;
   description: string;
 };
 
+const products = [
+  {
+    name: 'CSI TF-15',
+    tagline: 'La performance au quotidien',
+    description:
+      'Un terminal tactile fiable et robuste, idéal pour les restaurants, cafés, bars et commerces de proximité.',
+    image: caisseImage,
+    alt: 'Caisse enregistreuse CSI TF-15',
+    specs: [
+      { icon: <Tv className="h-5 w-5" />, label: 'Écran tactile 15"' },
+      { icon: <ShieldCheck className="h-5 w-5" />, label: 'Robuste et fiable' },
+      { icon: <Gauge className="h-5 w-5" />, label: 'Usage intensif' },
+      { icon: <Layers className="h-5 w-5" />, label: 'Compatible périphériques' },
+    ],
+  },
+  {
+    name: 'CSI MINI',
+    tagline: 'Compacte et efficace',
+    description:
+      'Une caisse tactile tout-en-un, parfaite pour les petits espaces et les activités à taille humaine.',
+    image: pcImage,
+    alt: 'Caisse enregistreuse CSI MINI',
+    specs: [
+      { icon: <Tv className="h-5 w-5" />, label: 'Écran tactile 12"' },
+      { icon: <Maximize className="h-5 w-5" />, label: 'Design compact' },
+      { icon: <ShieldCheck className="h-5 w-5" />, label: 'Robuste et fiable' },
+      { icon: <Wrench className="h-5 w-5" />, label: 'Installation rapide' },
+    ],
+  },
+];
+
+const features: FeatureProps[] = [
+  { icon: <Utensils className="h-5 w-5" />, title: 'Gestion des ventes', description: 'Encaissement rapide et intuitif, en salle, au bar ou en magasin.', color: 'orange' },
+  { icon: <LayoutGrid className="h-5 w-5" />, title: 'Gestion des tables et plans de salle', description: 'Organisation simple du service et suivi en temps réel.', color: 'blue' },
+  { icon: <Soup className="h-5 w-5" />, title: 'Menus et formules', description: 'Gestion des menus, formules, options et suppléments.', color: 'rose' },
+  { icon: <Tag className="h-5 w-5" />, title: 'Promotions et offres', description: 'Création de promotions, remises et prix spéciaux.', color: 'emerald' },
+  { icon: <Users className="h-5 w-5" />, title: 'Gestion des clients', description: 'Fidélisation et suivi de la clientèle.', color: 'purple' },
+  { icon: <BarChart3 className="h-5 w-5" />, title: 'Rapports et statistiques', description: "Suivi du chiffre d'affaires, annulations, retours, pertes et offres.", color: 'amber' },
+  { icon: <Printer className="h-5 w-5" />, title: 'Impression et cuisine', description: 'Impression des tickets, commandes cuisine et bons de préparation.', color: 'indigo' },
+  { icon: <Share2 className="h-5 w-5" />, title: 'Multi-postes et périphériques', description: 'Connexion des imprimantes, tiroirs-caisses, écrans cuisine KDS et PDA.', color: 'teal' },
+  { icon: <Settings className="h-5 w-5" />, title: 'Paramétrage simple', description: 'Interface claire et personnalisable selon votre activité.', color: 'red' },
+  { icon: <Store className="h-5 w-5" />, title: 'Adaptée à plusieurs secteurs', description: 'Restauration, cafés, bars, commerces de proximité et retail.', color: 'sky' },
+];
+
+const supportItems: SupportItemProps[] = [
+  { icon: <ShieldCheck className="h-5 w-5" />, title: 'Une solution fiable', description: 'Conçue pour un usage professionnel et intensif.' },
+  { icon: <Wrench className="h-5 w-5" />, title: 'Un matériel polyvalent', description: 'Compatible avec les équipements de votre installation.' },
+  { icon: <Headphones className="h-5 w-5" />, title: 'Un accompagnement sur mesure', description: 'Notre équipe vous conseille et vous accompagne à chaque étape.' },
+];
+
+export default function OraliPage() {
+  return (
+    <div className="min-h-screen w-full overflow-hidden bg-white pt-24 font-sans text-slate-800">
+      {/* HERO */}
+      <section className="relative isolate flex min-h-[390px] items-center overflow-hidden bg-slate-950 md:min-h-[490px]">
+        <div
+          className="absolute inset-0 scale-105 bg-cover bg-center blur-[2px]"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=90')" }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-slate-950/60" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/65 to-slate-950/15" aria-hidden="true" />
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 md:px-12 md:py-24 lg:px-16">
+          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange-400/30 bg-orange-500/10 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.2em] text-orange-300 md:text-xs">
+            <span className="h-2 w-2 rounded-full bg-orange-400" /> Caisses enregistreuses CSI
+          </span>
+          <h1 className="mb-5 max-w-3xl text-4xl font-black leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl">
+            Deux modèles,<br />la même <span className="text-orange-400">performance.</span>
+          </h1>
+          <p className="max-w-2xl text-sm leading-7 text-slate-100 sm:text-base">
+            Des terminaux tactiles fiables et modernes, avec toutes les fonctionnalités de notre solution d'encaissement CSI. Choisissez le format qui correspond le mieux à votre espace.
+          </p>
+          <Link to="/#contact" className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-950/20 transition duration-200 hover:-translate-y-0.5 hover:bg-orange-600">
+            Demander une démo <ChevronRight className="h-4 w-4" />
+          </Link>
+        </div>
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white/10 to-transparent" />
+      </section>
+
+      <main className="mx-auto w-full max-w-7xl space-y-16 px-5 py-12 sm:px-8 md:space-y-20 md:px-12 md:py-16 lg:px-16">
+        {/* PRODUITS */}
+        <section aria-labelledby="products-title">
+          <div className="mx-auto mb-9 max-w-2xl text-center">
+            <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-orange-600">Nos terminaux CSI</p>
+            <h2 id="products-title" className="text-2xl font-black tracking-tight text-slate-900 sm:text-3xl md:text-4xl">Choisissez le format qui vous convient</h2>
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-600">Deux formats pensés pour vous accompagner au quotidien, avec une solution d'encaissement complète et performante.</p>
+          </div>
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
+            {products.map((product) => (
+              <article key={product.name} className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/70 sm:p-6">
+                <div className="relative mb-6 flex h-64 items-center justify-center overflow-hidden rounded-2xl border border-slate-100 bg-gradient-to-br from-white via-slate-50 to-orange-50/50 p-6 md:h-72">
+                  <div className="absolute right-4 top-4 rounded-full border border-slate-200 bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-500">CSI</div>
+                  <img src={product.image} alt={product.alt} loading="lazy" className="h-full max-h-full w-full max-w-full object-contain transition duration-500 group-hover:scale-[1.04]" />
+                </div>
+                <div className="flex flex-1 flex-col px-1">
+                  <h3 className="text-2xl font-black text-slate-900 md:text-3xl">{product.name}</h3>
+                  <p className="mb-3 mt-2 text-xs font-extrabold uppercase tracking-[0.14em] text-orange-600">{product.tagline}</p>
+                  <p className="mb-6 max-w-xl text-sm leading-6 text-slate-600">{product.description}</p>
+                  <div className="mt-auto grid grid-cols-2 gap-3 border-t border-slate-200 pt-5 sm:grid-cols-4">
+                    {product.specs.map((spec) => (
+                      <div key={spec.label} className="flex flex-col items-center text-center">
+                        <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-orange-50 text-orange-600 ring-1 ring-orange-100">{spec.icon}</div>
+                        <span className="text-[11px] font-semibold leading-4 text-slate-700 sm:text-xs">{spec.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* FONCTIONNALITÉS */}
+        <section className="relative overflow-hidden rounded-3xl border border-orange-100 bg-gradient-to-br from-orange-50/80 via-white to-slate-50 p-5 sm:p-8 md:p-10">
+          <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-orange-200/30 blur-3xl" />
+          <div className="relative z-10 mx-auto mb-9 max-w-3xl space-y-3 text-center">
+            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-orange-600">Les fonctionnalités de la caisse CSI</p>
+            <h2 className="text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">Une solution complète, identique sur les deux modèles</h2>
+            <p className="text-sm leading-6 text-slate-600">Quel que soit le modèle choisi, vous bénéficiez des mêmes fonctionnalités avancées pour gérer votre activité.</p>
+          </div>
+          <div className="relative z-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {features.map((feature) => <Feature key={feature.title} {...feature} />)}
+          </div>
+        </section>
+
+        {/* ACCOMPAGNEMENT */}
+        <section>
+          <div className="mb-7 text-center">
+            <p className="mb-2 text-xs font-extrabold uppercase tracking-[0.2em] text-orange-600">À vos côtés</p>
+            <h2 className="text-2xl font-black text-slate-900 sm:text-3xl">Bien plus qu'un terminal de caisse</h2>
+          </div>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
+            {supportItems.map((item) => <SupportItem key={item.title} {...item} />)}
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="relative isolate overflow-hidden rounded-3xl bg-slate-950 px-6 py-10 sm:px-8 md:px-12 md:py-14">
+          <div className="absolute -right-16 -top-20 -z-10 h-64 w-64 rounded-full bg-orange-500/25 blur-3xl" />
+          <div className="absolute -bottom-20 -left-16 -z-10 h-64 w-64 rounded-full bg-blue-500/15 blur-3xl" />
+          <div className="relative z-10 flex flex-col items-start justify-between gap-7 md:flex-row md:items-center">
+            <div className="max-w-2xl">
+              <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-orange-400">Votre projet d'encaissement</p>
+              <h2 className="mb-3 text-2xl font-black leading-tight text-white sm:text-3xl">Trouvons la caisse adaptée à votre activité</h2>
+              <p className="text-sm leading-6 text-slate-300">Contactez notre équipe pour bénéficier de conseils, découvrir nos solutions et organiser une démonstration.</p>
+            </div>
+            <Link to="/#contact" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-orange-500 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-orange-600">
+              Demander une démo <ChevronRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}
+
+function Feature({ icon, title, description, color }: FeatureProps) {
+  const colorClasses: Record<string, string> = {
+    orange: 'bg-orange-50 text-orange-600 ring-orange-100',
+    blue: 'bg-blue-50 text-blue-600 ring-blue-100',
+    rose: 'bg-rose-50 text-rose-600 ring-rose-100',
+    emerald: 'bg-emerald-50 text-emerald-600 ring-emerald-100',
+    purple: 'bg-purple-50 text-purple-600 ring-purple-100',
+    amber: 'bg-amber-50 text-amber-600 ring-amber-100',
+    indigo: 'bg-indigo-50 text-indigo-600 ring-indigo-100',
+    teal: 'bg-teal-50 text-teal-600 ring-teal-100',
+    red: 'bg-red-50 text-red-600 ring-red-100',
+    sky: 'bg-sky-50 text-sky-600 ring-sky-100',
+  };
+
+  return (
+    <article className="group flex flex-col items-center rounded-2xl border border-slate-100 bg-white p-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+      <div className={`mb-3 flex h-11 w-11 items-center justify-center rounded-xl ring-1 transition group-hover:scale-105 ${colorClasses[color] ?? colorClasses.orange}`}>{icon}</div>
+      <h3 className="text-sm font-bold leading-5 text-slate-900">{title}</h3>
+      <p className="mt-2 text-xs leading-5 text-slate-500">{description}</p>
+    </article>
+  );
+}
+
 function SupportItem({ icon, title, description }: SupportItemProps) {
   return (
-    <article className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 hover:shadow-md transition-shadow">
-      <div className="w-11 h-11 rounded-full border border-orange-200 text-orange-500 flex items-center justify-center shrink-0">
-        {icon}
-      </div>
-
+    <article className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 transition duration-300 hover:-translate-y-0.5 hover:border-orange-200 hover:shadow-lg">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-orange-600 ring-1 ring-orange-100">{icon}</div>
       <div>
         <h3 className="text-sm font-bold text-slate-900">{title}</h3>
-        <p className="text-xs text-slate-500 leading-relaxed mt-1">
-          {description}
-        </p>
+        <p className="mt-1 text-xs leading-5 text-slate-500">{description}</p>
       </div>
     </article>
   );

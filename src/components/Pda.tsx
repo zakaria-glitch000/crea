@@ -1,22 +1,35 @@
 import React from "react";
 import {
-  Smartphone, Settings, Wifi, BookOpen, ConciergeBell, Zap, LayoutGrid,
-  Armchair, BarChart3, RefreshCw, Timer, Users, ChefHat, TrendingUp,
-  Wrench, Headset, ArrowRight,
+  Smartphone,
+  Settings,
+  Wifi,
+  BookOpen,
+  ConciergeBell,
+  Zap,
+  LayoutGrid,
+  Armchair,
+  BarChart3,
+  RefreshCw,
+  Timer,
+  Users,
+  ChefHat,
+  TrendingUp,
+  Wrench,
+  Headset,
+  ArrowRight,
+  CheckCircle2,
+  ShieldCheck,
 } from "lucide-react";
-import "./Pda.css";
-import pdaImage from '@/assets/20.png';
-import deuxImage from '@/assets/21.png';
-import troisImage from '@/assets/22.png';
-import heroImage from '@/assets/90.jpeg';
-import quatreImage from '@/assets/3.jpg';
-import cinqImage from '@/assets/00.png';
-import sixImage from '@/assets/4.jpg';
 
-/*
-  IMAGE À PLACER dans /public/images/ :
-  - logo-orali.png  (logo ORALI SYSTEMS)
-*/
+import "./Pda.css";
+
+import pdaImage from "@/assets/20.png";
+import deuxImage from "@/assets/21.png";
+import troisImage from "@/assets/22.png";
+import heroImage from "@/assets/90.jpeg";
+import quatreImage from "@/assets/3.jpg";
+import cinqImage from "@/assets/00.png";
+import sixImage from "@/assets/4.jpg";
 
 const cards = [
   {
@@ -24,9 +37,9 @@ const cards = [
     title: "PAD CSI",
     subtitle: "Robuste, léger et performant",
     features: [
-      { icon: Smartphone, label: "Écran tactile 5\"" },
+      { icon: Smartphone, label: 'Écran tactile 5"' },
       { icon: Settings, label: "Design robuste" },
-      { icon: Wifi, label: "Wi-Fi / 4G (Bluetooth)" },
+      { icon: Wifi, label: "Wi-Fi / 4G / Bluetooth" },
     ],
   },
   {
@@ -47,169 +60,372 @@ const cards = [
     features: [
       { icon: LayoutGrid, label: "Suivi des tables en temps réel" },
       { icon: Armchair, label: "Ouverture, transfert et regroupement" },
-      { icon: BarChart3, label: "État des tables (claire et visuelle)" },
+      { icon: BarChart3, label: "État des tables clair et visuel" },
       { icon: RefreshCw, label: "Synchronisation avec la caisse CSI" },
     ],
   },
 ];
 
 const advantages = [
-  { icon: Timer, color: "#f26a1b", bg: "#fff1e6", title: "Gain de temps",
-    text: "Commandes envoyées directement en cuisine sans déplacement." },
-  { icon: Users, color: "#2a7de1", bg: "#e8f1fd", title: "Meilleure organisation",
-    text: "Suivi des tables et des commandes en temps réel." },
-  { icon: ChefHat, color: "#22a06b", bg: "#e5f6ee", title: "Moins d'erreurs",
-    text: "Saisie intuitive et claire avec menus visuels." },
-  { icon: TrendingUp, color: "#8a4fe0", bg: "#f1e9fc", title: "Plus de ventes",
-    text: "Mise en avant des options et des produits complémentaires." },
+  {
+    icon: Timer,
+    color: "#2563eb",
+    bg: "#eff6ff",
+    title: "Gain de temps",
+    text: "Commandes envoyées directement en cuisine sans déplacement.",
+  },
+  {
+    icon: Users,
+    color: "#f26a1b",
+    bg: "#fff1e6",
+    title: "Meilleure organisation",
+    text: "Suivi des tables et des commandes en temps réel.",
+  },
+  {
+    icon: ChefHat,
+    color: "#16a34a",
+    bg: "#f0fdf4",
+    title: "Moins d'erreurs",
+    text: "Saisie intuitive et claire avec menus visuels.",
+  },
+  {
+    icon: TrendingUp,
+    color: "#7c3aed",
+    bg: "#f5f3ff",
+    title: "Plus de ventes",
+    text: "Mise en avant des options et des produits complémentaires.",
+  },
 ];
 
 const services = [
-  { icon: Settings, title: "Installation et paramétrage", text: "par nos techniciens" },
-  { icon: Users, title: "Formation des équipes", text: "Utilisation simple et rapide" },
-  { icon: Headset, title: "Assistance technique", text: "À distance ou sur site" },
-  { icon: Wrench, title: "Suivi et maintenance", text: "Pour une utilisation en toute sérénité" },
+  {
+    icon: Settings,
+    title: "Installation et paramétrage",
+    text: "Par nos techniciens",
+  },
+  {
+    icon: Users,
+    title: "Formation des équipes",
+    text: "Utilisation simple et rapide",
+  },
+  {
+    icon: Headset,
+    title: "Assistance technique",
+    text: "À distance ou sur site",
+  },
+  {
+    icon: Wrench,
+    title: "Suivi et maintenance",
+    text: "Pour une utilisation en toute sérénité",
+  },
 ];
 
 export default function OraliPage() {
+  const goToContact = () => {
+    window.location.href = "/#contact";
+  };
+
   return (
-    <div className="orali">
+    <main className="orali min-h-screen w-full overflow-hidden bg-white font-sans text-slate-800 antialiased">
       {/* HERO */}
-      <header className="hero">
-    <div
-  className="hero-bg"
-  style={{
-    backgroundImage: `url("${heroImage}")`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-  }}
-  aria-hidden="true"
-/>
-        <div className="hero-overlay" />
-
-      
-
-        <div className="hero-content">
-          <p className="eyebrow hero-eyebrow">PDA / TERMINAL DE PRISE DE COMMANDE</p>
-          <h1>
-            Un service plus rapide <br /> au bout des mains
-          </h1>
-          <p className="lead">
-            Le terminal mobile CSI vous permet de prendre les commandes
-            directement à table, de les envoyer en cuisine via le KDS et de les
-            intégrer à votre caisse, pour un service fluide et plus efficace.
-          </p>
-        </div>
-
-        <div className="hero-script">
-          La prise de commande <br /> en toute mobilité
-        </div>
-
-        <svg
-          className="hero-wave"
-          viewBox="0 0 1200 80"
-          preserveAspectRatio="none"
+      <section id="accueil" className="pda-hero">
+        <div
+          className="pda-hero-bg"
+          style={{ backgroundImage: `url("${heroImage}")` }}
           aria-hidden="true"
-        >
-          <path d="M0 0 C 300 70, 700 80, 1200 10 L1200 80 L0 80 Z" fill="#fff" />
-          <path
-            d="M760 62 C 900 50, 1100 28, 1200 10"
-            fill="none"
-            stroke="#f26a1b"
-            strokeWidth="3"
-          />
-        </svg>
-      </header>
+        />
 
-      {/* 3 CARTES */}
-      <section className="cards">
-        {cards.map((c) => (
-          <article className="card" key={c.title}>
-            <div className="card-img">
-              <img src={c.img} alt={c.title} />
+        <div className="pda-hero-overlay" />
+        <div className="pda-hero-bottom" />
+
+        <div className="pda-hero-content">
+          <div className="pda-eyebrow">
+            <span className="pda-status-dot" />
+            PDA / TERMINAL DE PRISE DE COMMANDE
+          </div>
+
+          <h1>
+            Un service plus rapide
+            <span> au bout des mains.</span>
+          </h1>
+
+          <p className="pda-hero-description">
+            Le terminal mobile CSI vous permet de prendre les commandes
+            directement à table, de les envoyer en cuisine via le KDS et de
+            les intégrer à votre caisse, pour un service fluide et plus
+            efficace.
+          </p>
+
+          <div className="pda-hero-points">
+            <div>
+              <CheckCircle2 />
+              Prise de commande mobile
             </div>
-            <h2>{c.title}</h2>
-            <p className="card-sub">{c.subtitle}</p>
-            <ul className="features">
-              {c.features.map(({ icon: Icon, label }) => (
-                <li key={label}>
-                  <Icon size={30} strokeWidth={1.5} color="#f26a1b" />
-                  <span>{label}</span>
-                </li>
-              ))}
-            </ul>
-          </article>
-        ))}
+            <div>
+              <CheckCircle2 />
+              Synchronisation en temps réel
+            </div>
+            <div>
+              <CheckCircle2 />
+              Une solution pensée pour la restauration
+            </div>
+          </div>
+
+          <div className="pda-hero-actions">
+            <button
+              type="button"
+              onClick={goToContact}
+              className="pda-btn-primary"
+            >
+              Demander une démo
+              <ArrowRight />
+            </button>
+
+            <button
+              type="button"
+              onClick={goToContact}
+              className="pda-btn-secondary"
+            >
+              Parlons de votre projet
+              <ArrowRight />
+            </button>
+          </div>
+
+          <div className="pda-hero-trust">
+            <span>
+              <ShieldCheck />
+              Solution professionnelle
+            </span>
+            <span>
+              <CheckCircle2 />
+              Accompagnement dédié
+            </span>
+          </div>
+        </div>
+
+        <div className="pda-hero-badge">
+          <Smartphone />
+          <span>
+            <strong>La prise de commande</strong>
+            <small>En toute mobilité</small>
+          </span>
+        </div>
+      </section>
+
+      {/* LES SOLUTIONS PDA */}
+      <section id="solutions" className="pda-section pda-products">
+        <div className="pda-container">
+          <div className="pda-section-heading">
+            <span className="pda-section-tag">Nos solutions</span>
+            <h2>
+              Une expérience de commande
+              <span> simple et connectée</span>
+            </h2>
+            <div className="pda-heading-line" />
+            <p>
+              Des outils conçus pour faciliter le travail de vos équipes,
+              fluidifier le service et améliorer l'expérience de vos clients.
+            </p>
+          </div>
+
+          <div className="pda-product-grid">
+            {cards.map((card, index) => (
+              <article className="pda-product-card" key={card.title}>
+                <div className="pda-product-image">
+                  <img src={card.img} alt={card.title} loading="lazy" />
+                  <span className="pda-product-number">
+                    0{index + 1}
+                  </span>
+                </div>
+
+                <div className="pda-product-content">
+                  <h3>{card.title}</h3>
+                  <p className="pda-product-subtitle">{card.subtitle}</p>
+
+                  <div className="pda-feature-list">
+                    {card.features.map(({ icon: Icon, label }) => (
+                      <div className="pda-feature" key={label}>
+                        <span className="pda-feature-icon">
+                          <Icon />
+                        </span>
+                        <span>{label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* AVANTAGES */}
-      <section className="advantages">
-        <p className="eyebrow center">
-          LES AVANTAGES POUR VOTRE ÉTABLISSEMENT
-        </p>
+      <section className="pda-section pda-advantages">
+        <div className="pda-container">
+          <div className="pda-section-heading">
+            <span className="pda-section-tag">
+              Les avantages pour votre établissement
+            </span>
 
-        <h2 className="section-title">
-          Un service plus fluide et plus efficace
-        </h2>
+            <h2>
+              Un service plus fluide
+              <span> et plus efficace</span>
+            </h2>
 
-        <div className="adv-grid">
-          {advantages.map(({ icon: Icon, color, bg, title, text }) => (
-            <article className="adv" key={title}>
-              <div
-                className="adv-icon"
-                style={{ backgroundColor: bg }}
-              >
-                <Icon
-                  size={38}
-                  color={color}
-                  strokeWidth={1.8}
-                  aria-hidden="true"
-                />
-              </div>
+            <div className="pda-heading-line" />
 
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
+            <p>
+              Gagnez du temps, simplifiez les opérations et offrez à vos
+              clients une expérience de service plus agréable.
+            </p>
+          </div>
+
+          <div className="pda-adv-grid">
+            {advantages.map(({ icon: Icon, color, bg, title, text }) => (
+              <article className="pda-adv-card" key={title}>
+                <div
+                  className="pda-adv-icon"
+                  style={{ backgroundColor: bg, color }}
+                >
+                  <Icon />
+                </div>
+
+                <h3>{title}</h3>
+                <p>{text}</p>
+                <div className="pda-adv-bottom">
+                  <CheckCircle2 />
+                  <span>Un service optimisé</span>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* SOLUTION CONNECTÉE */}
-      <section className="connected">
-        <div className="flow-wrap">
-          <p className="eyebrow">UNE SOLUTION CONNECTÉE</p>
-          <h2 className="section-title left">De la table à la cuisine, sans délai</h2>
-          <div className="flow">
-            <figure>
-              <img src={quatreImage} alt="PAD CSI" className="flow-pad" />
-              <figcaption>Prise de commande <br /> sur PAD CSI</figcaption>
-            </figure>
-            <ArrowRight className="arrow" size={44} color="#f26a1b" />
-            <figure>
-              <img src={sixImage} alt="KDS" className="flow-kds" />
-              <figcaption>Affichage en cuisine <br /> sur KDS</figcaption>
-            </figure>
-            <ArrowRight className="arrow" size={44} color="#f26a1b" />
-            <figure>
-              <img src={cinqImage} alt="Caisse CSI" className="flow-caisse" />
-              <figcaption>Intégration à la caisse <br /> CSI</figcaption>
-            </figure>
+      <section id="fonctionnement" className="pda-section pda-connected">
+        <div className="pda-container">
+          <div className="pda-connected-panel">
+            <div className="pda-connected-main">
+              <span className="pda-section-tag">
+                Une solution connectée
+              </span>
+
+              <h2 className="pda-connected-title">
+                De la table à la cuisine,
+                <span> sans délai.</span>
+              </h2>
+
+              <p className="pda-connected-description">
+                Chaque commande suit un parcours fluide entre le terminal
+                mobile, l'écran de cuisine et la caisse CSI. Vos équipes
+                travaillent avec des informations synchronisées.
+              </p>
+
+              <div className="pda-flow">
+                <figure className="pda-flow-item">
+                  <div className="pda-flow-image">
+                    <img src={quatreImage} alt="Terminal de commande PAD CSI" loading="lazy" />
+                  </div>
+                  <figcaption>
+                    <span>01</span>
+                    <strong>Prise de commande</strong>
+                    <small>Sur PAD CSI</small>
+                  </figcaption>
+                </figure>
+
+                <div className="pda-flow-arrow">
+                  <ArrowRight />
+                </div>
+
+                <figure className="pda-flow-item">
+                  <div className="pda-flow-image">
+                    <img src={sixImage} alt="Écran de cuisine KDS" loading="lazy" />
+                  </div>
+                  <figcaption>
+                    <span>02</span>
+                    <strong>Affichage en cuisine</strong>
+                    <small>Sur KDS</small>
+                  </figcaption>
+                </figure>
+
+                <div className="pda-flow-arrow">
+                  <ArrowRight />
+                </div>
+
+                <figure className="pda-flow-item">
+                  <div className="pda-flow-image">
+                    <img src={cinqImage} alt="Caisse CSI" loading="lazy" />
+                  </div>
+                  <figcaption>
+                    <span>03</span>
+                    <strong>Intégration à la caisse</strong>
+                    <small>CSI</small>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <aside className="pda-services">
+              <div className="pda-services-heading">
+                <span className="pda-section-tag">À vos côtés</span>
+                <h3>Un accompagnement complet</h3>
+                <p>De l'installation à la maintenance de votre solution.</p>
+              </div>
+
+              {services.map(({ icon: Icon, title, text }) => (
+                <div className="pda-service-item" key={title}>
+                  <div className="pda-service-icon">
+                    <Icon />
+                  </div>
+                  <div>
+                    <strong>{title}</strong>
+                    <span>{text}</span>
+                  </div>
+                </div>
+              ))}
+
+              <button
+                type="button"
+                onClick={goToContact}
+                className="pda-service-cta"
+              >
+                Contactez notre équipe
+                <ArrowRight />
+              </button>
+            </aside>
           </div>
         </div>
-
-        <ul className="services">
-          {services.map(({ icon: Icon, title, text }) => (
-            <li key={title}>
-              <Icon size={38} strokeWidth={1.5} color="#f26a1b" />
-              <div>
-                <strong>{title}</strong>
-                <span>{text}</span>
-              </div>
-            </li>
-          ))}
-        </ul>
       </section>
-    </div>
+
+      {/* CTA FINAL */}
+      <section className="pda-final-cta">
+        <div className="pda-container">
+          <div className="pda-final-cta-inner">
+            <div>
+              <span className="pda-final-label">
+                Optimisez votre service
+              </span>
+              <h2>
+                Prêt à passer à une prise de commande plus efficace ?
+              </h2>
+              <p>
+                Découvrez comment la solution PDA CSI peut s'intégrer à
+                votre établissement et simplifier le quotidien de vos équipes.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={goToContact}
+              className="pda-btn-primary pda-final-button"
+            >
+              Parlons de votre projet
+              <ArrowRight />
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
