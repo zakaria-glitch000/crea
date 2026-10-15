@@ -73,7 +73,7 @@ export default function App() {
       <header className="stk-hero">
         <div
           className="stk-hero__bg"
-          style={{ backgroundImage: "url(/images/hero-bg.jpg)" }}
+          style={{ backgroundImage: "url(/src/assets/p2.jpg)" }}
           aria-hidden="true"
         />
         <div className="stk-hero__fade" />
@@ -96,7 +96,6 @@ export default function App() {
           </div>
 
           <div className="stk-hero__terminal">
-            <img src="/src/assets/90.jpeg" alt="Terminal Zebra INNOSHOP" />
           </div>
 
           <div className="stk-hero__right">

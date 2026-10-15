@@ -72,17 +72,22 @@
   background: #fff;
 }
 
+
+
 .stk-hero__bg {
   position: absolute;
   z-index: -2;
   top: 0;
   right: 0;
-  width: 62%;
+  width: 68%;
   height: 100%;
-  background-position: right center;
+
+  background-position: calc(100% - 25px) center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 85% auto;
 }
+
+
 
 .stk-hero__fade {
   position: absolute;
