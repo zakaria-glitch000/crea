@@ -16,7 +16,13 @@ import {
   Settings,
 } from "lucide-react";
 import "./Etiquette.css";
-
+import t0 from "@/assets/t0.jpeg";
+import t1 from "@/assets/t1.jpeg";
+import t2 from "@/assets/t2.jpeg";
+import t3 from "@/assets/t3.jpeg";
+import t4 from "@/assets/t4.jpeg";
+import t5 from "@/assets/t5.jpeg";
+import t6 from "@/assets/t6.jpeg";
 const benefits = [
   { icon: Zap, color: "#f26a1b", bg: "#fde6d7", title: "Mise à jour automatique", text: "Les prix et informations sont mis à jour directement depuis INNOSHOP en quelques clics." },
   { icon: Target, color: "#1e6fe0", bg: "#dce9fc", title: "Zéro erreur", text: "Fini les étiquettes papier et les erreurs de prix en rayon." },
@@ -24,17 +30,13 @@ const benefits = [
   { icon: BarChart3, color: "#7c3aed", bg: "#ece3fb", title: "Image moderne", text: "Des rayons clairs, professionnels et attractifs pour vos clients." },
 ];
 
-const syncLabels = [
-  "/src/assets/t0.jpeg",
-  "/src/assets/t1.jpeg",
-  "/src/assets/t2.jpeg",
-];
+const syncLabels = [t0, t1, t2];
 
 const formats = [
-  { img: "/src/assets/t3.jpeg", title: "Petit format", sub: "Fruits & légumes", w: 125 },
-  { img: "/src/assets/t4.jpeg", title: "Format moyen", sub: "Épicerie", w: 140 },
-  { img: "/src/assets/t5.jpeg", title: "Grand format", sub: "Boucherie", w: 155 },
-  { img: "/src/assets/t6.jpeg", title: "Format large", sub: "Produits promotionnels", w: 175 },
+  { img: t3, title: "Petit format", sub: "Fruits & légumes", w: 125 },
+  { img: t4, title: "Format moyen", sub: "Épicerie", w: 140 },
+  { img: t5, title: "Grand format", sub: "Boucherie", w: 155 },
+  { img: t6, title: "Format large", sub: "Produits promotionnels", w: 175 },
 ];
 
 const shops = [
