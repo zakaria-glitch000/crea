@@ -29,14 +29,22 @@ import "./Zebra.css";
    - step3-etiquette.jpg    : étiquette BANANES collée sur le produit
    - step4-scan.jpg         : scanner qui lit le code-barres
 ------------------------------------------------------------------- */
+
+
+import hero from "@/assets/zebra.jpeg";
+import step1 from "@/assets/inno.jpg";
+import step2 from "@/assets/z1.jpeg";
+import step3 from "@/assets/z2.jpeg";
+import step4 from "@/assets/z3.jpeg";
+
 const IMG = {
-  logo: "/images/logo-orali.png",
-  hero: "/src/assets/zebra.jpeg",
-  step2: "/src/assets/z1.jpeg",
-  step3: "/src/assets/z2.jpeg",
-  step1: "/src/assets/inno.jpg",
-  step4: "/src/assets/z3.jpeg",
+  hero,
+  step1,
+  step2,
+  step3,
+  step4,
 };
+
 
 /* Code-barres généré en SVG à partir d'une chaîne (rendu décoratif) */
 function Barcode({ value = "123456789012", height = 44 }) {
