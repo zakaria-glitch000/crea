@@ -41,8 +41,9 @@ const features = [
 ];
 
 const gallery = [
-  { img: heads, alt: "Cuisine équipée avec écran KDS et imprimante" },
+ 
   { img: deux, alt: "Équipe en cuisine devant l'écran KDS" },
+   { img: heads, alt: "Cuisine équipée avec écran KDS et imprimante" },
   { img: trois, alt: "Plan de salle affiché sur l'écran KDS" },
 ];
 
