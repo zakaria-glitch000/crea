@@ -971,13 +971,13 @@ export const FEATURE_LIST = [
 export const COMPANY = {
   name: 'ORALI SYSTEMS ',
 
-  tagline: 'Solutions Technologiques',
+  tagline: 'ARTIS Consulting',
 
-  address: 'CASABLANCA MAROC',
+  address: 'R8 RUE JULES FERRY 92250 La Garenne-Colombes PARIS',
 
   phone: '+212520202000',
 
-  email: 'contact@ORALISYSTEMS.fr',
+  email: 'contact@artisconsulting.fr',
 
   hours: 'Lun – Sam : 9h00 – 18h00',
 

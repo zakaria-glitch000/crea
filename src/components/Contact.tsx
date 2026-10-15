@@ -12,16 +12,6 @@ import {
 import { COMPANY } from '@/data/content';
 import { Reveal, SectionTag } from './ui/Reveal';
 
-const SERVICE_OPTIONS = [
-  'Systèmes de caisse & POS',
-  'Logiciels de gestion',
-  'Réseau & infrastructure',
-  'Sécurité informatique',
-  'Solutions matérielles',
-  'Solutions personnalisées',
-  'Support & maintenance',
-];
-
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
@@ -110,7 +100,7 @@ export function Contact() {
                         label="Nom"
                         name="name"
                         type="text"
-                        placeholder="Jean Dupont"
+                        placeholder=""
                         required
                       />
 
@@ -118,7 +108,7 @@ export function Contact() {
                         label="Entreprise"
                         name="company"
                         type="text"
-                        placeholder="Votre société"
+                        placeholder=""
                       />
                     </div>
 
@@ -127,7 +117,7 @@ export function Contact() {
                         label="Email"
                         name="email"
                         type="email"
-                        placeholder="jean@societe.fr"
+                        placeholder=""
                         required
                       />
 
@@ -135,31 +125,8 @@ export function Contact() {
                         label="Téléphone"
                         name="phone"
                         type="tel"
-                        placeholder="+212 6 00 00 00 00"
+                        placeholder=""
                       />
-                    </div>
-
-                    {/* Service selection */}
-                    <div>
-                      <label
-                        htmlFor="contact-service"
-                        className="mb-1.5 block text-sm font-medium text-slate-700"
-                      >
-                        Service souhaité
-                      </label>
-
-                      <select
-                        id="contact-service"
-                        name="service"
-                        defaultValue={SERVICE_OPTIONS[0]}
-                        className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-700 outline-none transition-all duration-300 focus:border-sky-400 focus:ring-4 focus:ring-sky-500/10"
-                      >
-                        {SERVICE_OPTIONS.map((service) => (
-                          <option key={service} value={service}>
-                            {service}
-                          </option>
-                        ))}
-                      </select>
                     </div>
 
                     {/* Message */}
@@ -175,7 +142,7 @@ export function Contact() {
                         id="contact-message"
                         name="message"
                         rows={4}
-                        placeholder="Décrivez votre projet en quelques lignes..."
+                        placeholder=""
                         className="w-full resize-y rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm leading-6 text-slate-900 outline-none transition-all duration-300 placeholder:text-slate-400 focus:border-sky-400 focus:ring-4 focus:ring-sky-500/10"
                       />
                     </div>
