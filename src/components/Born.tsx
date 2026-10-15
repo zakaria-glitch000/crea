@@ -5,13 +5,18 @@ import {
   GraduationCap, Headphones, Cog, ArrowRight, X, Phone, Mail, Building,
   User, Check, Minimize2, Sliders, Sparkles, Zap, CreditCard, ShoppingBag
 } from "lucide-react";
+import borneStandard from "@/assets/b1.jpeg";
+import bornePremium from "@/assets/b2.jpeg";
+import borneMurale from "@/assets/b3.jpeg";
 
 const products = [
   {
     name: "Borne standard",
     subtitle: "L’essentiel pour commencer",
     screen: '21,5"',
-    description: "Une solution intuitive et compacte pour fluidifier la prise de commande.",
+    image: borneStandard,
+    description:
+      "Une solution intuitive et compacte pour fluidifier la prise de commande.",
     features: [
       { icon: Monitor, text: <>Écran tactile <strong>21,5"</strong></> },
       { icon: Sliders, text: "Design épuré et compact" },
@@ -24,7 +29,9 @@ const products = [
     name: "Borne premium",
     subtitle: "Performance et élégance",
     screen: '27"',
-    description: "Une expérience grand format adaptée aux établissements à fort trafic.",
+    image: bornePremium,
+    description:
+      "Une expérience grand format adaptée aux établissements à fort trafic.",
     features: [
       { icon: Monitor, text: <>Écran tactile <strong>27"</strong></> },
       { icon: Sliders, text: "Design moderne et élégant" },
@@ -37,7 +44,9 @@ const products = [
     name: "Borne murale",
     subtitle: "Une solution gain de place",
     screen: '21,5"',
-    description: "Optimisez votre espace avec une borne discrète et facile d’accès.",
+    image: borneMurale,
+    description:
+      "Optimisez votre espace avec une borne discrète et facile d’accès.",
     features: [
       { icon: Monitor, text: <>Écran tactile <strong>21,5"</strong></> },
       { icon: Minimize2, text: "Fixation murale" },
@@ -81,24 +90,26 @@ function Eyebrow({ children, light = false }) {
   );
 }
 
-function KioskIllustration({ variant }) {
+function KioskIllustration({ product }) {
   return (
     <div className="relative flex h-64 items-center justify-center overflow-hidden rounded-2xl border border-slate-100 bg-gradient-to-br from-white via-slate-50 to-blue-50/70">
+
+      {/* Décoration */}
       <div className="absolute -right-8 -top-10 h-36 w-36 rounded-full bg-orange-100/60 blur-2xl" />
       <div className="absolute -bottom-10 -left-8 h-36 w-36 rounded-full bg-blue-100/70 blur-2xl" />
-      {variant === "wall" ? (
-        <div className="relative rounded-2xl border border-slate-200 bg-slate-100 p-3 shadow-lg">
-          <KioskScreen tall={false} />
-        </div>
-      ) : (
-        <div className="relative flex flex-col items-center">
-          <KioskScreen tall={variant === "premium"} />
-          <div className="h-12 w-3 rounded-b bg-slate-800" />
-          <div className="h-2.5 w-20 rounded-full bg-slate-900 shadow-md" />
-        </div>
-      )}
-      <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full border border-white bg-white/90 px-3 py-1.5 text-[11px] font-bold text-slate-600 shadow-sm">
-        <span className="h-2 w-2 rounded-full bg-emerald-500" /> Compatible avec CSI
+
+      {/* Image réelle du produit */}
+      <img
+        src={product.image}
+        alt={product.name}
+        loading="lazy"
+        className="relative z-10 h-full w-full object-contain p-3 transition-transform duration-500 group-hover:scale-105"
+      />
+
+      {/* Badge */}
+      <div className="absolute bottom-3 left-3 z-20 inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/95 px-3 py-1.5 text-[11px] font-bold text-slate-600 shadow-sm backdrop-blur">
+        <span className="h-2 w-2 rounded-full bg-emerald-500" />
+        Compatible avec CSI
       </div>
     </div>
   );
@@ -226,7 +237,7 @@ export default function BornesCommande() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
               <article key={product.name} className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-900/5 sm:p-6">
-                <KioskIllustration variant={product.variant} />
+                <KioskIllustration product={product} />
                 <div className="mt-6 flex-1">
                   <div className="mb-2 inline-flex rounded-full bg-blue-50 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-blue-700">{product.screen} tactile</div>
                   <h3 className="text-xl font-extrabold tracking-tight text-slate-900 transition-colors group-hover:text-blue-700">{product.name}</h3>
@@ -296,7 +307,7 @@ export default function BornesCommande() {
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="relative overflow-hidden rounded-[1.75rem] border border-white bg-white p-2 shadow-2xl shadow-blue-900/10">
               <div className="relative h-[340px] overflow-hidden rounded-[1.35rem] sm:h-[460px]">
-                <img src="https://images.unsplash.com/photo-1556742049-0a670f4a4591?auto=format&fit=crop&w=1200&q=85" alt="Accompagnement et installation de solutions de commande" className="h-full w-full object-cover" loading="lazy" />
+                <img src="/src/assets/b4.jpeg" alt="Accompagnement et installation de solutions de commande" className="h-full w-full object-cover" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-white/5" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
                   <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-2 text-xs font-semibold text-white backdrop-blur-md"><span className="h-2 w-2 rounded-full bg-emerald-400" /> ORALI SYSTEMS</div>
