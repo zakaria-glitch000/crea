@@ -26,6 +26,7 @@ import {
   Boxes,
   ArrowRight,
   CheckCircle2,
+  Check,
 } from 'lucide-react';
 
 import './Innoshop.css';
@@ -84,16 +85,6 @@ const RedIcon = ({
     {children}
   </span>
 );
-
-const heroFeatures = [
-  { icon: <ShoppingCart size={21} />, text: 'Encaissez facilement' },
-  { icon: <Package size={21} />, text: 'Gérez vos stocks' },
-  { icon: <BarChart3 size={21} />, text: 'Suivez votre activité' },
-  {
-    icon: <Settings size={21} />,
-    text: 'Une solution évolutive adaptée à vos besoins',
-  },
-];
 
 const stockRows: (string | number)[][] = [
   ['Eau', 1200, '6,00', 'Boissons'],
@@ -528,74 +519,90 @@ export default function InnoShop() {
     <main className="innoshop">
       {/* HERO */}
       <section className="hero" id="innoshop-accueil">
-        <div className="hero-background">
-          <img src={IMAGES.hero} alt="" />
-        </div>
+        <div className="hero-card">
+          <div className="hero-grid">
+            <div className="hero-visual">
+              <span className="hero-visual-badge">
+                <span className="hero-visual-dot" />
+                Une activité mieux connectée
+              </span>
+              <div className="hero-visual-bg" aria-hidden="true">
+                <img src={IMAGES.hero} alt="" />
+                <div className="hero-visual-tint" />
+              </div>
 
-        <div className="hero-overlay" />
-
-        <div className="hero-content">
-          <div>
-            <br /><br />
-          </div>
-          <div className="hero-text">
-            <Logo />
-
-            <h1 className="hero-heading">
-              La solution de gestion commerciale
-              <span> pensée pour votre commerce.</span>
-            </h1>
-
-            <p className="hero-sub">
-              Gérez vos ventes, vos stocks et vos clients avec INNOSHOP.
-              Une solution complète, intuitive et adaptée aux besoins
-              des professionnels du commerce.
-            </p>
-
-            <ul className="hero-list">
-              {heroFeatures.map((feature) => (
-                <li key={feature.text}>
-                  <RedIcon>{feature.icon}</RedIcon>
-                  <span>{feature.text}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="hero-actions">
-              <button
-                type="button"
-                className="innoshop-btn innoshop-btn-red"
-                onClick={goToContact}
-              >
-                Demander une démonstration
-                <ArrowRight size={18} />
-              </button>
-
-              <button
-                type="button"
-                className="innoshop-btn innoshop-btn-outline"
-                onClick={() =>
-                  scrollToSection('innoshop-fonctionnalites')
-                }
-              >
-                Découvrir les fonctionnalités
-              </button>
+              <img
+                className="hero-visual-img"
+                src={IMAGES.hero}
+                alt="Interface de caisse INNOSHOP"
+                loading="eager"
+              />
             </div>
 
-            <div className="hero-trust">
-              <span>
-                <ShieldCheck size={17} />
-                Solution professionnelle
+            <div className="hero-text">
+              <span className="hero-eyebrow">
+                <span className="hero-eyebrow-dot" />
+                Solutions commerce &amp; retail
               </span>
+
+              <h1 className="hero-heading">
+                La solution de gestion commerciale{' '}
+                <span>pensée pour votre commerce.</span>
+              </h1>
+
+              <p className="hero-sub">
+                Une solution complète pour encaisser, gérer vos stocks,
+                fidéliser vos clients et piloter votre activité. Gagnez
+                du temps et améliorez l'expérience de vos clients.
+              </p>
+
+              <div className="hero-actions">
+                <button
+                  type="button"
+                  className="innoshop-btn innoshop-btn-red"
+                  onClick={goToContact}
+                >
+                  Demander une démonstration
+                  <ArrowRight size={18} />
+                </button>
+
+                <button
+                  type="button"
+                  className="innoshop-btn innoshop-btn-outline"
+                  onClick={() =>
+                    scrollToSection('innoshop-fonctionnalites')
+                  }
+                >
+                  Découvrir nos solutions
+                </button>
+              </div>
+
+              <div className="hero-checks">
+                <span>
+                  <Check size={17} />
+                  Solution complète
+                </span>
+                <span>
+                  <Check size={17} />
+                  Accompagnement personnalisé
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="hero-banner">
+            <span className="hero-banner-icon">
+              <Sparkles size={44} strokeWidth={1.6} />
+            </span>
+            <div className="hero-banner-text">
+              <strong>Toute votre activité, mieux connectée.</strong>
               <span>
-                <CheckCircle2 size={17} />
-                Accompagnement dédié
+                Caisse, stocks, clients et reporting réunis dans une seule
+                solution pensée pour votre commerce.
               </span>
             </div>
           </div>
         </div>
-
-        <div className="red-wave" />
       </section>
 
 {/* FONCTIONNALITÉS */}
