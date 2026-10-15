@@ -22,18 +22,18 @@ const features = [
 ];
 
 const steps = [
-  { img: "/images/step-1.png", title: "Choix de l’opération", text: "Saisie, inventaire, réception..." },
-  { img: "/images/step-2.png", title: "Saisie ou scan", text: "Entrez les informations ou scannez le code-barres." },
-  { img: "/images/step-3.png", title: "Comptage rapide", text: "Scannez vos produits et validez les quantités." },
-  { img: "/images/step-4.png", title: "Mise à jour automatique", text: "Vos données sont directement synchronisées avec INNOSHOP.", wide: true },
+  { img: "/src/assets/c1.jpeg", title: "Choix de l’opération", text: "Saisie, inventaire, réception..." },
+  { img: "/src/assets/c2.jpeg", title: "Saisie ou scan", text: "Entrez les informations ou scannez le code-barres." },
+  { img:"/src/assets/c3.jpeg", title: "Comptage rapide", text: "Scannez vos produits et validez les quantités." },
+  { img: "/src/assets/c4.jpeg", title: "Mise à jour automatique", text: "Vos données sont directement synchronisées avec INNOSHOP.", wide: true },
 ];
 
 const shops = [
-  { img: "/images/shop-supermarche.jpg", label: "Supermarchés indépendants" },
-  { img: "/images/shop-epicerie.jpg", label: "Épiceries et primeurs" },
-  { img: "/images/shop-boucherie.jpg", label: "Boucheries et charcuteries" },
-  { img: "/images/shop-fromagerie.jpg", label: "Fromageries" },
-  { img: "/images/shop-specialise.jpg", label: "Commerces spécialisés" },
+  { img: "/src/assets/a1.jpeg", label: "Supermarchés indépendants" },
+  { img: "/src/assets/a2.jpeg", label: "Épiceries et primeurs" },
+  { img: "/src/assets/a3.jpeg", label: "Boucheries et charcuteries" },
+  { img: "/src/assets/a4.jpeg", label: "Fromageries" },
+  { img: "/src/assets/a5.jpeg", label: "Commerces spécialisés" },
 ];
 
 const support = [
@@ -52,7 +52,6 @@ export default function App() {
         
         {/* Left Content */}
         <div className="hero-left">
-          <img className="logo" src="/images/logo-orali.png" alt="Orali Systems" />
           <p className="eyebrow">TERMINAL DE SAISIE ET D’INVENTAIRE</p>
           <h1>Maîtrisez vos stocks avec INNOSHOP</h1>
           <p className="hero-text">
@@ -64,7 +63,7 @@ export default function App() {
 
         {/* Center/Overlap Terminal Image */}
         <div className="hero-terminal-wrapper">
-          <img className="terminal" src="/images/terminal-hero.png" alt="Terminal Zebra INNOSHOP" />
+          <img className="terminal" src="/src/assets/90.jpeg" alt="Terminal Zebra INNOSHOP" />
         </div>
 
         {/* Right Content (INNOSHOP Box + Badges) */}

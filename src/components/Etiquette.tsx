@@ -13,16 +13,16 @@ const benefits = [
 ];
 
 const syncLabels = [
-  "/images/label-oranges.png",
-  "/images/label-lait.png",
-  "/images/label-fromage.png",
+  "/src/assets/t0.jpeg",
+  "/src/assets/t1.jpeg",
+  "/src/assets/t2.jpeg",
 ];
 
 const formats = [
-  { img: "/images/label-pomme.png", title: "Petit format", sub: "Fruits & légumes", w: 125 },
-  { img: "/images/label-eau.png", title: "Format moyen", sub: "Épicerie", w: 140 },
-  { img: "/images/label-poulet.png", title: "Grand format", sub: "Boucherie", w: 155 },
-  { img: "/images/label-huile.png", title: "Format large", sub: "Produits promotionnels", w: 175 },
+  { img: "/src/assets/t3.jpeg", title: "Petit format", sub: "Fruits & légumes", w: 125 },
+  { img: "/src/assets/t4.jpeg", title: "Format moyen", sub: "Épicerie", w: 140 },
+  { img:"/src/assets/t5.jpeg", title: "Grand format", sub: "Boucherie", w: 155 },
+  { img: "/src/assets/t6.jpeg", title: "Format large", sub: "Produits promotionnels", w: 175 },
 ];
 
 const shops = [
@@ -94,7 +94,7 @@ export default function Etiquettes() {
 
         <div className="etq-sync-visual">
           <Wifi className="etq-wifi" size={56} color="#f26a1b" strokeWidth={2.5} />
-          <img className="etq-monitor" src="/images/ecran-innoshop-etiquettes.png" alt="Écran INNOSHOP" />
+          <img className="etq-monitor" src="/src/assets/e0.png" alt="Écran INNOSHOP" />
           <div className="etq-sync-labels">
             {syncLabels.map((src) => (
               <div className="etq-sync-row" key={src}>

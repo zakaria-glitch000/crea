@@ -31,11 +31,11 @@ import "./Zebra.css";
 ------------------------------------------------------------------- */
 const IMG = {
   logo: "/images/logo-orali.png",
-  hero: "/images/hero-pos-zebra.png",
-  step1: "/images/step1-innoshop.png",
-  step2: "/images/step2-zebra.png",
-  step3: "/images/step3-etiquette.jpg",
-  step4: "/images/step4-scan.jpg",
+  hero: "/src/assets/zebra.jpeg",
+  step2: "/src/assets/z1.jpeg",
+  step3: "/src/assets/z2.jpeg",
+  step1: "/src/assets/inno.jpg",
+  step4: "/src/assets/z3.jpeg",
 };
 
 /* Code-barres généré en SVG à partir d'une chaîne (rendu décoratif) */
@@ -161,7 +161,6 @@ export default function OraliFlyer() {
       <section className="hero">
         <img className="hero__bg" src={IMG.hero} alt="Écran INNOSHOP et imprimante Zebra" />
         <div className="hero__content">
-          <img className="hero__logo" src={IMG.logo} alt="Orali Systems — Solutions commerce & restaurant" />
           <p className="kicker">IMPRIMANTE DE BALISAGE ZEBRA</p>
           <h1 className="hero__title">
             <strong>Imprimez vos codes-barres,</strong>
