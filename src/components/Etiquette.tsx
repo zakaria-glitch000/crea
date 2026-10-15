@@ -23,6 +23,8 @@ import t3 from "@/assets/t3.jpeg";
 import t4 from "@/assets/t4.jpeg";
 import t5 from "@/assets/t5.jpeg";
 import t6 from "@/assets/t6.jpeg";
+import heroImage from "@/assets/e1.jpeg";
+import monitorImage from "@/assets/e0.png";
 const benefits = [
   { icon: Zap, color: "#f26a1b", bg: "#fde6d7", title: "Mise à jour automatique", text: "Les prix et informations sont mis à jour directement depuis INNOSHOP en quelques clics." },
   { icon: Target, color: "#1e6fe0", bg: "#dce9fc", title: "Zéro erreur", text: "Fini les étiquettes papier et les erreurs de prix en rayon." },
@@ -58,11 +60,11 @@ export default function Etiquettes() {
     <main className="etq-page">
       {/* HERO */}
       <header className="etq-hero">
-        <div
-          className="etq-hero__bg"
-          style={{ backgroundImage: "url(/src/assets/e1.jpeg)" }}
-          aria-hidden="true"
-        />
+     <div
+  className="etq-hero__bg"
+  style={{ backgroundImage: `url(${heroImage})` }}
+  aria-hidden="true"
+/>
         <div className="etq-hero__fade" />
 
         <div className="etq-hero__inner">
@@ -126,8 +128,11 @@ export default function Etiquettes() {
 
           <div className="etq-sync__visual">
             <Wifi className="etq-wifi" strokeWidth={2.5} />
-            <img className="etq-monitor" src="/src/assets/e0.png" alt="Écran INNOSHOP" />
-            <div className="etq-sync__labels">
+<img
+  className="etq-monitor"
+  src={monitorImage}
+  alt="Écran INNOSHOP"
+/>            <div className="etq-sync__labels">
               {syncLabels.map((src) => (
                 <div className="etq-sync__row" key={src}>
                   <ArrowRight className="etq-sync__arrow" strokeWidth={2.4} />
