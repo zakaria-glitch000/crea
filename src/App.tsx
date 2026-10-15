@@ -1,6 +1,7 @@
+
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+
 import Innoshop from '@/components/Innoshop';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
@@ -68,7 +69,6 @@ function ScrollToTop() {
 
 // ============================================================
 // SCROLL VERS LE CONTACT
-// Permet d'accéder au Contact depuis /Devmesure
 // ============================================================
 
 function ScrollToContact() {
@@ -79,7 +79,6 @@ function ScrollToContact() {
       return;
     }
 
-    // Attendre le rendu de la page d'accueil.
     const timeout = window.setTimeout(() => {
       const contactSection = document.getElementById('contact');
 
@@ -93,6 +92,80 @@ function ScrollToContact() {
       window.clearTimeout(timeout);
     };
   }, [pathname, hash]);
+
+  return null;
+}
+
+// ============================================================
+// PROTECTION CONTRE LA COPIE
+// ============================================================
+
+function CopyProtection() {
+  useEffect(() => {
+    const preventCopy = (e: ClipboardEvent) => {
+      const target = e.target as HTMLElement | null;
+
+      // Autoriser la copie dans les champs de formulaire.
+      if (
+        target?.closest(
+          'input, textarea, select, [contenteditable="true"]'
+        )
+      ) {
+        return;
+      }
+
+      e.preventDefault();
+    };
+
+    const preventCut = (e: ClipboardEvent) => {
+      const target = e.target as HTMLElement | null;
+
+      if (
+        target?.closest(
+          'input, textarea, select, [contenteditable="true"]'
+        )
+      ) {
+        return;
+      }
+
+      e.preventDefault();
+    };
+
+    const preventContextMenu = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+
+      // Garder le menu contextuel dans les champs de formulaire.
+      if (
+        target?.closest(
+          'input, textarea, select, [contenteditable="true"]'
+        )
+      ) {
+        return;
+      }
+
+      e.preventDefault();
+    };
+
+    const preventDrag = (e: DragEvent) => {
+      const target = e.target as HTMLElement | null;
+
+      if (target?.closest('img')) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener('copy', preventCopy);
+    document.addEventListener('cut', preventCut);
+    document.addEventListener('contextmenu', preventContextMenu);
+    document.addEventListener('dragstart', preventDrag);
+
+    return () => {
+      document.removeEventListener('copy', preventCopy);
+      document.removeEventListener('cut', preventCut);
+      document.removeEventListener('contextmenu', preventContextMenu);
+      document.removeEventListener('dragstart', preventDrag);
+    };
+  }, []);
 
   return null;
 }
@@ -131,6 +204,7 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <ScrollToContact />
+      <CopyProtection />
 
       <div className="min-h-screen bg-white text-slate-700 antialiased">
         <Header />
@@ -138,10 +212,7 @@ function App() {
         <main>
           <Routes>
             {/* PAGE D'ACCUEIL */}
-            <Route
-              path="/"
-              element={<HomePage />}
-            />
+            <Route path="/" element={<HomePage />} />
 
             {/* SOLUTIONS RESTAURATION & CHR */}
             <Route
@@ -149,50 +220,18 @@ function App() {
               element={<Csi />}
             />
 
-            <Route
-              path="/Affcsi"
-              element={<Affcsi />}
-            />
-            <Route
-              path="/Etiquette"
-              element={<Etiquette />}
-            />
-              <Route
-              path="/Innep"
-              element={<Innep />}
-            />
-             <Route
-              path="/Stock"
-              element={<Stock />}
-            />
-               <Route
-              path="/Zebra"
-              element={<Zebra />}
-            />
-               <Route
-              path="/Balance"
-              element={<Balance />}
-            />
-               <Route
-              path="/Kds"
-              element={<Kds />}
-            />
-                   <Route
-              path="/Pda"
-              element={<Pda />}
-            />
-             <Route
-              path="/Caisse"
-              element={<Caisse />}
-            />
-                    <Route
-              path="/Born"
-              element={<Born />}
-            />
-             <Route
-              path="/Shop"
-              element={<Shop />}
-            />
+            <Route path="/Affcsi" element={<Affcsi />} />
+            <Route path="/Etiquette" element={<Etiquette />} />
+            <Route path="/Innep" element={<Innep />} />
+            <Route path="/Stock" element={<Stock />} />
+            <Route path="/Zebra" element={<Zebra />} />
+            <Route path="/Balance" element={<Balance />} />
+            <Route path="/Kds" element={<Kds />} />
+            <Route path="/Pda" element={<Pda />} />
+            <Route path="/Caisse" element={<Caisse />} />
+            <Route path="/Born" element={<Born />} />
+            <Route path="/Shop" element={<Shop />} />
+
             {/* INNOSHOP */}
             <Route
               path="/innoshop"
