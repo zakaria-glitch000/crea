@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-
+import { useNavigate } from "react-router-dom";
 import Innoshop from '@/components/Innoshop';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
