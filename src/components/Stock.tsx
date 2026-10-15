@@ -33,7 +33,7 @@ const features = [
   { icon: BarChart3, color: "#f5b400", bg: "#fff3cc", title: "Consultation", text: "Visualisez les quantités, les emplacements et les informations produits." },
 ];
 
-import c1 from "@/assets/c1.jpeg";
+import c1 from "@/assets/p2.jpg";
 import c2 from "@/assets/c2.jpeg";
 import c3 from "@/assets/c3.jpeg";
 import c4 from "@/assets/c4.jpeg";
