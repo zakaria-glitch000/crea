@@ -33,20 +33,49 @@ const features = [
   { icon: BarChart3, color: "#f5b400", bg: "#fff3cc", title: "Consultation", text: "Visualisez les quantités, les emplacements et les informations produits." },
 ];
 
+import c1 from "@/assets/c1.jpeg";
+import c2 from "@/assets/c2.jpeg";
+import c3 from "@/assets/c3.jpeg";
+import c4 from "@/assets/c4.jpeg";
+
+import a1 from "@/assets/a1.jpeg";
+import a2 from "@/assets/a2.jpeg";
+import a3 from "@/assets/a3.jpeg";
+import a4 from "@/assets/a4.jpeg";
+import a5 from "@/assets/a5.jpeg";
+
 const steps = [
-  { img: "/src/assets/c1.jpeg", title: "Choix de l’opération", text: "Saisie, inventaire, réception..." },
-  { img: "/src/assets/c2.jpeg", title: "Saisie ou scan", text: "Entrez les informations ou scannez le code-barres." },
-  { img: "/src/assets/c3.jpeg", title: "Comptage rapide", text: "Scannez vos produits et validez les quantités." },
-  { img: "/src/assets/c4.jpeg", title: "Mise à jour automatique", text: "Vos données sont directement synchronisées avec INNOSHOP.", wide: true },
+  {
+    img: c1,
+    title: "Choix de l’opération",
+    text: "Saisie, inventaire, réception...",
+  },
+  {
+    img: c2,
+    title: "Saisie ou scan",
+    text: "Entrez les informations ou scannez le code-barres.",
+  },
+  {
+    img: c3,
+    title: "Comptage rapide",
+    text: "Scannez vos produits et validez les quantités.",
+  },
+  {
+    img: c4,
+    title: "Mise à jour automatique",
+    text: "Vos données sont directement synchronisées avec INNOSHOP.",
+    wide: true,
+  },
 ];
 
 const shops = [
-  { img: "/src/assets/a1.jpeg", label: "Supermarchés indépendants" },
-  { img: "/src/assets/a2.jpeg", label: "Épiceries et primeurs" },
-  { img: "/src/assets/a3.jpeg", label: "Boucheries et charcuteries" },
-  { img: "/src/assets/a4.jpeg", label: "Fromageries" },
-  { img: "/src/assets/a5.jpeg", label: "Commerces spécialisés" },
+  { img: a1, label: "Supermarchés indépendants" },
+  { img: a2, label: "Épiceries et primeurs" },
+  { img: a3, label: "Boucheries et charcuteries" },
+  { img: a4, label: "Fromageries" },
+  { img: a5, label: "Commerces spécialisés" },
 ];
+
 
 const support = [
   { icon: Wrench, text: "Installation et paramétrage" },
