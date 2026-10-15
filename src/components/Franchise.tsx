@@ -32,11 +32,11 @@ export default function Innoshop() {
 
   // Cities overlay
   const cities = [
-    { id: 'casablanca', name: 'Casablanca', top: '8%', left: '48%' },
-    { id: 'rabat', name: 'Rabat', top: '4%', left: '68%' },
-    { id: 'marrakech', name: 'Marrakech', top: '16%', left: '88%' },
-    { id: 'tanger', name: 'Tanger', top: '22%', left: '38%' },
-    { id: 'agadir', name: 'Agadir', top: '38%', left: '92%' },
+    { id: 'casablanca', name: 'Paris', top: '8%', left: '48%' },
+    { id: 'rabat', name: 'Nice', top: '4%', left: '68%' },
+    { id: 'marrakech', name: 'Bordeaux', top: '16%', left: '88%' },
+    { id: 'tanger', name: 'Lyon', top: '22%', left: '38%' },
+    { id: 'agadir', name: 'Toulouse', top: '38%', left: '92%' },
   ];
 
   // Demo form → WhatsApp

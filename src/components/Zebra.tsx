@@ -32,7 +32,7 @@ import "./Zebra.css";
 
 
 import hero from "@/assets/zebra.jpeg";
-import step1 from "@/assets/inno.jpg";
+import step1 from "@/assets/inno.jpeg";
 import step2 from "@/assets/z1.jpeg";
 import step3 from "@/assets/z2.jpeg";
 import step4 from "@/assets/z3.jpeg";
