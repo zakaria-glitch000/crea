@@ -107,8 +107,7 @@
 }
 
 /* =====================================================
-   HERO — ESPACE CORRIGÉ
-   Image nette, sans zoom artificiel
+   HERO
 ===================================================== */
 
 .innoshop .hero {
@@ -118,11 +117,8 @@
   align-items: center;
   width: 100%;
   min-height: 620px;
-
-  /* Espace réduit sous la navbar */
   margin-top: 0;
   padding: 45px max(6%, calc((100vw - 1320px) / 2)) 75px;
-
   overflow: hidden;
   background: #f5f6f8;
   color: var(--dark);
@@ -174,38 +170,6 @@
   max-width: 700px;
 }
 
-.innoshop .hero .logo {
-  color: var(--dark);
-}
-
-.innoshop .hero .logo-o {
-  color: var(--red);
-}
-
-.innoshop .hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  padding: 10px 15px;
-  border: 1px solid #e5e7eb;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
-  color: #374151;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  box-shadow: 0 3px 12px rgba(23, 27, 43, 0.04);
-}
-
-.innoshop .hero-badge-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--red);
-}
-
 .innoshop .hero-heading {
   max-width: 800px;
   margin-top: 18px;
@@ -247,16 +211,6 @@
   font-weight: 650;
 }
 
-.innoshop .hero-list .red-icon {
-  width: 39px;
-  height: 39px;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.95);
-  color: var(--red);
-  box-shadow: 0 3px 10px rgba(23, 27, 43, 0.04);
-}
-
 .innoshop .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -277,11 +231,7 @@
   font-size: 13px;
   font-weight: 800;
   text-decoration: none;
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .innoshop .innoshop-btn:hover {
@@ -346,7 +296,7 @@
 }
 
 /* =====================================================
-   TITLES + SECTIONS
+   TITLES + SECTIONS GENERAL
 ===================================================== */
 
 .innoshop .section {
@@ -409,75 +359,78 @@
 }
 
 /* =====================================================
-   FONCTIONNALITÉS
+   FONCTIONNALITÉS — BENTO GRID STYLE
 ===================================================== */
 
 .innoshop .features {
   background: #fff;
 }
 
-.innoshop .grid-3 {
+.features-bento-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  gap: 1.75rem;
 }
 
-.innoshop .feature-card {
+.feature-card {
   display: flex;
   flex-direction: column;
-  gap: 17px;
-  padding: 22px;
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 }
 
-.innoshop .feature-card:hover {
+.feature-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(227, 6, 19, 0.25);
-  box-shadow: 0 18px 40px rgba(20, 20, 40, 0.08);
+  border-color: rgba(227, 6, 19, 0.3);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
 }
 
-.innoshop .card-head {
-  display: grid;
-  grid-template-columns: auto auto 1fr;
+.feature-card-large {
+  grid-column: span 2;
+}
+
+.card-top-header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  margin-bottom: 1.25rem;
 }
 
-.innoshop .card-head h3 {
-  color: var(--dark);
-  font-size: 14px;
+.feature-badge {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #94a3b8;
+  background-color: #f1f5f9;
+  padding: 0.25rem 0.65rem;
+  border-radius: 0.5rem;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
   font-weight: 850;
-  line-height: 1.45;
-}
-
-.innoshop .card-head .red-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-}
-
-.innoshop .num {
-  padding: 6px 7px;
-  border-radius: 6px;
-  background: var(--red);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 1rem;
 }
 
 .innoshop .bullets {
   list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
 }
 
 .innoshop .bullets li {
   position: relative;
   margin: 7px 0;
-  padding-left: 17px;
+  padding-left: 1.5rem;
   color: var(--text);
-  font-size: 12px;
+  font-size: 0.95rem;
   line-height: 1.65;
 }
 
@@ -490,6 +443,15 @@
   border-radius: 50%;
   background: var(--red);
   content: "";
+}
+
+.feature-mockup-wrapper {
+  margin-top: auto;
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 0.85rem;
+  padding: 1rem;
+  overflow: hidden;
 }
 
 /* =====================================================
@@ -722,14 +684,6 @@
   letter-spacing: -1px;
 }
 
-.innoshop .why-text h2 .logo {
-  color: var(--dark);
-}
-
-.innoshop .why-text h2 .logo-o {
-  color: var(--red);
-}
-
 .innoshop .why-text > p {
   max-width: 530px;
   margin-top: 18px;
@@ -786,11 +740,6 @@
   color: #ff6974;
 }
 
-.innoshop .why-photo-caption strong,
-.innoshop .why-photo-caption span:not(.why-photo-caption-icon) {
-  display: block;
-}
-
 .innoshop .why-photo-caption strong {
   font-size: 13px;
 }
@@ -813,9 +762,7 @@
   align-items: flex-start;
   gap: 13px;
   padding: 21px;
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .innoshop .why-card:hover {
@@ -860,10 +807,7 @@
   border-radius: 16px;
   background: #fff;
   box-shadow: 0 5px 20px rgba(20, 20, 40, 0.04);
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .innoshop .trade-card:hover {
@@ -910,13 +854,6 @@
   font-size: 13px;
   font-weight: 850;
   line-height: 1.5;
-}
-
-.innoshop .trade-body h4 .red-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 11px;
-  box-shadow: none;
 }
 
 .innoshop .trade-body .bullets li {
@@ -973,14 +910,6 @@
   letter-spacing: -0.8px;
 }
 
-.innoshop .cta h2 .logo {
-  color: #fff;
-}
-
-.innoshop .cta h2 .logo-o {
-  color: #ffd6d9;
-}
-
 .innoshop .cta p {
   max-width: 630px;
   margin-top: 15px;
@@ -1007,10 +936,7 @@
   font-weight: 850;
   text-align: center;
   text-decoration: none;
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
 
 .innoshop .btn:hover {
@@ -1085,241 +1011,202 @@
 }
 
 /* =====================================================
-   RESPONSIVE — TABLETTE
+   RESPONSIVE (TABLET & MOBILE)
 ===================================================== */
 
 @media (max-width: 1100px) {
-  .innoshop .grid-3 {
+  .features-bento-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  .innoshop .grid-4 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .feature-card-large {
+    grid-column: span 2;
   }
-
-  .innoshop .why-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
+  .innoshop .grid-4,
+  .innoshop .why-grid,
   .innoshop .footer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
   .innoshop .why-top {
     gap: 35px;
   }
 }
 
-/* =====================================================
-   RESPONSIVE — MOBILE
-===================================================== */
-
 @media (max-width: 760px) {
+  .features-bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .feature-card-large {
+    grid-column: span 1;
+  }
   .innoshop .hero {
     min-height: 600px;
-
-    /* Pas de grand espace sous la navbar */
     margin-top: 0;
     padding: 35px 25px 75px;
   }
-
-  .innoshop .hero-background img {
-    object-fit: contain;
-    object-position: right center;
-  }
-
-  .innoshop .hero-overlay {
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.98) 0%,
-      rgba(255, 255, 255, 0.92) 48%,
-      rgba(255, 255, 255, 0.72) 75%,
-      rgba(255, 255, 255, 0.45) 100%
-    );
-  }
-
-  .innoshop .hero-heading {
-    letter-spacing: -1.2px;
-  }
-
   .innoshop .hero-list {
     grid-template-columns: 1fr;
   }
-
   .innoshop .section,
   .innoshop .why {
     padding: 65px 25px;
   }
-
   .innoshop .why-top {
     grid-template-columns: 1fr;
     gap: 30px;
   }
-
-  .innoshop .why-photo {
-    height: 340px;
-  }
-
   .innoshop .cta {
     grid-template-columns: 1fr;
     gap: 28px;
     padding: 55px 25px;
   }
-
-  .innoshop .cta-buttons {
-    max-width: 450px;
-  }
-
-  .innoshop .footer {
-    padding: 25px;
-  }
 }
 
 @media (max-width: 540px) {
-  .innoshop .hero {
-    min-height: 580px;
-    padding: 25px 19px 65px;
+  .features-bento-grid {
+    grid-template-columns: 1fr;
   }
-
-  .innoshop .hero-badge {
-    font-size: 9px;
-    letter-spacing: 0.7px;
+  .feature-card-large {
+    grid-column: span 1;
   }
-
-  .innoshop .hero-heading {
-    font-size: clamp(34px, 10vw, 45px);
-    letter-spacing: -1.3px;
-  }
-
-  .innoshop .hero-sub {
-    margin: 18px 0 23px;
-    font-size: 14px;
-    line-height: 1.8;
-  }
-
-  .innoshop .hero-list li {
-    font-size: 12px;
-  }
-
-  .innoshop .hero-actions {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .innoshop .innoshop-btn {
-    width: 100%;
-    font-size: 12px;
-  }
-
-  .innoshop .hero-trust {
-    gap: 12px;
-  }
-
-  .innoshop .hero-trust span {
-    font-size: 10px;
-  }
-
-  .innoshop .section,
-  .innoshop .why {
-    padding: 52px 17px;
-  }
-
-  .innoshop .section-heading {
-    margin-bottom: 28px;
-  }
-
-  .innoshop .title {
-    font-size: 25px;
-    letter-spacing: -0.6px;
-  }
-
-  .innoshop .subtitle {
-    font-size: 12px;
-  }
-
-  .innoshop .grid-3,
   .innoshop .grid-4,
   .innoshop .why-grid,
   .innoshop .footer {
     grid-template-columns: minmax(0, 1fr);
   }
-
-  .innoshop .feature-card {
-    padding: 17px;
+  .innoshop .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
   }
-
-  .innoshop .card-head {
-    grid-template-columns: auto auto minmax(0, 1fr);
-    gap: 8px;
+  .innoshop .innoshop-btn {
+    width: 100%;
   }
+}
+/* =====================================================
+   FONCTIONNALITÉS — FIX GRID & CARDS CARRÉES
+===================================================== */
 
-  .innoshop .card-head h3 {
-    font-size: 12px;
-  }
+.innoshop .features {
+  display: block !important; /* Bech may3dlch l-parent flex/grid */
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 85px 20px;
+  background: #ffffff;
+}
 
-  .innoshop .trade-image-wrap {
-    height: 220px;
-  }
+.innoshop .features .section-heading {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto 45px auto;
+  text-align: center;
+}
 
-  .innoshop .trade-body {
-    padding: 18px;
-  }
+/* Grid system m9ad mzyan */
+.innoshop .features-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+  width: 100%;
+}
 
-  .innoshop .trade-body h4 {
-    font-size: 14px;
-  }
+/* Feature Cards Style Square/Carré */
+.innoshop .feature-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  min-height: 480px; /* Ya3tiha shakl carré/équilibré */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
 
-  .innoshop .trade-body .bullets li {
-    font-size: 12px;
-  }
+.innoshop .feature-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(227, 6, 19, 0.3);
+  box-shadow: 0 15px 30px rgba(227, 6, 19, 0.08);
+}
 
-  .innoshop .why-text h2 {
-    font-size: 30px;
-  }
+.innoshop .card-top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 16px;
+}
 
-  .innoshop .why-photo {
-    height: 290px;
-  }
+.innoshop .feature-badge {
+  font-size: 12px;
+  font-weight: 800;
+  color: #64748b;
+  background-color: #f1f5f9;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
 
-  .innoshop .why-photo-caption {
-    right: 12px;
-    bottom: 12px;
-    left: 12px;
-    padding: 12px;
-  }
+.innoshop .feature-card-content h3 {
+  font-size: 17px;
+  font-weight: 850;
+  color: var(--dark);
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
 
-  .innoshop .cta {
-    padding: 45px 19px;
-  }
+.innoshop .feature-card-content .bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+}
 
-  .innoshop .cta h2 {
-    font-size: 27px;
-  }
+.innoshop .feature-card-content .bullets li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 6px;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.5;
+}
 
-  .innoshop .footer {
-    gap: 17px;
-    padding: 25px 20px;
-  }
+.innoshop .feature-card-content .bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+}
 
-  .innoshop .footer-item b {
-    font-size: 12px;
-  }
-
-  .innoshop .footer-item small {
-    font-size: 11px;
-  }
+/* Mockups container f kalla card */
+.innoshop .feature-mockup-wrapper {
+  margin-top: auto;
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 12px;
+  padding: 12px;
+  width: 100%;
 }
 
 /* =====================================================
-   ACCESSIBILITÉ — RÉDUCTION DES ANIMATIONS
+   RESPONSIVE
 ===================================================== */
 
-@media (prefers-reduced-motion: reduce) {
-  .innoshop *,
-  .innoshop *::before,
-  .innoshop *::after {
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
+@media (max-width: 1024px) {
+  .innoshop .features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .innoshop .features-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .innoshop .feature-card {
+    min-height: auto;
   }
 }

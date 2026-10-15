@@ -356,28 +356,27 @@ export default function OraliPage() {
       {/* =====================================================
           FONCTIONNALITÉS
       ===================================================== */}
-      <section className="features">
-        <p className="eyebrow eyebrow--center">
-          LES FONCTIONNALITÉS
-        </p>
 
-        <h2 className="features__title">
-          Tout ce qu'il vous faut pour une gestion efficace
-        </h2>
+<section className="features">
+  <div className="features__header">
+    <p className="eyebrow eyebrow--center">LES FONCTIONNALITÉS</p>
+    <h2 className="features__title">
+      Tout ce qu'il vous faut pour une gestion efficace
+    </h2>
+  </div>
 
-        <div className="features__grid">
-          {features.map(({ icon: Icon, color, title, text }) => (
-            <article className="feature" key={title}>
-              <span className={`icon-circle icon-circle--${color}`}>
-                <Icon size={32} />
-              </span>
-
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+  <div className="features__grid">
+    {features.map(({ icon: Icon, color, title, text }) => (
+      <article className="feature" key={title}>
+        <span className={`icon-circle icon-circle--${color}`}>
+          <Icon size={32} />
+        </span>
+        <h3>{title}</h3>
+        <p>{text}</p>
+      </article>
+    ))}
+  </div>
+</section>
 
       {/* =====================================================
           SECTEURS D'ACTIVITÉ

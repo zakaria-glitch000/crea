@@ -20,10 +20,10 @@ import {
 } from "lucide-react";
 
 import borneStandard from "@/assets/b1.jpeg";
-import bornePremium from "@/assets/b2.jpeg";
-import borneMurale from "@/assets/b3.jpeg";
+import bornePremium from "@/assets/b3.jpeg";
+import borneMurale from "@/assets/b2.jpeg";
 import accompagnementImage from "@/assets/b4.jpeg";
-import resImage from "@/assets/res.jpg";
+import resImage from "@/assets/res.webp";
 
 import "./Born.css";
 

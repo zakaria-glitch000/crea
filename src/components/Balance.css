@@ -409,71 +409,75 @@
    3 cards par ligne sur ordinateur
    2 cards par ligne sur mobile
 ===================================================== */
+/* =====================================================
+   FONCTIONNALITÉS — FIX DÉFINITIF
+===================================================== */
 
 .orali .features {
-  width: calc(100% - 48px);
-  max-width: 1240px;
-  margin: 40px auto;
-  padding: 42px 30px;
+  display: block !important;
+  width: min(1200px, calc(100% - 48px)) !important;
+  margin: 40px auto !important;
+  padding: 45px 35px !important;
   border: 1px solid #ffeadb;
   border-radius: 24px;
   background: linear-gradient(135deg, #fff7f0, #ffffff);
-  box-sizing: border-box;
+  box-sizing: border-box !important;
+}
+
+/* En-tête centré en haut */
+.orali .features .features__header {
+  width: 100% !important;
+  max-width: 800px !important;
+  margin: 0 auto 35px auto !important;
+  text-align: center !important;
 }
 
 .orali .features .eyebrow--center {
-  margin-bottom: 10px;
-  text-align: center;
+  margin-bottom: 10px !important;
+  text-align: center !important;
 }
 
 .orali .features .features__title {
-  max-width: 780px;
-  margin: 0 auto 32px;
+  width: 100% !important;
+  margin: 0 auto !important;
   color: #12224d;
   font-size: clamp(26px, 3vw, 36px);
   font-weight: 800;
-  line-height: 1.35;
-  text-align: center;
+  line-height: 1.3;
+  text-align: center !important;
   letter-spacing: -0.5px;
 }
 
-/* Grille */
+/* Grille flexible à 3 colonnes */
 .orali .features .features__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: stretch;
-  gap: 20px;
-  width: 100%;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 22px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
-/* Cards */
+/* Cartes individuelles carrées et larges */
 .orali .features .features__grid > .feature {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
 
-  width: 100%;
-  min-width: 0;
-  min-height: 245px;
-  margin: 0;
-  padding: 28px 24px;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 260px !important;
+  margin: 0 !important;
+  padding: 30px 22px !important;
 
-  text-align: center;
-  background: #fff;
+  text-align: center !important;
+  background: #ffffff;
   border: 1px solid #e8edf5;
   border-radius: 20px;
   box-shadow: 0 6px 20px rgba(18, 34, 77, 0.05);
 
-  overflow: visible;
-  overflow-wrap: normal;
-  word-break: normal;
-  box-sizing: border-box;
-
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+  box-sizing: border-box !important;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .orali .features .features__grid > .feature:hover {
@@ -482,58 +486,59 @@
   box-shadow: 0 14px 28px rgba(18, 34, 77, 0.1);
 }
 
-/* Icônes des cards */
 .orali .features .features__grid > .feature .icon-circle {
-  display: flex;
-  flex: 0 0 58px;
-  align-items: center;
-  justify-content: center;
-  width: 58px;
-  height: 58px;
-  margin: 0 auto 18px;
+  display: flex !important;
+  flex: 0 0 58px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 58px !important;
+  height: 58px !important;
+  margin: 0 auto 18px auto !important;
   border-radius: 17px;
 }
 
-.orali .features .features__grid > .feature .icon-circle svg {
-  display: block;
-  width: 28px;
-  height: 28px;
-  flex-shrink: 0;
-}
-
-/* Titres des cards */
 .orali .features .features__grid > .feature h3 {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 0 10px;
-
+  width: 100% !important;
+  margin: 0 0 10px 0 !important;
   color: #12224d;
   font-size: 16px;
   font-weight: 700;
-  line-height: 1.5;
-
-  overflow-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-  hyphens: none;
+  line-height: 1.45;
 }
 
-/* Descriptions des cards */
 .orali .features .features__grid > .feature p {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-
+  width: 100% !important;
+  margin: 0 !important;
   color: #667085;
   font-size: 13px;
-  line-height: 1.8;
+  line-height: 1.75;
+}
 
-  overflow-wrap: normal;
-  word-break: normal;
-  white-space: normal;
-  hyphens: none;
+/* =====================================================
+   RESPONSIVE FEATURES
+===================================================== */
+
+@media (max-width: 1024px) {
+  .orali .features .features__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .orali .features {
+    width: calc(100% - 32px) !important;
+    padding: 28px 18px !important;
+  }
+
+  .orali .features .features__grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .orali .features .features__grid > .feature {
+    min-height: auto !important;
+    padding: 22px 16px !important;
+  }
 }
 
 /* =====================================================

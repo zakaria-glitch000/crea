@@ -513,12 +513,10 @@ const mocks: Record<string, ReactNode> = {
 /* ================= PAGE INNOSHOP ================= */
 
 export default function InnoShop() {
-  // Redirige vers le formulaire Contact de la page principale.
   const goToContact = () => {
     window.location.href = '/#contact';
   };
 
-  // Navigation fluide vers une section de la page INNOSHOP.
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({
       behavior: 'smooth',
@@ -537,8 +535,8 @@ export default function InnoShop() {
         <div className="hero-overlay" />
 
         <div className="hero-content">
-            <div>
-       <br></br><br></br>
+          <div>
+            <br /><br />
           </div>
           <div className="hero-text">
             <Logo />
@@ -600,40 +598,38 @@ export default function InnoShop() {
         <div className="red-wave" />
       </section>
 
-      {/* FONCTIONNALITÉS */}
-      <section
-        className="section features"
-        id="innoshop-fonctionnalites"
-      >
-        <div className="section-heading">
-          <span className="section-eyebrow">Une solution complète</span>
+{/* FONCTIONNALITÉS */}
+<section className="section features" id="innoshop-fonctionnalites">
+  <div className="section-heading">
+    <span className="section-eyebrow">Une solution complète</span>
+    <h2 className="title">
+      Les fonctionnalités majeures d'<Logo size="inline" />
+    </h2>
+    <p className="subtitle">
+      Une solution ergonomique et performante pour piloter l'ensemble de votre commerce.
+    </p>
+  </div>
 
-          <h2 className="title">
-            Les fonctionnalités majeures d'<Logo size="inline" />
-          </h2>
-
-          <p className="subtitle">
-            Une solution complète pour simplifier votre gestion
-            et développer votre activité.
-          </p>
+  <div className="features-grid">
+    {features.map((feature) => (
+      <article className="card feature-card" key={feature.n}>
+        <div className="card-top-header">
+          <span className="feature-badge">#{feature.n}</span>
+          <RedIcon round={true}>{feature.icon}</RedIcon>
         </div>
 
-        <div className="grid-3">
-          {features.map((feature) => (
-            <article className="card feature-card" key={feature.n}>
-              <div className="card-head">
-                <span className="num">{feature.n}</span>
-                <RedIcon round={false}>{feature.icon}</RedIcon>
-                <h3>{feature.title}</h3>
-              </div>
-
-              <Bullets items={feature.items} />
-
-              {mocks[feature.mock]}
-            </article>
-          ))}
+        <div className="feature-card-content">
+          <h3>{feature.title}</h3>
+          <Bullets items={feature.items} />
         </div>
-      </section>
+
+        <div className="feature-mockup-wrapper">
+          {mocks[feature.mock]}
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
 
       {/* POURQUOI */}
       <section className="why">
