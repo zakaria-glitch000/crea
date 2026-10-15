@@ -5,7 +5,7 @@ import { Reveal, SectionTag } from './ui/Reveal';
 
 export function Process() {
   return (
-    <section className="relative overflow-hidden bg-white py-24 lg:py-32">
+    <section className="relative overflow-hidden bg-white py-8 lg:py-12">
       {/* Background pattern */}
       <div className="pointer-events-none absolute inset-0 grid-bg-fine opacity-30" />
 
@@ -18,27 +18,27 @@ export function Process() {
         <Reveal className="max-w-2xl">
           <SectionTag>Méthode</SectionTag>
 
-          <h2 className="mt-6 text-balance font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+          <h2 className="mt-4 text-balance font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             Notre méthode
             <span className="bg-gradient-to-r from-sky-500 to-blue-700 bg-clip-text text-transparent">
               .
             </span>
           </h2>
 
-          <p className="mt-5 max-w-xl text-base leading-8 text-slate-500 sm:text-lg">
+          <p className="mt-4 max-w-xl text-base leading-7 text-slate-500 sm:text-lg">
             Une approche structurée et transparente, de l'analyse initiale à
             l'accompagnement long terme.
           </p>
         </Reveal>
 
         {/* Process steps */}
-        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
           {PROCESS_STEPS.map((step, i) => (
             <Reveal key={step.step} delay={i * 0.12}>
               <motion.div
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.25, ease: 'easeOut' }}
-                className="group relative h-full overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-7 shadow-sm transition-all duration-300 hover:border-sky-200 hover:shadow-xl hover:shadow-blue-900/5 lg:p-6 xl:p-7"
+                className="group relative h-full overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:border-sky-200 hover:shadow-xl hover:shadow-blue-900/5 xl:p-6"
               >
                 {/* Animated vertical line */}
                 <div className="absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-300 ease-out group-hover:scale-y-100" />
@@ -49,8 +49,8 @@ export function Process() {
                 <div className="relative z-10">
                   {/* Step number and connector */}
                   <div className="relative flex items-center">
-                    <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 transition-all duration-300 group-hover:scale-105 group-hover:border-sky-200 group-hover:bg-gradient-to-br group-hover:from-sky-500 group-hover:to-blue-600 group-hover:shadow-lg group-hover:shadow-blue-500/20">
-                      <span className="font-display text-2xl font-bold text-blue-600 transition-colors duration-300 group-hover:text-white">
+                    <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 transition-all duration-300 group-hover:scale-105 group-hover:border-sky-200 group-hover:bg-gradient-to-br group-hover:from-sky-500 group-hover:to-blue-600 group-hover:shadow-lg group-hover:shadow-blue-500/20">
+                      <span className="font-display text-xl font-bold text-blue-600 transition-colors duration-300 group-hover:text-white">
                         {step.step}
                       </span>
                     </div>
@@ -58,24 +58,24 @@ export function Process() {
                     {/* Connector arrow */}
                     {i < PROCESS_STEPS.length - 1 && (
                       <div className="ml-auto hidden items-center text-slate-300 transition-all duration-300 group-hover:translate-x-1 group-hover:text-blue-500 lg:flex">
-                        <div className="mr-1 h-px w-6 bg-gradient-to-r from-sky-300 to-blue-400 xl:w-10" />
+                        <div className="mr-1 h-px w-6 bg-gradient-to-r from-sky-300 to-blue-400 xl:w-8" />
                         <ArrowRight className="h-4 w-4" />
                       </div>
                     )}
                   </div>
 
                   {/* Step title */}
-                  <h3 className="mt-6 font-display text-lg font-semibold text-slate-900 transition-colors duration-300 group-hover:text-blue-700 xl:text-xl">
+                  <h3 className="mt-4 font-display text-lg font-semibold text-slate-900 transition-colors duration-300 group-hover:text-blue-700 xl:text-xl">
                     {step.title}
                   </h3>
 
                   {/* Step description */}
-                  <p className="mt-3 text-sm leading-7 text-slate-500 transition-colors duration-300 group-hover:text-slate-600">
+                  <p className="mt-2 text-sm leading-6 text-slate-500 transition-colors duration-300 group-hover:text-slate-600">
                     {step.description}
                   </p>
 
                   {/* Bottom accent */}
-                  <div className="mt-6 h-0.5 w-8 origin-left rounded-full bg-gradient-to-r from-sky-400 to-blue-600 transition-all duration-300 group-hover:w-16" />
+                  <div className="mt-4 h-0.5 w-8 origin-left rounded-full bg-gradient-to-r from-sky-400 to-blue-600 transition-all duration-300 group-hover:w-16" />
                 </div>
               </motion.div>
             </Reveal>

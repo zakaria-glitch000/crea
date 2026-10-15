@@ -133,8 +133,8 @@ export function Hero() {
       </div>
 
       {/* NOTRE EXPERTISE */}
-      <div className="relative overflow-hidden border-y border-slate-100 bg-slate-50/70 px-6 py-20 lg:px-8 lg:py-24">
-        {/* Décoration de fond */}
+{/* ✅ L-Code L-Jdid */}
+<div className="relative overflow-hidden border-y border-slate-100 bg-slate-50/70 px-6 py-10 lg:px-8 lg:py-12">        {/* Décoration de fond */}
         <div className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-blue-100/40 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl text-center">
@@ -160,11 +160,11 @@ export function Hero() {
                 vos projets
               </span>
             </motion.h2>
-
-            <motion.p
-              variants={item}
-              className="mx-auto mb-14 mt-5 max-w-3xl text-sm leading-7 text-slate-600 sm:text-base"
-            >
+{/* ✅ L-Code L-Jdid */}
+<motion.p
+  variants={item}
+  className="mx-auto mb-8 mt-4 max-w-3xl text-sm leading-7 text-slate-600 sm:text-base"
+>
               Nous concevons, intégrons et déployons des solutions
               technologiques adaptées aux besoins des professionnels. De
               l'encaissement au développement d'applications sur mesure, nous

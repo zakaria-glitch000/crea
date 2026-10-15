@@ -69,19 +69,19 @@ export default function ProductsSection() {
   return (
     <section
       id="Produit"
-      className="scroll-mt-24 relative overflow-hidden bg-white px-4 py-20 sm:px-6 md:py-28"
+      className="scroll-mt-24 relative overflow-hidden bg-white px-4 py-8 sm:px-6 lg:py-12"
     >
       {/* Décoration de fond */}
       <div className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-blue-100/40 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl">
         {/* En-tête */}
-        <div className="mb-14 text-center">
-          <span className="mb-4 inline-flex rounded-full border border-blue-100 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-blue-600 shadow-sm">
+        <div className="mb-8 text-center">
+          <span className="mb-3 inline-flex rounded-full border border-blue-100 bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-blue-600 shadow-sm">
             Nos produits
           </span>
 
-          <h2 className="mx-auto mb-5 max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
+          <h2 className="mx-auto mb-3 max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
             Des équipements{' '}
             <span className="bg-gradient-to-r from-sky-500 to-blue-700 bg-clip-text text-transparent">
               performants
@@ -109,7 +109,7 @@ export default function ProductsSection() {
               <div className="absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-300 group-hover:scale-y-100" />
 
               {/* Image du produit */}
-              <div className="relative mb-4 flex h-36 items-center justify-center overflow-hidden rounded-xl border border-slate-100 bg-slate-50 p-2">
+              <div className="relative mb-3 flex h-36 items-center justify-center overflow-hidden rounded-xl border border-slate-100 bg-slate-50 p-2">
                 <img
                   src={product.image}
                   alt={product.title}
@@ -123,7 +123,7 @@ export default function ProductsSection() {
 
               {/* Informations et bouton */}
               <div className="flex flex-1 flex-col">
-                <h3 className="mb-2 text-sm font-bold leading-5 text-slate-900 transition-colors duration-300 group-hover:text-blue-700">
+                <h3 className="mb-1.5 text-sm font-bold leading-5 text-slate-900 transition-colors duration-300 group-hover:text-blue-700">
                   {product.title}
                 </h3>
 
@@ -135,13 +135,13 @@ export default function ProductsSection() {
                 <Link
                   to={product.link}
                   aria-label={`En savoir plus sur ${product.title}`}
-                  className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                  className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                 >
                   Savoir plus
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
 
-                <div className="mt-4 h-px w-full bg-slate-100 transition-colors duration-300 group-hover:bg-blue-100" />
+                <div className="mt-3 h-px w-full bg-slate-100 transition-colors duration-300 group-hover:bg-blue-100" />
               </div>
             </motion.article>
           ))}
@@ -153,7 +153,7 @@ export default function ProductsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.6 }}
-          className="group/nf relative mt-20 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg shadow-slate-200/40 transition-all duration-300 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60 md:mt-24"
+          className="group/nf relative mt-10 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg shadow-slate-200/40 transition-all duration-300 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60 md:mt-12"
         >
           {/* Ligne décorative */}
           <div className="absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-500 group-hover/nf:scale-y-100" />
@@ -163,10 +163,10 @@ export default function ProductsSection() {
 
           <div className="pointer-events-none absolute -bottom-24 -left-20 h-64 w-64 rounded-full bg-blue-500/[0.06] blur-3xl" />
 
-          <div className="relative grid grid-cols-1 items-center gap-8 p-6 sm:p-8 lg:grid-cols-[220px_1fr] lg:gap-12 lg:p-12">
+          <div className="relative grid grid-cols-1 items-center gap-6 p-6 sm:p-8 lg:grid-cols-[220px_1fr] lg:gap-10 lg:p-8">
             {/* Logo NF525 */}
             <div className="flex justify-center">
-              <div className="flex h-40 w-52 items-center justify-center rounded-2xl border border-slate-100 bg-slate-50 p-5 shadow-sm transition-all duration-300 group-hover/nf:scale-[1.03] group-hover/nf:border-blue-100 group-hover/nf:shadow-md">
+              <div className="flex h-36 w-48 items-center justify-center rounded-2xl border border-slate-100 bg-slate-50 p-4 shadow-sm transition-all duration-300 group-hover/nf:scale-[1.03] group-hover/nf:border-blue-100 group-hover/nf:shadow-md">
                 <img
                   src={nfLogo}
                   alt="Logo NF525"
@@ -177,7 +177,7 @@ export default function ProductsSection() {
             </div>
 
             {/* Texte certification */}
-            <div className="space-y-5 text-center lg:text-left">
+            <div className="space-y-4 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-700 transition-colors duration-300 group-hover/nf:border-blue-100 group-hover/nf:bg-blue-50">
                 <ShieldCheck className="h-4 w-4 text-blue-600" />
                 Certification Officielle
@@ -201,7 +201,7 @@ export default function ProductsSection() {
               <div className="flex justify-center pt-1 lg:justify-start">
                 <Link
                   to="/nf"
-                  className="group/link inline-flex items-center gap-2 rounded-xl bg-rose-500 px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-rose-600 hover:shadow-lg hover:shadow-rose-500/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500"
+                  className="group/link inline-flex items-center gap-2 rounded-xl bg-rose-500 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-rose-600 hover:shadow-lg hover:shadow-rose-500/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500"
                 >
                   En savoir plus sur la NF525
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" />

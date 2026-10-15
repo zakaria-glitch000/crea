@@ -49,18 +49,18 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-slate-50 px-4 py-20 sm:px-6 lg:py-24">
+    <section className="relative overflow-hidden bg-slate-50 px-4 py-8 sm:px-6 lg:py-12">
       {/* Décoration de fond */}
       <div className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-blue-100/40 blur-3xl" />
 
       <div className="relative mx-auto max-w-6xl">
         {/* Header */}
-        <div className="mx-auto mb-14 max-w-3xl text-center">
-          <span className="mb-4 inline-flex items-center rounded-full border border-blue-100 bg-white px-4 py-2 text-xs font-bold tracking-[0.18em] text-blue-600 shadow-sm">
+        <div className="mx-auto mb-8 max-w-3xl text-center">
+          <span className="mb-3 inline-flex items-center rounded-full border border-blue-100 bg-white px-4 py-1.5 text-xs font-bold tracking-[0.18em] text-blue-600 shadow-sm">
             FONCTIONNALITÉS CLÉS
           </span>
 
-          <h2 className="mb-5 text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+          <h2 className="mb-3 text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             Des fonctionnalités pensées pour{' '}
             <span className="bg-gradient-to-r from-sky-500 to-blue-700 bg-clip-text text-transparent">
               votre activité
@@ -81,22 +81,22 @@ export default function FeaturesSection() {
             return (
               <article
                 key={feature.title}
-                className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 text-left transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/50 sm:p-7"
+                className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 text-left transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/50"
               >
                 {/* Effet vertical bleu/cyan au survol */}
                 <div className="absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-300 group-hover:scale-y-100" />
 
                 {/* Icône */}
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-blue-100 bg-blue-50 transition-all duration-300 group-hover:border-blue-200 group-hover:bg-blue-600 group-hover:shadow-lg group-hover:shadow-blue-600/20">
-                  <Icon className="h-7 w-7 text-blue-600 transition-colors duration-300 group-hover:text-white" />
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border border-blue-100 bg-blue-50 transition-all duration-300 group-hover:border-blue-200 group-hover:bg-blue-600 group-hover:shadow-lg group-hover:shadow-blue-600/20">
+                  <Icon className="h-6 w-6 text-blue-600 transition-colors duration-300 group-hover:text-white" />
                 </div>
 
                 {/* Contenu */}
-                <h3 className="mb-3 text-lg font-bold text-slate-900 transition-colors duration-300 group-hover:text-blue-700">
+                <h3 className="mb-2 text-lg font-bold text-slate-900 transition-colors duration-300 group-hover:text-blue-700">
                   {feature.title}
                 </h3>
 
-                <p className="text-sm leading-7 text-slate-500">
+                <p className="text-sm leading-6 text-slate-500">
                   {feature.description}
                 </p>
 

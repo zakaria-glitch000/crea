@@ -27,15 +27,15 @@ export function FeaturedProduct() {
   return (
     <section
       id="featured"
-      className="relative scroll-mt-24 overflow-hidden bg-white py-24 lg:py-32"
+      className="relative scroll-mt-24 overflow-hidden bg-white py-8 lg:py-12"
     >
       {/* Fond décoratif */}
       <div className="pointer-events-none absolute inset-0 grid-bg-fine opacity-50" />
 
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-500/[0.05] blur-[120px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-500/[0.05] blur-[120px]" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Mockup produit */}
           <Reveal>
             <ProductMockup />
@@ -46,14 +46,14 @@ export function FeaturedProduct() {
             <Reveal>
               <SectionTag>Solution phare</SectionTag>
 
-              <h2 className="mt-6 text-balance font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-[2.75rem]">
+              <h2 className="mt-4 text-balance font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-[2.75rem]">
                 Une technologie pensée pour{' '}
                 <span className="bg-gradient-to-r from-sky-500 to-blue-700 bg-clip-text text-transparent">
                   votre quotidien.
                 </span>
               </h2>
 
-              <p className="mt-5 text-base leading-7 text-slate-500 sm:text-lg">
+              <p className="mt-4 text-base leading-7 text-slate-500 sm:text-lg">
                 Notre plateforme de gestion et de point de vente centralise
                 vos ventes, votre stock et votre clientèle dans une interface
                 moderne, intuitive et sécurisée.
@@ -62,7 +62,7 @@ export function FeaturedProduct() {
 
             {/* Fonctionnalités */}
             <Reveal delay={0.15}>
-              <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {FEATURE_LIST.map((feature, i) => {
                   const Icon = FEATURE_ICONS[i] ?? Check;
 
@@ -91,7 +91,7 @@ export function FeaturedProduct() {
             <Reveal delay={0.3}>
               <a
                 href="#contact"
-                className="group mt-10 inline-flex items-center gap-2 rounded-xl bg-brand-500 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-400 hover:shadow-xl hover:shadow-brand-500/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+                className="group mt-6 inline-flex items-center gap-2 rounded-xl bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-400 hover:shadow-xl hover:shadow-brand-500/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
               >
                 Demander une démo
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -113,7 +113,7 @@ function ProductMockup() {
       {/* Fenêtre du logiciel */}
       <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-300/40 transition-all duration-500 hover:-translate-y-1 hover:shadow-blue-100/70">
         {/* Barre supérieure */}
-        <div className="flex items-center justify-between border-b border-slate-100 px-4 py-4 sm:px-5">
+        <div className="flex items-center justify-between border-b border-slate-100 px-4 py-3 sm:px-5">
           <div className="flex items-center gap-2">
             <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand-400 to-brand-600 shadow-sm">
               <Layers className="h-4 w-4 text-white" />
@@ -136,7 +136,7 @@ function ProductMockup() {
         <div className="grid grid-cols-[145px_minmax(0,1fr)] sm:grid-cols-[180px_minmax(0,1fr)]">
           {/* Sidebar */}
           <div className="hidden border-r border-slate-100 bg-slate-50/40 p-3 sm:block">
-            <div className="mb-4 px-3 pt-2 text-[9px] font-bold uppercase tracking-wider text-slate-400">
+            <div className="mb-3 px-3 pt-1 text-[9px] font-bold uppercase tracking-wider text-slate-400">
               Menu principal
             </div>
 
@@ -151,7 +151,7 @@ function ProductMockup() {
               ].map((label, i) => (
                 <div
                   key={label}
-                  className={`flex items-center gap-2 rounded-lg px-3 py-2.5 text-[10px] transition-colors ${
+                  className={`flex items-center gap-2 rounded-lg px-3 py-2 text-[10px] transition-colors ${
                     i === 0
                       ? 'bg-brand-50 font-semibold text-brand-600'
                       : 'text-slate-500 hover:bg-slate-100'
@@ -167,7 +167,7 @@ function ProductMockup() {
               ))}
             </div>
 
-            <div className="mt-8 rounded-xl border border-slate-100 bg-white p-3">
+            <div className="mt-6 rounded-xl border border-slate-100 bg-white p-3">
               <div className="mb-2 flex items-center gap-1.5">
                 <Lock className="h-3 w-3 text-emerald-600" />
                 <span className="text-[9px] font-semibold text-slate-600">
@@ -181,14 +181,14 @@ function ProductMockup() {
           </div>
 
           {/* Panneau principal */}
-          <div className="min-w-0 space-y-4 p-3 sm:p-5">
+          <div className="min-w-0 space-y-3 p-3 sm:p-4">
             {/* En-tête */}
             <div className="flex items-center justify-between gap-2">
               <div>
                 <div className="font-display text-sm font-semibold text-slate-900 sm:text-base">
                   Vue d'ensemble
                 </div>
-                <div className="mt-1 text-[10px] text-slate-400">
+                <div className="mt-0.5 text-[10px] text-slate-400">
                   Octobre 2026
                 </div>
               </div>
@@ -212,15 +212,15 @@ function ProductMockup() {
               ].map((kpi) => (
                 <div
                   key={kpi.label}
-                  className="min-w-0 rounded-xl border border-slate-100 bg-slate-50/80 p-2 sm:p-3"
+                  className="min-w-0 rounded-xl border border-slate-100 bg-slate-50/80 p-2 sm:p-2.5"
                 >
                   <div className="truncate text-[9px] text-slate-400 sm:text-[10px]">
                     {kpi.label}
                   </div>
-                  <div className="mt-1 truncate font-display text-xs font-bold text-slate-900 sm:text-sm">
+                  <div className="mt-0.5 truncate font-display text-xs font-bold text-slate-900 sm:text-sm">
                     {kpi.value}
                   </div>
-                  <div className="mt-1 text-[9px] font-medium text-emerald-600">
+                  <div className="mt-0.5 text-[9px] font-medium text-emerald-600">
                     {kpi.trend}
                   </div>
                 </div>
@@ -228,8 +228,8 @@ function ProductMockup() {
             </div>
 
             {/* Graphique */}
-            <div className="rounded-xl border border-slate-100 bg-slate-50/60 p-3 sm:p-4">
-              <div className="mb-4 flex items-center justify-between gap-2">
+            <div className="rounded-xl border border-slate-100 bg-slate-50/60 p-3">
+              <div className="mb-3 flex items-center justify-between gap-2">
                 <span className="text-[10px] font-medium text-slate-600 sm:text-xs">
                   Ventes / jour
                 </span>
@@ -242,7 +242,7 @@ function ProductMockup() {
                 </div>
               </div>
 
-              <div className="flex h-24 items-end gap-1.5 sm:h-28 sm:gap-2">
+              <div className="flex h-20 items-end gap-1.5 sm:h-24 sm:gap-2">
                 {[55, 72, 48, 90, 65, 100, 78].map((height, i) => (
                   <motion.div
                     key={i}
@@ -267,7 +267,7 @@ function ProductMockup() {
             </div>
 
             {/* Transactions récentes */}
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <div className="text-[10px] font-semibold text-slate-600 sm:text-xs">
                 Dernières ventes
               </div>
@@ -288,10 +288,10 @@ function ProductMockup() {
               ].map((transaction) => (
                 <div
                   key={transaction.id}
-                  className="flex min-w-0 items-center gap-2 rounded-lg border border-slate-100 bg-white px-2 py-2.5 transition-colors duration-300 hover:border-blue-100 hover:bg-blue-50/30 sm:gap-3 sm:px-3"
+                  className="flex min-w-0 items-center gap-2 rounded-lg border border-slate-100 bg-white px-2 py-2 transition-colors duration-300 hover:border-blue-100 hover:bg-blue-50/30 sm:gap-3 sm:px-3"
                 >
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-brand-50">
-                    <FileText className="h-3.5 w-3.5 text-brand-600" />
+                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-brand-50">
+                    <FileText className="h-3 w-3 text-brand-600" />
                   </div>
 
                   <div className="min-w-0 flex-1">

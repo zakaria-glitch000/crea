@@ -12,14 +12,14 @@ export function About() {
   return (
     <section
       id="About"
-      className="relative overflow-hidden bg-white py-24 lg:py-32"
+      className="relative overflow-hidden bg-white py-8 lg:py-12"
     >
       {/* Background effects */}
       <div className="pointer-events-none absolute -left-32 top-1/4 h-[400px] w-[400px] rounded-full bg-sky-400/[0.07] blur-[100px]" />
       <div className="pointer-events-none absolute -right-32 bottom-0 h-[350px] w-[350px] rounded-full bg-blue-400/[0.06] blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-16">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
           {/* Left: visual */}
           <Reveal>
             <motion.div
@@ -52,21 +52,21 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="absolute -bottom-6 -right-3 rounded-2xl border border-slate-200/80 bg-white/95 p-5 shadow-xl shadow-slate-900/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 sm:-right-5 sm:p-6"
+                className="absolute -bottom-5 -right-2 rounded-2xl border border-slate-200/80 bg-white/95 p-4 shadow-xl shadow-slate-900/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-200 sm:-right-4 sm:p-5"
               >
                 <div className="font-display text-3xl font-bold tracking-tight text-transparent bg-gradient-to-r from-sky-500 to-blue-700 bg-clip-text sm:text-4xl">
                   10+
                 </div>
 
-                <div className="mt-1 text-xs font-medium text-slate-500 sm:text-sm">
+                <div className="mt-0.5 text-xs font-medium text-slate-500 sm:text-sm">
                   ans d'expertise IT
                 </div>
 
-                <div className="mt-3 h-0.5 w-10 rounded-full bg-gradient-to-r from-sky-400 to-blue-600" />
+                <div className="mt-2 h-0.5 w-10 rounded-full bg-gradient-to-r from-sky-400 to-blue-600" />
               </motion.div>
 
               {/* Decorative corner */}
-              <div className="pointer-events-none absolute -left-3 -top-3 -z-10 h-20 w-20 rounded-tl-3xl border-l-2 border-t-2 border-sky-300/60 sm:-left-5 sm:-top-5" />
+              <div className="pointer-events-none absolute -left-3 -top-3 -z-10 h-20 w-20 rounded-tl-3xl border-l-2 border-t-2 border-sky-300/60 sm:-left-4 sm:-top-4" />
             </motion.div>
           </Reveal>
 
@@ -75,14 +75,14 @@ export function About() {
             <Reveal>
               <SectionTag>À propos</SectionTag>
 
-              <h2 className="mt-6 text-balance font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-[2.75rem]">
+              <h2 className="mt-4 text-balance font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-[2.75rem]">
                 Votre partenaire{' '}
                 <span className="bg-gradient-to-r from-sky-500 to-blue-700 bg-clip-text text-transparent">
                   technologique.
                 </span>
               </h2>
 
-              <p className="mt-5 text-base leading-8 text-slate-500 sm:text-lg">
+              <p className="mt-4 text-base leading-7 text-slate-500 sm:text-lg">
                 ORALI SYSTEMS est une entreprise spécialisée dans les
                 solutions informatiques et logicielles pour les
                 professionnels. Depuis plus de dix ans, nous accompagnons des
@@ -90,7 +90,7 @@ export function About() {
                 technologique.
               </p>
 
-              <p className="mt-4 text-sm leading-7 text-slate-500 sm:text-base">
+              <p className="mt-3 text-sm leading-6 text-slate-500 sm:text-base">
                 Notre mission : rendre la technologie accessible, fiable et
                 performante pour votre activité. Nous combinons expertise
                 technique et approche métier pour livrer des solutions qui
@@ -100,7 +100,7 @@ export function About() {
 
             {/* Advantages checklist */}
             <Reveal delay={0.15}>
-              <div className="mt-8 space-y-3">
+              <div className="mt-6 space-y-2">
                 {ABOUT_POINTS.map((item, index) => (
                   <motion.div
                     key={item}
@@ -111,7 +111,7 @@ export function About() {
                       duration: 0.35,
                       delay: index * 0.1,
                     }}
-                    className="group/point flex items-start gap-3 rounded-xl border border-transparent px-3 py-3 transition-all duration-300 hover:border-sky-100 hover:bg-sky-50/60"
+                    className="group/point flex items-start gap-3 rounded-xl border border-transparent px-3 py-2 transition-all duration-300 hover:border-sky-100 hover:bg-sky-50/60"
                   >
                     <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-sky-500 transition-colors duration-300 group-hover/point:text-blue-600" />
 
@@ -127,7 +127,7 @@ export function About() {
             <Reveal delay={0.3}>
               <a
                 href="#contact"
-                className="group relative mt-8 inline-flex items-center gap-3 overflow-hidden rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-200 hover:text-blue-700 hover:shadow-lg hover:shadow-blue-900/5 sm:mt-10"
+                className="group relative mt-6 inline-flex items-center gap-3 overflow-hidden rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-200 hover:text-blue-700 hover:shadow-lg hover:shadow-blue-900/5 sm:mt-8"
               >
                 <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-sky-50 to-blue-50 transition-transform duration-500 group-hover:translate-x-0" />
 

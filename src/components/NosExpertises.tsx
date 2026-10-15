@@ -53,56 +53,54 @@ const expertises = [
       </svg>
     ),
   },
- 
-{
-  title: 'Développement de Logiciels sur Mesure',
-  description:
-    'Conception et réalisation d’applications métier personnalisées, adaptées aux besoins et aux processus de chaque entreprise.',
-  image: devImg,
-  iconBg: 'bg-purple-600',
-  linkUrl: '/Devmesure',
-  iconSvg: (
-    <svg
-      className="h-5 w-5 text-white"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-      />
-    </svg>
-  ),
-},
-
+  {
+    title: 'Développement de Logiciels sur Mesure',
+    description:
+      'Conception et réalisation d’applications métier personnalisées, adaptées aux besoins et aux processus de chaque entreprise.',
+    image: devImg,
+    iconBg: 'bg-purple-600',
+    linkUrl: '/Devmesure',
+    iconSvg: (
+      <svg
+        className="h-5 w-5 text-white"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+        />
+      </svg>
+    ),
+  },
 ];
 
 export default function NosExpertises() {
   return (
     <section
       id="NosExpertises"
-      className="scroll-mt-24 bg-gray-50 px-4 py-16 sm:px-6 lg:py-20"
+      className="scroll-mt-24 bg-gray-50 px-4 py-8 sm:px-6 lg:py-12"
     >
       {/* EN-TÊTE */}
-      <div className="mx-auto mb-12 max-w-7xl text-center">
+      <div className="mx-auto mb-8 max-w-7xl text-center">
         <span className="inline-flex rounded-full border border-blue-100 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-blue-600 shadow-sm">
           Nos Solutions
         </span>
 
-        <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+        <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
           Une offre complète pour{' '}
           <span className="bg-gradient-to-r from-sky-500 to-blue-700 bg-clip-text text-transparent">
             vos projets
           </span>
         </h2>
 
-        <div className="mx-auto mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-sky-400 to-blue-600" />
+        <div className="mx-auto mt-3 h-1 w-14 rounded-full bg-gradient-to-r from-sky-400 to-blue-600" />
 
-        <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-gray-500 sm:text-base">
+        <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-gray-500 sm:text-base">
           Des solutions technologiques adaptées à votre métier
           pour améliorer votre productivité et accompagner
           votre développement.
@@ -110,7 +108,7 @@ export default function NosExpertises() {
       </div>
 
       {/* CARTES */}
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {expertises.map((item) => (
           <article
             key={item.title}
@@ -123,7 +121,7 @@ export default function NosExpertises() {
             />
 
             {/* IMAGE */}
-            <div className="relative h-52 w-full overflow-hidden bg-slate-100">
+            <div className="relative h-48 w-full overflow-hidden bg-slate-100">
               <img
                 src={item.image}
                 alt={item.title}
@@ -138,24 +136,24 @@ export default function NosExpertises() {
             </div>
 
             {/* CONTENU */}
-            <div className="relative flex flex-1 flex-col px-6 pb-5 pt-9">
+            <div className="relative flex flex-1 flex-col px-6 pb-5 pt-6">
               {/* ICÔNE */}
               <div
-                className={`absolute -top-6 left-6 flex h-12 w-12 items-center justify-center rounded-full border-2 border-white ${item.iconBg} shadow-lg transition-transform duration-300 group-hover:scale-110`}
+                className={`absolute -top-5 left-6 flex h-10 w-10 items-center justify-center rounded-full border-2 border-white ${item.iconBg} shadow-lg transition-transform duration-300 group-hover:scale-110`}
               >
                 {item.iconSvg}
               </div>
 
-              <h3 className="mb-3 text-xl font-bold leading-snug text-gray-900 transition-colors duration-300 group-hover:text-blue-700">
+              <h3 className="mb-2 text-xl font-bold leading-snug text-gray-900 transition-colors duration-300 group-hover:text-blue-700">
                 {item.title}
               </h3>
 
-              <p className="mb-6 flex-1 text-sm leading-7 text-gray-600">
+              <p className="mb-4 flex-1 text-sm leading-6 text-gray-600">
                 {item.description}
               </p>
 
               {/* LIEN */}
-              <div className="mt-auto border-t border-slate-100 pt-4">
+              <div className="mt-auto border-t border-slate-100 pt-3">
                 {item.linkUrl === '/solutions-restauration' ? (
                   <Link
                     to={item.linkUrl}
