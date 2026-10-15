@@ -16,7 +16,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import "./Stock.css";
-
+import heroImage from '@/assets/p2.jpg';
 const heroBadges = [
   { icon: Barcode, text: "Lecture codes-barres rapide et fiable" },
   { icon: Box, text: "Saisie et création des articles" },
@@ -33,7 +33,7 @@ const features = [
   { icon: BarChart3, color: "#f5b400", bg: "#fff3cc", title: "Consultation", text: "Visualisez les quantités, les emplacements et les informations produits." },
 ];
 
-import c1 from "@/assets/p2.jpg";
+import c1 from "@/assets/c1.jpeg";
 import c2 from "@/assets/c2.jpeg";
 import c3 from "@/assets/c3.jpeg";
 import c4 from "@/assets/c4.jpeg";
@@ -100,11 +100,12 @@ export default function App() {
     <main className="stk-page">
       {/* HERO */}
       <header className="stk-hero">
-        <div
-          className="stk-hero__bg"
-          style={{ backgroundImage: "url(/src/assets/p2.jpg)" }}
-          aria-hidden="true"
-        />
+
+<div
+  className="stk-hero__bg"
+  style={{ backgroundImage: `url(${heroImage})` }}
+  aria-hidden="true"
+/>
         <div className="stk-hero__fade" />
 
         <div className="stk-hero__inner">

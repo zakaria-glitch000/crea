@@ -24,7 +24,7 @@ import "./Pda.css";
 import pdaImage from "@/assets/21.png";
 import deuxImage from "@/assets/20.png";
 import troisImage from "@/assets/22.png";
-import heroImage from "@/assets/p2.jpg";
+import heroImage from "@/assets/csi1.jpeg";
 import quatreImage from "@/assets/3.jpg";
 import cinqImage from "@/assets/00.png";
 import sixImage from "@/assets/4.jpg";
