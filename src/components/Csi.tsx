@@ -9,7 +9,11 @@ import {
   Headphones,
   Phone,
   Settings,
+  ShieldCheck,
   Sparkles,
+  TrendingUp,
+  Cpu,
+  CheckCircle,
   Users,
 } from 'lucide-react';
 
@@ -163,6 +167,33 @@ const CTA_FEATURES: { icon: ElementType; title: string; text: string }[] = [
     icon: ChartNoAxesCombined,
     title: 'Une solution évolutive',
     text: 'Pour accompagner votre croissance',
+  },
+];
+
+/* =====================================================
+    POURQUOI CHOISIR CSI ?
+===================================================== */
+
+const CSI_BENEFITS: { icon: ElementType; title: string; text: string }[] = [
+  {
+    icon: ShieldCheck,
+    title: 'Une solution CSI 100% personnalisée',
+    text: 'Des fonctionnalités adaptées à votre établissement, votre secteur et vos processus opérationnels.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Un meilleur pilotage avec le Reporting CSI',
+    text: 'Visualisez vos indicateurs en temps réel, analysez vos ventes et prenez des décisions éclairées.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Une interface simple et intuitive',
+    text: 'Prise en main rapide par vos équipes pour un service plus fluide et sans risque d’erreur.',
+  },
+  {
+    icon: Users,
+    title: 'Un accompagnement CSI sur mesure',
+    text: 'Nous vous accompagnons à chaque étape : installation, formation, assistance technique et maintenance.',
   },
 ];
 
@@ -767,87 +798,137 @@ export default function SolutionsRestauration() {
         </div>
       </section>
 
+
       {/* =====================================================
-          CARD ACCOMPAGNEMENT (AJOUTÉE ICI LAKHAR DYAL PAGE)
+          POURQUOI CHOISIR CSI ?
       ===================================================== */}
 
-      <section className="relative bg-slate-50/70 pb-12 sm:pb-16">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8">
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
-            className="overflow-hidden rounded-3xl bg-[#f1f6ff] shadow-xl shadow-blue-900/[0.05] ring-1 ring-slate-200/70"
-          >
-            <div className="grid lg:grid-cols-[2fr_3fr]">
-              {/* Blassa image khawya (Placeholder) */}
-              <div className="relative min-h-[280px] bg-slate-200/60 lg:min-h-full">
-                <img
-                  src=""
-                  alt="Notre accompagnement"
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
+      <section className="relative overflow-hidden bg-gradient-to-b from-sky-50/50 via-white to-slate-50/50 py-16 lg:py-24">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-28 top-16 h-72 w-72 rounded-full bg-blue-100/50 blur-3xl"
+        />
+        <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            {/* Texte et avantages */}
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-60px' }}
+              className="flex flex-col justify-center"
+            >
+              <motion.span
+                variants={fadeUp}
+                className="inline-flex w-fit items-center gap-2 rounded-full border border-blue-200 bg-white px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-blue-700 shadow-sm"
+              >
+                <span className="h-2 w-2 rounded-full bg-[#f26522]" />
+                Pourquoi nous choisir ?
+              </motion.span>
+
+              <motion.h2
+                variants={fadeUp}
+                className="mt-4 text-3xl font-black leading-tight tracking-tight text-[#0b2a5b] sm:text-4xl lg:text-[2.6rem]"
+              >
+                Pourquoi choisir <span className="text-blue-600">CSI</span> ?
+              </motion.h2>
+
+              <motion.p
+                variants={fadeUp}
+                className="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base"
+              >
+                Nous mettons la technologie CSI au service de votre établissement.
+                Nos solutions sont pensées pour simplifier votre quotidien,
+                améliorer votre rentabilité et accompagner durablement votre croissance.
+              </motion.p>
+
+              <div className="mt-8 space-y-6">
+                {CSI_BENEFITS.map(({ icon: Icon, title, text }) => (
+                  <motion.div
+                    key={title}
+                    variants={fadeUp}
+                    className="flex items-start gap-4"
+                  >
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 shadow-sm ring-1 ring-blue-100">
+                      <Icon className="h-5 w-5" strokeWidth={2} />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-extrabold text-[#0b2a5b]">
+                        {title}
+                      </h3>
+                      <p className="mt-1 text-xs leading-relaxed text-slate-600 sm:text-sm">
+                        {text}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
 
-              {/* Content */}
-              <div className="flex flex-col justify-center p-6 sm:p-10 lg:p-12">
-                <span className="text-[13px] font-bold uppercase tracking-[1.5px] text-[#5b6e8a]">
-                  NOTRE ACCOMPAGNEMENT
-                </span>
+              <motion.div variants={fadeUp} className="mt-10">
+                <a
+                  href={CONTACT_LINK}
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-[#f26522] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#d95316] hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-orange-200"
+                >
+                  Parlons de votre projet
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
+              </motion.div>
+            </motion.div>
 
-                <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-[#0b2a5b] sm:text-3xl">
-                  Installation, formation et support
-                </h2>
+            {/* Image et carte visuelle */}
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.55 }}
+              className="relative mx-auto w-full max-w-lg pb-5 lg:max-w-none"
+            >
+              <div className="relative overflow-hidden rounded-3xl bg-slate-900 shadow-2xl shadow-blue-900/15 ring-1 ring-slate-200/50">
+                <img
+                  src={heroImage}
+                  alt="Équipe et solutions CSI"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-[420px] w-full object-cover opacity-85 sm:h-[480px] lg:h-[520px]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
 
-                <p className="mt-3 text-sm leading-relaxed text-[#4a5568] sm:text-[15px]">
-                  Notre équipe technique vous accompagne à chaque étape pour une mise en service rapide et une utilisation en toute sérénité.
-                </p>
+                <div className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-xl bg-white/95 text-blue-600 shadow-lg backdrop-blur-md">
+                  <Cpu className="h-6 w-6" strokeWidth={2} />
+                </div>
 
-                <div className="mt-6 flex flex-wrap items-center justify-between gap-6">
-                  {/* Grid of features / icons */}
-                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-                    <div className="flex flex-col items-center rounded-xl bg-white p-3 text-center shadow-sm">
-                      <Settings className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
-                      <span className="mt-2 text-[11px] font-semibold leading-tight text-[#2d3748]">
-                        Installation et paramétrage
-                      </span>
-                    </div>
+                <div className="absolute left-5 top-5 max-w-[calc(100%-5rem)] rounded-full bg-slate-900/60 px-3.5 py-2 text-[11px] font-semibold text-white backdrop-blur-md ring-1 ring-white/20 sm:left-6 sm:top-6 sm:text-xs">
+                  <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-400" />
+                  Votre partenaire technologique CSI
+                </div>
 
-                    <div className="flex flex-col items-center rounded-xl bg-white p-3 text-center shadow-sm">
-                      <Users className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
-                      <span className="mt-2 text-[11px] font-semibold leading-tight text-[#2d3748]">
-                        Formation des équipes
-                      </span>
-                    </div>
-
-                    <div className="flex flex-col items-center rounded-xl bg-white p-3 text-center shadow-sm">
-                      <Headphones className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
-                      <span className="mt-2 text-[11px] font-semibold leading-tight text-[#2d3748]">
-                        Assistance technique
-                      </span>
-                    </div>
-
-                    <div className="flex flex-col items-center rounded-xl bg-white p-3 text-center shadow-sm">
-                      <ChartNoAxesCombined className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
-                      <span className="mt-2 text-[11px] font-semibold leading-tight text-[#2d3748]">
-                        Suivi et maintenance
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Button */}
-                  <a
-                    href={CONTACT_LINK}
-                    className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#f26522] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#d95316] focus:outline-none focus:ring-4 focus:ring-orange-200"
-                  >
-                    Demander une démonstration
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </a>
+                <div className="absolute bottom-6 left-5 right-5 text-white sm:bottom-7 sm:left-7 sm:right-7">
+                  <h3 className="text-2xl font-black leading-tight tracking-tight sm:text-3xl">
+                    La technologie CSI au service de votre réussite.
+                  </h3>
+                  <p className="mt-2 text-xs leading-relaxed text-slate-300 sm:text-sm">
+                    Des solutions intelligentes et connectées pour optimiser
+                    vos opérations et faire évoluer votre activité.
+                  </p>
                 </div>
               </div>
-            </div>
-          </motion.div>
+
+              <div className="absolute -bottom-1 left-2 right-2 flex items-center gap-3 rounded-2xl bg-white p-4 shadow-xl shadow-slate-900/10 ring-1 ring-slate-100 sm:-left-5 sm:right-auto sm:px-5">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                  <CheckCircle className="h-6 w-6" strokeWidth={2} />
+                </div>
+                <div>
+                  <p className="text-xs font-black text-[#0b2a5b] sm:text-sm">
+                    Une approche sur mesure
+                  </p>
+                  <p className="text-[11px] text-slate-500 sm:text-xs">
+                    Adaptée aux besoins de votre établissement
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
