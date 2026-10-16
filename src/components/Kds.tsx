@@ -19,9 +19,9 @@ import "./Kds.css";
 import heads from "@/assets/9.jpeg";
 import deux from "@/assets/11.jpeg";
 import trois from "@/assets/10.jpeg";
-import caisseImage from "@/assets/0.jpg";
-import borneImage from "@/assets/1.jpg";
-import padImage from "@/assets/3.jpg";
+import caisseImage from "@/assets/00.png";
+import borneImage from "@/assets/bb1.png";
+import padImage from "@/assets/bb3.png";
 import kdsImage from "@/assets/4.jpg";
 
 const benefits = [
@@ -115,10 +115,10 @@ export default function KdsPage() {
 
       <div className="kds-container kds-stack">
         {/* ÉCRAN KDS + FONCTIONNALITÉS */}
-        <section className="kds-showcase">
-          <div className="kds-showcase__visual">
-            <img src={kdsImage} alt="Écran KDS affichant les commandes en cuisine" />
-          </div>
+      <section className="kds-showcase">
+  <div className="kds-showcase__visual">
+    <img src={kdsImage} alt="Écran KDS affichant les commandes en cuisine" />
+  </div>
 
           <aside className="kds-features">
             <p className="kds-eyebrow kds-eyebrow--panel">
