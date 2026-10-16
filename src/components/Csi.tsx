@@ -1,8 +1,8 @@
-import type { ElementType } from 'react';
+
+import type { CSSProperties, ElementType, ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
-  ArrowUpDown,
   CalendarDays,
   Check,
   ChartNoAxesCombined,
@@ -18,6 +18,7 @@ import heroImage from '@/assets/res.webp';
 import caisseImage from '@/assets/00.png';
 import borneImage from '@/assets/bb1.png';
 import pdaImage from '@/assets/bb3.png';
+import pdImage from '@/assets/bb33.png';
 import kdsImage from '@/assets/bb4.png';
 import ERP_IMAGE from '@/assets/bb5.png';
 import REPORTING_IMAGE from '@/assets/bb6.png';
@@ -97,7 +98,7 @@ const CARDS = [
     number: '03',
     title: 'PAD – Prise de commande',
     subtitle: 'Mobilité et efficacité pour vos équipes.',
-    image: pdaImage,
+    image: pdImage,
     items: [
       'Prise de commande rapide et intuitive',
       'Gestion des tables en temps réel',
@@ -181,7 +182,7 @@ const stagger = {
 };
 
 /* =====================================================
-   SATELLITE (image + bulle de texte)
+   SATELLITE MOBILE / TABLETTE
 ===================================================== */
 
 function Bubble({
@@ -231,6 +232,286 @@ function Satellite({
 }
 
 /* =====================================================
+   ÉCOSYSTÈME DESKTOP — POSITIONNEMENT PROPORTIONNEL
+===================================================== */
+
+type EcoBox = {
+  left: number;
+  top: number;
+  width?: number;
+  height?: number;
+};
+
+const ecoBox = ({ left, top, width, height }: EcoBox): CSSProperties => ({
+  left: `${left}%`,
+  top: `${top}%`,
+  ...(width !== undefined ? { width: `${width}%` } : {}),
+  ...(height !== undefined ? { height: `${height}%` } : {}),
+});
+
+function EcoPic({
+  src,
+  alt,
+  b,
+  rotate,
+}: {
+  src: string;
+  alt: string;
+  b: EcoBox;
+  rotate?: number;
+}) {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      style={{
+        ...ecoBox(b),
+        ...(rotate ? { transform: `rotate(${rotate}deg)` } : {}),
+      }}
+      className="absolute z-10 object-contain drop-shadow-xl"
+    />
+  );
+}
+
+function EcoHalo({ b }: { b: EcoBox }) {
+  return (
+    <div
+      aria-hidden="true"
+      style={ecoBox(b)}
+      className="absolute aspect-square rounded-full bg-[radial-gradient(circle,rgba(186,224,253,0.75)_0%,rgba(219,238,254,0.55)_55%,rgba(255,255,255,0)_100%)]"
+    />
+  );
+}
+
+function EcoLabel({
+  left,
+  top,
+  center = false,
+  children,
+}: {
+  left: number;
+  top: number;
+  center?: boolean;
+  children: ReactNode;
+}) {
+  return (
+    <div
+      style={{
+        left: `${left}%`,
+        top: `${top}%`,
+        padding: '0.9cqw 1.7cqw',
+        borderRadius: '1.6cqw',
+      }}
+      className={`absolute z-20 w-max max-w-[45%] bg-white/90 shadow-lg shadow-blue-900/[0.07] ring-1 ring-sky-100/80 backdrop-blur-md ${
+        center ? '-translate-x-1/2 text-center' : ''
+      }`}
+    >
+      {children}
+    </div>
+  );
+}
+
+function EcoTitle({ children }: { children: ReactNode }) {
+  return (
+    <p
+      style={{ fontSize: '1.75cqw' }}
+      className="font-extrabold leading-tight tracking-tight text-[#0b2a5b]"
+    >
+      {children}
+    </p>
+  );
+}
+
+function EcoSub({ children }: { children: ReactNode }) {
+  return (
+    <p
+      style={{ fontSize: '1.3cqw' }}
+      className="mt-[0.2cqw] leading-snug tracking-tight text-slate-600"
+    >
+      {children}
+    </p>
+  );
+}
+
+function EcosystemDesktop() {
+  return (
+    <div
+      style={{ containerType: 'inline-size' }}
+      className="relative mx-auto mt-10 hidden aspect-[1536/1024] w-full max-w-6xl lg:block"
+    >
+      {/* Halos / lueurs */}
+      <EcoHalo b={{ left: 38.4, top: 0, width: 19.5 }} />
+      <EcoHalo b={{ left: 8.5, top: 21.5, width: 17 }} />
+      <EcoHalo b={{ left: 71.6, top: 19.5, width: 19.5 }} />
+
+      {/* Grande lueur centrale */}
+      <div
+        aria-hidden="true"
+        style={ecoBox({ left: 31.2, top: 30.3, width: 35.2 })}
+        className="absolute aspect-square rounded-full bg-[radial-gradient(circle,rgba(147,197,253,0.55)_0%,rgba(186,224,253,0.4)_55%,rgba(255,255,255,0)_100%)]"
+      />
+
+      {/* Socle lumineux sous la caisse */}
+      <div
+        aria-hidden="true"
+        style={ecoBox({ left: 34.8, top: 67, width: 27.3, height: 8 })}
+        className="absolute rounded-[50%] bg-gradient-to-b from-sky-200/80 to-sky-100/20 blur-[2px]"
+      />
+
+      {/* Arcs et flèches */}
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 1536 1024"
+        preserveAspectRatio="none"
+        className="pointer-events-none absolute inset-0 z-[5] h-full w-full"
+        fill="none"
+      >
+        <defs>
+          <marker
+            id="eco-arrow"
+            viewBox="0 0 10 10"
+            refX="8"
+            refY="5"
+            markerWidth="5"
+            markerHeight="5"
+            orient="auto-start-reverse"
+          >
+            <path
+              d="M1 1 L9 5 L1 9"
+              fill="none"
+              stroke="#2563eb"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </marker>
+        </defs>
+
+        <g stroke="#93c5fd" strokeWidth="2" strokeLinecap="round">
+          <path d="M360 325 Q430 225 592 165" strokeDasharray="7 7" />
+          <path d="M868 163 Q1120 230 1222 410" />
+          <path d="M285 528 Q278 585 300 632" />
+          <path d="M1218 532 Q1216 590 1190 640" />
+          <path d="M465 792 Q585 905 730 905" />
+          <path d="M770 905 Q990 895 1088 748" />
+        </g>
+
+        <g
+          stroke="#2563eb"
+          strokeWidth="4"
+          strokeLinecap="round"
+          markerEnd="url(#eco-arrow)"
+        >
+          <path d="M385 402 Q450 412 498 458" />
+          <path d="M1100 405 Q1050 420 1018 452" />
+          <path d="M472 718 Q490 702 508 696" />
+          <path d="M1085 745 Q1040 708 1010 696" />
+          <path d="M733 372 L733 336" />
+          <path d="M757 336 L757 372" />
+          <path d="M733 898 L733 858" />
+          <path d="M757 858 L757 898" />
+        </g>
+      </svg>
+
+      {/* Borne de commande */}
+      <EcoPic
+        src={borneImage}
+        alt="Borne de commande"
+        b={{ left: 43.5, top: 1.5, width: 9, height: 22 }}
+      />
+
+      {/* PDA */}
+      <EcoPic
+        src={pdaImage}
+        alt="PAD – Prise de commande"
+        b={{ left: 9.1, top: 22, width: 13.7, height: 21.5 }}
+        rotate={-24}
+      />
+
+      {/* Écran KDS */}
+      <EcoPic
+        src={kdsImage}
+        alt="Écran cuisine KDS"
+        b={{ left: 72.3, top: 22.5, width: 16.3, height: 21 }}
+      />
+
+      {/* Caisse centrale */}
+      <EcoPic
+        src={caisseImage}
+        alt="Caisse enregistreuse CSI"
+        b={{ left: 34.5, top: 35, width: 27.3, height: 37 }}
+      />
+
+      {/* Reporting */}
+      <EcoPic
+        src={REPORTING_IMAGE}
+        alt="Reporting CSI"
+        b={{ left: 5.9, top: 64.5, width: 23.4, height: 20 }}
+      />
+
+      {/* ERP */}
+      <EcoPic
+        src={ERP_IMAGE}
+        alt="GMS / ERP CSI"
+        b={{ left: 71, top: 60.5, width: 23.8, height: 24 }}
+      />
+
+      {/* Labels */}
+      <EcoLabel left={48.2} top={23.4} center>
+        <EcoTitle>Bornes de commande</EcoTitle>
+        <EcoSub>Commande autonome pour vos clients</EcoSub>
+      </EcoLabel>
+
+      <EcoLabel left={5} top={43}>
+        <EcoTitle>PAD – Prise de commande</EcoTitle>
+        <EcoSub>Mobilité et efficacité pour vos équipes</EcoSub>
+      </EcoLabel>
+
+      <EcoLabel left={69.2} top={43.4}>
+        <EcoTitle>Écran cuisine KDS</EcoTitle>
+        <EcoSub>Des cuisines plus organisées et plus performantes</EcoSub>
+      </EcoLabel>
+
+      {/* Bulle centrale */}
+      <div
+        style={{
+          left: '49%',
+          top: '72.7%',
+          padding: '1.3cqw 3.2cqw',
+          borderRadius: '2.2cqw',
+        }}
+        className="absolute z-20 w-max max-w-[65%] -translate-x-1/2 bg-[#0b2a5b] text-center text-white shadow-xl shadow-blue-900/30"
+      >
+        <p
+          style={{ fontSize: '2cqw' }}
+          className="font-extrabold leading-tight tracking-tight"
+        >
+          Caisse enregistreuse CSI
+        </p>
+        <p
+          style={{ fontSize: '1.45cqw' }}
+          className="mt-[0.2cqw] text-blue-100"
+        >
+          Le cœur de votre activité
+        </p>
+      </div>
+
+      <EcoLabel left={3.9} top={83.5}>
+        <EcoTitle>Reporting CSI</EcoTitle>
+        <EcoSub>Suivez vos performances en temps réel</EcoSub>
+      </EcoLabel>
+
+      <EcoLabel left={68.4} top={84.5}>
+        <EcoTitle>GMS / ERP CSI</EcoTitle>
+        <EcoSub>Gestion centralisée de vos points de vente</EcoSub>
+      </EcoLabel>
+    </div>
+  );
+}
+
+/* =====================================================
    CARTE NUMÉROTÉE
 ===================================================== */
 
@@ -263,7 +544,7 @@ function NumberedCard({
       </div>
 
       <div className="relative flex h-52 items-center justify-center px-4 py-3">
-        <div className="pointer-events-none absolute inset-x-0 inset-y-0 bg-gradient-to-b from-white via-sky-50/60 to-white" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-sky-50/60 to-white" />
         <img
           src={image}
           alt={title}
@@ -307,11 +588,10 @@ export default function SolutionsRestauration() {
   return (
     <main className="overflow-hidden bg-white text-slate-800">
       {/* =====================================================
-          HERO  (image à gauche + texte à droite + bandeau)
+          HERO
       ===================================================== */}
 
       <section className="relative isolate overflow-hidden">
-        {/* Arrière-plan restaurant flouté */}
         <div className="pointer-events-none absolute inset-0 -z-10">
           <img
             src={heroImage}
@@ -331,7 +611,6 @@ export default function SolutionsRestauration() {
             className="overflow-hidden rounded-3xl bg-white shadow-2xl shadow-blue-900/10 ring-1 ring-slate-200/70"
           >
             <div className="grid lg:grid-cols-2">
-              {/* ---------- Image (gauche) ---------- */}
               <div className="relative flex items-center justify-center bg-gradient-to-br from-slate-100 via-white to-sky-50 px-6 pb-8 pt-20 sm:px-10 lg:py-12">
                 <span className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-bold text-[#0b2a5b] shadow-lg shadow-blue-900/10 ring-1 ring-slate-100">
                   <span className="h-2 w-2 rounded-full bg-emerald-500" />
@@ -347,7 +626,6 @@ export default function SolutionsRestauration() {
                 />
               </div>
 
-              {/* ---------- Texte (droite) ---------- */}
               <div className="flex flex-col justify-center px-6 py-8 sm:px-10 lg:px-12 lg:py-12">
                 <span className="inline-flex w-fit items-center gap-2 rounded-full border border-blue-200 bg-white px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-blue-700">
                   <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
@@ -383,22 +661,22 @@ export default function SolutionsRestauration() {
                 </div>
 
                 <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-slate-700">
-                  {['Solution complète', 'Accompagnement personnalisé'].map(
-                    (t) => (
-                      <li key={t} className="flex items-center gap-2">
-                        <Check
-                          className="h-4 w-4 text-blue-600"
-                          strokeWidth={3}
-                        />
-                        {t}
-                      </li>
-                    ),
-                  )}
+                  {[
+                    'Solution complète',
+                    'Accompagnement personnalisé',
+                  ].map((t) => (
+                    <li key={t} className="flex items-center gap-2">
+                      <Check
+                        className="h-4 w-4 text-blue-600"
+                        strokeWidth={3}
+                      />
+                      {t}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
 
-            {/* ---------- Bandeau bas ---------- */}
             <div className="flex items-center gap-4 bg-gradient-to-r from-[#0b2a5b] via-blue-700 to-blue-500 px-6 py-5 text-white sm:px-10">
               <Sparkles className="h-8 w-8 shrink-0" strokeWidth={1.5} />
               <span className="hidden h-10 w-px bg-white/40 sm:block" />
@@ -417,7 +695,7 @@ export default function SolutionsRestauration() {
       </section>
 
       {/* =====================================================
-          ÉCOSYSTÈME (schéma des appareils)
+          ÉCOSYSTÈME
       ===================================================== */}
 
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-white via-sky-50/40 to-white py-12 sm:py-16">
@@ -445,109 +723,10 @@ export default function SolutionsRestauration() {
             ))}
           </motion.div>
 
-          {/* ---------- Écosystème desktop ---------- */}
-          <div className="relative mx-auto mt-10 hidden h-[760px] w-full max-w-5xl lg:block">
-            {/* Cercle pointillé */}
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              className="pointer-events-none absolute left-[14%] top-[10%] h-[78%] w-[72%]"
-            >
-              <ellipse
-                cx="50"
-                cy="50"
-                rx="49"
-                ry="49"
-                fill="rgba(255,255,255,0.35)"
-                stroke="#60a5fa"
-                strokeWidth="0.35"
-                strokeDasharray="1.2 1.4"
-                vectorEffect="non-scaling-stroke"
-              />
-            </svg>
+          {/* Nouveau design desktop */}
+          <EcosystemDesktop />
 
-            {/* Borne – haut */}
-            <Satellite
-              data={SATELLITES.borne}
-              imgClass="h-52 w-40"
-              className="absolute left-[40%] top-0 -translate-x-1/2"
-            />
-
-            {/* PDA – gauche */}
-            <Satellite
-              data={SATELLITES.pda}
-              imgClass="h-44 w-36 -rotate-[24deg]"
-              className="absolute left-[2%] top-[19%]"
-            />
-
-            {/* KDS – droite */}
-            <Satellite
-              data={SATELLITES.kds}
-              imgClass="h-40 w-64"
-              className="absolute right-[0%] top-[22%]"
-            />
-
-            {/* Caisse – centre */}
-            <div className="absolute left-1/2 top-[28%] flex -translate-x-1/2 flex-col items-center">
-              <img
-                src={caisseImage}
-                alt="Caisse enregistreuse CSI"
-                className="h-72 w-[420px] object-contain drop-shadow-2xl"
-                loading="lazy"
-              />
-              <div className="-mt-3 rounded-2xl bg-[#0b2a5b] px-7 py-3 text-center text-white shadow-xl shadow-blue-900/30">
-                <p className="text-lg font-extrabold tracking-tight">
-                  Caisse enregistreuse CSI
-                </p>
-                <p className="text-sm text-blue-100">
-                  Le cœur de votre activité
-                </p>
-              </div>
-            </div>
-
-            {/* Flèches */}
-            <ArrowUpDown
-              className="absolute left-1/2 top-[19%] h-8 w-8 -translate-x-1/2 text-blue-500"
-              strokeWidth={2.2}
-            />
-            <ArrowUpDown
-              className="absolute left-1/2 top-[76%] h-9 w-9 -translate-x-1/2 text-blue-500"
-              strokeWidth={2.2}
-            />
-            <ArrowRight
-              className="absolute left-[30%] top-[35%] h-8 w-8 rotate-[28deg] text-blue-500"
-              strokeWidth={2.2}
-            />
-            <ArrowRight
-              className="absolute right-[27%] top-[35%] h-8 w-8 rotate-[152deg] text-blue-500"
-              strokeWidth={2.2}
-            />
-            <ArrowRight
-              className="absolute bottom-[26%] left-[30%] h-8 w-8 -rotate-[38deg] text-blue-500"
-              strokeWidth={2.2}
-            />
-            <ArrowRight
-              className="absolute bottom-[26%] right-[28%] h-8 w-8 -rotate-[142deg] text-blue-500"
-              strokeWidth={2.2}
-            />
-
-            {/* Reporting – bas gauche */}
-            <Satellite
-              data={SATELLITES.reporting}
-              imgClass="h-44 w-72"
-              className="absolute bottom-0 left-[3%]"
-            />
-
-            {/* ERP – bas droite */}
-            <Satellite
-              data={SATELLITES.erp}
-              imgClass="h-48 w-72"
-              className="absolute bottom-0 right-[2%]"
-            />
-          </div>
-
-          {/* ---------- Écosystème mobile / tablette ---------- */}
+          {/* Mobile / tablette : conservé */}
           <div className="mt-10 lg:hidden">
             <div className="flex flex-col items-center">
               <img
@@ -605,11 +784,10 @@ export default function SolutionsRestauration() {
       </section>
 
       {/* =====================================================
-          CTA FINAL (résumé + demander une démo)
+          CTA FINAL
       ===================================================== */}
 
       <section className="relative bg-white">
-        {/* Bannière */}
         <div className="relative isolate overflow-hidden bg-gradient-to-r from-[#0a2a6b] via-blue-700 to-sky-500">
           <div className="pointer-events-none absolute -right-24 -top-24 -z-10 h-80 w-80 rounded-full bg-white/10 blur-2xl" />
           <div className="pointer-events-none absolute -bottom-32 left-1/3 -z-10 h-72 w-72 rounded-full bg-sky-300/20 blur-3xl" />
@@ -621,7 +799,6 @@ export default function SolutionsRestauration() {
             viewport={{ once: true, margin: '-50px' }}
             className="mx-auto grid max-w-6xl items-center gap-8 px-5 py-12 sm:px-8 lg:grid-cols-[1.4fr_1fr] lg:py-16"
           >
-            {/* Texte */}
             <div>
               <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-sky-100">
                 Prêt à passer à l’étape suivante ?
@@ -641,7 +818,6 @@ export default function SolutionsRestauration() {
               </p>
             </div>
 
-            {/* Boutons */}
             <div className="flex flex-col gap-3">
               <a
                 href={CONTACT_LINK}
@@ -663,7 +839,7 @@ export default function SolutionsRestauration() {
           </motion.div>
         </div>
 
-        {/* Bandeau des 4 avantages */}
+        {/* 4 avantages */}
         <div className="mx-auto grid max-w-6xl gap-x-6 gap-y-5 px-5 py-6 sm:grid-cols-2 sm:px-8 lg:grid-cols-4">
           {CTA_FEATURES.map(({ icon: Icon, title, text }) => (
             <div key={title} className="flex items-center gap-3">
