@@ -12,7 +12,7 @@ import caisseImage from '@/assets/00.png';
 import caissePeripheriquesImage from '@/assets/tf15.jpeg';
 
 /* 👉 Importation de la nouvelle image pour CSI MINI */
-import csiMiniDoubleImage from '@/assets/WhatsApp Image 2026-10-16 at 14.06.39.jpeg';
+import csiMiniDoubleImage from '@/assets/39.jpeg';
 
 type FeatureProps = {
   icon: React.ReactNode;
