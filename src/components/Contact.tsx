@@ -8,16 +8,80 @@ import {
   Send,
   CheckCircle2,
   ArrowRight,
+  AlertCircle,
+  Loader2,
 } from 'lucide-react';
 import { COMPANY } from '@/data/content';
 import { Reveal, SectionTag } from './ui/Reveal';
+import emailjs from '@emailjs/browser';
+/* =====================================================
+   ENVOI DES EMAILS (EmailJS)
+   1. Installe : npm install @emailjs/browser
+   2. Configure les variables dans .env.local :
+      VITE_EMAILJS_SERVICE_ID=service_xxxxxxx
+      VITE_EMAILJS_TEMPLATE_ID=template_xxxxxxx
+      VITE_EMAILJS_PUBLIC_KEY=xxxxxxxxxxxx
+   3. Ajoute les mêmes variables dans Vercel > Settings >
+      Environment Variables, puis redéploie le site.
+===================================================== */
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (loading) return;
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    // Honeypot anti-spam : ce champ doit rester vide.
+    if (String(data.get('botcheck') ?? '').trim() !== '') return;
+
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      setError(
+        "Le formulaire n'est pas encore configuré. Veuillez réessayer plus tard.",
+      );
+      return;
+    }
+
+    const templateParams = {
+      name: String(data.get('name') ?? '').trim(),
+      company: String(data.get('company') ?? '').trim(),
+      email: String(data.get('email') ?? '').trim(),
+      phone: String(data.get('phone') ?? '').trim(),
+      message: String(data.get('message') ?? '').trim(),
+      subject: `Nouveau message de ${String(data.get('name') ?? '').trim()} — site ORALI SYSTEMS`,
+      from_name: 'Site ORALI SYSTEMS',
+    };
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        { publicKey: EMAILJS_PUBLIC_KEY },
+      );
+
+      setSubmitted(true);
+      form.reset();
+    } catch (err) {
+      console.error('Erreur EmailJS lors de l’envoi du formulaire :', err);
+      setError(
+        "Une erreur est survenue lors de l'envoi. Vérifiez la configuration EmailJS puis réessayez.",
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -95,6 +159,16 @@ export function Contact() {
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-4">
+                    {/* Honeypot anti-spam (invisible) */}
+                    <input
+                      type="text"
+                      name="botcheck"
+                      className="hidden"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                    />
+
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <Field
                         label="Nom"
@@ -136,29 +210,47 @@ export function Contact() {
                         className="mb-1.5 block text-sm font-medium text-slate-700"
                       >
                         Message
+                        <span className="ml-1 text-blue-600">*</span>
                       </label>
 
                       <textarea
                         id="contact-message"
                         name="message"
                         rows={4}
+                        required
                         placeholder=""
                         className="w-full resize-y rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm leading-6 text-slate-900 outline-none transition-all duration-300 placeholder:text-slate-400 focus:border-sky-400 focus:ring-4 focus:ring-sky-500/10"
                       />
                     </div>
 
+                    {/* Erreur */}
+                    {error && (
+                      <div
+                        role="alert"
+                        className="flex items-start gap-3 rounded-xl border border-red-100 bg-red-50 px-4 py-3 text-sm leading-5 text-red-700"
+                      >
+                        <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+                        <span>{error}</span>
+                      </div>
+                    )}
+
                     {/* Submit button */}
                     <button
                       type="submit"
-                      className="group/button relative inline-flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-sky-500 to-blue-700 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-600/30 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 sm:w-auto"
+                      disabled={loading}
+                      className="group/button relative inline-flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-sky-500 to-blue-700 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-600/30 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0 sm:w-auto"
                     >
                       <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover/button:translate-x-full" />
 
                       <span className="relative z-10">
-                        Envoyer le message
+                        {loading ? 'Envoi en cours…' : 'Envoyer le message'}
                       </span>
 
-                      <Send className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
+                      {loading ? (
+                        <Loader2 className="relative z-10 h-4 w-4 animate-spin" />
+                      ) : (
+                        <Send className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
+                      )}
                     </button>
 
                     <p className="text-xs leading-5 text-slate-400">

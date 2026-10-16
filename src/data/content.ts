@@ -973,9 +973,9 @@ export const COMPANY = {
 
   tagline: 'ARTIS Consulting',
 
-  address: 'R8 RUE JULES FERRY 92250 La Garenne-Colombes PARIS',
+  address: '48 RUE JULES FERRY 92250 LA GARENNE-COLOMBES',
 
-  phone: ' +33782054070',
+  phone: '+33 7 82 05 40 70',
 
   email: 'contact@artisconsulting.fr',
 

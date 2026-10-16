@@ -1,4 +1,4 @@
-import { Linkedin, Twitter, Facebook, ArrowRight } from 'lucide-react';
+import { Linkedin, Twitter, Facebook, ArrowRight, MapPin, Phone, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { NAV_LINKS, SOLUTIONS, SERVICES, COMPANY } from '@/data/content';
 import { Logo } from './ui/Logo';
@@ -12,6 +12,23 @@ const serviceLinks = SERVICES.map((s) => ({
   label: s.title,
   href: '/#services',
 }));
+
+const OFFICES = [
+  {
+    title: 'Siège Social Paris',
+    name: 'ARTIS Consulting',
+    address: ['48 RUE JULES FERRY 92250', 'LA GARENNE-COLOMBES'],
+    phone: '+33 7 82 05 40 70',
+    email: 'contact@artisconsulting.fr',
+  },
+  {
+    title: 'Service Client Région de Lyon',
+    name: null,
+    address: null,
+    phone: '+33 6 30 21 87 57',
+    email: 'sjalal@artisconsulting.fr',
+  },
+];
 
 export function Footer() {
   return (
@@ -111,28 +128,64 @@ export function Footer() {
               className="mt-4"
             >
               <div className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Votre email"
-                  aria-label="Votre adresse email"
-                  className="w-full rounded-xl border border-blue-900/15 bg-white/85 px-4 py-2.5 text-sm text-slate-950 placeholder:text-slate-500 outline-none backdrop-blur-sm transition-all focus:border-blue-700 focus:bg-white focus:ring-2 focus:ring-blue-700/15"
-                />
+         
 
-                <button
-                  type="submit"
-                  aria-label="S'abonner"
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/30 bg-gradient-to-br from-blue-700 to-indigo-800 text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-900/20"
-                >
-                  <ArrowRight className="h-4 w-4" />
-                </button>
+   
               </div>
             </form>
-
-            <div className="mt-5 space-y-2 text-sm font-medium text-slate-950">
-              <div>{COMPANY.phone}</div>
-              <div>{COMPANY.email}</div>
-            </div>
           </div>
+        </div>
+
+        {/* Contact / Agences */}
+        <div className="grid grid-cols-1 gap-5 border-t border-blue-900/20 py-10 md:grid-cols-2">
+          {OFFICES.map((office) => (
+            <div
+              key={office.title}
+              className="rounded-2xl border border-blue-900/10 bg-white/60 p-5 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/80 hover:shadow-lg"
+            >
+              <h4 className="font-display text-sm font-bold text-slate-950">
+                {office.title}
+              </h4>
+
+              <ul className="mt-4 space-y-3 text-sm text-slate-900">
+                {office.address && (
+                  <li className="flex items-start gap-3">
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-blue-800" />
+                    <span className="leading-relaxed">
+                      <span className="font-semibold text-slate-950">
+                        {office.name}
+                      </span>
+                      {office.address.map((line) => (
+                        <span key={line} className="block">
+                          {line}
+                        </span>
+                      ))}
+                    </span>
+                  </li>
+                )}
+
+                <li className="flex items-center gap-3">
+                  <Phone className="h-4 w-4 shrink-0 text-blue-800" />
+                  <a
+                    href={`tel:${office.phone.replace(/\s/g, '')}`}
+                    className="font-medium transition-colors duration-200 hover:text-white"
+                  >
+                    {office.phone}
+                  </a>
+                </li>
+
+                <li className="flex items-center gap-3">
+                  <Mail className="h-4 w-4 shrink-0 text-blue-800" />
+                  <a
+                    href={`mailto:${office.email}`}
+                    className="break-all font-medium transition-colors duration-200 hover:text-white"
+                  >
+                    {office.email}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          ))}
         </div>
 
         {/* Bottom bar */}
