@@ -975,9 +975,9 @@ export const COMPANY = {
 
   address: '48 RUE JULES FERRY 92250 LA GARENNE-COLOMBES',
 
-  phone: '+33 7 82 05 40 70',
+  phone: '+33 6 30 21 87 57',
 
-  email: 'contact@artisconsulting.fr',
+  email: 'sjalal@artisconsulting.fr',
 
   hours: 'Lun – Sam : 9h00 – 18h00',
 
