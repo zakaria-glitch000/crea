@@ -185,13 +185,13 @@ export default function OraliPage() {
 
             {/* Boutons */}
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-      <Link
-  to="/#contact"
-  className="group inline-flex items-center justify-center gap-3 rounded-xl bg-orange-500 px-7 py-4 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-600 hover:shadow-xl"
->
-  Demander un devis
-  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-</Link>
+              <Link
+                to="/#contact"
+                className="group inline-flex items-center justify-center gap-3 rounded-xl bg-orange-500 px-7 py-4 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-600 hover:shadow-xl"
+              >
+                Demander un devis
+                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+              </Link>
 
               <a
                 href="#avantages"
@@ -276,13 +276,13 @@ export default function OraliPage() {
             ventes.
           </p>
 
-<Link
-  to="/#contact"
-  className="group inline-flex items-center justify-center gap-3 rounded-xl bg-orange-500 px-7 py-4 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-600 hover:shadow-xl"
->
-  Demander un devis
-  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-</Link>
+          <Link
+            to="/#contact"
+            className="group inline-flex items-center justify-center gap-3 rounded-xl bg-orange-500 px-7 py-4 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-600 hover:shadow-xl"
+          >
+            Demander un devis
+            <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+          </Link>
         </div>
 
         <div className="integrated__visual">
@@ -360,27 +360,26 @@ export default function OraliPage() {
       {/* =====================================================
           FONCTIONNALITÉS
       ===================================================== */}
+      <section className="features">
+        <div className="features__header">
+          <p className="eyebrow eyebrow--center">LES FONCTIONNALITÉS</p>
+          <h2 className="features__title">
+            Tout ce qu'il vous faut pour une gestion efficace
+          </h2>
+        </div>
 
-<section className="features">
-  <div className="features__header">
-    <p className="eyebrow eyebrow--center">LES FONCTIONNALITÉS</p>
-    <h2 className="features__title">
-      Tout ce qu'il vous faut pour une gestion efficace
-    </h2>
-  </div>
-
-  <div className="features__grid">
-    {features.map(({ icon: Icon, color, title, text }) => (
-      <article className="feature" key={title}>
-        <span className={`icon-circle icon-circle--${color}`}>
-          <Icon size={32} />
-        </span>
-        <h3>{title}</h3>
-        <p>{text}</p>
-      </article>
-    ))}
-  </div>
-</section>
+        <div className="features__grid">
+          {features.map(({ icon: Icon, color, title, text }) => (
+            <article className="feature" key={title}>
+              <span className={`icon-circle icon-circle--${color}`}>
+                <Icon size={32} />
+              </span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
       {/* =====================================================
           SECTEURS D'ACTIVITÉ
@@ -408,33 +407,80 @@ export default function OraliPage() {
       </section>
 
       {/* =====================================================
-          SUPPORT
+          CARD ACCOMPAGNEMENT (AJOUTÉE EN BAS DE PAGE)
       ===================================================== */}
-      <footer className="support">
-        <div className="support__main">
-          <Settings size={54} className="support__gear" />
+      <section className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 lg:px-10">
+        <div className="overflow-hidden rounded-3xl bg-[#f1f6ff] shadow-lg shadow-slate-200/50 border border-slate-200/80">
+          <div className="grid lg:grid-cols-[2fr_3fr]">
+            {/* Image khawya - Placeholder */}
+            <div className="relative min-h-[260px] bg-slate-200/70 lg:min-h-full">
+              <img
+                src=""
+                alt="Notre accompagnement"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
 
-          <div>
-            <h3>
-              Installation, formation
-              <br />
-              et support
-            </h3>
+            {/* Content */}
+            <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
+              <span className="text-[12px] font-extrabold uppercase tracking-[0.16em] text-slate-500">
+                NOTRE ACCOMPAGNEMENT
+              </span>
 
-            <p>
-              Notre équipe vous accompagne à chaque étape pour une
-              utilisation simple et efficace.
-            </p>
+              <h2 className="mt-2 text-2xl font-black tracking-tight text-[#0b2a5b] sm:text-3xl">
+                Installation, formation et support
+              </h2>
+
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                Notre équipe technique vous accompagne à chaque étape pour une mise en service rapide et une utilisation en toute sérénité.
+              </p>
+
+              <div className="mt-6 flex flex-wrap items-center justify-between gap-6">
+                {/* Grid 4 icons */}
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                  <div className="flex flex-col items-center rounded-2xl bg-white p-3 text-center shadow-sm border border-slate-100">
+                    <Wrench className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
+                    <span className="mt-2 text-[11px] font-bold leading-tight text-slate-700">
+                      Installation et paramétrage
+                    </span>
+                  </div>
+
+                  <div className="flex flex-col items-center rounded-2xl bg-white p-3 text-center shadow-sm border border-slate-100">
+                    <Users className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
+                    <span className="mt-2 text-[11px] font-bold leading-tight text-slate-700">
+                      Formation des équipes
+                    </span>
+                  </div>
+
+                  <div className="flex flex-col items-center rounded-2xl bg-white p-3 text-center shadow-sm border border-slate-100">
+                    <Headphones className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
+                    <span className="mt-2 text-[11px] font-bold leading-tight text-slate-700">
+                      Assistance technique
+                    </span>
+                  </div>
+
+                  <div className="flex flex-col items-center rounded-2xl bg-white p-3 text-center shadow-sm border border-slate-100">
+                    <Settings className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
+                    <span className="mt-2 text-[11px] font-bold leading-tight text-slate-700">
+                      Suivi et maintenance
+                    </span>
+                  </div>
+                </div>
+
+                {/* Bouton */}
+                <Link
+                  to="/#contact"
+                  className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#f26522] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-950/20 transition duration-200 hover:-translate-y-0.5 hover:bg-[#d95316]"
+                >
+                  Demander une démonstration <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
 
-        {support.map(({ icon: Icon, label }) => (
-          <div className="support__item" key={label}>
-            <Icon size={34} />
-            <span>{label}</span>
-          </div>
-        ))}
-      </footer>
+    
     </main>
   );
 }

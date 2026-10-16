@@ -1,4 +1,3 @@
-
 import type { CSSProperties, ElementType, ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -25,13 +24,13 @@ import REPORTING_IMAGE from '@/assets/bb6.png';
 import caiImage from '@/assets/2.jpg';
 
 /* =====================================================
-   CONTACT
+    CONTACT
 ===================================================== */
 
 const CONTACT_LINK = '/#contact';
 
 /* =====================================================
-   DATA
+    DATA
 ===================================================== */
 
 const TOP_BENEFITS: { icon: ElementType; lines: [string, string] }[] = [
@@ -168,7 +167,7 @@ const CTA_FEATURES: { icon: ElementType; title: string; text: string }[] = [
 ];
 
 /* =====================================================
-   ANIMATIONS
+    ANIMATIONS
 ===================================================== */
 
 const fadeUp = {
@@ -182,7 +181,7 @@ const stagger = {
 };
 
 /* =====================================================
-   SATELLITE MOBILE / TABLETTE
+    SATELLITE MOBILE / TABLETTE
 ===================================================== */
 
 function Bubble({
@@ -232,7 +231,7 @@ function Satellite({
 }
 
 /* =====================================================
-   ÉCOSYSTÈME DESKTOP — POSITIONNEMENT PROPORTIONNEL
+    ÉCOSYSTÈME DESKTOP — POSITIONNEMENT PROPORTIONNEL
 ===================================================== */
 
 type EcoBox = {
@@ -341,26 +340,22 @@ function EcosystemDesktop() {
       style={{ containerType: 'inline-size' }}
       className="relative mx-auto mt-10 hidden aspect-[1536/1024] w-full max-w-6xl lg:block"
     >
-      {/* Halos / lueurs */}
       <EcoHalo b={{ left: 38.4, top: 0, width: 19.5 }} />
       <EcoHalo b={{ left: 8.5, top: 21.5, width: 17 }} />
       <EcoHalo b={{ left: 71.6, top: 19.5, width: 19.5 }} />
 
-      {/* Grande lueur centrale */}
       <div
         aria-hidden="true"
         style={ecoBox({ left: 31.2, top: 30.3, width: 35.2 })}
         className="absolute aspect-square rounded-full bg-[radial-gradient(circle,rgba(147,197,253,0.55)_0%,rgba(186,224,253,0.4)_55%,rgba(255,255,255,0)_100%)]"
       />
 
-      {/* Socle lumineux sous la caisse */}
       <div
         aria-hidden="true"
         style={ecoBox({ left: 34.8, top: 67, width: 27.3, height: 8 })}
         className="absolute rounded-[50%] bg-gradient-to-b from-sky-200/80 to-sky-100/20 blur-[2px]"
       />
 
-      {/* Arcs et flèches */}
       <svg
         aria-hidden="true"
         viewBox="0 0 1536 1024"
@@ -415,14 +410,12 @@ function EcosystemDesktop() {
         </g>
       </svg>
 
-      {/* Borne de commande */}
       <EcoPic
         src={borneImage}
         alt="Borne de commande"
         b={{ left: 43.5, top: 1.5, width: 9, height: 22 }}
       />
 
-      {/* PDA */}
       <EcoPic
         src={pdaImage}
         alt="PAD – Prise de commande"
@@ -430,35 +423,30 @@ function EcosystemDesktop() {
         rotate={-24}
       />
 
-      {/* Écran KDS */}
       <EcoPic
         src={kdsImage}
         alt="Écran cuisine KDS"
         b={{ left: 72.3, top: 22.5, width: 16.3, height: 21 }}
       />
 
-      {/* Caisse centrale */}
       <EcoPic
         src={caisseImage}
         alt="Caisse enregistreuse CSI"
         b={{ left: 34.5, top: 35, width: 27.3, height: 37 }}
       />
 
-      {/* Reporting */}
       <EcoPic
         src={REPORTING_IMAGE}
         alt="Reporting CSI"
         b={{ left: 5.9, top: 64.5, width: 23.4, height: 20 }}
       />
 
-      {/* ERP */}
       <EcoPic
         src={ERP_IMAGE}
         alt="GMS / ERP CSI"
         b={{ left: 71, top: 60.5, width: 23.8, height: 24 }}
       />
 
-      {/* Labels */}
       <EcoLabel left={48.2} top={23.4} center>
         <EcoTitle>Bornes de commande</EcoTitle>
         <EcoSub>Commande autonome pour vos clients</EcoSub>
@@ -474,7 +462,6 @@ function EcosystemDesktop() {
         <EcoSub>Des cuisines plus organisées et plus performantes</EcoSub>
       </EcoLabel>
 
-      {/* Bulle centrale */}
       <div
         style={{
           left: '49%',
@@ -512,7 +499,7 @@ function EcosystemDesktop() {
 }
 
 /* =====================================================
-   CARTE NUMÉROTÉE
+    CARTE NUMÉROTÉE
 ===================================================== */
 
 function NumberedCard({
@@ -581,7 +568,7 @@ function NumberedCard({
 }
 
 /* =====================================================
-   PAGE
+    PAGE
 ===================================================== */
 
 export default function SolutionsRestauration() {
@@ -700,7 +687,6 @@ export default function SolutionsRestauration() {
 
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-white via-sky-50/40 to-white py-12 sm:py-16">
         <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
-          {/* 4 bénéfices */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -723,10 +709,8 @@ export default function SolutionsRestauration() {
             ))}
           </motion.div>
 
-          {/* Nouveau design desktop */}
           <EcosystemDesktop />
 
-          {/* Mobile / tablette : conservé */}
           <div className="mt-10 lg:hidden">
             <div className="flex flex-col items-center">
               <img
@@ -779,6 +763,90 @@ export default function SolutionsRestauration() {
             {CARDS.map((card) => (
               <NumberedCard key={card.number} {...card} />
             ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          CARD ACCOMPAGNEMENT (AJOUTÉE ICI LAKHAR DYAL PAGE)
+      ===================================================== */}
+
+      <section className="relative bg-slate-50/70 pb-12 sm:pb-16">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="overflow-hidden rounded-3xl bg-[#f1f6ff] shadow-xl shadow-blue-900/[0.05] ring-1 ring-slate-200/70"
+          >
+            <div className="grid lg:grid-cols-[2fr_3fr]">
+              {/* Blassa image khawya (Placeholder) */}
+              <div className="relative min-h-[280px] bg-slate-200/60 lg:min-h-full">
+                <img
+                  src=""
+                  alt="Notre accompagnement"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="flex flex-col justify-center p-6 sm:p-10 lg:p-12">
+                <span className="text-[13px] font-bold uppercase tracking-[1.5px] text-[#5b6e8a]">
+                  NOTRE ACCOMPAGNEMENT
+                </span>
+
+                <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-[#0b2a5b] sm:text-3xl">
+                  Installation, formation et support
+                </h2>
+
+                <p className="mt-3 text-sm leading-relaxed text-[#4a5568] sm:text-[15px]">
+                  Notre équipe technique vous accompagne à chaque étape pour une mise en service rapide et une utilisation en toute sérénité.
+                </p>
+
+                <div className="mt-6 flex flex-wrap items-center justify-between gap-6">
+                  {/* Grid of features / icons */}
+                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                    <div className="flex flex-col items-center rounded-xl bg-white p-3 text-center shadow-sm">
+                      <Settings className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
+                      <span className="mt-2 text-[11px] font-semibold leading-tight text-[#2d3748]">
+                        Installation et paramétrage
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col items-center rounded-xl bg-white p-3 text-center shadow-sm">
+                      <Users className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
+                      <span className="mt-2 text-[11px] font-semibold leading-tight text-[#2d3748]">
+                        Formation des équipes
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col items-center rounded-xl bg-white p-3 text-center shadow-sm">
+                      <Headphones className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
+                      <span className="mt-2 text-[11px] font-semibold leading-tight text-[#2d3748]">
+                        Assistance technique
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col items-center rounded-xl bg-white p-3 text-center shadow-sm">
+                      <ChartNoAxesCombined className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
+                      <span className="mt-2 text-[11px] font-semibold leading-tight text-[#2d3748]">
+                        Suivi et maintenance
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Button */}
+                  <a
+                    href={CONTACT_LINK}
+                    className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#f26522] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#d95316] focus:outline-none focus:ring-4 focus:ring-orange-200"
+                  >
+                    Demander une démonstration
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </a>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

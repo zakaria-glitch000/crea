@@ -3,7 +3,7 @@ import {
   Tv, ShieldCheck, Gauge, Layers, Maximize, Wrench, Utensils,
   LayoutGrid, Soup, Tag, Users, BarChart3, Printer, Share2,
   Settings, Store, Headphones, ChevronRight,
-  KeyRound, CreditCard, Fingerprint, Monitor, PanelTop,
+  KeyRound, CreditCard, Fingerprint, Monitor, PanelTop, ArrowRight,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -180,7 +180,79 @@ export default function OraliPage() {
           </div>
         </section>
 
-        {/* ACCOMPAGNEMENT */}
+        {/* ACCOMPAGNEMENT (CARTE D'ACCOMPAGNEMENT DÉDIÉE) */}
+        <section>
+          <div className="overflow-hidden rounded-3xl bg-[#f1f6ff] shadow-lg shadow-slate-200/50 border border-slate-200/80">
+            <div className="grid lg:grid-cols-[2fr_3fr]">
+              {/* Image khawya - Placeholder */}
+              <div className="relative min-h-[260px] bg-slate-200/70 lg:min-h-full">
+                <img
+                  src=""
+                  alt="Notre accompagnement"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+
+              {/* Textes & Périphériques */}
+              <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
+                <span className="text-[12px] font-extrabold uppercase tracking-[0.16em] text-slate-500">
+                  NOTRE ACCOMPAGNEMENT
+                </span>
+
+                <h2 className="mt-2 text-2xl font-black tracking-tight text-[#0b2a5b] sm:text-3xl">
+                  Installation, formation et support
+                </h2>
+
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  Notre équipe technique vous accompagne à chaque étape pour une mise en service rapide et une utilisation en toute sérénité.
+                </p>
+
+                <div className="mt-6 flex flex-wrap items-center justify-between gap-6">
+                  {/* Grid 4 icônes */}
+                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                    <div className="flex flex-col items-center rounded-2xl bg-white p-3 text-center shadow-sm border border-slate-100">
+                      <Wrench className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
+                      <span className="mt-2 text-[11px] font-bold leading-tight text-slate-700">
+                        Installation et paramétrage
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col items-center rounded-2xl bg-white p-3 text-center shadow-sm border border-slate-100">
+                      <Users className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
+                      <span className="mt-2 text-[11px] font-bold leading-tight text-slate-700">
+                        Formation des équipes
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col items-center rounded-2xl bg-white p-3 text-center shadow-sm border border-slate-100">
+                      <Headphones className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
+                      <span className="mt-2 text-[11px] font-bold leading-tight text-slate-700">
+                        Assistance technique
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col items-center rounded-2xl bg-white p-3 text-center shadow-sm border border-slate-100">
+                      <Settings className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
+                      <span className="mt-2 text-[11px] font-bold leading-tight text-slate-700">
+                        Suivi et maintenance
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Bouton */}
+                  <Link
+                    to="/#contact"
+                    className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#f26522] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-950/20 transition duration-200 hover:-translate-y-0.5 hover:bg-[#d95316]"
+                  >
+                    Demander une démonstration <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ACCCOMPAGNEMENT POINTS */}
         <section>
           <div className="mb-7 text-center">
             <p className="mb-2 text-xs font-extrabold uppercase tracking-[0.2em] text-orange-600">À vos côtés</p>
@@ -192,20 +264,7 @@ export default function OraliPage() {
         </section>
 
         {/* CTA */}
-        <section className="relative isolate overflow-hidden rounded-3xl bg-slate-950 px-6 py-10 sm:px-8 md:px-12 md:py-14">
-          <div className="absolute -right-16 -top-20 -z-10 h-64 w-64 rounded-full bg-orange-500/25 blur-3xl" />
-          <div className="absolute -bottom-20 -left-16 -z-10 h-64 w-64 rounded-full bg-blue-500/15 blur-3xl" />
-          <div className="relative z-10 flex flex-col items-start justify-between gap-7 md:flex-row md:items-center">
-            <div className="max-w-2xl">
-              <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.2em] text-orange-400">Votre projet d'encaissement</p>
-              <h2 className="mb-3 text-2xl font-black leading-tight text-white sm:text-3xl">Trouvons la caisse adaptée à votre activité</h2>
-              <p className="text-sm leading-6 text-slate-300">Contactez notre équipe pour bénéficier de conseils, découvrir nos solutions et organiser une démonstration.</p>
-            </div>
-            <Link to="/#contact" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-orange-500 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-orange-600">
-              Demander une démo <ChevronRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </section>
+       
       </main>
     </div>
   );

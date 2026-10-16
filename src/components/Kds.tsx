@@ -21,7 +21,7 @@ import deux from "@/assets/11.jpeg";
 import trois from "@/assets/10.jpeg";
 import caisseImage from "@/assets/00.png";
 import borneImage from "@/assets/bb1.png";
-import padImage from "@/assets/bb3.png";
+import padImage from "@/assets/bb33.png";
 import kdsImage from "@/assets/4.jpg";
 
 const benefits = [
@@ -41,9 +41,8 @@ const features = [
 ];
 
 const gallery = [
- 
   { img: deux, alt: "Équipe en cuisine devant l'écran KDS" },
-   { img: heads, alt: "Cuisine équipée avec écran KDS et imprimante" },
+  { img: heads, alt: "Cuisine équipée avec écran KDS et imprimante" },
   { img: trois, alt: "Plan de salle affiché sur l'écran KDS" },
 ];
 
@@ -64,10 +63,7 @@ const support = [
 function Logo() {
   return (
     <div className="kds-logo" aria-label="ORALI SYSTEMS">
-  
-      <div>
-      
-      </div>
+      <div></div>
     </div>
   );
 }
@@ -115,10 +111,10 @@ export default function KdsPage() {
 
       <div className="kds-container kds-stack">
         {/* ÉCRAN KDS + FONCTIONNALITÉS */}
-      <section className="kds-showcase">
-  <div className="kds-showcase__visual">
-    <img src={kdsImage} alt="Écran KDS affichant les commandes en cuisine" />
-  </div>
+        <section className="kds-showcase">
+          <div className="kds-showcase__visual">
+            <img src={kdsImage} alt="Écran KDS affichant les commandes en cuisine" />
+          </div>
 
           <aside className="kds-features">
             <p className="kds-eyebrow kds-eyebrow--panel">
@@ -188,6 +184,78 @@ export default function KdsPage() {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        {/* CARD ACCOMPAGNEMENT (AJOUTÉE EN BAS DE PAGE) */}
+        <section className="kds-accompaniment-card">
+          <div className="overflow-hidden rounded-3xl bg-[#f1f6ff] shadow-lg shadow-slate-200/50 border border-slate-200/80">
+            <div className="grid lg:grid-cols-[2fr_3fr]">
+              {/* Image khawya - Placeholder */}
+              <div className="relative min-h-[260px] bg-slate-200/70 lg:min-h-full">
+                <img
+                  src=""
+                  alt="Notre accompagnement"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
+                <span className="text-[12px] font-extrabold uppercase tracking-[0.16em] text-slate-500">
+                  NOTRE ACCOMPAGNEMENT
+                </span>
+
+                <h2 className="mt-2 text-2xl font-black tracking-tight text-[#0b2a5b] sm:text-3xl">
+                  Installation, formation et support
+                </h2>
+
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  Notre équipe technique vous accompagne à chaque étape pour une mise en service rapide et une utilisation en toute sérénité.
+                </p>
+
+                <div className="mt-6 flex flex-wrap items-center justify-between gap-6">
+                  {/* Grid 4 icons */}
+                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                    <div className="flex flex-col items-center rounded-2xl bg-white p-3 text-center shadow-sm border border-slate-100">
+                      <Wrench className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
+                      <span className="mt-2 text-[11px] font-bold leading-tight text-slate-700">
+                        Installation et paramétrage
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col items-center rounded-2xl bg-white p-3 text-center shadow-sm border border-slate-100">
+                      <Users className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
+                      <span className="mt-2 text-[11px] font-bold leading-tight text-slate-700">
+                        Formation des équipes
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col items-center rounded-2xl bg-white p-3 text-center shadow-sm border border-slate-100">
+                      <Headset className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
+                      <span className="mt-2 text-[11px] font-bold leading-tight text-slate-700">
+                        Assistance technique
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col items-center rounded-2xl bg-white p-3 text-center shadow-sm border border-slate-100">
+                      <Settings className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
+                      <span className="mt-2 text-[11px] font-bold leading-tight text-slate-700">
+                        Suivi et maintenance
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Bouton */}
+                  <a
+                    href="/#contact"
+                    className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#f26522] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-950/20 transition duration-200 hover:-translate-y-0.5 hover:bg-[#d95316]"
+                  >
+                    Demander une démonstration <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </div>
