@@ -28,6 +28,7 @@ import heroImage from "@/assets/csi1.jpeg";
 import quatreImage from "@/assets/3.jpg";
 import cinqImage from "@/assets/00.png";
 import sixImage from "@/assets/4.jpg";
+import tci from "@/assets/tci.jpeg";
 
 const cards = [
   {
@@ -242,7 +243,7 @@ export default function OraliPage() {
               {/* Image khawya - Placeholder */}
               <div className="relative min-h-[260px] bg-slate-200/70 lg:min-h-full">
                 <img
-                  src=""
+                  src={tci}
                   alt="Notre accompagnement"
                   className="absolute inset-0 h-full w-full object-cover"
                 />

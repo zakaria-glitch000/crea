@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import pcImage from '@/assets/pc.jpeg';
 import caisseImage from '@/assets/00.png';
 import caissePeripheriquesImage from '@/assets/tf15.jpeg';
+import tca from '@/assets/tca.jpeg';
 
 /* 👉 Importation de la nouvelle image pour CSI MINI */
 import csiMiniDoubleImage from '@/assets/39.jpeg';
@@ -206,7 +207,7 @@ export default function OraliPage() {
             <div className="grid lg:grid-cols-[2fr_3fr]">
               <div className="relative min-h-[260px] bg-slate-200/70 lg:min-h-full">
                 <img
-                  src=""
+                  src={tca}
                   alt="Notre accompagnement"
                   className="absolute inset-0 h-full w-full object-cover"
                 />

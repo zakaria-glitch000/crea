@@ -26,6 +26,7 @@ import t6 from "@/assets/t6.jpeg";
 import heroImage from "@/assets/e1.jpeg";
 import monitorImage from "@/assets/e0.png";
 import { Link } from "react-router-dom";
+import tki from "@/assets/tki.jpeg";
 
 const benefits = [
   { icon: Zap, color: "#f26a1b", bg: "#fde6d7", title: "Mise à jour automatique", text: "Les prix et informations sont mis à jour directement depuis INNOSHOP en quelques clics." },

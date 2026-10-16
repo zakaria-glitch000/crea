@@ -25,6 +25,7 @@ import boucherieImage from "@/assets/73.jpeg";
 import poissonnerieImage from "@/assets/74.jpeg";
 import epicerieImage from "@/assets/75.jpeg";
 import rayonsImage from "@/assets/76.jpeg";
+import tbal from "@/assets/tbal.jpeg";
 
 const IMG = {
   logo: logoImage,
@@ -415,7 +416,7 @@ export default function OraliPage() {
             {/* Image khawya - Placeholder */}
             <div className="relative min-h-[260px] bg-slate-200/70 lg:min-h-full">
               <img
-                src=""
+                src={tbal}
                 alt="Notre accompagnement"
                 className="absolute inset-0 h-full w-full object-cover"
               />

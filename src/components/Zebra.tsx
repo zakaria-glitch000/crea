@@ -35,6 +35,7 @@ import step1 from "@/assets/inno.jpeg";
 import step2 from "@/assets/z1.jpeg";
 import step3 from "@/assets/z2.jpeg";
 import step4 from "@/assets/z3.jpeg";
+import tzebra from "@/assets/tzebra.jpeg";
 
 const IMG = {
   hero,
@@ -268,7 +269,7 @@ export default function OraliFlyer() {
             {/* Image khawya - Placeholder */}
             <div className="relative min-h-[260px] bg-slate-200/70 lg:min-h-full">
               <img
-                src=""
+                src={tzebra}
                 alt="Notre accompagnement"
                 className="absolute inset-0 h-full w-full object-cover"
               />

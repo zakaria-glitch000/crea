@@ -38,6 +38,7 @@ import c1 from "@/assets/c1.jpeg";
 import c2 from "@/assets/c2.jpeg";
 import c3 from "@/assets/c3.jpeg";
 import c4 from "@/assets/c4.jpeg";
+import tpda from "@/assets/tpda.jpeg";
 
 import a1 from "@/assets/a1.jpeg";
 import a2 from "@/assets/a2.jpeg";
@@ -211,7 +212,7 @@ export default function App() {
               {/* Image khawya - Placeholder */}
               <div className="relative min-h-[260px] bg-slate-200/70 lg:min-h-full">
                 <img
-                  src=""
+                  src={tpda}
                   alt="Notre accompagnement"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
