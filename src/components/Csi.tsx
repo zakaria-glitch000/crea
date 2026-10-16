@@ -8,6 +8,7 @@ import {
   ChartNoAxesCombined,
   Users,
   Settings,
+  Sparkles,
 } from 'lucide-react';
 
 import heroImage from '@/assets/res.webp';
@@ -17,6 +18,7 @@ import pdaImage from '@/assets/bb3.png';
 import kdsImage from '@/assets/bb4.png';
 import ERP_IMAGE from '@/assets/bb5.png';
 import REPORTING_IMAGE from '@/assets/bb6.png';
+import caiImage from '@/assets/2.jpg';
 
 /* =====================================================
    CONTACT
@@ -279,7 +281,7 @@ export default function SolutionsRestauration() {
   return (
     <main className="overflow-hidden bg-white text-slate-800">
       {/* =====================================================
-          ÉCOSYSTÈME
+          HERO  (image à gauche + texte à droite + bandeau)
       ===================================================== */}
 
       <section className="relative isolate overflow-hidden">
@@ -291,59 +293,134 @@ export default function SolutionsRestauration() {
             aria-hidden="true"
             className="h-full w-full scale-110 object-cover object-center blur-[3px]"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/70 to-white/85" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/80 to-white/95" />
         </div>
 
-<div className="relative mx-auto max-w-6xl px-5 pb-12 pt-28 sm:px-8 sm:pt-32 lg:pb-16 lg:pt-36">          {/* En-tête */}
+        <div className="relative mx-auto max-w-6xl px-5 pb-12 pt-28 sm:px-8 sm:pt-32 lg:pb-16 lg:pt-36">
           <motion.div
             initial="hidden"
             animate="visible"
-            variants={stagger}
-            className="grid gap-8 lg:grid-cols-[1.25fr_1fr] lg:items-start"
+            variants={fadeUp}
+            transition={{ duration: 0.5 }}
+            className="overflow-hidden rounded-3xl bg-white shadow-2xl shadow-blue-900/10 ring-1 ring-slate-200/70"
           >
-            <div>
+            <div className="grid lg:grid-cols-2">
+              {/* ---------- Image (gauche) ---------- */}
+              <div className="relative flex items-center justify-center bg-gradient-to-br from-slate-100 via-white to-sky-50 px-6 pb-8 pt-20 sm:px-10 lg:py-12">
+                <span className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-bold text-[#0b2a5b] shadow-lg shadow-blue-900/10 ring-1 ring-slate-100">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                  Une activité mieux connectée
+                </span>
 
-              <motion.h1
-                variants={fadeUp}
-                className="text-3xl font-black leading-[1.08] tracking-tight text-[#0b2a5b] sm:text-4xl lg:text-5xl"
-              >
-                Un écosystème complet pour une gestion plus simple et plus{' '}
-                <span className="text-blue-600">performante</span>
-              </motion.h1>
+                <img
+                  src={caiImage}
+                  alt="Caisse enregistreuse CSI pour la restauration"
+                  loading="eager"
+                  decoding="async"
+                  className="h-64 w-full max-w-md object-contain drop-shadow-2xl sm:h-80 lg:h-[340px]"
+                />
+              </div>
 
-              <motion.p
-                variants={fadeUp}
-                className="mt-4 max-w-xl text-sm leading-6 text-slate-700 sm:text-[15px]"
-              >
-                Des solutions connectées qui travaillent ensemble pour
-                optimiser votre établissement, du service à l’analyse de vos
-                performances.
-              </motion.p>
+              {/* ---------- Texte (droite) ---------- */}
+              <div className="flex flex-col justify-center px-6 py-8 sm:px-10 lg:px-12 lg:py-12">
+                <span className="inline-flex w-fit items-center gap-2 rounded-full border border-blue-200 bg-white px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-blue-700">
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
+                  Solutions restauration
+                </span>
+
+                <h1 className="mt-5 text-3xl font-black leading-[1.1] tracking-tight text-[#0b2a5b] sm:text-4xl xl:text-[2.6rem]">
+                  Un écosystème complet pour une gestion plus simple et plus{' '}
+                  <span className="text-blue-600">performante</span>
+                </h1>
+
+                <p className="mt-4 max-w-lg text-sm leading-6 text-slate-600 sm:text-[15px]">
+                  Des solutions connectées qui travaillent ensemble pour
+                  optimiser votre établissement, du service à l’analyse de vos
+                  performances.
+                </p>
+
+                <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+                  <a
+                    href={CONTACT_LINK}
+                    className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-gradient-to-r from-[#0b2a5b] to-blue-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-blue-700/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-sky-200"
+                  >
+                    Demander une démonstration
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </a>
+
+                  <a
+                    href="#solutions"
+                    className="whitespace-nowrap text-sm font-semibold text-[#0b2a5b] transition-colors hover:text-blue-600"
+                  >
+                    Découvrir nos solutions
+                  </a>
+                </div>
+
+                <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-slate-700">
+                  {['Solution complète', 'Accompagnement personnalisé'].map(
+                    (t) => (
+                      <li key={t} className="flex items-center gap-2">
+                        <Check
+                          className="h-4 w-4 text-blue-600"
+                          strokeWidth={3}
+                        />
+                        {t}
+                      </li>
+                    ),
+                  )}
+                </ul>
+              </div>
             </div>
 
-            {/* 4 bénéfices */}
-            <motion.div
-              variants={fadeUp}
-              className="grid grid-cols-2 gap-y-5 sm:grid-cols-4 lg:divide-x lg:divide-slate-300/70"
-            >
-              {TOP_BENEFITS.map(({ icon: Icon, lines }) => (
-                <div
-                  key={lines.join(' ')}
-                  className="flex flex-col items-center px-2 text-center"
-                >
-                  <Icon className="h-9 w-9 text-[#0b2a5b]" strokeWidth={1.6} />
-                  <p className="mt-2 text-sm font-medium leading-tight text-[#0b2a5b]">
-                    {lines[0]}
-                    <br />
-                    {lines[1]}
-                  </p>
-                </div>
-              ))}
-            </motion.div>
+            {/* ---------- Bandeau bas ---------- */}
+            <div className="flex items-center gap-4 bg-gradient-to-r from-[#0b2a5b] via-blue-700 to-blue-500 px-6 py-5 text-white sm:px-10">
+              <Sparkles className="h-8 w-8 shrink-0" strokeWidth={1.5} />
+              <span className="hidden h-10 w-px bg-white/40 sm:block" />
+              <div>
+                <p className="text-base font-extrabold leading-tight sm:text-lg">
+                  Toute votre activité, mieux connectée.
+                </p>
+                <p className="mt-0.5 text-xs leading-snug text-blue-50 sm:text-sm">
+                  Caisse, bornes, cuisine et reporting réunis dans une seule
+                  solution pensée pour votre établissement.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          ÉCOSYSTÈME (schéma des appareils)
+      ===================================================== */}
+
+      <section className="relative isolate overflow-hidden bg-gradient-to-b from-white via-sky-50/40 to-white py-12 sm:py-16">
+        <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
+          {/* 4 bénéfices */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="mx-auto grid max-w-3xl grid-cols-2 gap-y-6 sm:grid-cols-4 sm:divide-x sm:divide-slate-300/70"
+          >
+            {TOP_BENEFITS.map(({ icon: Icon, lines }) => (
+              <div
+                key={lines.join(' ')}
+                className="flex flex-col items-center px-2 text-center"
+              >
+                <Icon className="h-9 w-9 text-[#0b2a5b]" strokeWidth={1.6} />
+                <p className="mt-2 text-sm font-medium leading-tight text-[#0b2a5b]">
+                  {lines[0]}
+                  <br />
+                  {lines[1]}
+                </p>
+              </div>
+            ))}
           </motion.div>
 
           {/* ---------- Écosystème desktop ---------- */}
-          <div className="relative mx-auto mt-6 hidden h-[760px] w-full max-w-5xl lg:block">
+          <div className="relative mx-auto mt-10 hidden h-[760px] w-full max-w-5xl lg:block">
             {/* Cercle pointillé */}
             <svg
               aria-hidden="true"
@@ -370,11 +447,6 @@ export default function SolutionsRestauration() {
               imgClass="h-52 w-40"
               className="absolute left-[40%] top-0 -translate-x-1/2"
             />
-            <Bubble
-              title={SATELLITES.borne.title}
-              text={SATELLITES.borne.text}
-              className="absolute left-[53%] top-[4%] hidden"
-            />
 
             {/* PDA – gauche */}
             <Satellite
@@ -396,7 +468,7 @@ export default function SolutionsRestauration() {
                 src={caisseImage}
                 alt="Caisse enregistreuse CSI"
                 className="h-72 w-[420px] object-contain drop-shadow-2xl"
-                loading="eager"
+                loading="lazy"
               />
               <div className="-mt-3 rounded-2xl bg-[#0b2a5b] px-7 py-3 text-center text-white shadow-xl shadow-blue-900/30">
                 <p className="text-lg font-extrabold tracking-tight">
@@ -450,13 +522,13 @@ export default function SolutionsRestauration() {
           </div>
 
           {/* ---------- Écosystème mobile / tablette ---------- */}
-          <div className="mt-8 lg:hidden">
+          <div className="mt-10 lg:hidden">
             <div className="flex flex-col items-center">
               <img
                 src={caisseImage}
                 alt="Caisse enregistreuse CSI"
                 className="h-56 w-full max-w-sm object-contain drop-shadow-2xl"
-                loading="eager"
+                loading="lazy"
               />
               <div className="-mt-3 rounded-2xl bg-[#0b2a5b] px-6 py-3 text-center text-white shadow-xl shadow-blue-900/30">
                 <p className="text-base font-extrabold">
@@ -487,7 +559,10 @@ export default function SolutionsRestauration() {
           6 CARTES
       ===================================================== */}
 
-      <section id="solutions" className="relative scroll-mt-24 bg-slate-50/70 py-10 sm:py-12">
+      <section
+        id="solutions"
+        className="relative scroll-mt-24 bg-slate-50/70 py-10 sm:py-12"
+      >
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <motion.div
             variants={stagger}
