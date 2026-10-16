@@ -79,15 +79,21 @@ const products: Product[] = [
         brand: 'Varipos 850',
         description: 'Identification sécurisée du personnel',
       },
-      {
-        icon: <Monitor className="h-5 w-5" />,
-        title: 'Écran client 10"',
-        description: 'Publicité et affichage',
-      },
+   
       {
         icon: <PanelTop className="h-5 w-5" />,
         title: 'Afficheur client',
         description: 'Affichage du montant',
+      },
+         {
+        icon: <Monitor className="h-5 w-5" />,
+        title: 'Écran client 10"',
+        description: 'Publicité et affichage',
+      },
+            {
+        icon: <Monitor className="h-5 w-5" />,
+        title: 'Écran client 7"',
+        description: 'Publicité et affichage',
       },
     ],
   },
@@ -101,7 +107,7 @@ const products: Product[] = [
       {
         src: csiMiniDoubleImage,
         alt: 'Caisse  CSI LAW C avec double écran',
-        label: 'Double Écran',
+        label: 'Périphériques',
       },
     ],
     specs: [

@@ -23,6 +23,7 @@ import caisseImage from "@/assets/00.png";
 import borneImage from "@/assets/bb1.png";
 import padImage from "@/assets/bb33.png";
 import kdsImage from "@/assets/4.jpg";
+import tkds from "@/assets/tkds.jpeg";
 
 const benefits = [
   { Icon: Timer, tone: "orange", title: "Gain de temps", text: "Affichage instantané des commandes en cuisine." },
@@ -194,7 +195,7 @@ export default function KdsPage() {
               {/* Image khawya - Placeholder */}
               <div className="relative min-h-[260px] bg-slate-200/70 lg:min-h-full">
                 <img
-                  src=""
+                  src={tkds}
                   alt="Notre accompagnement"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
