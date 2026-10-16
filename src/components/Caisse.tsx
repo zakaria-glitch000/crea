@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Tv, ShieldCheck, Gauge, Layers, Maximize, Wrench, Utensils,
   LayoutGrid, Soup, Tag, Users, BarChart3, Printer, Share2,
   Settings, Store, Headphones, ChevronRight,
+  KeyRound, CreditCard, Fingerprint, Monitor, PanelTop,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import pcImage from '@/assets/pc.jpeg';
 import caisseImage from '@/assets/00.png';
+/* 👉 Mets ici la 2e image (celle avec les périphériques) dans /assets
+   et adapte le nom du fichier si besoin */
+import caissePeripheriquesImage from '@/assets/tf15.jpeg';
 
 type FeatureProps = {
   icon: React.ReactNode;
@@ -22,19 +26,67 @@ type SupportItemProps = {
   description: string;
 };
 
-const products = [
+type ProductImage = { src: string; alt: string; label: string };
+type Spec = { icon: React.ReactNode; label: string };
+type Extra = { icon: React.ReactNode; title: string; brand?: string; description: string };
+
+type Product = {
+  name: string;
+  tagline: string;
+  description: string;
+  images: ProductImage[];
+  specs: Spec[];
+  extras?: Extra[];
+};
+
+const products: Product[] = [
   {
     name: 'CSI TF-15',
     tagline: 'La performance au quotidien',
     description:
       'Un terminal tactile fiable et robuste, idéal pour les restaurants, cafés, bars et commerces de proximité.',
-    image: caisseImage,
-    alt: 'Caisse enregistreuse CSI TF-15',
+    images: [
+      { src: caisseImage, alt: 'Caisse enregistreuse CSI TF-15', label: 'Caisse' },
+      {
+        src: caissePeripheriquesImage,
+        alt: 'Caisse CSI TF-15 avec écran client, afficheur et lecteurs',
+        label: 'Périphériques',
+      },
+    ],
     specs: [
       { icon: <Tv className="h-5 w-5" />, label: 'Écran tactile 15"' },
       { icon: <ShieldCheck className="h-5 w-5" />, label: 'Robuste et fiable' },
       { icon: <Gauge className="h-5 w-5" />, label: 'Usage intensif' },
       { icon: <Layers className="h-5 w-5" />, label: 'Compatible périphériques' },
+    ],
+    extras: [
+      {
+        icon: <KeyRound className="h-5 w-5" />,
+        title: 'Lecteur de clef Dallas',
+        brand: 'Varipos 850',
+        description: 'Identification rapide du personnel',
+      },
+      {
+        icon: <CreditCard className="h-5 w-5" />,
+        title: 'Lecteur de badge',
+        description: 'Contrôle d’accès par carte RFID',
+      },
+      {
+        icon: <Fingerprint className="h-5 w-5" />,
+        title: 'Lecteur d’empreinte',
+        brand: 'Varipos 850',
+        description: 'Identification sécurisée du personnel',
+      },
+      {
+        icon: <Monitor className="h-5 w-5" />,
+        title: 'Écran client 10"',
+        description: 'Publicité et affichage',
+      },
+      {
+        icon: <PanelTop className="h-5 w-5" />,
+        title: 'Afficheur client',
+        description: 'Affichage du montant',
+      },
     ],
   },
   {
@@ -42,8 +94,7 @@ const products = [
     tagline: 'Compacte et efficace',
     description:
       'Une caisse tactile tout-en-un, parfaite pour les petits espaces et les activités à taille humaine.',
-    image: pcImage,
-    alt: 'Caisse enregistreuse CSI MINI',
+    images: [{ src: pcImage, alt: 'Caisse enregistreuse CSI MINI', label: 'Caisse' }],
     specs: [
       { icon: <Tv className="h-5 w-5" />, label: 'Écran tactile 12"' },
       { icon: <Maximize className="h-5 w-5" />, label: 'Design compact' },
@@ -109,27 +160,9 @@ export default function OraliPage() {
             <h2 id="products-title" className="text-2xl font-black tracking-tight text-slate-900 sm:text-3xl md:text-4xl">Choisissez le format qui vous convient</h2>
             <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-600">Deux formats pensés pour vous accompagner au quotidien, avec une solution d'encaissement complète et performante.</p>
           </div>
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
+          <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2 lg:gap-8">
             {products.map((product) => (
-              <article key={product.name} className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/70 sm:p-6">
-                <div className="relative mb-6 flex h-64 items-center justify-center overflow-hidden rounded-2xl border border-slate-100 bg-gradient-to-br from-white via-slate-50 to-orange-50/50 p-6 md:h-72">
-                  <div className="absolute right-4 top-4 rounded-full border border-slate-200 bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-500">CSI</div>
-                  <img src={product.image} alt={product.alt} loading="lazy" className="h-full max-h-full w-full max-w-full object-contain transition duration-500 group-hover:scale-[1.04]" />
-                </div>
-                <div className="flex flex-1 flex-col px-1">
-                  <h3 className="text-2xl font-black text-slate-900 md:text-3xl">{product.name}</h3>
-                  <p className="mb-3 mt-2 text-xs font-extrabold uppercase tracking-[0.14em] text-orange-600">{product.tagline}</p>
-                  <p className="mb-6 max-w-xl text-sm leading-6 text-slate-600">{product.description}</p>
-                  <div className="mt-auto grid grid-cols-2 gap-3 border-t border-slate-200 pt-5 sm:grid-cols-4">
-                    {product.specs.map((spec) => (
-                      <div key={spec.label} className="flex flex-col items-center text-center">
-                        <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-orange-50 text-orange-600 ring-1 ring-orange-100">{spec.icon}</div>
-                        <span className="text-[11px] font-semibold leading-4 text-slate-700 sm:text-xs">{spec.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </article>
+              <ProductCard key={product.name} product={product} />
             ))}
           </div>
         </section>
@@ -175,6 +208,111 @@ export default function OraliPage() {
         </section>
       </main>
     </div>
+  );
+}
+
+/* =====================================================
+   CARTE PRODUIT (2 images switchables + périphériques)
+===================================================== */
+
+function ProductCard({ product }: { product: Product }) {
+  const [active, setActive] = useState(0);
+  const current = product.images[active];
+  const hasMany = product.images.length > 1;
+
+  return (
+    <article className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/70 sm:p-6">
+      {/* Image principale */}
+      <div className="relative mb-3 flex h-64 items-center justify-center overflow-hidden rounded-2xl border border-slate-100 bg-gradient-to-br from-white via-slate-50 to-orange-50/50 p-6 md:h-80">
+        <div className="absolute right-4 top-4 z-10 rounded-full border border-slate-200 bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-500">
+          CSI
+        </div>
+
+        <img
+          key={current.src}
+          src={current.src}
+          alt={current.alt}
+          loading="lazy"
+          className="h-full max-h-full w-full max-w-full object-contain transition duration-500 group-hover:scale-[1.03]"
+        />
+      </div>
+
+      {/* Miniatures */}
+      {hasMany && (
+        <div className="mb-6 flex items-center justify-center gap-3">
+          {product.images.map((img, i) => (
+            <button
+              key={img.label}
+              type="button"
+              onClick={() => setActive(i)}
+              aria-label={`Voir : ${img.label}`}
+              aria-pressed={i === active}
+              className={`flex items-center gap-2 rounded-xl border bg-white p-1.5 pr-3 text-xs font-bold transition duration-200 ${
+                i === active
+                  ? 'border-orange-400 text-orange-600 ring-2 ring-orange-100'
+                  : 'border-slate-200 text-slate-500 hover:border-orange-200 hover:text-orange-600'
+              }`}
+            >
+              <img
+                src={img.src}
+                alt=""
+                aria-hidden="true"
+                className="h-10 w-12 rounded-lg bg-slate-50 object-contain"
+              />
+              {img.label}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {!hasMany && <div className="mb-3" />}
+
+      <div className="flex flex-1 flex-col px-1">
+        <h3 className="text-2xl font-black text-slate-900 md:text-3xl">{product.name}</h3>
+        <p className="mb-3 mt-2 text-xs font-extrabold uppercase tracking-[0.14em] text-orange-600">{product.tagline}</p>
+        <p className="mb-6 max-w-xl text-sm leading-6 text-slate-600">{product.description}</p>
+
+        {/* Specs */}
+        <div className="mt-auto grid grid-cols-2 gap-3 border-t border-slate-200 pt-5 sm:grid-cols-4">
+          {product.specs.map((spec) => (
+            <div key={spec.label} className="flex flex-col items-center text-center">
+              <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-xl bg-orange-50 text-orange-600 ring-1 ring-orange-100">{spec.icon}</div>
+              <span className="text-[11px] font-semibold leading-4 text-slate-700 sm:text-xs">{spec.label}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Périphériques compatibles */}
+        {product.extras && (
+          <div className="mt-6 border-t border-slate-200 pt-5">
+            <p className="mb-4 text-xs font-extrabold uppercase tracking-[0.16em] text-orange-600">
+              Périphériques compatibles
+            </p>
+
+            <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {product.extras.map((extra) => (
+                <li
+                  key={extra.title}
+                  className="flex items-start gap-3 rounded-2xl border border-orange-100 bg-orange-50/40 p-3 transition duration-200 hover:border-orange-200 hover:bg-orange-50"
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-500 text-white shadow-sm shadow-orange-500/30">
+                    {extra.icon}
+                  </span>
+
+                  <div className="min-w-0">
+                    <p className="text-sm font-bold leading-5 text-slate-900">{extra.title}</p>
+                    {extra.brand && (
+                      <p className="text-xs font-bold leading-4 text-orange-600">{extra.brand}</p>
+                    )}
+                    <p className="mt-0.5 text-xs leading-5 text-slate-500">{extra.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </article>
   );
 }
 
