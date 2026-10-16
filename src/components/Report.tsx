@@ -67,80 +67,20 @@ const Bars = ({ n = 28, colors = ["#2f80ed", "#f26a14", "#22c55e"] }) => (
 );
 
 const Monitor = () => (
-  <div className="rounded-lg border-[6px] border-slate-800 bg-white shadow-2xl overflow-hidden w-full">
-    <div className="flex">
-      <div className="w-[22%] bg-[#6b2fa8] text-white p-2 text-[7px] space-y-2 min-h-[210px]">
-        <div className="font-black text-[11px]">CRS</div>
-        {["Tableau de Bord", "Clôtures Z", "Ventes", "Règlements", "Comparatif CA", "Journalier"].map((x) => <div key={x}>{x}</div>)}
-      </div>
-      <div className="flex-1 p-2 bg-slate-50">
-        <div className="grid grid-cols-5 gap-1.5">
-          <Kpi color="#f59e0b" label="Ventes" value="5 630.50" />
-          <Kpi color="#ef4444" label="Annulations" value="35.00" />
-          <Kpi color="#7c3aed" label="Retours" value="-275.00" />
-          <Kpi color="#22c55e" label="Offerts" value="505.00" />
-          <Kpi color="#06b6d4" label="Remises" value="0.00" />
-        </div>
-        <div className="grid grid-cols-3 gap-1.5 mt-2">
-          <div className="rounded-md bg-cyan-500 h-20" />
-          <div className="rounded-md bg-pink-500 h-20" />
-          <div className="rounded-md bg-green-500 h-20" />
-        </div>
-        <div className="grid grid-cols-2 gap-1.5 mt-2">
-          <div className="rounded-md bg-orange-500 text-white text-[8px] p-2">Ventes du 2026-10-13</div>
-          <div className="rounded-md bg-green-500 text-white text-[8px] p-2">Top des ventes</div>
-        </div>
-      </div>
-    </div>
-  </div>
+ <div></div>
 );
 
 const Laptop_ = () => (
-  <div className="rounded-t-lg border-[5px] border-slate-800 bg-white shadow-xl overflow-hidden">
-    <div className="flex">
-      <div className="w-[20%] bg-[#6b2fa8] text-white p-1.5 text-[6px] min-h-[150px]">
-        <div className="font-black text-[9px] mb-2">CRS</div>
-        {["Ventes", "Retours", "Règlements", "Journalier"].map((x) => <div key={x} className="mb-1">{x}</div>)}
-      </div>
-      <div className="flex-1 p-2 text-[6px]">
-        <div className="font-bold text-[9px] mb-1">Ventes</div>
-        {Array.from({ length: 9 }).map((_, i) => (
-          <div key={i} className="flex justify-between border-b border-slate-100 py-[2px] text-slate-500">
-            <span>2026-10-13</span><span>1024{i}</span><span>Burger</span><span>15.00</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
+<div></div>
 );
 
 const Tablet_ = () => (
-  <div className="rounded-xl border-[5px] border-slate-800 bg-white shadow-xl overflow-hidden">
-    <div className="flex">
-      <div className="w-[16%] bg-[#6b2fa8] min-h-[150px]" />
-      <div className="flex-1 p-2">
-        <div className="text-[8px] font-bold mb-1">Analyse des ventes</div>
-        <Bars n={30} />
-        <div className="flex gap-2 mt-2 items-center">
-          <div className="flex-1 h-10 bg-slate-100 rounded" />
-          <div className="w-12 h-12 rounded-full"
-            style={{ background: "conic-gradient(#f59e0b 0 42%, #2f80ed 42% 62%, #22c55e 62% 82%, #ef4444 82%)" }} />
-        </div>
-      </div>
-    </div>
+  <div >
   </div>
 );
 
 const Phone = () => (
-  <div className="rounded-[22px] border-[5px] border-slate-900 bg-white shadow-2xl overflow-hidden w-[130px]">
-    <div className="bg-[#6b2fa8] text-white font-black text-[11px] p-2 text-center">CRS</div>
-    {[["#f59e0b", "Ventes", "5 630.50"], ["#ef4444", "Annulations", "35.00"], ["#7c3aed", "Retours", "-275.00"],
-      ["#22c55e", "Offerts", "505.00"], ["#06b6d4", "Remises", "0.00"]].map(([c, l, v]) => (
-      <div key={l} className="m-1.5 rounded-md text-white p-1.5" style={{ background: c }}>
-        <div className="text-[7px]">{l}</div><div className="text-[12px] font-bold">{v}</div>
-      </div>
-    ))}
-  </div>
+<div></div>
 );
 
 /* ---------- Feature visuals ---------- */
@@ -156,12 +96,8 @@ export default function OraliReporting() {
       {/* ================= HERO ================= */}
       <section className="relative px-8 pt-6 pb-8" style={{ background: "linear-gradient(180deg,#fff 0%,#f7efe6 55%,#e9d9c4 100%)" }}>
         <div className="flex items-center gap-2">
-          <svg width="44" height="44" viewBox="0 0 44 44"><path d="M8 38C14 14 30 6 40 4 34 14 26 32 8 38Z" fill={ORANGE} /></svg>
           <div>
-            <div className="text-[34px] leading-none tracking-wide" style={{ color: NAVY }}>
-              <b className="font-black">ORALI</b> SYSTEMS
-            </div>
-            <div className="text-[9px] tracking-[0.25em] text-slate-500">SOLUTIONS COMMERCE & RESTAURANT</div>
+            <br></br>
           </div>
         </div>
 
