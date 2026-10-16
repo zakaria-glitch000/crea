@@ -16,7 +16,7 @@ import etiquetteImage from '@/assets/etiquette.jpg';
 
 const products = [
   {
-    title: 'Caisses enregistreuses',
+    title: 'Caisse Enregistreuse CSI',
     description: 'Des équipements fiables et performants.',
     image: caisseImage,
     link: '/Caisse',
@@ -34,7 +34,7 @@ const products = [
     link: '/kds',
   },
   {
-    title: 'Terminaux mobiles',
+    title: 'PAD CSI',
     description: 'Prenez les commandes directement à table.',
     image: terminalImage,
     link: '/Pda',
@@ -46,7 +46,7 @@ const products = [
     link: '/Balance',
   },
   {
-    title: 'Impression balisage Zebra',
+    title: 'IMPRIMANTE BALISAGE ZEBRA',
     description: 'Imprimantes thermiques robustes pour étiquettes et bracelets.',
     image: zebraImage,
     link: '/Zebra',

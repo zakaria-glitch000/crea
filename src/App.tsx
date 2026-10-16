@@ -188,7 +188,6 @@ function HomePage() {
       <WhyUs />
       <Process />
       <About />
-      <Testimonials />
       <CTA />
       <Contact />
     </>
