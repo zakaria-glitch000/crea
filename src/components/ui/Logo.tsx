@@ -25,13 +25,11 @@ export function Logo({ className = '', showText = true }: LogoProps) {
         aria-hidden="true"
       >
         <defs>
-          {/* Gauche : bleu foncé (haut) -> cyan (bas) */}
           <linearGradient id="oraliLeft" gradientUnits="userSpaceOnUse" x1="90" y1="91" x2="70" y2="362">
             <stop offset="0%" stopColor="#0033B3" />
             <stop offset="50%" stopColor="#0A64E0" />
             <stop offset="100%" stopColor="#00C0F5" />
           </linearGradient>
-          {/* Droite : cyan (haut) -> bleu foncé (bas) */}
           <linearGradient id="oraliRight" gradientUnits="userSpaceOnUse" x1="485" y1="0" x2="210" y2="447">
             <stop offset="0%" stopColor="#00EEFF" />
             <stop offset="45%" stopColor="#0072EA" />
@@ -39,7 +37,6 @@ export function Logo({ className = '', showText = true }: LogoProps) {
           </linearGradient>
         </defs>
 
-        {/* Petite barre (gauche) */}
         <path
           d="M178,91 L315,91 L148,362 L0,362 Z"
           fill="url(#oraliLeft)"
@@ -47,7 +44,6 @@ export function Logo({ className = '', showText = true }: LogoProps) {
           strokeWidth="12"
           strokeLinejoin="round"
         />
-        {/* Grande barre (droite) */}
         <path
           d="M408,0 L563,0 L288,447 L131,447 Z"
           fill="url(#oraliRight)"
@@ -60,32 +56,32 @@ export function Logo({ className = '', showText = true }: LogoProps) {
       {/* TEXTE */}
       {showText && (
         <div className="flex flex-col w-fit justify-center">
-          {/* LIGNE PRINCIPALE : ORALI + SYSTEMS À CÔTÉ */}
-          <div className="flex items-baseline gap-2">
+          {/* LIGNE PRINCIPALE : ORALI + SYSTEMS (même taille) */}
+          <div className="flex items-baseline" style={{ gap: '0.25em' }}>
             <span
               className="font-black text-[#051536] whitespace-nowrap"
-              style={{ fontSize: '1em', lineHeight: 1, letterSpacing: '-0.01em' }}
+              style={{ fontSize: '1em', lineHeight: 0.95, letterSpacing: '-0.01em' }}
             >
               {brandName}
             </span>
             <span
               className="font-extrabold text-[#0095FF] uppercase whitespace-nowrap"
-              style={{ fontSize: '0.65em', lineHeight: 1, letterSpacing: '0.05em' }}
+              style={{ fontSize: '1em', lineHeight: 0.95, letterSpacing: '-0.01em' }}
             >
               SYSTEMS
             </span>
           </div>
 
-          {/* LIGNE DE SÉPARATION (Bleue) */}
+          {/* LIGNE DE SÉPARATION (remontée vers ORALI) */}
           <div
             className="bg-[#0095FF] rounded-full"
-            style={{ width: '30%', height: '0.035em', minHeight: '2px', marginTop: '0.25em', marginBottom: '0.2em' }}
+            style={{ width: '30%', height: '0.035em', minHeight: '2px', marginTop: '0.08em', marginBottom: '0.1em' }}
           />
 
-          {/* SOUS-TITRE (Agrandit + Couleur Grise) */}
+          {/* SOUS-TITRE (remonté vers la ligne) */}
           <span
             className="font-medium text-gray-500 whitespace-nowrap tracking-tight"
-            style={{ fontSize: '0.32em', lineHeight: 1.1 }}
+            style={{ fontSize: '0.32em', lineHeight: 1 }}
           >
             Solution Métier CHR &amp; Rétail
           </span>
