@@ -43,6 +43,7 @@ import Balance from '@/components/Balance';
 import Zebra from '@/components/Zebra';
 import Stock from '@/components/Stock';
 import Etiquette from '@/components/Etiquette';
+import Gms from '@/components/Gms';
 
 // ============================================================
 // SCROLL TO TOP
@@ -290,7 +291,10 @@ function App() {
               path="/nf"
               element={<Nf525Page />}
             />
-
+     <Route
+              path="/Gms"
+              element={<Gms />}
+            />
             <Route
               path="/nf525"
               element={<Nf525Page />}

@@ -71,13 +71,13 @@ const SATELLITES = {
     image: ERP_IMAGE,
   },
 };
-
 const CARDS = [
   {
     number: '01',
     title: 'Caisses enregistreuses CSI',
     subtitle: 'Encaissez, organisez et pilotez votre activité.',
     image: caisseImage,
+    link: '/caisse', // <-- Zid l-link hna
     items: [
       'Gestion des tables et des commandes',
       'Encaissements multi-règlements',
@@ -90,6 +90,7 @@ const CARDS = [
     title: 'Bornes de commande',
     subtitle: 'Une commande autonome et fluide pour vos clients.',
     image: borneImage,
+    link: '/born', // <-- Zid l-link hna
     items: [
       'Interface simple et attractive',
       'Personnalisation des menus',
@@ -102,6 +103,7 @@ const CARDS = [
     title: 'PAD – Prise de commande',
     subtitle: 'Mobilité et efficacité pour vos équipes.',
     image: pdImage,
+    link: '/Pda', // <-- Zid l-link hna
     items: [
       'Prise de commande rapide et intuitive',
       'Gestion des tables en temps réel',
@@ -114,6 +116,7 @@ const CARDS = [
     title: 'Écran cuisine KDS',
     subtitle: 'Des cuisines plus organisées et plus performantes.',
     image: kdsImage,
+    link: '/kds', // <-- Zid l-link hna
     items: [
       'Affichage clair et lisible',
       'Organisation des commandes par poste',
@@ -126,6 +129,7 @@ const CARDS = [
     title: 'Reporting CSI',
     subtitle: 'Analysez vos performances en temps réel.',
     image: REPORTING_IMAGE,
+    link: '/Gms', // <-- Zid l-link hna
     items: [
       'Tableaux de bord complets',
       'Suivi des ventes par période',
@@ -138,8 +142,9 @@ const CARDS = [
     title: 'GMS / ERP CSI',
     subtitle: 'Gestion centralisée de vos établissements.',
     image: ERP_IMAGE,
+    link: '/solutions/erp', // <-- Zid l-link hna
     items: [
-      'Gestion des achats et fournisseurs',
+      'Gestion des purchases et fournisseurs',
       'Suivi des stocks en temps réel',
       'Analyse des coûts et de la rentabilité',
       'Gestion multi-établissements',
@@ -532,13 +537,13 @@ function EcosystemDesktop() {
 /* =====================================================
     CARTE NUMÉROTÉE
 ===================================================== */
-
 function NumberedCard({
   number,
   title,
   subtitle,
   image,
   items,
+  link, // <-- Recupérer l-link hna
 }: (typeof CARDS)[number]) {
   return (
     <motion.article
@@ -586,8 +591,9 @@ function NumberedCard({
       </ul>
 
       <div className="mt-auto p-5 pt-5">
+        {/* Usar link dyal card or CONTACT_LINK fallback */}
         <a
-          href={CONTACT_LINK}
+          href={link || CONTACT_LINK}
           className="group inline-flex items-center gap-2 rounded-full bg-[#0b2a5b] px-5 py-2.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-700/25 focus:outline-none focus:ring-4 focus:ring-sky-200"
         >
           Découvrir la solution
@@ -597,7 +603,6 @@ function NumberedCard({
     </motion.article>
   );
 }
-
 /* =====================================================
     PAGE
 ===================================================== */
