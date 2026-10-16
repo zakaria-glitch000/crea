@@ -3,12 +3,15 @@ import { motion } from 'framer-motion';
 import {
   ArrowRight,
   ArrowUpDown,
+  CalendarDays,
   Check,
-  Gauge,
   ChartNoAxesCombined,
-  Users,
+  Gauge,
+  Headphones,
+  Phone,
   Settings,
   Sparkles,
+  Users,
 } from 'lucide-react';
 
 import heroImage from '@/assets/res.webp';
@@ -137,6 +140,29 @@ const CARDS = [
       'Analyse des coûts et de la rentabilité',
       'Gestion multi-établissements',
     ],
+  },
+];
+
+const CTA_FEATURES: { icon: ElementType; title: string; text: string }[] = [
+  {
+    icon: Settings,
+    title: 'Installation et paramétrage',
+    text: 'Une mise en place rapide et efficace',
+  },
+  {
+    icon: Users,
+    title: 'Formation de vos équipes',
+    text: 'Une prise en main simple et rapide',
+  },
+  {
+    icon: Headphones,
+    title: 'Assistance technique',
+    text: 'Un support réactif et professionnel',
+  },
+  {
+    icon: ChartNoAxesCombined,
+    title: 'Une solution évolutive',
+    text: 'Pour accompagner votre croissance',
   },
 ];
 
@@ -575,6 +601,85 @@ export default function SolutionsRestauration() {
               <NumberedCard key={card.number} {...card} />
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          CTA FINAL (résumé + demander une démo)
+      ===================================================== */}
+
+      <section className="relative bg-white">
+        {/* Bannière */}
+        <div className="relative isolate overflow-hidden bg-gradient-to-r from-[#0a2a6b] via-blue-700 to-sky-500">
+          <div className="pointer-events-none absolute -right-24 -top-24 -z-10 h-80 w-80 rounded-full bg-white/10 blur-2xl" />
+          <div className="pointer-events-none absolute -bottom-32 left-1/3 -z-10 h-72 w-72 rounded-full bg-sky-300/20 blur-3xl" />
+
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="mx-auto grid max-w-6xl items-center gap-8 px-5 py-12 sm:px-8 lg:grid-cols-[1.4fr_1fr] lg:py-16"
+          >
+            {/* Texte */}
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-sky-100">
+                Prêt à passer à l’étape suivante ?
+              </p>
+
+              <h2 className="mt-4 text-3xl font-black leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-[2.7rem]">
+                Passez à une gestion plus performante avec{' '}
+                <span className="whitespace-nowrap">
+                  <span className="text-[#051536]">ORALI</span>{' '}
+                  <span className="text-sky-200">SYSTEMS</span>
+                </span>
+              </h2>
+
+              <p className="mt-4 max-w-xl text-sm leading-6 text-blue-50 sm:text-[15px]">
+                Découvrez comment ORALI SYSTEMS peut répondre aux besoins de
+                votre établissement et faciliter la gestion de votre activité.
+              </p>
+            </div>
+
+            {/* Boutons */}
+            <div className="flex flex-col gap-3">
+              <a
+                href={CONTACT_LINK}
+                className="group inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#051536] px-6 py-4 text-sm font-bold text-white shadow-xl shadow-blue-950/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0b2a5b] focus:outline-none focus:ring-4 focus:ring-sky-200"
+              >
+                <CalendarDays className="h-5 w-5" />
+                Demander une démonstration
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+
+              <a
+                href={CONTACT_LINK}
+                className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-white px-6 py-4 text-sm font-bold text-blue-700 shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-sky-50 focus:outline-none focus:ring-4 focus:ring-sky-200"
+              >
+                <Phone className="h-5 w-5" />
+                Nous contacter
+              </a>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Bandeau des 4 avantages */}
+        <div className="mx-auto grid max-w-6xl gap-x-6 gap-y-5 px-5 py-6 sm:grid-cols-2 sm:px-8 lg:grid-cols-4">
+          {CTA_FEATURES.map(({ icon: Icon, title, text }) => (
+            <div key={title} className="flex items-center gap-3">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                <Icon className="h-5 w-5" strokeWidth={1.8} />
+              </span>
+              <div>
+                <p className="text-[13px] font-bold leading-tight text-[#0b2a5b]">
+                  {title}
+                </p>
+                <p className="mt-0.5 text-xs leading-snug text-slate-500">
+                  {text}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </main>
