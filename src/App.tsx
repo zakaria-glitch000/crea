@@ -44,6 +44,7 @@ import Zebra from '@/components/Zebra';
 import Stock from '@/components/Stock';
 import Etiquette from '@/components/Etiquette';
 import Gms from '@/components/Gms';
+import Report from '@/components/Report';
 
 // ============================================================
 // SCROLL TO TOP
@@ -294,6 +295,10 @@ function App() {
      <Route
               path="/Gms"
               element={<Gms />}
+            />
+                <Route
+              path="/Report"
+              element={<Report />}
             />
             <Route
               path="/nf525"

@@ -142,7 +142,7 @@ const CARDS = [
     title: 'GMS / ERP CSI',
     subtitle: 'Gestion centralisée de vos établissements.',
     image: ERP_IMAGE,
-    link: '/solutions/erp', // <-- Zid l-link hna
+    link: '/Report', // <-- Zid l-link hna
     items: [
       'Gestion des purchases et fournisseurs',
       'Suivi des stocks en temps réel',
