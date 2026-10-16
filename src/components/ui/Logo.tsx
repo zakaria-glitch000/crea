@@ -10,56 +10,89 @@ export function Logo({ className = '', showText = true }: LogoProps) {
   const brandName = rawName.replace(/SYSTEMS/i, '').trim() || 'ORALI';
 
   return (
-    <div className={`inline-flex items-center gap-2.5 select-none -translate-y-1.5 ${className}`}>
-      {/* ICÔNE VECTORIELLE SVG */}
-      <div className="relative flex items-center justify-center shrink-0">
-        <svg
-          viewBox="0 0 220 180"
-          className="h-8 w-auto md:h-9 transition-transform hover:scale-105"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <linearGradient id="oraliGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#00E5FF" />
-              <stop offset="40%" stopColor="#00A3FF" />
-              <stop offset="100%" stopColor="#0031B8" />
-            </linearGradient>
-          </defs>
+    // La taille globale se règle ici (tout est en "em")
+    <div
+      className={`inline-flex items-center select-none text-[26px] md:text-[34px] ${className}`}
+      style={{ fontFamily: "'Montserrat', 'Poppins', sans-serif", gap: '0.1em' }}
+    >
+      {/* ICÔNE : 2 parallélogrammes */}
+      <svg
+        viewBox="-6 -6 575 459"
+        style={{ height: '1.78em', width: 'auto' }}
+        className="shrink-0"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <defs>
+          {/* Gauche : bleu foncé (haut) -> cyan (bas) */}
+          <linearGradient id="oraliLeft" gradientUnits="userSpaceOnUse" x1="90" y1="91" x2="70" y2="362">
+            <stop offset="0%" stopColor="#0033B3" />
+            <stop offset="50%" stopColor="#0A64E0" />
+            <stop offset="100%" stopColor="#00C0F5" />
+          </linearGradient>
+          {/* Droite : cyan (haut) -> bleu foncé (bas) */}
+          <linearGradient id="oraliRight" gradientUnits="userSpaceOnUse" x1="485" y1="0" x2="210" y2="447">
+            <stop offset="0%" stopColor="#00EEFF" />
+            <stop offset="45%" stopColor="#0072EA" />
+            <stop offset="100%" stopColor="#0030AC" />
+          </linearGradient>
+        </defs>
 
-          {/* Barre 1 (Gauche) */}
-          <path
-            d="M 50,45 L 105,45 L 35,160 L 0,160 Z"
-            fill="url(#oraliGrad)"
-          />
-          {/* Barre 2 (Droite) */}
-          <path
-            d="M 125,20 L 195,20 L 110,180 L 40,180 Z"
-            fill="url(#oraliGrad)"
-          />
-        </svg>
-      </div>
+        {/* Petite barre (gauche) */}
+        <path
+          d="M178,91 L315,91 L148,362 L0,362 Z"
+          fill="url(#oraliLeft)"
+          stroke="url(#oraliLeft)"
+          strokeWidth="12"
+          strokeLinejoin="round"
+        />
+        {/* Grande barre (droite) */}
+        <path
+          d="M408,0 L563,0 L288,447 L131,447 Z"
+          fill="url(#oraliRight)"
+          stroke="url(#oraliRight)"
+          strokeWidth="12"
+          strokeLinejoin="round"
+        />
+      </svg>
 
-      {/* TEXTE DU LOGO */}
+      {/* TEXTE */}
       {showText && (
-        <div className="flex flex-col justify-center">
-          {/* ORALI */}
-          <span className="text-xl md:text-2xl font-black tracking-tight text-[#020B26] leading-none">
+        <div className="flex flex-col w-fit">
+          {/* ORALI : ghadi i7ddd l-3ard dyal kol l-bloc */}
+          <span
+            className="font-black text-[#051536] whitespace-nowrap"
+            style={{ fontSize: '1em', lineHeight: 0.72, letterSpacing: '-0.01em' }}
+          >
             {brandName}
           </span>
 
-          {/* SYSTEMS */}
-          <span className="text-[8px] md:text-[9px] font-bold tracking-[0.32em] text-[#0092FF] uppercase mt-0.5 leading-none">
-            SYSTEMS
-          </span>
+          {/* SYSTEMS : l7rouf mwzzin 3la nafs l-3ard dyal ORALI */}
+          <div
+            className="flex justify-between w-0 min-w-full font-medium text-[#0A84F5] uppercase"
+            style={{ fontSize: '0.378em', lineHeight: 0.72, marginTop: '0.2em' }}
+          >
+            {'SYSTEMS'.split('').map((c, i) => (
+              <span key={i}>{c}</span>
+            ))}
+          </div>
 
-          {/* LIGNE SEPARATRICE */}
-          <div className="w-7 h-[1.5px] bg-[#0092FF] my-0.5" />
+          {/* Ligne courte */}
+          <div
+            className="bg-[#0A84F5]"
+            style={{ width: '21.7%', height: '0.02em', minHeight: 2, marginTop: '0.15em' }}
+          />
 
-          {/* SOUS-TITRE */}
-          <span className="text-[7px] md:text-[8px] font-medium tracking-tight text-[#020B26] leading-none whitespace-nowrap">
-            Solution Métier CHR &amp; Rétail
-          </span>
+          {/* Sous-titre : kaymtedd 3la nafs l-3ard */}
+          <div
+            className="flex justify-between w-0 min-w-full font-normal text-[#0B1B3F] whitespace-nowrap"
+            style={{ fontSize: '0.22em', lineHeight: 0.72, marginTop: '0.14em' }}
+          >
+            {['Solution', 'Métier', 'CHR', '&', 'Rétail'].map((w) => (
+              <span key={w}>{w}</span>
+            ))}
+          </div>
         </div>
       )}
     </div>
