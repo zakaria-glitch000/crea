@@ -10,15 +10,14 @@ export function Logo({ className = '', showText = true }: LogoProps) {
   const brandName = rawName.replace(/SYSTEMS/i, '').trim() || 'ORALI';
 
   return (
-    // La taille globale se règle ici (tout est en "em")
     <div
       className={`inline-flex items-center select-none text-[26px] md:text-[34px] ${className}`}
-      style={{ fontFamily: "'Montserrat', 'Poppins', sans-serif", gap: '0.35em' }}
+      style={{ fontFamily: "'Montserrat', 'Poppins', sans-serif", gap: '0.12em' }}
     >
       {/* ICÔNE : 2 parallélogrammes */}
       <svg
         viewBox="-6 -6 575 459"
-        style={{ height: '1.78em', width: 'auto' }}
+        style={{ height: '1.78em', width: 'auto', marginRight: '-0.1em' }}
         className="shrink-0"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +55,6 @@ export function Logo({ className = '', showText = true }: LogoProps) {
       {/* TEXTE */}
       {showText && (
         <div className="flex flex-col w-fit justify-center">
-          {/* LIGNE PRINCIPALE : ORALI + SYSTEMS (même taille) */}
           <div className="flex items-baseline" style={{ gap: '0.25em' }}>
             <span
               className="font-black text-[#051536] whitespace-nowrap"
@@ -72,13 +70,11 @@ export function Logo({ className = '', showText = true }: LogoProps) {
             </span>
           </div>
 
-          {/* LIGNE DE SÉPARATION (remontée vers ORALI) */}
           <div
             className="bg-[#0095FF] rounded-full"
             style={{ width: '30%', height: '0.035em', minHeight: '2px', marginTop: '0.08em', marginBottom: '0.1em' }}
           />
 
-          {/* SOUS-TITRE (remonté vers la ligne) */}
           <span
             className="font-medium text-gray-500 whitespace-nowrap tracking-tight"
             style={{ fontSize: '0.32em', lineHeight: 1 }}
