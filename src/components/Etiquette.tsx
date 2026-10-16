@@ -199,7 +199,7 @@ export default function Etiquettes() {
               {/* Image khawya - Placeholder */}
               <div className="relative min-h-[260px] bg-slate-200/70 lg:min-h-full">
                 <img
-                  src=""
+                  src={tki}
                   alt="Notre accompagnement"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
