@@ -14,16 +14,6 @@ import {
 import { COMPANY } from '@/data/content';
 import { Reveal, SectionTag } from './ui/Reveal';
 import emailjs from '@emailjs/browser';
-/* =====================================================
-   ENVOI DES EMAILS (EmailJS)
-   1. Installe : npm install @emailjs/browser
-   2. Configure les variables dans .env.local :
-      VITE_EMAILJS_SERVICE_ID=service_xxxxxxx
-      VITE_EMAILJS_TEMPLATE_ID=template_xxxxxxx
-      VITE_EMAILJS_PUBLIC_KEY=xxxxxxxxxxxx
-   3. Ajoute les mêmes variables dans Vercel > Settings >
-      Environment Variables, puis redéploie le site.
-===================================================== */
 
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
@@ -46,39 +36,52 @@ export function Contact() {
 
     if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
       setError(
-        "Le formulaire n'est pas encore configuré. Veuillez réessayer plus tard.",
+        "Les variables EmailJS ne sont pas chargées. Vérifiez le fichier .env.local puis redémarrez le serveur (npm run dev).",
       );
       return;
     }
 
+    const userName = String(data.get('name') ?? '').trim();
+    const userEmail = String(data.get('email') ?? '').trim();
+
     const templateParams = {
-      name: String(data.get('name') ?? '').trim(),
+      name: userName,
+      from_name: userName,
       company: String(data.get('company') ?? '').trim(),
-      email: String(data.get('email') ?? '').trim(),
+      email: userEmail,
+      from_email: userEmail,
       phone: String(data.get('phone') ?? '').trim(),
       message: String(data.get('message') ?? '').trim(),
-      subject: `Nouveau message de ${String(data.get('name') ?? '').trim()} — site ORALI SYSTEMS`,
-      from_name: 'Site ORALI SYSTEMS',
+      subject: `Nouveau message de ${userName} — site ORALI SYSTEMS`,
     };
 
     setLoading(true);
     setError(null);
 
     try {
-      await emailjs.send(
+      const res = await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         templateParams,
         { publicKey: EMAILJS_PUBLIC_KEY },
       );
 
+      console.log('SUCCESS EmailJS:', res.status, res.text);
       setSubmitted(true);
       form.reset();
-    } catch (err) {
-      console.error('Erreur EmailJS lors de l’envoi du formulaire :', err);
-      setError(
-        "Une erreur est survenue lors de l'envoi. Vérifiez la configuration EmailJS puis réessayez.",
-      );
+    } catch (err: unknown) {
+      console.error('Erreur EmailJS détaillée :', err);
+      
+      // Extraction du message d'erreur exact envoyé par EmailJS
+      let errorMsg = "Une erreur est survenue lors de l'envoi.";
+      if (typeof err === 'object' && err !== null) {
+        const e = err as Record<string, unknown>;
+        if (typeof e.text === 'string') errorMsg = e.text;
+        else if (typeof e.message === 'string') errorMsg = e.message;
+        else errorMsg = JSON.stringify(err);
+      }
+
+      setError(`Erreur EmailJS : ${errorMsg}`);
     } finally {
       setLoading(false);
     }

@@ -13,7 +13,7 @@ export function Logo({ className = '', showText = true }: LogoProps) {
     // La taille globale se règle ici (tout est en "em")
     <div
       className={`inline-flex items-center select-none text-[26px] md:text-[34px] ${className}`}
-      style={{ fontFamily: "'Montserrat', 'Poppins', sans-serif", gap: '0.1em' }}
+      style={{ fontFamily: "'Montserrat', 'Poppins', sans-serif", gap: '0.35em' }}
     >
       {/* ICÔNE : 2 parallélogrammes */}
       <svg
@@ -59,40 +59,36 @@ export function Logo({ className = '', showText = true }: LogoProps) {
 
       {/* TEXTE */}
       {showText && (
-        <div className="flex flex-col w-fit">
-          {/* ORALI : ghadi i7ddd l-3ard dyal kol l-bloc */}
-          <span
-            className="font-black text-[#051536] whitespace-nowrap"
-            style={{ fontSize: '1em', lineHeight: 0.72, letterSpacing: '-0.01em' }}
-          >
-            {brandName}
-          </span>
-
-          {/* SYSTEMS : l7rouf mwzzin 3la nafs l-3ard dyal ORALI */}
-          <div
-            className="flex justify-between w-0 min-w-full font-medium text-[#0A84F5] uppercase"
-            style={{ fontSize: '0.378em', lineHeight: 0.72, marginTop: '0.2em' }}
-          >
-            {'SYSTEMS'.split('').map((c, i) => (
-              <span key={i}>{c}</span>
-            ))}
+        <div className="flex flex-col w-fit justify-center">
+          {/* LIGNE PRINCIPALE : ORALI + SYSTEMS À CÔTÉ */}
+          <div className="flex items-baseline gap-2">
+            <span
+              className="font-black text-[#051536] whitespace-nowrap"
+              style={{ fontSize: '1em', lineHeight: 1, letterSpacing: '-0.01em' }}
+            >
+              {brandName}
+            </span>
+            <span
+              className="font-extrabold text-[#0095FF] uppercase whitespace-nowrap"
+              style={{ fontSize: '0.65em', lineHeight: 1, letterSpacing: '0.05em' }}
+            >
+              SYSTEMS
+            </span>
           </div>
 
-          {/* Ligne courte */}
+          {/* LIGNE DE SÉPARATION (Bleue) */}
           <div
-            className="bg-[#0A84F5]"
-            style={{ width: '21.7%', height: '0.02em', minHeight: 2, marginTop: '0.15em' }}
+            className="bg-[#0095FF] rounded-full"
+            style={{ width: '30%', height: '0.035em', minHeight: '2px', marginTop: '0.25em', marginBottom: '0.2em' }}
           />
 
-          {/* Sous-titre : kaymtedd 3la nafs l-3ard */}
-          <div
-            className="flex justify-between w-0 min-w-full font-normal text-[#0B1B3F] whitespace-nowrap"
-            style={{ fontSize: '0.22em', lineHeight: 0.72, marginTop: '0.14em' }}
+          {/* SOUS-TITRE (Agrandit + Couleur Grise) */}
+          <span
+            className="font-medium text-gray-500 whitespace-nowrap tracking-tight"
+            style={{ fontSize: '0.32em', lineHeight: 1.1 }}
           >
-            {['Solution', 'Métier', 'CHR', '&', 'Rétail'].map((w) => (
-              <span key={w}>{w}</span>
-            ))}
-          </div>
+            Solution Métier CHR &amp; Rétail
+          </span>
         </div>
       )}
     </div>
