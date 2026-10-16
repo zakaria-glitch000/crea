@@ -5,7 +5,7 @@ import eventImage from '@/assets/event.jpeg';
 import reportImage from '@/assets/report.jpeg';
 import gmsImage from '@/assets/GMS.jpeg';
 import devImage from '@/assets/dev.jpg';
-
+import { Link } from "react-router-dom";
 import {
   Cpu,
   Smartphone,
@@ -616,90 +616,7 @@ const goToContact = () => {
         </div>
       </section>
 
-      {/* =====================================================
-          CONTACT
-      ===================================================== */}
-      <section
-        id="contact"
-        className="scroll-mt-24 bg-slate-50 py-20 sm:py-24"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12">
-
-            {/* Informations de contact */}
-            <div className="space-y-6 lg:col-span-5">
-              <div>
-                <span className="inline-flex rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-xs font-bold uppercase tracking-wider text-blue-700">
-                  Contactez-nous
-                </span>
-
-                <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-                  Parlons de{' '}
-                  <span className="text-blue-600">votre projet</span>
-                </h2>
-
-                <div className="my-4 h-1 w-14 rounded-full bg-orange-500" />
-
-                <p className="text-sm leading-7 text-slate-600">
-                  Un besoin spécifique ? Une idée de projet ?
-                  Notre équipe est à votre écoute pour vous proposer
-                  une solution adaptée à votre entreprise.
-                </p>
-              </div>
-
-              <a
-                href="tel:+212522000000"
-                className="flex items-center gap-4 rounded-xl border border-slate-200/80 bg-white p-4 shadow-sm transition-all hover:border-blue-300 hover:shadow-md"
-              >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white">
-                  <PhoneCall className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="text-xs font-semibold text-slate-400">
-                    Nous contacter par téléphone
-                  </div>
-                  <div className="mt-1 text-sm font-bold text-slate-800">
-                    +212 522 00 00 00
-                  </div>
-                </div>
-              </a>
-
-              <a
-                href="mailto:contact@oralisystems.com"
-                className="flex items-center gap-4 rounded-xl border border-slate-200/80 bg-white p-4 shadow-sm transition-all hover:border-blue-300 hover:shadow-md"
-              >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white">
-                  <Mail className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="text-xs font-semibold text-slate-400">
-                    Nous écrire par email
-                  </div>
-                  <div className="mt-1 text-sm font-bold text-slate-800">
-                    contact@oralisystems.com
-                  </div>
-                </div>
-              </a>
-
-
-<a
-  href="/#contact"
-  className="flex items-center gap-4 rounded-xl border border-slate-200/80 bg-white p-4 shadow-sm transition-all hover:border-blue-300 hover:shadow-md"
->
-  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white">
-    <Calendar className="h-5 w-5" />
-  </div>
-  <div>
-    <div className="text-xs font-semibold text-slate-400">
-      Demander une démo gratuite
-    </div>
-    <div className="mt-1 text-sm font-bold text-slate-800">
-      Présentation en ligne ou sur site
-    </div>
-  </div>
-</a>
-
-            </div>
+    
 
             {/* Bloc complémentaire */}
             <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-7 shadow-sm sm:p-10 lg:col-span-7">
@@ -743,19 +660,10 @@ const goToContact = () => {
                   </div>
                 </div>
 
-                <a
-                  href="mailto:contact@oralisystems.com?subject=Parlons%20de%20votre%20projet"
-                  className="group mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-all hover:-translate-y-0.5 hover:bg-blue-700"
-                >
-                  Nous contacter
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </a>
+          
               </div>
-            </div>
+              </div>
 
-          </div>
-        </div>
-      </section>
     </main>
   );
 }

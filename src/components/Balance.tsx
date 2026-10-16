@@ -16,7 +16,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import "./Balance.css";
-
+import { Link } from "react-router-dom";
 import logoImage from "@/assets/70.jpeg";
 import heroImage from "@/assets/70.jpeg";
 import integratedImage from "@/assets/71.jpeg";
@@ -185,13 +185,13 @@ export default function OraliPage() {
 
             {/* Boutons */}
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <a
-                href="#devis"
-                className="group inline-flex items-center justify-center gap-3 rounded-xl bg-orange-500 px-7 py-4 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-600 hover:shadow-xl"
-              >
-                Demander un devis
-                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-              </a>
+      <Link
+  to="/#contact"
+  className="group inline-flex items-center justify-center gap-3 rounded-xl bg-orange-500 px-7 py-4 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-600 hover:shadow-xl"
+>
+  Demander un devis
+  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+</Link>
 
               <a
                 href="#avantages"
@@ -276,9 +276,13 @@ export default function OraliPage() {
             ventes.
           </p>
 
-          <a href="#devis" className="btn">
-            Demander un devis <ArrowRight size={20} />
-          </a>
+<Link
+  to="/#contact"
+  className="group inline-flex items-center justify-center gap-3 rounded-xl bg-orange-500 px-7 py-4 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-600 hover:shadow-xl"
+>
+  Demander un devis
+  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+</Link>
         </div>
 
         <div className="integrated__visual">

@@ -25,6 +25,7 @@ import t5 from "@/assets/t5.jpeg";
 import t6 from "@/assets/t6.jpeg";
 import heroImage from "@/assets/e1.jpeg";
 import monitorImage from "@/assets/e0.png";
+import { Link } from "react-router-dom";
 const benefits = [
   { icon: Zap, color: "#f26a1b", bg: "#fde6d7", title: "Mise à jour automatique", text: "Les prix et informations sont mis à jour directement depuis INNOSHOP en quelques clics." },
   { icon: Target, color: "#1e6fe0", bg: "#dce9fc", title: "Zéro erreur", text: "Fini les étiquettes papier et les erreurs de prix en rayon." },
@@ -121,9 +122,13 @@ export default function Etiquettes() {
               électroniques. Vous gardez un contrôle total et en temps réel
               depuis votre logiciel INNOSHOP.
             </p>
-            <a className="etq-btn" href="#devis">
-              Demander un devis <ArrowRight />
-            </a>
+       <Link
+  to="/#contact"
+  className="group inline-flex items-center justify-center gap-3 rounded-xl bg-orange-500 px-7 py-4 text-sm font-bold text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:-translate-y-1 hover:bg-orange-600 hover:shadow-xl"
+>
+  Demander un devis
+  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+</Link>
           </div>
 
           <div className="etq-sync__visual">
