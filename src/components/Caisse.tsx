@@ -91,15 +91,15 @@ const products: Product[] = [
     ],
   },
   {
-    name: 'CSI MINI',
+    name: ' CSI LAW C',
     tagline: 'Compacte et efficace',
     description:
       'Une caisse tactile tout-en-un, parfaite pour les petits espaces et les activités à taille humaine.',
     images: [
-      { src: pcImage, alt: 'Caisse enregistreuse CSI MINI', label: 'Caisse' },
+      { src: pcImage, alt: 'Caisse enregistreuse  CSI LAW C', label: 'Caisse' },
       {
         src: csiMiniDoubleImage,
-        alt: 'Caisse CSI MINI avec double écran',
+        alt: 'Caisse  CSI LAW C avec double écran',
         label: 'Double Écran',
       },
     ],
