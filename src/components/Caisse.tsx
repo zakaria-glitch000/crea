@@ -9,9 +9,10 @@ import { Link } from 'react-router-dom';
 
 import pcImage from '@/assets/pc.jpeg';
 import caisseImage from '@/assets/00.png';
-/* 👉 Mets ici la 2e image (celle avec les périphériques) dans /assets
-   et adapte le nom du fichier si besoin */
 import caissePeripheriquesImage from '@/assets/tf15.jpeg';
+
+/* 👉 Importation de la nouvelle image pour CSI MINI */
+import csiMiniDoubleImage from '@/assets/WhatsApp Image 2026-10-16 at 14.06.39.jpeg';
 
 type FeatureProps = {
   icon: React.ReactNode;
@@ -94,12 +95,31 @@ const products: Product[] = [
     tagline: 'Compacte et efficace',
     description:
       'Une caisse tactile tout-en-un, parfaite pour les petits espaces et les activités à taille humaine.',
-    images: [{ src: pcImage, alt: 'Caisse enregistreuse CSI MINI', label: 'Caisse' }],
+    images: [
+      { src: pcImage, alt: 'Caisse enregistreuse CSI MINI', label: 'Caisse' },
+      {
+        src: csiMiniDoubleImage,
+        alt: 'Caisse CSI MINI avec double écran',
+        label: 'Double Écran',
+      },
+    ],
     specs: [
       { icon: <Tv className="h-5 w-5" />, label: 'Écran tactile 12"' },
       { icon: <Maximize className="h-5 w-5" />, label: 'Design compact' },
       { icon: <ShieldCheck className="h-5 w-5" />, label: 'Robuste et fiable' },
       { icon: <Wrench className="h-5 w-5" />, label: 'Installation rapide' },
+    ],
+    extras: [
+      {
+        icon: <KeyRound className="h-5 w-5" />,
+        title: 'Lecteur de clef Dallas',
+        description: 'Identification rapide et sécurisée du personnel',
+      },
+      {
+        icon: <Monitor className="h-5 w-5" />,
+        title: 'Écran client / Afficheur',
+        description: 'Double écran pour affichage des prix et offres',
+      },
     ],
   },
 ];
@@ -180,11 +200,10 @@ export default function OraliPage() {
           </div>
         </section>
 
-        {/* ACCOMPAGNEMENT (CARTE D'ACCOMPAGNEMENT DÉDIÉE) */}
+        {/* ACCOMPAGNEMENT */}
         <section>
           <div className="overflow-hidden rounded-3xl bg-[#f1f6ff] shadow-lg shadow-slate-200/50 border border-slate-200/80">
             <div className="grid lg:grid-cols-[2fr_3fr]">
-              {/* Image khawya - Placeholder */}
               <div className="relative min-h-[260px] bg-slate-200/70 lg:min-h-full">
                 <img
                   src=""
@@ -193,7 +212,6 @@ export default function OraliPage() {
                 />
               </div>
 
-              {/* Textes & Périphériques */}
               <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
                 <span className="text-[12px] font-extrabold uppercase tracking-[0.16em] text-slate-500">
                   NOTRE ACCOMPAGNEMENT
@@ -208,7 +226,6 @@ export default function OraliPage() {
                 </p>
 
                 <div className="mt-6 flex flex-wrap items-center justify-between gap-6">
-                  {/* Grid 4 icônes */}
                   <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                     <div className="flex flex-col items-center rounded-2xl bg-white p-3 text-center shadow-sm border border-slate-100">
                       <Wrench className="h-6 w-6 text-[#f26522]" strokeWidth={2} />
@@ -239,7 +256,6 @@ export default function OraliPage() {
                     </div>
                   </div>
 
-                  {/* Bouton */}
                   <Link
                     to="/#contact"
                     className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#f26522] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-950/20 transition duration-200 hover:-translate-y-0.5 hover:bg-[#d95316]"
@@ -263,8 +279,6 @@ export default function OraliPage() {
           </div>
         </section>
 
-        {/* CTA */}
-       
       </main>
     </div>
   );
