@@ -103,7 +103,12 @@ export default function OraliReporting() {
 
         <div className="grid grid-cols-12 gap-4 mt-6">
           <div className="col-span-5">
-            <p className="text-[22px] tracking-wide" style={{ color: ORANGE }}>REPORTING CSI</p>
+            <p
+  className="text-[36px] font-bold tracking-wide"
+  style={{ color: ORANGE }}
+>
+  REPORTING
+</p>
             <h1 className="text-[34px] leading-[1.1] mt-1" style={{ color: NAVY }}>
               <b className="font-extrabold">Toutes les informations de votre activité</b>
               <br /><span className="font-light">au même endroit</span>
@@ -279,7 +284,7 @@ export default function OraliReporting() {
             <div className="w-10 h-10 rounded-lg flex items-center justify-center text-white shrink-0" style={{ background: ORANGE }}><ShieldCheck /></div>
             <div>
               <div className="text-[11px] font-semibold" style={{ color: ORANGE }}>SOLUTION SÉCURISÉE</div>
-              <div className="text-[13px] font-bold leading-tight" style={{ color: NAVY }}>Sans cloud et sans abonnement</div>
+              <div className="text-[13px] font-bold leading-tight" style={{ color: NAVY }}>pour le suivi des vos chiffres</div>
             </div>
           </div>
           <ul className="mt-3 space-y-1.5 text-[11px] text-slate-600">

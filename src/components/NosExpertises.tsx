@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 
 import caisseImg from '../assets/caisse.jpg';
@@ -107,59 +108,58 @@ export default function NosExpertises() {
         </p>
       </div>
 
-      {/* CARTES */}
+      {/* CARTES CLIQUABLES */}
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {expertises.map((item) => (
-          <article
+          <Link
             key={item.title}
-            className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white text-left shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60"
+            to={item.linkUrl}
+            aria-label={`Découvrir ${item.title}`}
+            className="group block h-full rounded-2xl focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-blue-500"
           >
-            {/* LIGNE BLEUE ANIMÉE */}
-            <div
-              className="pointer-events-none absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-300 group-hover:scale-y-100"
-              aria-hidden="true"
-            />
-
-            {/* IMAGE */}
-            <div className="relative h-48 w-full overflow-hidden bg-slate-100">
-              <img
-                src={item.image}
-                alt={item.title}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-              />
-
+            <article className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white text-left shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60">
+              {/* LIGNE BLEUE ANIMÉE */}
               <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-40"
+                className="pointer-events-none absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-300 group-hover:scale-y-100"
                 aria-hidden="true"
               />
-            </div>
 
-            {/* CONTENU */}
-            <div className="relative flex flex-1 flex-col px-6 pb-5 pt-6">
-              {/* ICÔNE */}
-              <div
-                className={`absolute -top-5 left-6 flex h-10 w-10 items-center justify-center rounded-full border-2 border-white ${item.iconBg} shadow-lg transition-transform duration-300 group-hover:scale-110`}
-              >
-                {item.iconSvg}
+              {/* IMAGE */}
+              <div className="relative h-48 w-full overflow-hidden bg-slate-100">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+
+                <div
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-40"
+                  aria-hidden="true"
+                />
               </div>
 
-              <h3 className="mb-2 text-xl font-bold leading-snug text-gray-900 transition-colors duration-300 group-hover:text-blue-700">
-                {item.title}
-              </h3>
+              {/* CONTENU */}
+              <div className="relative flex flex-1 flex-col px-6 pb-5 pt-6">
+                {/* ICÔNE */}
+                <div
+                  className={`absolute -top-5 left-6 flex h-10 w-10 items-center justify-center rounded-full border-2 border-white ${item.iconBg} shadow-lg transition-transform duration-300 group-hover:scale-110`}
+                  aria-hidden="true"
+                >
+                  {item.iconSvg}
+                </div>
 
-              <p className="mb-4 flex-1 text-sm leading-6 text-gray-600">
-                {item.description}
-              </p>
+                <h3 className="mb-2 text-xl font-bold leading-snug text-gray-900 transition-colors duration-300 group-hover:text-blue-700">
+                  {item.title}
+                </h3>
 
-              {/* LIEN */}
-              <div className="mt-auto border-t border-slate-100 pt-3">
-                {item.linkUrl === '/solutions-restauration' ? (
-                  <Link
-                    to={item.linkUrl}
-                    aria-label={`Découvrir ${item.title}`}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition-colors duration-300 hover:text-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600"
-                  >
+                <p className="mb-4 flex-1 text-sm leading-6 text-gray-600">
+                  {item.description}
+                </p>
+
+                {/* BOUTON VISUEL */}
+                <div className="mt-auto border-t border-slate-100 pt-3">
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition-colors duration-300 group-hover:text-blue-800">
                     En savoir plus
                     <span
                       className="inline-block transition-transform duration-300 group-hover:translate-x-1"
@@ -167,37 +167,11 @@ export default function NosExpertises() {
                     >
                       →
                     </span>
-                  </Link>
-                ) : (
-                  <a
-                    href={item.linkUrl}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition-colors duration-300 hover:text-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600"
-                  >
-                    En savoir plus
-                    <span
-                      className="inline-block transition-transform duration-300 group-hover:translate-x-1"
-                      aria-hidden="true"
-                    >
-                      →
-                    </span>
-                  </a>
-                )}
+                  </span>
+                </div>
               </div>
-            </div>
-
-            {/* CARTE ENTIÈREMENT CLIQUABLE POUR LA RESTAURATION */}
-            {item.linkUrl === '/solutions-restauration' && (
-              <Link
-                to={item.linkUrl}
-                aria-label={`Voir la page ${item.title}`}
-                className="absolute inset-0 z-10 rounded-2xl focus-visible:outline focus-visible:outline-4 focus-visible:outline-blue-500"
-              >
-                <span className="sr-only">
-                  Découvrir {item.title}
-                </span>
-              </Link>
-            )}
-          </article>
+            </article>
+          </Link>
         ))}
       </div>
     </section>

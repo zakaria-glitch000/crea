@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight, Send } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { NAV_LINKS } from '@/data/content';
 import { Logo } from './ui/Logo';
@@ -159,21 +159,28 @@ export function Header() {
             ))}
           </nav>
 
-          {/* DESKTOP CTA */}
-          <div className="hidden lg:block">
-            <a
-              href="#contact"
-              onClick={(event) => {
-                event.preventDefault();
-                handleNavigation('#contact');
-              }}
-              className="group inline-flex items-center gap-2 rounded-xl bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-brand-400 hover:shadow-lg hover:shadow-brand-500/30"
-            >
-              Demander une démo
+         
+{/* DESKTOP CTA */}
+<div className="hidden lg:block">
+  <a
+    href="#contact"
+    onClick={(event) => {
+      event.preventDefault();
+      handleNavigation('#contact');
+    }}
+    className="group/button relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-sky-500 to-blue-700 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-600/30 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
+  >
+    {/* Animation lumineuse */}
+    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover/button:translate-x-full" />
 
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
-          </div>
+    <span className="relative z-10">
+      Demander une démo
+    </span>
+
+    <Send className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
+  </a>
+</div>
+
 
           {/* MOBILE BUTTON */}
           <button
@@ -247,21 +254,27 @@ export function Header() {
                 ))}
               </nav>
 
-              {/* MOBILE CTA */}
-              <div className="border-t border-slate-200 p-4">
-                <a
-                  href="#contact"
-                  onClick={(event) => {
-                    event.preventDefault();
-                    handleNavigation('#contact');
-                  }}
-                  className="flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-5 py-3.5 text-base font-semibold text-white"
-                >
-                  Demander une démo
+             
+{/* MOBILE CTA */}
+<div className="border-t border-slate-200 p-4">
+  <a
+    href="#contact"
+    onClick={(event) => {
+      event.preventDefault();
+      handleNavigation('#contact');
+    }}
+    className="group/button relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-sky-500 to-blue-700 px-5 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:shadow-xl hover:shadow-blue-600/30 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
+  >
+    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover/button:translate-x-full" />
 
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
+    <span className="relative z-10">
+      Demander une démo
+    </span>
+
+    <Send className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
+  </a>
+</div>
+
             </motion.div>
           </>
         )}

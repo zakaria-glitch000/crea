@@ -7,7 +7,6 @@ import {
   Clock,
   Send,
   CheckCircle2,
-  ArrowRight,
   AlertCircle,
   Loader2,
 } from 'lucide-react';
@@ -72,7 +71,6 @@ export function Contact() {
     } catch (err: unknown) {
       console.error('Erreur EmailJS détaillée :', err);
       
-      // Extraction du message d'erreur exact envoyé par EmailJS
       let errorMsg = "Une erreur est survenue lors de l'envoi.";
       if (typeof err === 'object' && err !== null) {
         const e = err as Record<string, unknown>;
@@ -174,7 +172,7 @@ export function Contact() {
 
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <Field
-                        label="Nom"
+                        label="Nom & prénom :"
                         name="name"
                         type="text"
                         placeholder=""
@@ -182,7 +180,7 @@ export function Contact() {
                       />
 
                       <Field
-                        label="Entreprise"
+                        label="Entreprise :"
                         name="company"
                         type="text"
                         placeholder=""
@@ -191,7 +189,7 @@ export function Contact() {
 
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <Field
-                        label="Email"
+                        label="Email :"
                         name="email"
                         type="email"
                         placeholder=""
@@ -199,10 +197,11 @@ export function Contact() {
                       />
 
                       <Field
-                        label="Téléphone"
+                        label="Téléphone :"
                         name="phone"
                         type="tel"
                         placeholder=""
+                        required
                       />
                     </div>
 
@@ -212,7 +211,7 @@ export function Contact() {
                         htmlFor="contact-message"
                         className="mb-1.5 block text-sm font-medium text-slate-700"
                       >
-                        Message
+                        Message :
                         <span className="ml-1 text-blue-600">*</span>
                       </label>
 
@@ -266,10 +265,9 @@ export function Contact() {
             </div>
           </Reveal>
 
-          {/* Contact details and map */}
+          {/* Contact details */}
           <Reveal delay={0.2}>
             <div className="space-y-4">
-              {/* Contact information */}
               <div className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:border-sky-200 hover:shadow-lg hover:shadow-blue-900/5">
                 <div className="absolute left-0 top-0 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-300 group-hover:scale-y-100" />
 
@@ -305,90 +303,6 @@ export function Contact() {
                     label="Horaires"
                     value={COMPANY.hours}
                   />
-                </div>
-              </div>
-
-              {/* Map-style location card */}
-              <div className="group relative aspect-square overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:border-sky-200 hover:shadow-xl hover:shadow-blue-900/5 sm:aspect-[4/3] lg:aspect-square">
-                <div className="pointer-events-none absolute inset-0 bg-slate-50" />
-                <div className="pointer-events-none absolute inset-0 grid-bg-fine opacity-60" />
-
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(14,165,233,0.12),transparent_65%)]" />
-
-                {/* Decorative roads */}
-                <svg
-                  className="absolute inset-0 h-full w-full"
-                  viewBox="0 0 360 360"
-                  preserveAspectRatio="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M-20 95 L380 250"
-                    fill="none"
-                    stroke="white"
-                    strokeWidth="18"
-                  />
-                  <path
-                    d="M-20 95 L380 250"
-                    fill="none"
-                    stroke="#e2e8f0"
-                    strokeWidth="2"
-                  />
-                  <path
-                    d="M80 -20 L230 380"
-                    fill="none"
-                    stroke="white"
-                    strokeWidth="15"
-                  />
-                  <path
-                    d="M80 -20 L230 380"
-                    fill="none"
-                    stroke="#e2e8f0"
-                    strokeWidth="2"
-                  />
-                  <path
-                    d="M300 -20 L115 380"
-                    fill="none"
-                    stroke="white"
-                    strokeWidth="12"
-                  />
-                  <path
-                    d="M300 -20 L115 380"
-                    fill="none"
-                    stroke="#e2e8f0"
-                    strokeWidth="2"
-                  />
-                </svg>
-
-                {/* Location pin */}
-                <div className="absolute left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2">
-                  <div className="relative flex h-14 w-14 items-center justify-center">
-                    <div className="absolute inset-0 animate-ping rounded-full bg-sky-400/20" />
-
-                    <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 to-blue-700 shadow-xl shadow-blue-600/30 transition-transform duration-300 group-hover:scale-110">
-                      <MapPin className="h-6 w-6 text-white" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Address label */}
-                <div className="absolute inset-x-3 bottom-3 rounded-xl border border-slate-200/80 bg-white/95 p-3.5 shadow-lg backdrop-blur-md">
-                  <div className="flex items-start gap-3">
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-sky-50">
-                      <MapPin className="h-4 w-4 text-blue-600" />
-                    </div>
-
-                    <div className="min-w-0 flex-1">
-                      <p className="text-xs font-semibold text-slate-900">
-                        ORALI SYSTEMS
-                      </p>
-                      <p className="mt-0.5 break-words text-xs leading-4 text-slate-500">
-                        {COMPANY.address}
-                      </p>
-                    </div>
-
-                    <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-slate-400 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-blue-600" />
-                  </div>
                 </div>
               </div>
             </div>

@@ -129,7 +129,7 @@ const CARDS = [
     title: 'Reporting CSI',
     subtitle: 'Analysez vos performances en temps réel.',
     image: REPORTING_IMAGE,
-    link: '/Gms', // <-- Zid l-link hna
+    link: '/Report', // <-- Zid l-link hna
     items: [
       'Tableaux de bord complets',
       'Suivi des ventes par période',
@@ -142,7 +142,7 @@ const CARDS = [
     title: 'GMS / ERP CSI',
     subtitle: 'Gestion centralisée de vos établissements.',
     image: ERP_IMAGE,
-    link: '/Report', // <-- Zid l-link hna
+    link: '/Gms', // <-- Zid l-link hna
     items: [
       'Gestion des purchases et fournisseurs',
       'Suivi des stocks en temps réel',

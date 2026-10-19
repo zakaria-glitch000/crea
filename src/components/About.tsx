@@ -83,7 +83,7 @@ export function About() {
               </h2>
 
               <p className="mt-4 text-base leading-7 text-slate-500 sm:text-lg">
-                ORALI SYSTEMS est une entreprise spécialisée dans les
+                ORALI SYSTEMS est une marque d'artis consulting spécialisée dans les
                 solutions informatiques et logicielles pour les
                 professionnels. Depuis plus de dix ans, nous accompagnons des
                 entreprises de toutes tailles dans leur transformation

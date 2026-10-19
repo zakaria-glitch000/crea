@@ -377,39 +377,45 @@ const GmsCsiPage = () => {
       <section className="py-12 bg-gradient-to-r from-blue-50/80 via-indigo-50/50 to-blue-50/80 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-            {/* Accessible partout */}
-            <div className="text-center">
-              <p className="font-bold text-gray-800 mb-4 text-base">Accessible partout</p>
-              <div className="flex justify-center gap-6">
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center text-2xl border border-gray-100">💻</div>
-                  <span className="text-xs mt-1 text-gray-600 font-medium">Ordinateur</span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center text-2xl border border-gray-100">📱</div>
-                  <span className="text-xs mt-1 text-gray-600 font-medium">Tablette</span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center text-2xl border border-gray-100">📲</div>
-                  <span className="text-xs mt-1 text-gray-600 font-medium">Mobile</span>
-                </div>
-              </div>
-            </div>
+{/* Accessible partout */}
+<div className="text-center">
+  <p className="font-bold text-gray-800 mb-5 text-xl">
+    Accessible partout
+  </p>
+
+  <div className="flex justify-center gap-8">
+    <div className="flex flex-col items-center">
+      <div className="w-16 h-16 bg-white rounded-2xl shadow-md flex items-center justify-center text-3xl border border-gray-100">
+        💻
+      </div>
+      <span className="text-sm mt-2 text-gray-600 font-semibold">
+        Ordinateur
+      </span>
+    </div>
+
+    <div className="flex flex-col items-center">
+      <div className="w-16 h-16 bg-white rounded-2xl shadow-md flex items-center justify-center text-3xl border border-gray-100">
+        📱
+      </div>
+      <span className="text-sm mt-2 text-gray-600 font-semibold">
+        Tablette
+      </span>
+    </div>
+
+    <div className="flex flex-col items-center">
+      <div className="w-16 h-16 bg-white rounded-2xl shadow-md flex items-center justify-center text-3xl border border-gray-100">
+        📲
+      </div>
+      <span className="text-sm mt-2 text-gray-600 font-semibold">
+        Mobile
+      </span>
+    </div>
+  </div>
+</div>
 
             {/* Sans cloud */}
             <div className="text-center">
-              <div className="flex justify-center mb-3">
-                <div className="w-14 h-14 bg-white rounded-full shadow-md flex items-center justify-center text-3xl relative border border-gray-100">
-                  ☁️
-                  <span className="absolute -top-1 -right-1 bg-white rounded-full px-1 text-red-600 text-base font-black shadow">✕</span>
-                </div>
-              </div>
-              <p className="font-bold text-gray-900 text-base">Une solution sans cloud<br />et sans abonnement</p>
-              <ul className="mt-2 text-xs md:text-sm text-gray-600 space-y-1 list-disc list-inside">
-                <li>Vos données restent sur votre serveur</li>
-                <li>Aucun abonnement mensuel</li>
-                <li>Une solution performante et fiable</li>
-              </ul>
+             
             </div>
 
             {/* CTA */}

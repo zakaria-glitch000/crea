@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
@@ -71,11 +72,11 @@ export default function ProductsSection() {
       id="Produit"
       className="scroll-mt-24 relative overflow-hidden bg-white px-4 py-8 sm:px-6 lg:py-12"
     >
-      {/* Décoration de fond */}
+      {/* DÉCORATION DE FOND */}
       <div className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-blue-100/40 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl">
-        {/* En-tête */}
+        {/* EN-TÊTE */}
         <div className="mb-8 text-center">
           <span className="mb-3 inline-flex rounded-full border border-blue-100 bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-blue-600 shadow-sm">
             Nos produits
@@ -94,60 +95,70 @@ export default function ProductsSection() {
           </p>
         </div>
 
-        {/* Cartes produits */}
+        {/* CARTES PRODUITS — ENTIÈREMENT CLIQUABLES */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {products.map((product, index) => (
-            <motion.article
+            <motion.div
               key={product.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60"
+              className="h-full"
             >
-              {/* Ligne décorative au survol */}
-              <div className="absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-300 group-hover:scale-y-100" />
+              <Link
+                to={product.link}
+                aria-label={`Découvrir ${product.title}`}
+                className="group block h-full rounded-2xl focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-blue-500"
+              >
+                <article className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60">
+                  {/* LIGNE DÉCORATIVE */}
+                  <div
+                    className="pointer-events-none absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-300 group-hover:scale-y-100"
+                    aria-hidden="true"
+                  />
 
-              {/* Image du produit */}
-              <div className="relative mb-3 flex h-36 items-center justify-center overflow-hidden rounded-xl border border-slate-100 bg-slate-50 p-2">
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  loading="lazy"
-                  className="h-full w-full object-contain transition-transform duration-500 ease-out group-hover:scale-105"
-                />
+                  {/* IMAGE */}
+                  <div className="relative mb-3 flex h-36 items-center justify-center overflow-hidden rounded-xl border border-slate-100 bg-slate-50 p-2">
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      loading="lazy"
+                      className="h-full w-full object-contain transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
 
-                {/* Halo discret */}
-                <div className="pointer-events-none absolute -bottom-10 -right-10 h-24 w-24 rounded-full bg-blue-100/70 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
-              </div>
+                    {/* HALO */}
+                    <div
+                      className="pointer-events-none absolute -bottom-10 -right-10 h-24 w-24 rounded-full bg-blue-100/70 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
+                      aria-hidden="true"
+                    />
+                  </div>
 
-              {/* Informations et bouton */}
-              <div className="flex flex-1 flex-col">
-                <h3 className="mb-1.5 text-sm font-bold leading-5 text-slate-900 transition-colors duration-300 group-hover:text-blue-700">
-                  {product.title}
-                </h3>
+                  {/* INFORMATIONS */}
+                  <div className="flex flex-1 flex-col">
+                    <h3 className="mb-1.5 text-sm font-bold leading-5 text-slate-900 transition-colors duration-300 group-hover:text-blue-700">
+                      {product.title}
+                    </h3>
 
-                <p className="flex-1 text-xs leading-5 text-slate-500">
-                  {product.description}
-                </p>
+                    <p className="flex-1 text-xs leading-5 text-slate-500">
+                      {product.description}
+                    </p>
 
-                {/* Bouton vers la page spécifique du produit */}
-                <Link
-                  to={product.link}
-                  aria-label={`En savoir plus sur ${product.title}`}
-                  className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                >
-                  Savoir plus
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
+                    {/* BOUTON VISUEL */}
+                    <div className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-300 group-hover:-translate-y-0.5 group-hover:bg-blue-700 group-hover:shadow-lg group-hover:shadow-blue-600/20">
+                      Savoir plus
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </div>
 
-                <div className="mt-3 h-px w-full bg-slate-100 transition-colors duration-300 group-hover:bg-blue-100" />
-              </div>
-            </motion.article>
+                    <div className="mt-3 h-px w-full bg-slate-100 transition-colors duration-300 group-hover:bg-blue-100" />
+                  </div>
+                </article>
+              </Link>
+            </motion.div>
           ))}
         </div>
 
-        {/* Certification NF525 */}
+        {/* CERTIFICATION NF525 */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -155,16 +166,19 @@ export default function ProductsSection() {
           transition={{ duration: 0.6 }}
           className="group/nf relative mt-10 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg shadow-slate-200/40 transition-all duration-300 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60 md:mt-12"
         >
-          {/* Ligne décorative */}
-          <div className="absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-500 group-hover/nf:scale-y-100" />
+          {/* LIGNE DÉCORATIVE */}
+          <div
+            className="absolute left-0 top-0 z-20 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-sky-400 to-blue-600 transition-transform duration-500 group-hover/nf:scale-y-100"
+            aria-hidden="true"
+          />
 
-          {/* Décorations de fond */}
+          {/* DÉCORATIONS DE FOND */}
           <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-rose-500/[0.06] blur-3xl transition-opacity duration-500 group-hover/nf:bg-rose-500/[0.10]" />
 
           <div className="pointer-events-none absolute -bottom-24 -left-20 h-64 w-64 rounded-full bg-blue-500/[0.06] blur-3xl" />
 
           <div className="relative grid grid-cols-1 items-center gap-6 p-6 sm:p-8 lg:grid-cols-[220px_1fr] lg:gap-10 lg:p-8">
-            {/* Logo NF525 */}
+            {/* LOGO NF525 */}
             <div className="flex justify-center">
               <div className="flex h-36 w-48 items-center justify-center rounded-2xl border border-slate-100 bg-slate-50 p-4 shadow-sm transition-all duration-300 group-hover/nf:scale-[1.03] group-hover/nf:border-blue-100 group-hover/nf:shadow-md">
                 <img
@@ -176,7 +190,7 @@ export default function ProductsSection() {
               </div>
             </div>
 
-            {/* Texte certification */}
+            {/* TEXTE CERTIFICATION */}
             <div className="space-y-4 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-700 transition-colors duration-300 group-hover/nf:border-blue-100 group-hover/nf:bg-blue-50">
                 <ShieldCheck className="h-4 w-4 text-blue-600" />
