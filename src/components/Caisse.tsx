@@ -98,7 +98,7 @@ const products: Product[] = [
     ],
   },
   {
-    name: ' CSI LAW',
+    name: ' CSI LAW 12',
     tagline: 'Compacte et efficace',
     description:
       'Une caisse tactile tout-en-un, parfaite pour les petits espaces et les activités à taille humaine.',
