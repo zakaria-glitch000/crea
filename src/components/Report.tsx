@@ -3,7 +3,7 @@ import {
   BarChart3, Clock, Smartphone, ShieldCheck, AlertCircle, RotateCcw, Gift,
   CalendarDays, Star, CreditCard, Share2, Send, Laptop, Tablet, Check,
 } from "lucide-react";
-
+import crsImage from '@/assets/crs.png';
 const ORANGE = "#f26a14";
 const NAVY = "#0f1b4c";
 
@@ -253,22 +253,21 @@ export default function OraliReporting() {
 
       {/* ================= FOOTER BAND ================= */}
       <section className="grid grid-cols-12 gap-4 px-5 pt-2 pb-8 items-center">
-        <div className="col-span-5 relative rounded-r-3xl text-white flex items-center overflow-hidden min-h-[200px]" style={{ background: ORANGE }}>
-          <div className="w-[38%] p-3">
-            <div className="bg-white text-slate-700 rounded-2xl p-2 text-[8px] -rotate-6 shadow-xl leading-snug">
-              <div className="bg-green-500 text-white rounded-full w-7 h-7 flex items-center justify-center mb-1 font-bold">W</div>
-              <b>Rapport journalier</b><br />13/10/2026<br />CA : 5 630.50 DH<br />Annulations : 35.00 DH<br />Retours : -275.00 DH<br />Top article : Burger
-            </div>
-          </div>
-          <div className="flex-1 pr-4 py-4 flex gap-2">
-            <Send className="shrink-0 mt-1 opacity-90" size={30} />
-            <div>
-              <h3 className="font-bold text-[19px] leading-tight">Recevez vos rapports sur WhatsApp</h3>
-              <p className="text-[12px] mt-2 opacity-95 leading-snug">Recevez automatiquement vos rapports quotidiens ou horaires directement sur WhatsApp.</p>
-            </div>
-          </div>
-        </div>
-
+<div className="col-span-5 relative rounded-r-3xl text-white flex items-center overflow-hidden min-h-[220px]" style={{ background: ORANGE }}>
+  <div className="w-[45%] p-2 flex items-center justify-center">
+  <img 
+      src={crsImage} 
+      alt="WhatsApp Illustration" 
+      className="w-52 h-52 object-contain drop-shadow-2xl scale-110" 
+    />
+  </div>
+  <div className="flex-1 pr-6 py-4 flex items-center gap-3">
+    <div>
+      <h3 className="font-bold text-[19px] leading-tight">Recevez vos rapports sur WhatsApp</h3>
+      <p className="text-[12px] mt-2 opacity-95 leading-snug">Recevez automatiquement vos rapports quotidiens ou horaires directement sur WhatsApp.</p>
+    </div>
+  </div>
+</div>
         <div className="col-span-4 text-center">
           <p className="text-[14px] font-medium text-left" style={{ color: ORANGE }}>ACCESSIBLE PARTOUT</p>
           <h3 className="text-[22px] font-extrabold text-left mb-3" style={{ color: NAVY }}>Sur tous vos appareils</h3>
