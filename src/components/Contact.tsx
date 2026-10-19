@@ -14,9 +14,12 @@ import { COMPANY } from '@/data/content';
 import { Reveal, SectionTag } from './ui/Reveal';
 import emailjs from '@emailjs/browser';
 
-const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
-const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
-const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
+// ----------------------------------------------------
+// Hna ḥttina les clés direct bash n-fṭou mn l-mushkil dyal .env
+// ----------------------------------------------------
+const EMAILJS_SERVICE_ID = "service_uuzo66e";
+const EMAILJS_TEMPLATE_ID = "template_88w0rfc";
+const EMAILJS_PUBLIC_KEY = "aIIzUDmlrPleSTMJV";
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -32,13 +35,6 @@ export function Contact() {
 
     // Honeypot anti-spam : ce champ doit rester vide.
     if (String(data.get('botcheck') ?? '').trim() !== '') return;
-
-    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
-      setError(
-        "Les variables EmailJS ne sont pas chargées. Vérifiez le fichier .env.local puis redémarrez le serveur (npm run dev).",
-      );
-      return;
-    }
 
     const userName = String(data.get('name') ?? '').trim();
     const userEmail = String(data.get('email') ?? '').trim();
