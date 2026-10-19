@@ -188,18 +188,18 @@ export function Contact() {
                     </div>
 
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                      <Field
-                        label="Email :"
-                        name="email"
-                        type="email"
-                        placeholder=""
-                        required
-                      />
+                   
 
                       <Field
                         label="Téléphone :"
                         name="phone"
                         type="tel"
+                        placeholder=""
+                        required
+                      />   <Field
+                        label="Email :"
+                        name="email"
+                        type="email"
                         placeholder=""
                         required
                       />

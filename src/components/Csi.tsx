@@ -61,12 +61,12 @@ const SATELLITES = {
     image: kdsImage,
   },
   reporting: {
-    title: 'Reporting CSI',
+    title: 'Reporting',
     text: 'Suivez vos performances en temps réel',
     image: REPORTING_IMAGE,
   },
   erp: {
-    title: 'GMS / ERP CSI',
+    title: 'GMS-Back Office',
     text: 'Gestion centralisée de vos établissements',
     image: ERP_IMAGE,
   },
@@ -126,7 +126,7 @@ const CARDS = [
   },
   {
     number: '05',
-    title: 'Reporting CSI',
+    title: 'Reporting',
     subtitle: 'Analysez vos performances en temps réel.',
     image: REPORTING_IMAGE,
     link: '/Report', // <-- Zid l-link hna
@@ -139,7 +139,7 @@ const CARDS = [
   },
   {
     number: '06',
-    title: 'GMS / ERP CSI',
+    title: 'GMS-Back Office',
     subtitle: 'Gestion centralisée de vos établissements.',
     image: ERP_IMAGE,
     link: '/Gms', // <-- Zid l-link hna
@@ -527,7 +527,7 @@ function EcosystemDesktop() {
       </EcoLabel>
 
       <EcoLabel left={68.4} top={84.5}>
-        <EcoTitle>GMS / ERP CSI</EcoTitle>
+        <EcoTitle>GMS-Back Office</EcoTitle>
         <EcoSub>Gestion centralisée de vos points de vente</EcoSub>
       </EcoLabel>
     </div>
