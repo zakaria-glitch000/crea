@@ -59,8 +59,8 @@ const GmsCsiPage = () => {
           {/* Title */}
           <div className="text-center lg:text-left max-w-3xl mb-12">
             <h2 className="text-5xl md:text-6xl font-black tracking-tight">
-              <span className="text-blue-600">GMS</span>{' '}
-              <span className="text-blue-900">CSI</span>
+              <span className="text-blue-600">GMS -</span>{' '}
+              <span className="text-blue-900">Back Office</span>
             </h2>
             <p className="text-2xl md:text-3xl font-extrabold text-gray-900 mt-1 tracking-wide">
               ERP RESTAURATION
@@ -104,7 +104,7 @@ const GmsCsiPage = () => {
                 <svg className="w-5 h-5 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                 </svg>
-                Toutes les informations de vos caisses remontent automatiquement dans GMS CSI
+                Toutes les informations de vos caisses remontent automatiquement dans GMS-Back Office
               </div>
             </div>
           </div>
@@ -426,7 +426,7 @@ const GmsCsiPage = () => {
                 </svg>
                 <span className="text-left leading-tight">
                   Gérez votre restaurant en toute sérénité<br />
-                  <span className="text-blue-200 font-black">avec GMS CSI</span>
+                  <span className="text-blue-200 font-black">avec GMS-Back Office</span>
                 </span>
               </div>
             </div>
