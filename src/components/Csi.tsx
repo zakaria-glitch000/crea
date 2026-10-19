@@ -16,6 +16,7 @@ import {
   CheckCircle,
   Users,
 } from 'lucide-react';
+import { Link } from 'react-router-dom'; // Assurez-vous d'importer Link depuis react-router-dom
 
 import heroImage from '@/assets/res.webp';
 import caisseImage from '@/assets/00.png';
@@ -543,64 +544,62 @@ function NumberedCard({
   subtitle,
   image,
   items,
-  link, // <-- Recupérer l-link hna
+  link,
 }: (typeof CARDS)[number]) {
   return (
-    <motion.article
-      variants={fadeUp}
-      whileHover={{ y: -4 }}
-      className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-md shadow-blue-900/[0.05]"
-    >
-      <div className="flex items-start gap-3 p-4 pb-0">
-        <span className="flex h-11 w-9 shrink-0 items-center justify-center rounded-md bg-blue-600 text-xl font-black text-white">
-          {number}
-        </span>
+    <Link to={link || CONTACT_LINK} className="block h-full group">
+      <motion.article
+        variants={fadeUp}
+        whileHover={{ y: -6 }}
+        className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-md shadow-blue-900/[0.05] transition-shadow duration-300 group-hover:shadow-xl group-hover:border-blue-300"
+      >
+        <div className="flex items-start gap-3 p-4 pb-0">
+          <span className="flex h-11 w-9 shrink-0 items-center justify-center rounded-md bg-blue-600 text-xl font-black text-white">
+            {number}
+          </span>
 
-        <div>
-          <h3 className="text-xl font-extrabold leading-tight tracking-tight text-[#0b2a5b]">
-            {title}
-          </h3>
-          <p className="mt-0.5 text-sm leading-snug text-slate-600">
-            {subtitle}
-          </p>
+          <div>
+            <h3 className="text-xl font-extrabold leading-tight tracking-tight text-[#0b2a5b] transition-colors group-hover:text-blue-600">
+              {title}
+            </h3>
+            <p className="mt-0.5 text-sm leading-snug text-slate-600">
+              {subtitle}
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div className="relative flex h-52 items-center justify-center px-4 py-3">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-sky-50/60 to-white" />
-        <img
-          src={image}
-          alt={title}
-          loading="lazy"
-          decoding="async"
-          className="relative z-10 h-full w-full object-contain drop-shadow-lg"
-        />
-      </div>
+        <div className="relative flex h-52 items-center justify-center px-4 py-3">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-sky-50/60 to-white" />
+          <img
+            src={image}
+            alt={title}
+            loading="lazy"
+            decoding="async"
+            className="relative z-10 h-full w-full object-contain drop-shadow-lg transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
 
-      <ul className="space-y-1.5 px-5">
-        {items.map((item) => (
-          <li key={item} className="flex items-center gap-2.5">
-            <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white">
-              <Check className="h-2.5 w-2.5" strokeWidth={4} />
-            </span>
-            <span className="text-[13px] leading-5 text-slate-700">
-              {item}
-            </span>
-          </li>
-        ))}
-      </ul>
+        <ul className="space-y-1.5 px-5">
+          {items.map((item) => (
+            <li key={item} className="flex items-center gap-2.5">
+              <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white">
+                <Check className="h-2.5 w-2.5" strokeWidth={4} />
+              </span>
+              <span className="text-[13px] leading-5 text-slate-700">
+                {item}
+              </span>
+            </li>
+          ))}
+        </ul>
 
-      <div className="mt-auto p-5 pt-5">
-        {/* Usar link dyal card or CONTACT_LINK fallback */}
-        <a
-          href={link || CONTACT_LINK}
-          className="group inline-flex items-center gap-2 rounded-full bg-[#0b2a5b] px-5 py-2.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-700/25 focus:outline-none focus:ring-4 focus:ring-sky-200"
-        >
-          Découvrir la solution
-          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-        </a>
-      </div>
-    </motion.article>
+        <div className="mt-auto p-5 pt-5">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[#0b2a5b] px-5 py-2.5 text-sm font-bold text-white transition-all duration-300 group-hover:bg-blue-700 group-hover:shadow-lg group-hover:shadow-blue-700/25">
+            Découvrir la solution
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </div>
+        </div>
+      </motion.article>
+    </Link>
   );
 }
 /* =====================================================
