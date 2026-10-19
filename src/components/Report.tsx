@@ -288,7 +288,7 @@ export default function OraliReporting() {
             </div>
           </div>
           <ul className="mt-3 space-y-1.5 text-[11px] text-slate-600">
-            {["Vos données restent sur votre serveur", "Accès local ou à distance sécurisé", "Aucun abonnement", "Une solution performante et fiable"].map((t) => (
+            {["Vos données restent sur votre serveur", "Accès local ou à distance sécurisé", "Analyse & Statéstiques en temp réel", "Une solution performante et fiable"].map((t) => (
               <li key={t} className="flex gap-1.5"><Check size={14} className="shrink-0" style={{ color: ORANGE }} />{t}</li>
             ))}
           </ul>
