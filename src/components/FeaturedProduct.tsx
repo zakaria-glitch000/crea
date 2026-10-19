@@ -120,7 +120,7 @@ function ProductMockup() {
             </div>
 
             <span className="font-display text-xs font-semibold text-slate-900 sm:text-sm">
-              ORALI SYSTEMS POS
+              ORALI SYSTEMS
             </span>
           </div>
 

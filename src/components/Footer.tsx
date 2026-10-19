@@ -33,14 +33,14 @@ const OFFICES = [
     title: 'Siège Social Paris',
     name: 'ARTIS Consulting',
     address: ['48 RUE JULES FERRY 92250', 'LA GARENNE-COLOMBES'],
-    phone: '+33 7 82 05 40 70',
+    phone: null, // Numéro supprimé
     email: 'contact@artisconsulting.fr',
   },
   {
     title: 'Service Client Région de Lyon',
     name: null,
     address: null,
-    phone: '+33 6 30 21 87 57',
+    phone: '+33 6 30 21 87 57', // Numéro mis en avant
     email: 'sjalal@artisconsulting.fr',
   },
 ];
@@ -156,22 +156,28 @@ export function Footer() {
                       </div>
                     )}
 
-                    <div className="mt-3 space-y-1.5 border-t border-slate-900/10 pt-2.5">
-                      <a
-                        href={`tel:${office.phone.replace(/\s/g, '')}`}
-                        className="flex items-center gap-2.5 text-xs font-medium text-slate-900 transition-colors hover:text-white"
-                      >
-                        <Phone className="h-3.5 w-3.5 shrink-0 text-slate-800" />
-                        <span>{office.phone}</span>
-                      </a>
+                    <div className="mt-3 space-y-2 border-t border-slate-900/10 pt-2.5">
+                      {/* Téléphone (plus grand et mis en valeur) */}
+                      {office.phone && (
+                        <a
+                          href={`tel:${office.phone.replace(/\s/g, '')}`}
+                          className="flex items-center gap-2.5 text-sm font-bold text-slate-950 transition-colors hover:text-white"
+                        >
+                          <Phone className="h-4 w-4 shrink-0 text-slate-900" />
+                          <span>{office.phone}</span>
+                        </a>
+                      )}
 
-                      <a
-                        href={`mailto:${office.email}`}
-                        className="flex items-center gap-2.5 break-all text-xs font-medium text-slate-900 transition-colors hover:text-white"
-                      >
-                        <Mail className="h-3.5 w-3.5 shrink-0 text-slate-800" />
-                        <span>{office.email}</span>
-                      </a>
+                      {/* Email */}
+                      {office.email && (
+                        <a
+                          href={`mailto:${office.email}`}
+                          className="flex items-center gap-2.5 break-all text-xs font-medium text-slate-900 transition-colors hover:text-white"
+                        >
+                          <Mail className="h-3.5 w-3.5 shrink-0 text-slate-800" />
+                          <span>{office.email}</span>
+                        </a>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -193,9 +199,9 @@ export function Footer() {
                 className="mt-3 flex items-center gap-2"
               >
                 <div className="relative flex-1">
-             
+               
                 </div>
-        
+          
               </form>
             </div>
           </div>
