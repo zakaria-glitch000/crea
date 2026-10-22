@@ -1,4 +1,3 @@
-
 import {
   Linkedin,
   Twitter,
@@ -62,14 +61,12 @@ export function Footer() {
   const [pendingHash, setPendingHash] = useState<string | null>(null);
   const timeoutRef = useRef<number | null>(null);
 
+  // Navigation vers une section après le chargement de l'accueil
   useEffect(() => {
-    if (!pendingHash) return;
-
-    if (location.pathname !== '/') return;
+    if (!pendingHash || location.pathname !== '/') return;
 
     const hash = pendingHash;
 
-    // Attendre le rendu de la page d'accueil.
     timeoutRef.current = window.setTimeout(() => {
       const element = document.getElementById(hash);
 
@@ -100,7 +97,7 @@ export function Footer() {
 
     event.preventDefault();
 
-    const hash = href.substring(2);
+    const hash = decodeURIComponent(href.substring(2));
 
     if (timeoutRef.current !== null) {
       window.clearTimeout(timeoutRef.current);
@@ -115,12 +112,14 @@ export function Footer() {
           behavior: 'smooth',
           block: 'start',
         });
+
+        setPendingHash(null);
         return;
       }
     }
 
     setPendingHash(hash);
-    navigate(`/#${hash}`);
+    navigate(`/#${encodeURIComponent(hash)}`);
   };
 
   const navigationLinks: FooterLink[] = NAV_LINKS.map((link) => ({
@@ -134,8 +133,11 @@ export function Footer() {
     <footer className="relative isolate overflow-hidden border-t border-blue-300/60 bg-gradient-to-br from-sky-300 via-blue-400 to-indigo-500 text-slate-950">
       {/* Background effects */}
       <div className="pointer-events-none absolute inset-0 -z-10 grid-bg-fine opacity-20" />
+
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-tr from-white/30 via-transparent to-blue-700/20" />
+
       <div className="pointer-events-none absolute -right-24 -top-32 -z-10 h-96 w-96 rounded-full bg-white/25 blur-3xl" />
+
       <div className="pointer-events-none absolute -bottom-40 -left-20 -z-10 h-96 w-96 rounded-full bg-sky-200/30 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
@@ -184,18 +186,6 @@ export function Footer() {
                 </a>
               ))}
             </div>
-
-            {/* WhatsApp */}
-            <a
-              href="https://wa.me/33630218757"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Contacter notre service client sur WhatsApp"
-              title="Contactez-nous sur WhatsApp"
-              className="group flex h-11 w-11 items-center justify-center rounded-xl border-2 border-green-600/50 bg-green-500 text-white shadow-md shadow-green-700/20 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:border-green-700 hover:bg-green-600 hover:shadow-lg hover:shadow-green-700/30"
-            >
-              <FaWhatsapp className="h-7 w-7" aria-hidden="true" />
-            </a>
           </div>
 
           {/* Navigation */}
@@ -283,7 +273,7 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Newsletter */}
+            {/* Newsletter + WhatsApp */}
             <div>
               <h4 className="font-display text-sm font-bold uppercase tracking-wider text-slate-950">
                 Newsletter
@@ -292,6 +282,21 @@ export function Footer() {
               <p className="mt-2 text-xs leading-relaxed text-slate-900">
                 Recevez nos actualités et conseils technologiques.
               </p>
+
+              {/* WhatsApp juste sous Newsletter */}
+              <a
+                href="https://wa.me/33630218757"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Contacter notre service client sur WhatsApp"
+                title="Contactez-nous sur WhatsApp"
+                className="group mt-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border-2 border-green-600/40 bg-[#25D366] text-white shadow-md shadow-green-700/20 transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:bg-green-600 hover:shadow-lg hover:shadow-green-700/30 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+              >
+                <FaWhatsapp
+                  className="h-7 w-7 transition-transform duration-300 group-hover:rotate-[-8deg]"
+                  aria-hidden="true"
+                />
+              </a>
             </div>
           </div>
         </div>

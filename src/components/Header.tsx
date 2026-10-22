@@ -1,9 +1,13 @@
 import { useEffect, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight, Send } from 'lucide-react';
+import { Menu, X, Send } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { NAV_LINKS } from '@/data/content';
 import { Logo } from './ui/Logo';
+
+// Remplacer par le numéro WhatsApp de l'entreprise
+// Format international sans + ni espaces
+const WHATSAPP_NUMBER = '33630218757';
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -56,22 +60,23 @@ export function Header() {
     return () => window.clearTimeout(timer);
   }, [location.pathname, pendingHash]);
 
-  // Navigation intelligente entre les pages et les sections
+  // Navigation entre les pages et les sections
   const handleNavigation = useCallback(
     (href: string) => {
       setMobileOpen(false);
 
       const hashIndex = href.indexOf('#');
 
-      // Lien sans ancre : navigation normale
+      // Lien sans ancre
       if (hashIndex === -1) {
+        setPendingHash('');
         navigate(href);
         return;
       }
 
       const hash = href.slice(hashIndex);
 
-      // Déjà sur la page d'accueil : scroll direct
+      // Déjà sur l'accueil : scroll direct
       if (location.pathname === '/') {
         const element = document.getElementById(
           decodeURIComponent(hash.replace(/^#/, ''))
@@ -83,7 +88,6 @@ export function Header() {
             block: 'start',
           });
         } else {
-          // Si la section n'existe pas, réessayer après le rendu
           setPendingHash(hash);
         }
 
@@ -91,30 +95,33 @@ export function Header() {
       }
 
       // Depuis une page solution : revenir à l'accueil
-      // puis descendre vers la section demandée
       setPendingHash(hash);
       navigate('/');
     },
     [location.pathname, navigate]
   );
 
-  // Logo : retour à l'accueil en haut de page
-  const handleLogoClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+  // Logo : retour en haut de l'accueil
+  const handleLogoClick = (
+    event: React.MouseEvent<HTMLAnchorElement>
+  ) => {
     event.preventDefault();
     setMobileOpen(false);
     setPendingHash('');
-    navigate('/');
 
-    window.setTimeout(() => {
+    if (location.pathname !== '/') {
+      navigate('/');
+    } else {
       window.scrollTo({
         top: 0,
         behavior: 'smooth',
       });
-    }, 100);
+    }
   };
 
   return (
     <>
+      {/* HEADER */}
       <motion.header
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -142,7 +149,7 @@ export function Header() {
             <Logo />
           </Link>
 
-          {/* DESKTOP NAV */}
+          {/* NAVIGATION DESKTOP */}
           <nav className="hidden items-center gap-1 lg:flex">
             {NAV_LINKS.map((link) => (
               <a
@@ -159,30 +166,27 @@ export function Header() {
             ))}
           </nav>
 
-         
-{/* DESKTOP CTA */}
-<div className="hidden lg:block">
-  <a
-    href="#contact"
-    onClick={(event) => {
-      event.preventDefault();
-      handleNavigation('#contact');
-    }}
-    className="group/button relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-sky-500 to-blue-700 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-600/30 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
-  >
-    {/* Animation lumineuse */}
-    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover/button:translate-x-full" />
+          {/* CTA DESKTOP */}
+          <div className="hidden lg:block">
+            <a
+              href="#contact"
+              onClick={(event) => {
+                event.preventDefault();
+                handleNavigation('#contact');
+              }}
+              className="group/button relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-sky-500 to-blue-700 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-600/30 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
+            >
+              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover/button:translate-x-full" />
 
-    <span className="relative z-10">
-      Demander une démo
-    </span>
+              <span className="relative z-10">
+                Demander une démo
+              </span>
 
-    <Send className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
-  </a>
-</div>
+              <Send className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
+            </a>
+          </div>
 
-
-          {/* MOBILE BUTTON */}
+          {/* BOUTON MOBILE */}
           <button
             onClick={() => setMobileOpen(true)}
             className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-700 lg:hidden"
@@ -194,6 +198,7 @@ export function Header() {
         </div>
       </motion.header>
 
+      {/* MENU MOBILE */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -206,7 +211,7 @@ export function Header() {
               onClick={() => setMobileOpen(false)}
             />
 
-            {/* MOBILE MENU */}
+            {/* PANNEAU MOBILE */}
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
@@ -218,7 +223,7 @@ export function Header() {
               }}
               className="fixed right-0 top-0 z-[70] flex h-full w-[85%] max-w-sm flex-col border-l border-slate-200 bg-white lg:hidden"
             >
-              {/* MOBILE HEADER */}
+              {/* EN-TÊTE MOBILE */}
               <div className="flex items-center justify-between border-b border-slate-200 px-6 py-5">
                 <Link
                   to="/"
@@ -237,7 +242,7 @@ export function Header() {
                 </button>
               </div>
 
-              {/* MOBILE NAV */}
+              {/* NAVIGATION MOBILE */}
               <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-4 py-6">
                 {NAV_LINKS.map((link) => (
                   <a
@@ -254,31 +259,49 @@ export function Header() {
                 ))}
               </nav>
 
-             
-{/* MOBILE CTA */}
-<div className="border-t border-slate-200 p-4">
-  <a
-    href="#contact"
-    onClick={(event) => {
-      event.preventDefault();
-      handleNavigation('#contact');
-    }}
-    className="group/button relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-sky-500 to-blue-700 px-5 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:shadow-xl hover:shadow-blue-600/30 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
-  >
-    <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover/button:translate-x-full" />
+              {/* CTA MOBILE */}
+              <div className="border-t border-slate-200 p-4">
+                <a
+                  href="#contact"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    handleNavigation('#contact');
+                  }}
+                  className="group/button relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-gradient-to-r from-sky-500 to-blue-700 px-5 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:shadow-xl hover:shadow-blue-600/30 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
+                >
+                  <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover/button:translate-x-full" />
 
-    <span className="relative z-10">
-      Demander une démo
-    </span>
+                  <span className="relative z-10">
+                    Demander une démo
+                  </span>
 
-    <Send className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
-  </a>
-</div>
-
+                  <Send className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover/button:translate-x-1" />
+                </a>
+              </div>
             </motion.div>
           </>
         )}
       </AnimatePresence>
+
+      {/* WHATSAPP FLOTTANT */}
+      <a
+        href={`https://wa.me/${WHATSAPP_NUMBER}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contacter ORALI SYSTEMS sur WhatsApp"
+        title="Contactez-nous sur WhatsApp"
+        className="group fixed bottom-5 right-5 z-[80] flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-green-900/20 transition-all duration-300 hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2 sm:bottom-6 sm:right-6"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="h-7 w-7 transition-transform duration-300 group-hover:rotate-[-8deg]"
+          aria-hidden="true"
+        >
+          <path d="M20.52 3.48A11.78 11.78 0 0 0 12.12 0C5.57 0 .24 5.33.24 11.88c0 2.1.55 4.15 1.6 5.96L.14 24l6.31-1.65a11.86 11.86 0 0 0 5.67 1.44h.01c6.55 0 11.88-5.33 11.88-11.88 0-3.17-1.24-6.15-3.49-8.43ZM12.13 21.8a9.88 9.88 0 0 1-5.03-1.37l-.36-.21-3.75.98 1-3.65-.23-.38a9.87 9.87 0 1 1 8.37 4.63Zm5.42-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.46-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.48.71.3 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z" />
+        </svg>
+      </a>
     </>
   );
 }
