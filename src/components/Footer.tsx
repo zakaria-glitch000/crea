@@ -1,3 +1,4 @@
+
 import {
   Linkedin,
   Twitter,
@@ -5,10 +6,12 @@ import {
   MapPin,
   Phone,
   Mail,
-  Send,
 } from 'lucide-react';
 
-import { Link } from 'react-router-dom';
+import { FaWhatsapp } from 'react-icons/fa';
+
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+
 import {
   NAV_LINKS,
   SOLUTIONS,
@@ -17,6 +20,8 @@ import {
 } from '@/data/content';
 
 import { Logo } from './ui/Logo';
+
+import { useEffect, useRef, useState } from 'react';
 
 const solutionLinks = SOLUTIONS.map((s) => ({
   label: s.title,
@@ -33,19 +38,98 @@ const OFFICES = [
     title: 'Siège Social Paris',
     name: 'ARTIS Consulting',
     address: ['48 RUE JULES FERRY 92250', 'LA GARENNE-COLOMBES'],
-    phone: null, // Numéro supprimé
+    phone: null as string | null,
     email: 'contact@artisconsulting.fr',
   },
   {
     title: 'Service Client Région de Lyon',
-    name: null,
-    address: null,
-    phone: '+33 6 30 21 87 57', // Numéro mis en avant
+    name: null as string | null,
+    address: null as string[] | null,
+    phone: '+33 6 30 21 87 57',
     email: 'sjalal@artisconsulting.fr',
   },
 ];
 
+type FooterLink = {
+  label: string;
+  href: string;
+};
+
 export function Footer() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const [pendingHash, setPendingHash] = useState<string | null>(null);
+  const timeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (!pendingHash) return;
+
+    if (location.pathname !== '/') return;
+
+    const hash = pendingHash;
+
+    // Attendre le rendu de la page d'accueil.
+    timeoutRef.current = window.setTimeout(() => {
+      const element = document.getElementById(hash);
+
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+
+      setPendingHash(null);
+      timeoutRef.current = null;
+    }, 350);
+
+    return () => {
+      if (timeoutRef.current !== null) {
+        window.clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
+    };
+  }, [location.pathname, location.hash, pendingHash]);
+
+  const handleSectionClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (!href.startsWith('/#')) return;
+
+    event.preventDefault();
+
+    const hash = href.substring(2);
+
+    if (timeoutRef.current !== null) {
+      window.clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+
+    if (location.pathname === '/') {
+      const element = document.getElementById(hash);
+
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+        return;
+      }
+    }
+
+    setPendingHash(hash);
+    navigate(`/#${hash}`);
+  };
+
+  const navigationLinks: FooterLink[] = NAV_LINKS.map((link) => ({
+    label: link.label,
+    href: link.href.startsWith('#')
+      ? `/${link.href}`
+      : link.href,
+  }));
+
   return (
     <footer className="relative isolate overflow-hidden border-t border-blue-300/60 bg-gradient-to-br from-sky-300 via-blue-400 to-indigo-500 text-slate-950">
       {/* Background effects */}
@@ -57,18 +141,19 @@ export function Footer() {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         {/* Main footer layout */}
         <div className="grid grid-cols-1 gap-10 py-16 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1.3fr] lg:gap-8 lg:py-20">
-          
+
           {/* Brand & Socials */}
           <div className="flex flex-col justify-between space-y-6">
             <div>
               <Logo />
+
               <p className="mt-5 max-w-xs text-sm leading-relaxed text-slate-900">
                 Solutions IT, logiciels et systèmes professionnels pour
                 entreprises. Conception, déploiement et accompagnement de A à Z.
               </p>
             </div>
 
-            {/* Social media icons */}
+            {/* Social media */}
             <div className="flex gap-3">
               {[
                 {
@@ -99,28 +184,43 @@ export function Footer() {
                 </a>
               ))}
             </div>
+
+            {/* WhatsApp */}
+            <a
+              href="https://wa.me/33630218757"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Contacter notre service client sur WhatsApp"
+              title="Contactez-nous sur WhatsApp"
+              className="group flex h-11 w-11 items-center justify-center rounded-xl border-2 border-green-600/50 bg-green-500 text-white shadow-md shadow-green-700/20 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:border-green-700 hover:bg-green-600 hover:shadow-lg hover:shadow-green-700/30"
+            >
+              <FaWhatsapp className="h-7 w-7" aria-hidden="true" />
+            </a>
           </div>
 
-          {/* Navigation Column */}
+          {/* Navigation */}
           <FooterColumn
             title="Navigation"
-            links={NAV_LINKS.map((link) => ({
-              label: link.label,
-              href: link.href.startsWith('#')
-                ? `/${link.href}`
-                : link.href,
-            }))}
+            links={navigationLinks}
+            onSectionClick={handleSectionClick}
           />
 
-          {/* Solutions Column */}
-          <FooterColumn title="Solutions" links={solutionLinks} />
+          {/* Solutions */}
+          <FooterColumn
+            title="Solutions"
+            links={solutionLinks}
+            onSectionClick={handleSectionClick}
+          />
 
-          {/* Services Column */}
-          <FooterColumn title="Services" links={serviceLinks} />
+          {/* Services */}
+          <FooterColumn
+            title="Services"
+            links={serviceLinks}
+            onSectionClick={handleSectionClick}
+          />
 
-          {/* Contact & Newsletter */}
+          {/* Contact */}
           <div className="space-y-8 sm:col-span-2 lg:col-span-1">
-            {/* Contact offices */}
             <div>
               <h4 className="font-display text-sm font-bold uppercase tracking-wider text-slate-950">
                 Nos coordonnées
@@ -145,6 +245,7 @@ export function Footer() {
                     {office.address && (
                       <div className="mt-2.5 flex items-start gap-2.5 text-xs leading-relaxed text-slate-900">
                         <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-slate-800" />
+
                         <p>
                           {office.address.map((line, index) => (
                             <span key={line}>
@@ -157,7 +258,6 @@ export function Footer() {
                     )}
 
                     <div className="mt-3 space-y-2 border-t border-slate-900/10 pt-2.5">
-                      {/* Téléphone (plus grand et mis en valeur) */}
                       {office.phone && (
                         <a
                           href={`tel:${office.phone.replace(/\s/g, '')}`}
@@ -168,7 +268,6 @@ export function Footer() {
                         </a>
                       )}
 
-                      {/* Email */}
                       {office.email && (
                         <a
                           href={`mailto:${office.email}`}
@@ -193,21 +292,11 @@ export function Footer() {
               <p className="mt-2 text-xs leading-relaxed text-slate-900">
                 Recevez nos actualités et conseils technologiques.
               </p>
-
-              <form
-                onSubmit={(e) => e.preventDefault()}
-                className="mt-3 flex items-center gap-2"
-              >
-                <div className="relative flex-1">
-               
-                </div>
-          
-              </form>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-blue-900/20 py-6 sm:flex-row">
           <p className="text-center text-xs text-slate-900 sm:text-left">
             © 2026 {COMPANY.name} By ARTIS Consulting. Tous droits réservés.
@@ -244,9 +333,14 @@ export function Footer() {
 function FooterColumn({
   title,
   links,
+  onSectionClick,
 }: {
   title: string;
-  links: { label: string; href: string }[];
+  links: FooterLink[];
+  onSectionClick: (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => void;
 }) {
   return (
     <div>
@@ -257,7 +351,15 @@ function FooterColumn({
       <ul className="mt-4 space-y-2.5">
         {links.map((link) => (
           <li key={link.label}>
-            {link.href.startsWith('/') ? (
+            {link.href.startsWith('/#') ? (
+              <a
+                href={link.href}
+                onClick={(event) => onSectionClick(event, link.href)}
+                className="inline-block text-xs font-medium text-slate-900 transition-all duration-200 hover:translate-x-1 hover:text-white"
+              >
+                {link.label}
+              </a>
+            ) : link.href.startsWith('/') ? (
               <Link
                 to={link.href}
                 className="inline-block text-xs font-medium text-slate-900 transition-all duration-200 hover:translate-x-1 hover:text-white"
